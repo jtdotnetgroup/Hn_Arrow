@@ -12,6 +12,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using hn.ArrowInterfac.ArrowLog;
 using static hn.Client.FrmPleasePurchasePlan;
 
 namespace hn.Client
@@ -346,12 +347,12 @@ namespace hn.Client
 
         private void LogError(Exception ex)
         {
-            LogHelper.WriteLog(typeof(FrmSGPGroupCounter), ex);
+            LogHelper.Error( ex);
         }
 
         private void LogError(string msg)
         {
-            LogHelper.WriteLog(typeof(FrmSGPGroupCounter), msg);
+            LogHelper.Error(msg);
         }
 
         #endregion

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Text;
+using hn.ArrowInterfac.ArrowLog;
 
 namespace hn.DataAccess.dal
 {

@@ -12,6 +12,7 @@ using hn.Common.Provider;
 using hn.Core.Dal;
 using hn.Core.Model;
 using System.Data.SqlClient;
+using hn.ArrowInterfac.ArrowLog;
 using hn.Common.Data.SqlServer;
 using hn.Core;
 using hn.Core.Bll;
@@ -188,7 +189,7 @@ namespace hn.DataAccess.Bll
             {
                 item.FICSEOUTID = FID;
                 string id = ICSEOUTBILLENTRYDAL.Instance.Insert(item);
-                LogHelper.WriteLog("herherehrer:"+item.thdbm);
+                LogHelper.Info("herherehrer:"+item.thdbm);
 
                 //var list = ICSEOUTBILLENTRYDAL.Instance.GetWhere(new { FICPRID = item.FICPRID });
 

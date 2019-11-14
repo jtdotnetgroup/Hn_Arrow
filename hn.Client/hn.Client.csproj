@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>hn.Client</RootNamespace>
     <AssemblyName>华耐家居-组柜派车</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <SccProjectName>
     </SccProjectName>
@@ -34,6 +34,7 @@
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>x86</PlatformTarget>
@@ -44,6 +45,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -53,6 +55,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationIcon>default.ico</ApplicationIcon>
@@ -399,7 +402,9 @@
     <None Include="Properties\DataSources\hn.DataAccess.model.Common.SelectModel.datasource" />
     <None Include="Properties\DataSources\hn.DataAccess.Model.SYS_DICSMODEL.datasource" />
     <None Include="Properties\DataSources\hn.DataAccess.model.TB_PREMISEModel.datasource" />
+    <None Include="Properties\DataSources\MApiModel.recApi2.Rootobject1.datasource" />
     <None Include="Properties\DataSources\MApiModel.recApi24.Rootobject.datasource" />
+    <None Include="Properties\DataSources\MApiModel.recApi24.Rootobject1.datasource" />
     <None Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Views\Diglog\FrmInput.resx">
       <DependentUpon>FrmInput.cs</DependentUpon>

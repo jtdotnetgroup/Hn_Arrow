@@ -111,7 +111,7 @@ namespace hn.APIService
                 }
                 catch (Exception ex)
                 {
-
+                    LogHelper.WriteLog(ex);
                 }
             }
 

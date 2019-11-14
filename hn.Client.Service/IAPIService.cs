@@ -663,6 +663,12 @@ MApiModel.api24.Rootobject getapi24);
         DataTable Select_DataTable();
         #endregion
 
+        #region 同步箭牌接口
+
+        
+
+        #endregion
+
     }
 
 }

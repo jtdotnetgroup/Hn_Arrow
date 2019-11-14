@@ -12,6 +12,7 @@ using hn.Common.Provider;
 using hn.Core.Dal;
 using hn.Core.Model;
 using System.Data.SqlClient;
+using hn.ArrowInterfac.ArrowLog;
 using hn.Common.Data.SqlServer;
 using hn.Core;
 using hn.Core.Bll;
@@ -214,7 +215,7 @@ namespace hn.DataAccess.Bll
 
             #region 保存子表
 
-            LogHelper.WriteLog("ICPOBILLENTRYMODEL.FID=" + FID);
+            LogHelper.Info("ICPOBILLENTRYMODEL.FID=" + FID);
             List<ICPOBILLENTRYMODEL> tList = ICPOBILLENTRYDAL.Instance.GetWhere(new { FICPOBILLID = FID }).ToList();
             if (tList.Count > 0)
             {
@@ -247,18 +248,18 @@ namespace hn.DataAccess.Bll
                 item.FICPOBILLID = FID;
                 string fEntryID= ICPOBILLENTRYDAL.Instance.Insert(item);
 
-                LogHelper.WriteLog("FICPOBILLID=" + FID+ " fEntryID="+ fEntryID);
+                LogHelper.Info("FICPOBILLID=" + FID+ " fEntryID="+ fEntryID);
 
                 if (fEntryID.IsGuid())
                 {
-                    LogHelper.WriteLog("item.ICPRBILLENTRYIDS=" + item.ICPRBILLENTRYIDS);
+                    LogHelper.Info("item.ICPRBILLENTRYIDS=" + item.ICPRBILLENTRYIDS);
                     if (!string.IsNullOrEmpty(item.ICPRBILLENTRYIDS))
                     {
                         string[] str = item.ICPRBILLENTRYIDS.Split(new char[] { ';' }, StringSplitOptions.RemoveEmptyEntries);
 
                         foreach (var subS in str)
                         {
-                            LogHelper.WriteLog("ICPRBILLENTRYID=" + subS + " ICPOBILLENRYID=" + fEntryID);
+                            LogHelper.Info("ICPRBILLENTRYID=" + subS + " ICPOBILLENRYID=" + fEntryID);
                             ICPRBILLENTRYDAL.Instance.UpdateWhatWhere(new { FICPOBILLNO = ICPOBILL.FBILLNO, ICPOBILLENTRYID = fEntryID }, new { FID = subS });
                         }
                     }

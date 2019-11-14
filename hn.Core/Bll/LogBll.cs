@@ -69,47 +69,7 @@ namespace hn.Core.Bll
         public int AddLog(T t, string busingessName = "")
         {
             return 0;
-            Type objTye = typeof(T);
-            PropertyInfo property = objTye.GetProperty("FID");
-
-            LogModel log = new LogModel();
-            log.BusinessName = busingessName ?? GetBusingessName();
-            log.OperationIp = PublicMethod.GetClientIP();
-            log.OperationTime = DateTime.Now;
-            log.OperationType = (int)OperationType.Add;
-            if (property != null)
-                log.PrimaryKey = property.GetValue(t, null).ToString();
-            log.TableName = TableConvention.Resolve(t);
-            log.UserId = SysVisitor.Instance.UserId;
-            log.SqlText = "";
-
-
-            string logId = LogDal.Instance.Insert(log);
-            if (logId != "")
-            {
-                //添加日志详细信息
-                StringBuilder sb = new StringBuilder();
-
-                var sqlTemp =
-                    "insert into Sys_LogDetails (fid, logid,fieldName,fieldtext,oldvalue,newvalue,remark) values('{0}','{1}','{2}','{3}','{4}','{5}','');";
-                foreach (PropertyInfo pi in objTye.GetProperties())
-                {
-
-                    if (!string.Equals(pi.Name, "FID", StringComparison.CurrentCultureIgnoreCase) &&
-                       pi.GetCustomAttributes(true).OfType<DbFieldAttribute>().Count(dbFieldAttribute => !dbFieldAttribute.IsDbField) == 0 &&
-                        !ignoredFields.Contains(pi.Name, StringComparer.InvariantCultureIgnoreCase))
-                    {
-                        sb.AppendFormat(sqlTemp,Guid.NewGuid().ToString(), logId, pi.Name, GetFieldText(pi), "", pi.GetValue(t, null));
-                        sb.AppendLine();
-                    }
-                }
-
-                if (sb.Length > 0)
-                {
-                    return DbUtils.ExecuteNonQuery(sb.ToString(), null);
-                }
-            }
-            return 0;
+            
         }
 
         public T Clone(T obj)

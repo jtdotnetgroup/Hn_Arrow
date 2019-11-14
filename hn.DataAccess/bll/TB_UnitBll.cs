@@ -32,8 +32,6 @@ namespace hn.DataAccess.bll
 
             List<TB_UnitModel> list = TB_UnitDal.Instance.GetAll().ToList();
 
-            TB_UnitModel temp;
-
             //for (int i = 0; i < list.Count; i++)
             //{
             //    temp = list[i];

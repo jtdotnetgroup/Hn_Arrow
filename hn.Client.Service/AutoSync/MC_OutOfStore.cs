@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using hn.ArrowInterfac.ArrowLog;
 using hn.AutoSyncLib.Model;
 using Newtonsoft.Json;
 using hn.Common;
@@ -25,7 +26,7 @@ namespace hn.AutoSyncLib
             //    return false;
             //}
 
-            LogHelper.WriteLog("出仓单开始同步");
+            LogHelper.Info("出仓单开始同步");
 
             string parJson = "";
             const string logstr = "参数：{0}\r\n返回结果：总条数【{1}】，当前页共【{2}】条记录\r\n异常：{3}";
@@ -57,7 +58,7 @@ namespace hn.AutoSyncLib
                         var msg = string.Format(logstr, parJson, total,
                             result.resultInfo.Count, "");
 
-                        LogHelper.WriteLog(msg);
+                        LogHelper.Info(msg);
 
                         if (pagecount == 0)
                         {
@@ -110,7 +111,7 @@ namespace hn.AutoSyncLib
                 var msg = string.Format(logstr, parJson, 0,
                     0, e);
 
-                LogHelper.WriteLog(msg);
+                LogHelper.Error(e);
                 return false;
             }
 

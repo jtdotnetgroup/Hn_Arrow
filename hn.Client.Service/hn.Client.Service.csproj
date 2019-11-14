@@ -13,7 +13,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>hn.Client.Service</RootNamespace>
     <AssemblyName>hn.Client.Service</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <WcfConfigValidationEnabled>True</WcfConfigValidationEnabled>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <UseIISExpress>true</UseIISExpress>
@@ -31,6 +31,7 @@
     </SccAuxPath>
     <SccProvider>
     </SccProvider>
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -41,6 +42,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <PlatformTarget>AnyCPU</PlatformTarget>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -49,6 +51,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="log4net, Version=1.2.13.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
@@ -57,8 +60,7 @@
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\Debug\Newtonsoft.Json.dll</HintPath>
+      <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="Omu.ValueInjecter, Version=2.3.1.0, Culture=neutral, PublicKeyToken=c7694541b0ac80e4, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -112,7 +114,7 @@
     <Compile Include="APIService.蒙厂同步.cs" />
     <Compile Include="APIService.通用接口.cs" />
     <Compile Include="APIService.金牌华耐对接.cs" />
-    <Content Include="packages.config" />
+    <None Include="packages.config" />
     <None Include="Properties\PublishProfiles\test.pubxml" />
     <None Include="Service References\FactoryService\APIService.disco" />
     <None Include="Service References\FactoryService\APIService4.xsd">
@@ -143,6 +145,7 @@
     <Compile Include="APIService.采购订单.cs" />
     <Compile Include="APIService.请购计划.cs" />
     <Compile Include="APIService.登录.cs" />
+    <Compile Include="APIService.箭牌接口.cs" />
     <Compile Include="AutoSync\BaseRequest.cs" />
     <Compile Include="AutoSync\MC_GetToken.cs" />
     <Compile Include="AutoSync\MC_OutOfStore.cs" />
@@ -200,6 +203,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\hn.ArrowInterface\hn.ArrowInterface.csproj">
+      <Project>{c8e030dd-9179-43fd-b82c-2ec742fc2735}</Project>
+      <Name>hn.ArrowInterface</Name>
+    </ProjectReference>
     <ProjectReference Include="..\hn.Common\hn.Common.csproj">
       <Project>{16183c27-23be-4335-ae94-f12bb57421ff}</Project>
       <Name>hn.Common</Name>

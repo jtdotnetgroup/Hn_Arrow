@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using MApiModel;
 using System.Net.Http;
+using hn.ArrowInterfac.ArrowLog;
 using hn.Common;
 
 namespace MApiAccess
@@ -76,7 +77,7 @@ namespace MApiAccess
         {
             string strParam = Helper.getProperties<MApiModel.api8.Rootobject>(api7);
             string result = Helper.PostData(strParam);
-            hn.Common.LogHelper.WriteLog(result);
+            LogHelper.WriteLog(result);
             return JsonHelper.ToObject<MApiModel.recApi8.Rootobject>(result);
         }
 
@@ -84,7 +85,7 @@ namespace MApiAccess
         {
             string strParam = Helper.getProperties<MApiModel.api24.Rootobject>(api7);
             string result = Helper.PostData(strParam);
-            hn.Common.LogHelper.WriteLog(result);
+            LogHelper.WriteLog(result);
             return JsonHelper.ToObject<MApiModel.recApi24.Rootobject>(result);
         }
 
@@ -92,7 +93,7 @@ namespace MApiAccess
         {
             string strParam = Helper.getProperties<MApiModel.api9.Rootobject>(api9);
             string result = Helper.PostData(strParam);
-            hn.Common.LogHelper.WriteLog(result);
+            LogHelper.WriteLog(result);
             return JsonHelper.ToObject<MApiModel.recApi9.Rootobject>(result);
         }
         public MApiModel.recApi12.Rootobject AccessApi12(MApiModel.api12.Rootobject api12)

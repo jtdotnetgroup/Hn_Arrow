@@ -8,6 +8,7 @@ using Omu.ValueInjecter;
 using System.Configuration;
 using hn.Common.Data.SqlServer;
 using System.Data.OracleClient;
+using hn.ArrowInterfac.ArrowLog;
 
 
 namespace hn.Common.Data

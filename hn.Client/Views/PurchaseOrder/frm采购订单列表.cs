@@ -11,6 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
+using hn.ArrowInterfac.ArrowLog;
 
 namespace hn.Client
 {
@@ -92,12 +93,12 @@ namespace hn.Client
 
         private void LogError(Exception ex)
         {
-            LogHelper.WriteLog(typeof(FrmPleasePurchasePlan), ex);
+            LogHelper.Error( ex);
         }
 
         private void LogError(string msg)
         {
-            LogHelper.WriteLog(typeof(FrmPleasePurchasePlan), msg);
+            LogHelper.Error( msg);
         }
 
         #endregion
