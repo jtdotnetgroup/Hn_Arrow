@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using hn.ArrowInterfac.ArrowLog;
 using hn.AutoSyncLib.Model;
 using Newtonsoft.Json;
 using hn.Common;

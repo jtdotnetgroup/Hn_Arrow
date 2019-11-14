@@ -13,6 +13,8 @@ using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.ServiceModel.Web;
 using System.Text;
+using hn.ArrowInterface.Entities;
+using hn.ArrowInterface.RequestParams;
 
 namespace hn.Client.Service
 {
@@ -664,8 +666,29 @@ MApiModel.api24.Rootobject getapi24);
         #endregion
 
         #region 同步箭牌接口
+        /// <summary>
+        /// 本地采购订单上传到箭牌销售订单接口
+        /// </summary>
+        /// <param name="pars"></param>
+        /// <returns></returns>
+        [OperationContract]
+        bool SaleOrderUpload(SaleOrderUploadParam pars);
 
-        
+        /// <summary>
+        /// 同步采购订单的OA审批状态
+        /// </summary>
+        /// <param name="pars"></param>
+        /// <returns></returns>
+        [OperationContract]
+        bool AcctOaStatus(AcctOAStatusParam pars);
+
+        /// <summary>
+        /// 同步本地的物流开单记录车牌号到箭牌
+        /// </summary>
+        /// <param name="pars"></param>
+        /// <returns></returns>
+        [OperationContract]
+        bool obOrderUpload(ObOrderUploadParam pars);
 
         #endregion
 

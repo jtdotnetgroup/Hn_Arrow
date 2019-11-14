@@ -7,6 +7,7 @@ using System.Linq;
 using hn.ArrowInterface.WebCommon;
 using hn.ArrowInterface.RequestParams;
 using System.Configuration;
+using hn.Common_Arrow;
 
 namespace hn.ArrowInterface.Jobs
 {

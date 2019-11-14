@@ -8,6 +8,7 @@ using hn.ArrowInterface.Entities;
 using hn.ArrowInterface.RequestParams;
 using hn.ArrowInterface.WebCommon;
 using hn.Common;
+using hn.Common_Arrow;
 using Newtonsoft.Json;
 
 namespace hn.ArrowInterface.Jobs

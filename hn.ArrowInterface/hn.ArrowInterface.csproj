@@ -149,9 +149,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\hn.Common\hn.Common.csproj">
+    <ProjectReference Include="..\hn.Arrow.Common\hn.Common\hn.Common_Arrow.csproj">
       <Project>{03316d43-23fa-441b-a1aa-9cdff94e0371}</Project>
-      <Name>hn.Common</Name>
+      <Name>hn.Common_Arrow</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

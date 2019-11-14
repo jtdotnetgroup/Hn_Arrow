@@ -7,6 +7,7 @@ using System.Linq;
 using System.Net;
 using System.Security.Cryptography;
 using System.Text;
+using hn.ArrowInterfac.ArrowLog;
 
 namespace MApiAccess
 {

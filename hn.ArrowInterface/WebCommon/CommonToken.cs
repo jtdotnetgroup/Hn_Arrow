@@ -3,6 +3,7 @@ using System.Configuration;
 using System.Linq;
 using hn.ArrowInterface.Entities;
 using hn.Common;
+using hn.Common_Arrow;
 
 namespace hn.ArrowInterface.WebCommon
 {

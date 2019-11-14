@@ -9,6 +9,7 @@ using AutoMapper.Configuration;
 using hn.ArrowInterface.Entities;
 using hn.ArrowInterface.Jobs;
 using hn.Common;
+using hn.Common_Arrow;
 using Quartz;
 using Quartz.Impl;
 

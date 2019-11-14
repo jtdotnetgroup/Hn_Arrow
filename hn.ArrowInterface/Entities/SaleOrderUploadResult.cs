@@ -12,9 +12,6 @@ namespace hn.ArrowInterface.Entities
         public string lHOutSystemID { get; set; }
         public string orderNo { get; set; }
         public string lHreviweStatus { get; set; } 
-        //[NotMapped]
-        //public List<SaleOrderItemList> saleOrderItemList { get; set; }
-        
 
         public string lHOutSystemLineID { get; set; }
         public decimal lHdealerPrice { get; set; }
