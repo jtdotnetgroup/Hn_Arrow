@@ -1,14 +1,11 @@
-﻿using System;
+﻿using hn.Common.Data.SqlServer;
+using Omu.ValueInjecter;
+using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Data.SqlClient;
+using System.Data.OracleClient;
 using System.Linq;
 using System.Text;
-using Omu.ValueInjecter;
-using System.Configuration;
-using hn.Common.Data.SqlServer;
-using System.Data.OracleClient;
-using hn.ArrowInterfac.ArrowLog;
 
 
 namespace hn.Common.Data

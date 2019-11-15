@@ -1,11 +1,7 @@
-﻿using System;
-using System.Configuration;
-using System.Linq;
-using hn.ArrowInterface.Entities;
+﻿using hn.ArrowInterface.Entities;
 using hn.ArrowInterface.RequestParams;
 using hn.ArrowInterface.WebCommon;
-using hn.Common;
-using Newtonsoft.Json;
+using System.Linq;
 
 namespace hn.ArrowInterface.Jobs
 {

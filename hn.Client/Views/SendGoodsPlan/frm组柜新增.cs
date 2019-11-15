@@ -1,7 +1,5 @@
-﻿using DevExpress.XtraEditors.Repository;
-using DevExpress.XtraGrid.Columns;
+﻿using DevExpress.XtraGrid.Columns;
 using DevExpress.XtraTreeList;
-using hn.Client.Core;
 using hn.Common;
 using hn.DataAccess.model;
 using hn.DataAccess.Model;
@@ -11,7 +9,6 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using static hn.Client.FrmPleasePurchasePlan;

@@ -2,7 +2,7 @@
 using System.Text;
 using System.Windows.Forms;
 
-namespace hn.Common
+namespace hn.Common_Arrow
 {
     public class TextBoxWriter:TextWriter
     {

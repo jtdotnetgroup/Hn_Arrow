@@ -1,17 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Linq;
-using System.Reflection;
-using System.Threading.Tasks;
-using AutoMapper;
+﻿using AutoMapper;
 using AutoMapper.Configuration;
-using hn.ArrowInterface.Entities;
 using hn.ArrowInterface.Jobs;
-using hn.Common;
 using hn.Common_Arrow;
 using Quartz;
 using Quartz.Impl;
+using System;
+using System.Configuration;
+using System.Linq;
+using System.Reflection;
 
 namespace hn.ArrowInterface.Schedule
 {

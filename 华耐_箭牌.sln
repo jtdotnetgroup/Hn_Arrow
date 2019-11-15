@@ -41,54 +41,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoUpdate", "AutoUpdate\Au
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "hn.Query.Service", "hn.Query.Service\hn.Query.Service.csproj", "{C1390A2B-7B6F-42F4-ABA0-0A98AED66F34}"
 EndProject
-Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "StockQueryAPI", "StockQueryAPI\", "{F0759158-9F05-4270-9260-945236F23E75}"
-	ProjectSection(WebsiteProperties) = preProject
-		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
-		ProjectReferences = "{12e57dec-71c4-47bd-b3b3-c3b389f4b173}|hn.Client.Service.dll;{16183C27-23BE-4335-AE94-F12BB57421FF}|hn.Common.dll;{A2EE0C6C-76C5-49C5-BCA6-0BC862ECA195}|hn.Core.dll;{8ECC21F8-31D6-4CEE-98E6-36F1EAFF4087}|hn.DataAccess.dll;{8F38B471-9AAB-4F13-9691-A49CA80FD0BB}|MApiAccess.dll;{8B6F907F-6C89-4AB8-8DDA-B59398831FE4}|MApiModel.dll;{C8E030DD-9179-43FD-B82C-2EC742FC2735}|hn.ArrowInterface.dll;{03316D43-23FA-441B-A1AA-9CDFF94E0371}|hn.Common.dll;"
-		Debug.AspNetCompiler.VirtualPath = "/MWebQuery"
-		Debug.AspNetCompiler.PhysicalPath = "StockQueryAPI\"
-		Debug.AspNetCompiler.TargetPath = "..\..\..\MWebQuery\"
-		Debug.AspNetCompiler.Updateable = "true"
-		Debug.AspNetCompiler.ForceOverwrite = "true"
-		Debug.AspNetCompiler.FixedNames = "false"
-		Debug.AspNetCompiler.Debug = "True"
-		Release.AspNetCompiler.VirtualPath = "/MWebQuery"
-		Release.AspNetCompiler.PhysicalPath = "StockQueryAPI\"
-		Release.AspNetCompiler.TargetPath = "..\..\..\MWebQuery\"
-		Release.AspNetCompiler.Updateable = "true"
-		Release.AspNetCompiler.ForceOverwrite = "true"
-		Release.AspNetCompiler.FixedNames = "false"
-		Release.AspNetCompiler.Debug = "False"
-		VWDPort = "61412"
-		SlnRelativePath = "StockQueryAPI\"
-		DefaultWebSiteLanguage = "Visual C#"
-	EndProjectSection
-EndProject
-Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "query", "query\", "{4C2F537E-9D83-448F-9430-56548C8652C0}"
-	ProjectSection(WebsiteProperties) = preProject
-		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.5.2"
-		ProjectReferences = "{12e57dec-71c4-47bd-b3b3-c3b389f4b173}|hn.Client.Service.dll;{16183C27-23BE-4335-AE94-F12BB57421FF}|hn.Common.dll;{A2EE0C6C-76C5-49C5-BCA6-0BC862ECA195}|hn.Core.dll;{8ECC21F8-31D6-4CEE-98E6-36F1EAFF4087}|hn.DataAccess.dll;{8F38B471-9AAB-4F13-9691-A49CA80FD0BB}|MApiAccess.dll;{8B6F907F-6C89-4AB8-8DDA-B59398831FE4}|MApiModel.dll;{C8E030DD-9179-43FD-B82C-2EC742FC2735}|hn.ArrowInterface.dll;{03316D43-23FA-441B-A1AA-9CDFF94E0371}|hn.Common.dll;"
-		Debug.AspNetCompiler.VirtualPath = "/localhost_22203"
-		Debug.AspNetCompiler.PhysicalPath = "query\"
-		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_22203\"
-		Debug.AspNetCompiler.Updateable = "true"
-		Debug.AspNetCompiler.ForceOverwrite = "true"
-		Debug.AspNetCompiler.FixedNames = "false"
-		Debug.AspNetCompiler.Debug = "True"
-		Release.AspNetCompiler.VirtualPath = "/localhost_22203"
-		Release.AspNetCompiler.PhysicalPath = "query\"
-		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_22203\"
-		Release.AspNetCompiler.Updateable = "true"
-		Release.AspNetCompiler.ForceOverwrite = "true"
-		Release.AspNetCompiler.FixedNames = "false"
-		Release.AspNetCompiler.Debug = "False"
-		VWDPort = "22203"
-		SlnRelativePath = "query\"
-		DefaultWebSiteLanguage = "Visual C#"
-	EndProjectSection
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "hn.Client.ServiceTests", "hn.Client.ServiceTests\hn.Client.ServiceTests.csproj", "{0DF6C459-7283-4FBA-9A40-510A9D47CFF0}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "hn.ArrowInterface", "hn.ArrowInterface\hn.ArrowInterface.csproj", "{C8E030DD-9179-43FD-B82C-2EC742FC2735}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "hn.Common_Arrow", "hn.Arrow.Common\hn.Common\hn.Common_Arrow.csproj", "{03316D43-23FA-441B-A1AA-9CDFF94E0371}"
@@ -255,42 +207,6 @@ Global
 		{C1390A2B-7B6F-42F4-ABA0-0A98AED66F34}.Release|x64.Build.0 = Release|Any CPU
 		{C1390A2B-7B6F-42F4-ABA0-0A98AED66F34}.Release|x86.ActiveCfg = Release|Any CPU
 		{C1390A2B-7B6F-42F4-ABA0-0A98AED66F34}.Release|x86.Build.0 = Release|Any CPU
-		{F0759158-9F05-4270-9260-945236F23E75}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F0759158-9F05-4270-9260-945236F23E75}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F0759158-9F05-4270-9260-945236F23E75}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{F0759158-9F05-4270-9260-945236F23E75}.Debug|x64.Build.0 = Debug|Any CPU
-		{F0759158-9F05-4270-9260-945236F23E75}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{F0759158-9F05-4270-9260-945236F23E75}.Debug|x86.Build.0 = Debug|Any CPU
-		{F0759158-9F05-4270-9260-945236F23E75}.Release|Any CPU.ActiveCfg = Debug|Any CPU
-		{F0759158-9F05-4270-9260-945236F23E75}.Release|Any CPU.Build.0 = Debug|Any CPU
-		{F0759158-9F05-4270-9260-945236F23E75}.Release|x64.ActiveCfg = Debug|Any CPU
-		{F0759158-9F05-4270-9260-945236F23E75}.Release|x64.Build.0 = Debug|Any CPU
-		{F0759158-9F05-4270-9260-945236F23E75}.Release|x86.ActiveCfg = Debug|Any CPU
-		{F0759158-9F05-4270-9260-945236F23E75}.Release|x86.Build.0 = Debug|Any CPU
-		{4C2F537E-9D83-448F-9430-56548C8652C0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4C2F537E-9D83-448F-9430-56548C8652C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4C2F537E-9D83-448F-9430-56548C8652C0}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{4C2F537E-9D83-448F-9430-56548C8652C0}.Debug|x64.Build.0 = Debug|Any CPU
-		{4C2F537E-9D83-448F-9430-56548C8652C0}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{4C2F537E-9D83-448F-9430-56548C8652C0}.Debug|x86.Build.0 = Debug|Any CPU
-		{4C2F537E-9D83-448F-9430-56548C8652C0}.Release|Any CPU.ActiveCfg = Debug|Any CPU
-		{4C2F537E-9D83-448F-9430-56548C8652C0}.Release|Any CPU.Build.0 = Debug|Any CPU
-		{4C2F537E-9D83-448F-9430-56548C8652C0}.Release|x64.ActiveCfg = Debug|Any CPU
-		{4C2F537E-9D83-448F-9430-56548C8652C0}.Release|x64.Build.0 = Debug|Any CPU
-		{4C2F537E-9D83-448F-9430-56548C8652C0}.Release|x86.ActiveCfg = Debug|Any CPU
-		{4C2F537E-9D83-448F-9430-56548C8652C0}.Release|x86.Build.0 = Debug|Any CPU
-		{0DF6C459-7283-4FBA-9A40-510A9D47CFF0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0DF6C459-7283-4FBA-9A40-510A9D47CFF0}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0DF6C459-7283-4FBA-9A40-510A9D47CFF0}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{0DF6C459-7283-4FBA-9A40-510A9D47CFF0}.Debug|x64.Build.0 = Debug|Any CPU
-		{0DF6C459-7283-4FBA-9A40-510A9D47CFF0}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{0DF6C459-7283-4FBA-9A40-510A9D47CFF0}.Debug|x86.Build.0 = Debug|Any CPU
-		{0DF6C459-7283-4FBA-9A40-510A9D47CFF0}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0DF6C459-7283-4FBA-9A40-510A9D47CFF0}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0DF6C459-7283-4FBA-9A40-510A9D47CFF0}.Release|x64.ActiveCfg = Release|Any CPU
-		{0DF6C459-7283-4FBA-9A40-510A9D47CFF0}.Release|x64.Build.0 = Release|Any CPU
-		{0DF6C459-7283-4FBA-9A40-510A9D47CFF0}.Release|x86.ActiveCfg = Release|Any CPU
-		{0DF6C459-7283-4FBA-9A40-510A9D47CFF0}.Release|x86.Build.0 = Release|Any CPU
 		{C8E030DD-9179-43FD-B82C-2EC742FC2735}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{C8E030DD-9179-43FD-B82C-2EC742FC2735}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C8E030DD-9179-43FD-B82C-2EC742FC2735}.Debug|x64.ActiveCfg = Debug|Any CPU
@@ -326,8 +242,6 @@ Global
 		{FB7E19C7-FE70-4289-BB71-122C39F41AF3} = {9816E871-0638-46A8-9713-1D1ABC5FEA50}
 		{300DF611-E6A4-447F-86CB-FD409C50CE8A} = {9816E871-0638-46A8-9713-1D1ABC5FEA50}
 		{C1390A2B-7B6F-42F4-ABA0-0A98AED66F34} = {9816E871-0638-46A8-9713-1D1ABC5FEA50}
-		{F0759158-9F05-4270-9260-945236F23E75} = {9816E871-0638-46A8-9713-1D1ABC5FEA50}
-		{4C2F537E-9D83-448F-9430-56548C8652C0} = {9816E871-0638-46A8-9713-1D1ABC5FEA50}
 		{C8E030DD-9179-43FD-B82C-2EC742FC2735} = {9816E871-0638-46A8-9713-1D1ABC5FEA50}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution

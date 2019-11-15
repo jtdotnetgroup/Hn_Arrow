@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Configuration;
 using System.Data;
 using System.Data.Common;
 using System.Linq;
@@ -10,14 +11,14 @@ using System.Text;
 using Newtonsoft.Json;
 using Oracle.ManagedDataAccess.Client;
 
-[assembly:AssemblyVersion("1.0")]
+[assembly: AssemblyVersion("1.0")]
 namespace hn.Common_Arrow
 {
     public class OracleDBHelper
     {
         private static readonly OracleClientFactory factory = new OracleClientFactory();
 
-        private  string conStr { get; set; }
+        private string conStr { get; set; }
 
         public OracleDBHelper(string conStr)
         {
@@ -25,6 +26,13 @@ namespace hn.Common_Arrow
             conn = factory.CreateConnection();
             conn.ConnectionString = conStr;
 
+        }
+
+        public OracleDBHelper()
+        {
+            this.conStr = ConfigurationManager.ConnectionStrings["DbConnection"].ConnectionString;
+            conn = factory.CreateConnection();
+            conn.ConnectionString = conStr;
         }
 
         public DbConnection GetNewConnection()
@@ -63,7 +71,7 @@ namespace hn.Common_Arrow
                 throw;
             }
         }
-        
+
         /// <summary>
         /// 执行SQL语并返回首行首列值，例如：SELECT COUNT()/MAX()/MIN()等
         /// </summary>
@@ -204,7 +212,7 @@ namespace hn.Common_Arrow
 
             try
             {
-                if (conn.State==ConnectionState.Closed) conn.Open();
+                if (conn.State == ConnectionState.Closed) conn.Open();
 
                 return cmd.ExecuteNonQuery() > 0;
             }
@@ -285,12 +293,12 @@ namespace hn.Common_Arrow
 
             try
             {
-               if(conn.State==ConnectionState.Closed) conn.Open();
+                if (conn.State == ConnectionState.Closed) conn.Open();
 
-               var result = cmd.ExecuteNonQuery();
+                var result = cmd.ExecuteNonQuery();
                 conn.Close();
-                
-               return result > 0;
+
+                return result > 0;
             }
             catch (Exception e)
             {
@@ -309,7 +317,7 @@ namespace hn.Common_Arrow
         /// <param name="obj"></param>
         /// <param name="tran"></param>
         /// <returns></returns>
-        public bool InsertWithTransation<T>(T obj,DbTransaction tran)
+        public bool InsertWithTransation<T>(T obj, DbTransaction tran)
         {
             var sql = GetInsertSql<T>();
             var cmd = GetCommand(sql, obj);
@@ -372,7 +380,7 @@ namespace hn.Common_Arrow
             cmd.Connection = conn;
 
             var t = typeof(T);
-            var pis = t.GetProperties().Where(p=>p.GetCustomAttributes(true).Count(c=>c is NotMappedAttribute)==0).ToList();
+            var pis = t.GetProperties().Where(p => p.GetCustomAttributes(true).Count(c => c is NotMappedAttribute) == 0).ToList();
 
             pars.ForEach(par =>
             {
@@ -421,7 +429,7 @@ namespace hn.Common_Arrow
             }
         }
 
-        public int DeleteWithTran<T>(string where,DbTransaction tran)
+        public int DeleteWithTran<T>(string where, DbTransaction tran)
         {
             var t = typeof(T);
 
@@ -451,7 +459,7 @@ namespace hn.Common_Arrow
             }
         }
 
-        public int DeleteWithTran<T>(T obj,DbTransaction tran)
+        public int DeleteWithTran<T>(T obj, DbTransaction tran)
         {
             var t = typeof(T);
             var pis = t.GetProperties().ToList();
@@ -460,7 +468,7 @@ namespace hn.Common_Arrow
                     .FirstOrDefault(p => p.GetType() == typeof(TableAttribute)) as TableAttribute;
             var tableName = tableAttr.Name;
 
-            PropertyInfo keyPropertyInfo = pis.SingleOrDefault(p=>p.GetCustomAttributes(true).Count(c=>c is KeyAttribute)==1);
+            PropertyInfo keyPropertyInfo = pis.SingleOrDefault(p => p.GetCustomAttributes(true).Count(c => c is KeyAttribute) == 1);
             if (keyPropertyInfo == null)
             {
                 throw new ArgumentException(string.Format("{0}类未指定Key字段", t.Name));
@@ -468,13 +476,13 @@ namespace hn.Common_Arrow
 
             string keyFieldName = "";
 
-            keyFieldName =keyPropertyInfo.Name;
+            keyFieldName = keyPropertyInfo.Name;
 
             if (keyPropertyInfo.GetCustomAttributes(true).SingleOrDefault(o => o.GetType() == typeof(ColumnAttribute)) is
                 ColumnAttribute column)
                 keyFieldName = column.Name;
 
-            var sql =$"DELETE FROM {tableName} WHERE {keyFieldName}=:{keyPropertyInfo.Name}";
+            var sql = $"DELETE FROM {tableName} WHERE {keyFieldName}=:{keyPropertyInfo.Name}";
 
             var cmd = GetCommand(sql, obj);
             cmd.CommandText = sql;
@@ -585,11 +593,11 @@ namespace hn.Common_Arrow
             return result;
         }
 
-        public bool BatchInsert<T>(List<T> data,DbTransaction tran=null)
+        public bool BatchInsert<T>(List<T> data, DbTransaction tran = null)
         {
             var start = DateTime.Now;
             if (data == null || data.Count == 0) return false;
-            var builder=new StringBuilder();
+            var builder = new StringBuilder();
             builder.Append("INSERT ALL \n");
             var str = GetInsertSql<T>().Replace("INSERT", "");
 
@@ -598,7 +606,7 @@ namespace hn.Common_Arrow
                 builder.Append($"{str}\n");
             });
 
-            builder.Append( " SELECT 1 FROM DUAL");
+            builder.Append(" SELECT 1 FROM DUAL");
 
             var sql = builder.ToString();
             var cmd = GetCommand(sql, data);
@@ -614,11 +622,11 @@ namespace hn.Common_Arrow
                 //LogHelper.Info($"批量插入数据【{typeof(T).Name}】【{data.Count}】条");
                 if (conn.State == ConnectionState.Closed) conn.Open();
 
-                var result = cmd.ExecuteNonQuery() ;
+                var result = cmd.ExecuteNonQuery();
                 conn.Close();
                 var timespan = DateTime.Now - start;
                 //LogHelper.Info($"批量插入完成，耗时【{timespan.TotalMilliseconds}】毫秒");
-                return result>0;
+                return result > 0;
             }
             catch (Exception e)
             {
@@ -787,6 +795,26 @@ namespace hn.Common_Arrow
             var result = DataTableToList<T>(data);
 
             return result;
+        }
+
+
+        public List<T> GetWithWhereStr<T>(string @where)where T:new()
+        {
+            string sql = GetSelectSql<T>();
+            sql += where;
+            if (conn.State == ConnectionState.Closed) conn.Open();
+
+            var cmd = conn.CreateCommand();
+            cmd.CommandText = sql;
+            using (var da = factory.CreateDataAdapter())
+            {
+                da.SelectCommand = cmd;
+                var datatable=new DataTable();
+                da.Fill(datatable);
+                var result = DataTableToList<T>(datatable);
+                return result;
+            }
+            
         }
     }
 }

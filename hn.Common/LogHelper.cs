@@ -4,7 +4,7 @@ using log4net;
 using log4net.Core;
 
 [assembly:log4net.Config.XmlConfigurator(Watch = true)]
-namespace hn.ArrowInterfac.ArrowLog
+namespace hn.Common
 {
     public class LogHelper
     {
@@ -42,7 +42,17 @@ namespace hn.ArrowInterfac.ArrowLog
             Info(msg);
         }
 
+        public static void WriteLog(Type t,string msg)
+        {
+            Info(msg);
+        }
+
         public static void WriteLog(Exception ex)
+        {
+            Error(ex);
+        }
+
+        public static void WriteLog(Type t,Exception ex)
         {
             Error(ex);
         }

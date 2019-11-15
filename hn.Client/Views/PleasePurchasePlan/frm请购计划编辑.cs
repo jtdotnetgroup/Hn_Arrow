@@ -1,15 +1,11 @@
-﻿using hn.Client.Core;
-using hn.Client.Views.Diglog;
+﻿using hn.Client.Views.Diglog;
 using hn.Client.Views.PleasePurchasePlan;
 using hn.Common;
 using hn.DataAccess.Model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 
 namespace hn.Client
