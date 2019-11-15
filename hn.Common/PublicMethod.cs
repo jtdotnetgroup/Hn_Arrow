@@ -1,19 +1,14 @@
-﻿using System;
+﻿using hn.Common.Data.SqlServer;
+using System;
+using System.Collections;
 using System.Collections.Generic;
-using System.Text;
-using System.Reflection;
-using hl;
 using System.Data;
-using System.Data.SqlClient;
+using System.Data.OracleClient;
+using System.Reflection;
+using System.Text;
+using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.UI.WebControls;
-using System.Text.RegularExpressions;
-
-using System.Linq;
-using System.Collections;
-using hn.Common.Data.SqlServer;
-using hn.Common.Data.SqlServer;
-using System.Data.OracleClient;
 namespace hn.Common
 {
     public class PublicMethod

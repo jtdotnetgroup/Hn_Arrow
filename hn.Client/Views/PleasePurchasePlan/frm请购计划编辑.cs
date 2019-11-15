@@ -1,13 +1,12 @@
 ﻿using hn.Client.Views.Diglog;
 using hn.Client.Views.PleasePurchasePlan;
-using hn.Common;
 using hn.DataAccess.Model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
-using hn.ArrowInterfac.ArrowLog;
+using hn.Common;
 
 namespace hn.Client
 {

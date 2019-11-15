@@ -1,8 +1,7 @@
-﻿using hn.Common;
-using System;
+﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
-using hn.ArrowInterfac.ArrowLog;
+using hn.Common;
 
 namespace hn.Client
 {

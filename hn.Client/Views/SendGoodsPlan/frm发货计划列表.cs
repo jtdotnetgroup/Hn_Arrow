@@ -1,6 +1,5 @@
 ﻿using DevExpress.XtraGrid.Views.Grid;
 using hn.Client.Views.Diglog;
-using hn.Common;
 using hn.DataAccess.Model;
 using Microsoft.VisualBasic;
 using System;
@@ -11,7 +10,7 @@ using System.Drawing;
 using System.Linq;
 using System.Threading;
 using System.Windows.Forms;
-using hn.ArrowInterfac.ArrowLog;
+using hn.Common;
 using static hn.Client.FrmPleasePurchasePlan;
 
 namespace hn.Client

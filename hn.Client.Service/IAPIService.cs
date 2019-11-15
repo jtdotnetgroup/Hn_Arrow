@@ -674,7 +674,7 @@ MApiModel.api24.Rootobject getapi24);
         /// <param name="pars"></param>
         /// <returns></returns>
         [OperationContract]
-        bool SaleOrderUpload(hn.ArrowInterface.RequestParams.SaleOrderUploadParam pars);
+        bool SaleOrderUpload(List<string> billnos);
 
         /// <summary>
         /// 同步采购订单的OA审批状态
@@ -690,7 +690,7 @@ MApiModel.api24.Rootobject getapi24);
         /// <param name="pars"></param>
         /// <returns></returns>
         [OperationContract]
-        bool obOrderUpload(hn.ArrowInterface.RequestParams. ObOrderUploadParam pars);
+        bool obOrderUpload(List<string> billnos);
 
         #endregion
 

@@ -1,5 +1,5 @@
-﻿using hn.Common;
-using hn.DataAccess.model;
+﻿using hn.DataAccess.model;
+using hn.DataAccess.model.Common;
 using hn.DataAccess.Model;
 using System;
 using System.Collections.Generic;
@@ -8,8 +8,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
-using hn.ArrowInterfac.ArrowLog;
-using hn.DataAccess.model.Common;
+using hn.Common;
 
 namespace hn.Client
 {

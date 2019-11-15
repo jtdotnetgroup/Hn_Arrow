@@ -1,11 +1,10 @@
 ﻿using DevExpress.XtraGrid.Views.Grid;
-using hn.Common;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Windows.Forms;
-using hn.ArrowInterfac.ArrowLog;
+using hn.Common;
 
 namespace hn.Client
 {

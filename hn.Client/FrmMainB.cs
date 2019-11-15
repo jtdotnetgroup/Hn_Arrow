@@ -1,12 +1,11 @@
 ﻿using hn.Client.Properties;
 using hn.Client.Views;
-using hn.Common;
 using System;
 using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
-using hn.ArrowInterfac.ArrowLog;
+using hn.Common;
 
 namespace hn.Client
 {

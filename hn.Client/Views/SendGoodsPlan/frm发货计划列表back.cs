@@ -10,7 +10,6 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Windows.Forms;
-using hn.ArrowInterfac.ArrowLog;
 using static hn.Client.FrmPleasePurchasePlan;
 
 namespace hn.Client

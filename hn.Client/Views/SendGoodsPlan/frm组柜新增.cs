@@ -1,6 +1,5 @@
 ﻿using DevExpress.XtraGrid.Columns;
 using DevExpress.XtraTreeList;
-using hn.Common;
 using hn.DataAccess.model;
 using hn.DataAccess.Model;
 using System;
@@ -11,7 +10,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
-using hn.ArrowInterfac.ArrowLog;
+using hn.Common;
 using static hn.Client.FrmPleasePurchasePlan;
 
 namespace hn.Client

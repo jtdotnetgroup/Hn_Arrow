@@ -1,10 +1,9 @@
-﻿using hn.Common;
-using hn.DataAccess.Model;
+﻿using hn.DataAccess.Model;
 using System;
 using System.ComponentModel;
 using System.Data;
 using System.Windows.Forms;
-using hn.ArrowInterfac.ArrowLog;
+using hn.Common;
 
 namespace hn.Client
 {

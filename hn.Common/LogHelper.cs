@@ -3,14 +3,14 @@ using System.IO;
 using log4net;
 using log4net.Core;
 
-[assembly:log4net.Config.XmlConfigurator(Watch = true)]
-namespace hn.ArrowInterfac.ArrowLog
+[assembly: log4net.Config.XmlConfigurator(Watch = true)]
+namespace hn.Common
 {
     public class LogHelper
     {
         private static readonly ILog InfoLogger = LogManager.GetLogger("INFO");
         private static readonly ILog ErrorLogger = LogManager.GetLogger("ERROR");
-        static object lockobj=new object();
+        static object lockobj = new object();
         private static TextWriter _textWriter;
 
         public static void Info(string msg)
@@ -47,7 +47,7 @@ namespace hn.ArrowInterfac.ArrowLog
             Error(ex);
         }
 
-        public static void WriteLog(Type type,Exception ex)
+        public static void WriteLog(Type type, Exception ex)
         {
             Error(ex);
         }

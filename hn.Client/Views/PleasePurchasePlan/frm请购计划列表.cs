@@ -1,5 +1,4 @@
 ﻿using DevExpress.XtraGrid.Views.Grid;
-using hn.Common;
 using hn.DataAccess.Model;
 using System;
 using System.ComponentModel;
@@ -7,7 +6,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
-using hn.ArrowInterfac.ArrowLog;
+using hn.Common;
 
 namespace hn.Client
 {

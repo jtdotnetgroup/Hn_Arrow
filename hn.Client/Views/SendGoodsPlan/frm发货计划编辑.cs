@@ -1,12 +1,11 @@
-﻿using hn.Common;
-using hn.DataAccess.Model;
+﻿using hn.DataAccess.Model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
-using hn.ArrowInterfac.ArrowLog;
+using hn.Common;
 using static hn.Client.FrmPleasePurchasePlan;
 
 namespace hn.Client

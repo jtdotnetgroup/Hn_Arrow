@@ -48,7 +48,6 @@ namespace AutoUpdate
 			{
 				if(disposing)
 				{
-				
 					component.Dispose();
 				}
 				CloseHandle(handle);
