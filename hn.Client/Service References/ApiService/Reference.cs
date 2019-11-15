@@ -9,7 +9,635 @@
 //------------------------------------------------------------------------------
 
 namespace hn.Client.ApiService {
+    using System.Runtime.Serialization;
+    using System;
     
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="AbstractRequestParams", Namespace="http://schemas.datacontract.org/2004/07/hn.ArrowInterface.WebCommon")]
+    [System.SerializableAttribute()]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(hn.Client.ApiService.AcctOAStatusParam))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(hn.Client.ApiService.ObOrderUploadParam))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(hn.Client.ApiService.SaleOrderUploadParam))]
+    public partial class AbstractRequestParams : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="AcctOAStatusParam", Namespace="http://schemas.datacontract.org/2004/07/hn.ArrowInterface.RequestParams")]
+    [System.SerializableAttribute()]
+    public partial class AcctOAStatusParam : hn.Client.ApiService.AbstractRequestParams {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string acctCodeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string[] idStringsField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string acctCode {
+            get {
+                return this.acctCodeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.acctCodeField, value) != true)) {
+                    this.acctCodeField = value;
+                    this.RaisePropertyChanged("acctCode");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string[] idStrings {
+            get {
+                return this.idStringsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.idStringsField, value) != true)) {
+                    this.idStringsField = value;
+                    this.RaisePropertyChanged("idStrings");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ObOrderUploadParam", Namespace="http://schemas.datacontract.org/2004/07/hn.ArrowInterface.RequestParams")]
+    [System.SerializableAttribute()]
+    public partial class ObOrderUploadParam : hn.Client.ApiService.AbstractRequestParams {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string lhodoIDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string lhplateNoField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string lhodoID {
+            get {
+                return this.lhodoIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.lhodoIDField, value) != true)) {
+                    this.lhodoIDField = value;
+                    this.RaisePropertyChanged("lhodoID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string lhplateNo {
+            get {
+                return this.lhplateNoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.lhplateNoField, value) != true)) {
+                    this.lhplateNoField = value;
+                    this.RaisePropertyChanged("lhplateNo");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="SaleOrderUploadParam", Namespace="http://schemas.datacontract.org/2004/07/hn.ArrowInterface.RequestParams")]
+    [System.SerializableAttribute()]
+    public partial class SaleOrderUploadParam : hn.Client.ApiService.AbstractRequestParams {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string acctCodeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string balanceNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string billIdNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string consigneeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string contractWayField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string lHAdvertingMoneyTypeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string lHOutSystemIDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string lHOutSystemOdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string lHbuTypeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string lHdepositOrNotField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string lHdiscountTypeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string lHexpectedArrivedDateField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string lHorgNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string lHoutboundOrderField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string lHpromotionPolicyIDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string orderProdLineField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string orderTypeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string remarksField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private hn.Client.ApiService.SaleOrderUploadDetailedParam[] saleOrderItemListField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string salesChannelField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string sourceField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime submissionDateField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string tradeCompanyNameField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string acctCode {
+            get {
+                return this.acctCodeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.acctCodeField, value) != true)) {
+                    this.acctCodeField = value;
+                    this.RaisePropertyChanged("acctCode");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string balanceName {
+            get {
+                return this.balanceNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.balanceNameField, value) != true)) {
+                    this.balanceNameField = value;
+                    this.RaisePropertyChanged("balanceName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string billIdName {
+            get {
+                return this.billIdNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.billIdNameField, value) != true)) {
+                    this.billIdNameField = value;
+                    this.RaisePropertyChanged("billIdName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string consignee {
+            get {
+                return this.consigneeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.consigneeField, value) != true)) {
+                    this.consigneeField = value;
+                    this.RaisePropertyChanged("consignee");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string contractWay {
+            get {
+                return this.contractWayField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.contractWayField, value) != true)) {
+                    this.contractWayField = value;
+                    this.RaisePropertyChanged("contractWay");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string lHAdvertingMoneyType {
+            get {
+                return this.lHAdvertingMoneyTypeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.lHAdvertingMoneyTypeField, value) != true)) {
+                    this.lHAdvertingMoneyTypeField = value;
+                    this.RaisePropertyChanged("lHAdvertingMoneyType");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string lHOutSystemID {
+            get {
+                return this.lHOutSystemIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.lHOutSystemIDField, value) != true)) {
+                    this.lHOutSystemIDField = value;
+                    this.RaisePropertyChanged("lHOutSystemID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string lHOutSystemOd {
+            get {
+                return this.lHOutSystemOdField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.lHOutSystemOdField, value) != true)) {
+                    this.lHOutSystemOdField = value;
+                    this.RaisePropertyChanged("lHOutSystemOd");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string lHbuType {
+            get {
+                return this.lHbuTypeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.lHbuTypeField, value) != true)) {
+                    this.lHbuTypeField = value;
+                    this.RaisePropertyChanged("lHbuType");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string lHdepositOrNot {
+            get {
+                return this.lHdepositOrNotField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.lHdepositOrNotField, value) != true)) {
+                    this.lHdepositOrNotField = value;
+                    this.RaisePropertyChanged("lHdepositOrNot");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string lHdiscountType {
+            get {
+                return this.lHdiscountTypeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.lHdiscountTypeField, value) != true)) {
+                    this.lHdiscountTypeField = value;
+                    this.RaisePropertyChanged("lHdiscountType");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string lHexpectedArrivedDate {
+            get {
+                return this.lHexpectedArrivedDateField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.lHexpectedArrivedDateField, value) != true)) {
+                    this.lHexpectedArrivedDateField = value;
+                    this.RaisePropertyChanged("lHexpectedArrivedDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string lHorgName {
+            get {
+                return this.lHorgNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.lHorgNameField, value) != true)) {
+                    this.lHorgNameField = value;
+                    this.RaisePropertyChanged("lHorgName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string lHoutboundOrder {
+            get {
+                return this.lHoutboundOrderField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.lHoutboundOrderField, value) != true)) {
+                    this.lHoutboundOrderField = value;
+                    this.RaisePropertyChanged("lHoutboundOrder");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string lHpromotionPolicyID {
+            get {
+                return this.lHpromotionPolicyIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.lHpromotionPolicyIDField, value) != true)) {
+                    this.lHpromotionPolicyIDField = value;
+                    this.RaisePropertyChanged("lHpromotionPolicyID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string orderProdLine {
+            get {
+                return this.orderProdLineField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.orderProdLineField, value) != true)) {
+                    this.orderProdLineField = value;
+                    this.RaisePropertyChanged("orderProdLine");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string orderType {
+            get {
+                return this.orderTypeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.orderTypeField, value) != true)) {
+                    this.orderTypeField = value;
+                    this.RaisePropertyChanged("orderType");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string remarks {
+            get {
+                return this.remarksField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.remarksField, value) != true)) {
+                    this.remarksField = value;
+                    this.RaisePropertyChanged("remarks");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public hn.Client.ApiService.SaleOrderUploadDetailedParam[] saleOrderItemList {
+            get {
+                return this.saleOrderItemListField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.saleOrderItemListField, value) != true)) {
+                    this.saleOrderItemListField = value;
+                    this.RaisePropertyChanged("saleOrderItemList");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string salesChannel {
+            get {
+                return this.salesChannelField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.salesChannelField, value) != true)) {
+                    this.salesChannelField = value;
+                    this.RaisePropertyChanged("salesChannel");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string source {
+            get {
+                return this.sourceField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.sourceField, value) != true)) {
+                    this.sourceField = value;
+                    this.RaisePropertyChanged("source");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime submissionDate {
+            get {
+                return this.submissionDateField;
+            }
+            set {
+                if ((this.submissionDateField.Equals(value) != true)) {
+                    this.submissionDateField = value;
+                    this.RaisePropertyChanged("submissionDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string tradeCompanyName {
+            get {
+                return this.tradeCompanyNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.tradeCompanyNameField, value) != true)) {
+                    this.tradeCompanyNameField = value;
+                    this.RaisePropertyChanged("tradeCompanyName");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="SaleOrderUploadDetailedParam", Namespace="http://schemas.datacontract.org/2004/07/hn.ArrowInterface.RequestParams")]
+    [System.SerializableAttribute()]
+    public partial class SaleOrderUploadDetailedParam : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string lHDctpolicyItemIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string lHOutSystemIDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string lHOutSystemLineIDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string lHcommentsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string lHrowSourceField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string prodCodeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private decimal qTYField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string lHDctpolicyItemId {
+            get {
+                return this.lHDctpolicyItemIdField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.lHDctpolicyItemIdField, value) != true)) {
+                    this.lHDctpolicyItemIdField = value;
+                    this.RaisePropertyChanged("lHDctpolicyItemId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string lHOutSystemID {
+            get {
+                return this.lHOutSystemIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.lHOutSystemIDField, value) != true)) {
+                    this.lHOutSystemIDField = value;
+                    this.RaisePropertyChanged("lHOutSystemID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string lHOutSystemLineID {
+            get {
+                return this.lHOutSystemLineIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.lHOutSystemLineIDField, value) != true)) {
+                    this.lHOutSystemLineIDField = value;
+                    this.RaisePropertyChanged("lHOutSystemLineID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string lHcomments {
+            get {
+                return this.lHcommentsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.lHcommentsField, value) != true)) {
+                    this.lHcommentsField = value;
+                    this.RaisePropertyChanged("lHcomments");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string lHrowSource {
+            get {
+                return this.lHrowSourceField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.lHrowSourceField, value) != true)) {
+                    this.lHrowSourceField = value;
+                    this.RaisePropertyChanged("lHrowSource");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string prodCode {
+            get {
+                return this.prodCodeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.prodCodeField, value) != true)) {
+                    this.prodCodeField = value;
+                    this.RaisePropertyChanged("prodCode");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public decimal qTY {
+            get {
+                return this.qTYField;
+            }
+            set {
+                if ((this.qTYField.Equals(value) != true)) {
+                    this.qTYField = value;
+                    this.RaisePropertyChanged("qTY");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ApiService.IAPIService")]
@@ -86,6 +714,9 @@ namespace hn.Client.ApiService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/GetClientByAccount", ReplyAction="http://tempuri.org/IAPIService/GetClientByAccountResponse")]
         hn.DataAccess.Model.V_CLIENTACCOUNTModel GetClientByAccount(string faccount);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/v_lhproducts_policy_List", ReplyAction="http://tempuri.org/IAPIService/v_lhproducts_policy_ListResponse")]
+        hn.DataAccess.model.v_lhproducts_policyModel[] v_lhproducts_policy_List(string headid, string keyword);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/GetPurchasePlanList", ReplyAction="http://tempuri.org/IAPIService/GetPurchasePlanListResponse")]
         hn.DataAccess.Model.V_ICPRBILLMODEL[] GetPurchasePlanList(hn.Core.Model.User loginUser, string classarea2name, string brand, int status, string premiseid, string billno, string startdate, string enddate, bool searchclose);
@@ -320,6 +951,15 @@ namespace hn.Client.ApiService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/Select_DataTable", ReplyAction="http://tempuri.org/IAPIService/Select_DataTableResponse")]
         System.Data.DataTable Select_DataTable();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/SaleOrderUpload", ReplyAction="http://tempuri.org/IAPIService/SaleOrderUploadResponse")]
+        bool SaleOrderUpload(hn.Client.ApiService.SaleOrderUploadParam pars);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/AcctOaStatus", ReplyAction="http://tempuri.org/IAPIService/AcctOaStatusResponse")]
+        bool AcctOaStatus(hn.Client.ApiService.AcctOAStatusParam pars);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/obOrderUpload", ReplyAction="http://tempuri.org/IAPIService/obOrderUploadResponse")]
+        bool obOrderUpload(hn.Client.ApiService.ObOrderUploadParam pars);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -443,6 +1083,10 @@ namespace hn.Client.ApiService {
         
         public hn.DataAccess.Model.V_CLIENTACCOUNTModel GetClientByAccount(string faccount) {
             return base.Channel.GetClientByAccount(faccount);
+        }
+        
+        public hn.DataAccess.model.v_lhproducts_policyModel[] v_lhproducts_policy_List(string headid, string keyword) {
+            return base.Channel.v_lhproducts_policy_List(headid, keyword);
         }
         
         public hn.DataAccess.Model.V_ICPRBILLMODEL[] GetPurchasePlanList(hn.Core.Model.User loginUser, string classarea2name, string brand, int status, string premiseid, string billno, string startdate, string enddate, bool searchclose) {
@@ -739,6 +1383,18 @@ namespace hn.Client.ApiService {
         
         public System.Data.DataTable Select_DataTable() {
             return base.Channel.Select_DataTable();
+        }
+        
+        public bool SaleOrderUpload(hn.Client.ApiService.SaleOrderUploadParam pars) {
+            return base.Channel.SaleOrderUpload(pars);
+        }
+        
+        public bool AcctOaStatus(hn.Client.ApiService.AcctOAStatusParam pars) {
+            return base.Channel.AcctOaStatus(pars);
+        }
+        
+        public bool obOrderUpload(hn.Client.ApiService.ObOrderUploadParam pars) {
+            return base.Channel.obOrderUpload(pars);
         }
     }
 }

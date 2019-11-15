@@ -67,7 +67,7 @@ public partial class getStock : System.Web.UI.Page
             var list = V_QUERY_STOCKDal.Instance.Query(strSql).ToList();
 
 
-            hn.Common.LogHelper.WriteLog(sql.ToStr());
+            LogHelper.WriteLog(sql.ToString());
 
 
 
@@ -75,7 +75,7 @@ public partial class getStock : System.Web.UI.Page
         }
         catch (Exception ee)
         {
-            return ee.ToStr();
+            return ee.ToString();
         }
 
 

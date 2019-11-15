@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/hn.ArrowInterface.RequestParams" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/hn.ArrowInterface.RequestParams" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://10.0.125.31:9999/APIService.svc?xsd=xsd18" namespace="http://schemas.datacontract.org/2004/07/hn.ArrowInterface.WebCommon" />
+  <xs:import schemaLocation="http://10.0.125.31:9999/APIService.svc?xsd=xsd11" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:complexType name="SaleOrderUploadParam">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/hn.ArrowInterface.WebCommon" base="q1:AbstractRequestParams">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="acctCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="balanceName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="billIdName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="consignee" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="contractWay" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="lHAdvertingMoneyType" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="lHOutSystemID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="lHOutSystemOd" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="lHbuType" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="lHdepositOrNot" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="lHdiscountType" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="lHexpectedArrivedDate" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="lHorgName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="lHoutboundOrder" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="lHpromotionPolicyID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="orderProdLine" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="orderType" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="remarks" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="saleOrderItemList" nillable="true" type="tns:ArrayOfSaleOrderUploadDetailedParam" />
+          <xs:element minOccurs="0" name="salesChannel" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="source" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="submissionDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="tradeCompanyName" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SaleOrderUploadParam" nillable="true" type="tns:SaleOrderUploadParam" />
+  <xs:complexType name="ArrayOfSaleOrderUploadDetailedParam">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SaleOrderUploadDetailedParam" nillable="true" type="tns:SaleOrderUploadDetailedParam" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSaleOrderUploadDetailedParam" nillable="true" type="tns:ArrayOfSaleOrderUploadDetailedParam" />
+  <xs:complexType name="SaleOrderUploadDetailedParam">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="lHDctpolicyItemId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="lHOutSystemID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="lHOutSystemLineID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="lHcomments" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="lHrowSource" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="prodCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="qTY" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SaleOrderUploadDetailedParam" nillable="true" type="tns:SaleOrderUploadDetailedParam" />
+  <xs:complexType name="AcctOAStatusParam">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q2="http://schemas.datacontract.org/2004/07/hn.ArrowInterface.WebCommon" base="q2:AbstractRequestParams">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="acctCode" nillable="true" type="xs:string" />
+          <xs:element xmlns:q3="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="idStrings" nillable="true" type="q3:ArrayOfstring" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="AcctOAStatusParam" nillable="true" type="tns:AcctOAStatusParam" />
+  <xs:complexType name="ObOrderUploadParam">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q4="http://schemas.datacontract.org/2004/07/hn.ArrowInterface.WebCommon" base="q4:AbstractRequestParams">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="lhodoID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="lhplateNo" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ObOrderUploadParam" nillable="true" type="tns:ObOrderUploadParam" />
+</xs:schema>

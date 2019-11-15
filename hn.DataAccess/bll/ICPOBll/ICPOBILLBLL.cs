@@ -142,6 +142,13 @@ namespace hn.DataAccess.Bll
 
         public string SaveClient(ICPOBILLMODEL ICPOBILL, IEnumerable<ICPOBILLENTRYMODEL> ICPOBILLENTRYList)
         {
+
+            try
+            {
+
+            
+            LogHelper.Info("ICPOBILLENTRYList=" + JSONhelper.ToJson(ICPOBILLENTRYList));
+
             string FID = null;
 
             #region 执行前检测
@@ -270,6 +277,13 @@ namespace hn.DataAccess.Bll
             #endregion
 
             return null;
+            }
+            catch (Exception e)
+            {
+                LogHelper.Info("e.Message=" + e.Message);
+                return e.Message;
+            }
+
         }
 
         /// <summary>

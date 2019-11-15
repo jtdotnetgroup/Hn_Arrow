@@ -11,6 +11,8 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using hn.ArrowInterfac.ArrowLog;
+using hn.DataAccess.model.Common;
 
 namespace hn.Client
 {
@@ -82,14 +84,9 @@ namespace hn.Client
             var listAccount = _service.GetClientAccountList(model.FBRANDID, "");
             txtBillNO.Text = model.FBILLNO;
 
-            txtProjectNo.Text = pModel.FprojectNO;
-            
-         
-          
+            txtProjectNo.Text = pModel.FprojectNO;  
 
             //
-
-
             foreach (var sub in listAccount)
             {
                 if (sub.FID == model.FCLIENTID)
@@ -128,8 +125,7 @@ namespace hn.Client
                 sub.Funit = pro.FUNITNAME;
                 sub.FSRCMODEL = pro.FSRCMODEL;
                 sub.FORDERUNIT = pro.FSRCUNIT;
-                sub.FMODEL = pro.FMODEL;
-                sub.FSRCMODEL = pro.FSRCMODEL;
+                sub.FMODEL = pro.FMODEL; 
                 sub.FSRCCODE = pro.FSRCCODE;
                 sub.FPRODUCTCODE = sub.FPRODUCTCODE;
             }
@@ -164,6 +160,7 @@ namespace hn.Client
                
             }
             onCalcWeightTotal();
+            initComboBox();
         }
 
 
@@ -189,24 +186,52 @@ namespace hn.Client
             foreach (var item in _service.GetDics("LH_ORDER_TYPE", "", true))
             {
                 cmbOrderType.Properties.Items.Add(item);
+                if (item.FNAME == model.LH_ORDERTYPE)
+                {
+                    cmbOrderType.SelectedItem = item;
+                }
             }
             foreach (var item in _service.GetDics("LH_PROD_CHANNEL", "", true))
             {
                 cmbSaleChannel.Properties.Items.Add(item);
+                if (item.FNAME == model.LH_SALESCHANNEL)
+                {
+                    cmbSaleChannel.SelectedItem = item;
+                }
             }
             foreach (var item in _service.GetDics("LH_BU_TYPE", "", true))
             {
                 cmbBusinessType.Properties.Items.Add(item);
+                if (item.FNAME == model.LH_BUTYPE)
+                {
+                    cmbBusinessType.SelectedItem = item;
+                }
             }
             foreach (var item in _service.Select_List())
             {
-                
                 cmbPromotionPolicy.Properties.Items.Add(item);
+                if (item.FID == model.LH_PROMOTIONPOLICYID)
+                {
+                    cmbPromotionPolicy.SelectedItem = item;
+                }
             }
             foreach (var item in _service.GetDics("LH_ADV_MONEY_TYPE", "", true))
             {
                 cmbDeductionMethod.Properties.Items.Add(item);
+                if (item.FNAME == model.LH_ADVERTINGMONEYTYPE)
+                {
+                    cmbDeductionMethod.SelectedItem = item;
+                }
             }
+            foreach (var item in _service.GetDics("LH_PROD_LINE", "", true))
+            {
+                cboLH_ORDERPRODLINE.Properties.Items.Add(item);
+                if (item.FNAME == model.LH_ORDERPRODLINE)
+                {
+                    cboLH_ORDERPRODLINE.SelectedItem = item;
+                }
+            }
+            
         }
         #endregion
 
@@ -391,8 +416,7 @@ namespace hn.Client
             {
                 backgroundWorker2.RunWorkerAsync();
             }
-
-         
+            SetcmbPromotionPolicyReadOnly();  
         }
 
    
@@ -433,13 +457,13 @@ namespace hn.Client
         private void simpleButton3_Click(object sender, EventArgs e)
         {
             var list = gridControl采购订单明细.DataSource as List<V_ICPOBILLENTRYMODEL>;
-            if (list.Count == 0)
+            if (list == null || list.Count == 0)
             {
                 System.Windows.Forms.MessageBox.Show("明细记录数不可为空！");
                 return;
             }
 
-            string brand = "";   
+            string brand = "";
             TB_BrandModel bmodel = comBrand.SelectedItem as TB_BrandModel;
             if (bmodel != null)
             {
@@ -451,15 +475,47 @@ namespace hn.Client
                 System.Windows.Forms.MessageBox.Show("品牌不可为空！");
                 return;
             }
-
-
             if (txt厂家账户.Tag == null)
             {
                 System.Windows.Forms.MessageBox.Show("厂家账户不可为空！");
                 return;
             }
+            //
+            if ((cmbOrderType.SelectedItem as SYS_SUBDICSMODEL) == null) {
+                System.Windows.Forms.MessageBox.Show("订单类型不能为空！");
+                return;
+            }
+            if ((cmbSaleChannel.SelectedItem as SYS_SUBDICSMODEL) == null)
+            {
+                System.Windows.Forms.MessageBox.Show("销售渠道不能为空！");
+                return;
+            }
+            if ((cmbSaleChannel.SelectedItem as SYS_SUBDICSMODEL) == null)
+            {
+                System.Windows.Forms.MessageBox.Show("产品线不能为空！");
+                return;
+            }
+            if (string.IsNullOrWhiteSpace(dateDHRQ.Text))
+            {
+                System.Windows.Forms.MessageBox.Show("期望到货日期不能为空！");
+                return;
+            }
+            if ((cmbPromotionPolicy.SelectedItem as SelectModel) == null)
+            {
+                System.Windows.Forms.MessageBox.Show("促销政策头ID不能为空！");
+                return;
+            }
+            if ((cmbDeductionMethod.SelectedItem as SYS_SUBDICSMODEL) == null)
+            {
+                System.Windows.Forms.MessageBox.Show("扣款方式不能为空！");
+                return;
+            }
+            if ((cmbBusinessType.SelectedItem as SYS_SUBDICSMODEL) == null)
+            {
+                System.Windows.Forms.MessageBox.Show("业务类型不能为空！");
+                return;
+            }
 
-           
             if (string.IsNullOrEmpty(model.FBILLNO))
             {
                 ICPOBILLMODEL tBill = new ICPOBILLMODEL();
@@ -481,13 +537,25 @@ namespace hn.Client
                 }
                 if (search价格策略.Tag != null)
                     tBill.Fpricepolicy = search价格策略.Tag.ToString();
-                 
+
                 int iTemp = 1;
 
-                List<ICPOBILLENTRYMODEL> listSub = new List<ICPOBILLENTRYMODEL>();
+
+                //新加 
+                tBill.LH_ORDERTYPE = (cmbOrderType.SelectedItem as SYS_SUBDICSMODEL).FID;
+                tBill.LH_SALESCHANNEL = (cmbSaleChannel.SelectedItem as SYS_SUBDICSMODEL).FID;
+                tBill.LH_ORDERPRODLINE = (cboLH_ORDERPRODLINE.SelectedItem as SYS_SUBDICSMODEL).FID;
+                tBill.LH_EXPECTEDARRIVEDDATE = dateDHRQ.Text.ToDateTime();
+                tBill.LH_PROMOTIONPOLICYID = (cmbPromotionPolicy.SelectedItem as SelectModel).FID;
+                tBill.LH_OUTBOUNDORDER = txtLH_OUTBOUNDORDER.Text;
+                tBill.LH_ADVERTINGMONEYTYPE = (cmbDeductionMethod.SelectedItem as SYS_SUBDICSMODEL).FID;
+                tBill.LH_BUTYPE = (cmbBusinessType.SelectedItem as SYS_SUBDICSMODEL).FID;
+
+
+                List <ICPOBILLENTRYMODEL> listSub = new List<ICPOBILLENTRYMODEL>();
                 foreach (var sub in list)
                 {
-                   
+
 
                     sub.FENTRYID = iTemp;
 
@@ -510,7 +578,7 @@ namespace hn.Client
                         }
                         try
                         {
-                            tModel.FASKQTY =sub.FAUDQTY;
+                            tModel.FASKQTY = sub.FAUDQTY;
                         }
                         catch
                         {
@@ -520,16 +588,14 @@ namespace hn.Client
                         tModel.FNEEDDATE = sub.FNEEDDATE == DateTime.MinValue ? DateTime.Now : sub.FNEEDDATE;
                         tModel.FASKQTY = sub.FASKQTY;
                         tModel.FORDERUNITQTY = (int)sub.FSRCQTY;
-                        string strResult = _service.Save_ICPREntry_List(tModel);
-
-                        sub.FPLANID = strResult;
-
+                        string strResult = _service.Save_ICPREntry_List(tModel); 
+                        sub.FPLANID = strResult; 
                     }
 
 
-                    if (listSub.Any(x => x.FITEMID == sub.FITEMID && sub.FCOLORNO == x.FCOLORNO&&x.FPRICE==sub.FPRICE))
+                    if (listSub.Any(x => x.FITEMID == sub.FITEMID && sub.FCOLORNO == x.FCOLORNO && x.FPRICE == sub.FPRICE))
                     {
-                        ICPOBILLENTRYMODEL tSingle =listSub.First(x => x.FITEMID == sub.FITEMID && sub.FCOLORNO == x.FCOLORNO && x.FPRICE == sub.FPRICE);
+                        ICPOBILLENTRYMODEL tSingle = listSub.First(x => x.FITEMID == sub.FITEMID && sub.FCOLORNO == x.FCOLORNO && x.FPRICE == sub.FPRICE);
                         tSingle.FSRCQTY += sub.FSRCQTY;
                         tSingle.FSRCCOST += sub.FSRCCOST;
                         tSingle.Famount += sub.Famount;
@@ -578,6 +644,13 @@ namespace hn.Client
                         sub0.FREMARK = sub.FREMARK;
                         sub0.FERR_MESSAGE = sub.FERR_MESSAGE;
                         sub0.FSRCQTY = sub.FSRCQTY;
+
+                        //
+                        sub0.LH_DCTPOLICYITEMID = sub.LH_DCTPOLICYITEMID;
+                        sub0.MINIMUMQUANTITY = sub.MINIMUMQUANTITY;
+                        sub0.CAPPINGQUANTITY = sub.CAPPINGQUANTITY;
+                        sub0.DISCOUNTRATE = sub.DISCOUNTRATE;
+                        //
                         if (!string.IsNullOrEmpty(sub.ICPRBILLENTRYIDS))
                         {
                             sub0.ICPRBILLENTRYIDS += sub.ICPRBILLENTRYIDS + ";";
@@ -587,8 +660,8 @@ namespace hn.Client
 
                     }
                 }
-                
-            
+
+
                 try
                 {
                     //string sResult = ICPOBILLBLL.Instance.SaveClient(tBill, listSub);
@@ -608,11 +681,11 @@ namespace hn.Client
                     }
                     this.Close();
                 }
-                catch(Exception ee)
+                catch (Exception ee)
                 {
                     System.Windows.Forms.MessageBox.Show(ee.ToString());
                 }
-               
+
             }
             else
             {
@@ -620,7 +693,7 @@ namespace hn.Client
 
                 ICPOBILLMODEL tModel = _service.GetSingleOrder(model.FID);
 
-               
+
                 tModel.FBRANDID = bmodel.FID;
                 tModel.FCLIENTID = txt厂家账户.Tag.ToStr();
                 tModel.FDATE = dateDatetime.DateTime;
@@ -645,7 +718,7 @@ namespace hn.Client
                 List<ICPOBILLENTRYMODEL> listSub = new List<ICPOBILLENTRYMODEL>();
                 foreach (var sub in list)
                 {
-                  
+
 
                     if (sub.FPLANID == null)
                     {
@@ -676,7 +749,7 @@ namespace hn.Client
                         tRModel.FNEEDDATE = sub.FNEEDDATE;
                         tRModel.FASKQTY = sub.FASKQTY;
                         tRModel.FORDERUNITQTY = (int)sub.FSRCQTY;
-                        string strResult=  _service.Save_ICPREntry_List(tRModel);
+                        string strResult = _service.Save_ICPREntry_List(tRModel);
 
                         sub.FPLANID = strResult;
 
@@ -687,8 +760,8 @@ namespace hn.Client
                     if (listSub.Any(x => x.FITEMID == sub.FITEMID && sub.FCOLORNO == x.FCOLORNO && x.FPRICE == sub.FPRICE))
                     {
                         ICPOBILLENTRYMODEL tSingle = listSub.First(x => x.FITEMID == sub.FITEMID && sub.FCOLORNO == x.FCOLORNO && x.FPRICE == sub.FPRICE);
-                        tSingle.FSRCQTY += sub.FSRCQTY;                       
-                        tSingle.FSRCCOST +=sub.FSRCCOST;
+                        tSingle.FSRCQTY += sub.FSRCQTY;
+                        tSingle.FSRCCOST += sub.FSRCCOST;
                         tSingle.Famount += sub.Famount;
                         if (!string.IsNullOrEmpty(sub.ICPRBILLENTRYIDS))
                         {
@@ -699,21 +772,21 @@ namespace hn.Client
                     else
                     {
 
-                        sub.FENTRYID = listSub.Count+1;
+                        sub.FENTRYID = listSub.Count + 1;
                         ICPOBILLENTRYMODEL sub0 = new ICPOBILLENTRYMODEL();
                         sub0.FICPOBILLID = tModel.FID;
                         sub0.FADVQTY = sub.FADVQTY;
                         sub0.FBATCHNO = sub.FBATCHNO;
                         sub0.FCOLORNO = sub.FCOLORNO;
                         sub0.FENTRYID = sub.FENTRYID;
-                       // sub0.FICPOBILLID = sub.FICPOBILLID;
+                        // sub0.FICPOBILLID = sub.FICPOBILLID;
                         sub0.FNEEDDATE = sub.FNEEDDATE;
                         sub0.FPLANID = sub.FPLANID;
                         if (sub0.FPLANID == null) sub0.FPLANID = "0";
                         sub0.FPRICE = sub.FPRICE;
-                        sub0.FREMARK = sub.FREMARK;                        
+                        sub0.FREMARK = sub.FREMARK;
                         sub0.FSRCQTY = sub.FSRCQTY;
-                        sub0.FSRCCOST = sub0.FPRICE*sub0.FSRCQTY;
+                        sub0.FSRCCOST = sub0.FPRICE * sub0.FSRCQTY;
                         //后面添加的字段
                         sub0.FITEMID = sub.FITEMID;
                         sub0.FSRCCODE = sub.FSRCCODE;
@@ -731,7 +804,14 @@ namespace hn.Client
                         sub0.FERR_MESSAGE = sub.FERR_MESSAGE;
                         sub0.FNEEDDATE = DateTime.Now;
                         sub0.FSRCQTY = sub.FSRCQTY;
-                        sub0.ICPRBILLENTRYIDS = sub.ICPRBILLENTRYIDS;
+
+                        //
+                        sub0.LH_DCTPOLICYITEMID = sub.LH_DCTPOLICYITEMID;
+                        sub0.MINIMUMQUANTITY = sub.MINIMUMQUANTITY;
+                        sub0.CAPPINGQUANTITY = sub.CAPPINGQUANTITY;
+                        sub0.DISCOUNTRATE = sub.DISCOUNTRATE; 
+
+
                         //sub0.FSTATUS = 3;
                         listSub.Add(sub0);
                     }
@@ -757,7 +837,7 @@ namespace hn.Client
                     }
                     this.Close();
                 }
-                catch(Exception ee)
+                catch (Exception ee)
                 {
                     System.Windows.Forms.MessageBox.Show(ee.ToString());
                 }
@@ -958,38 +1038,36 @@ namespace hn.Client
 
         private void itemButton商品代码_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
-            FrmQueryProduct frm = new FrmQueryProduct();
+            FrmNewQueryProduct frm = new FrmNewQueryProduct();
+            frm.itemid = (cmbPromotionPolicy.SelectedItem as SelectModel).FName;
             if (frm.ShowDialog() == DialogResult.OK)
             {
                 var list = gridControl采购订单明细.DataSource as List<V_ICPOBILLENTRYMODEL>;
                 var row = list[gridView发货计划明细.GetDataSourceRowIndex(gridView发货计划明细.FocusedRowHandle)];
 
-                row.FMODEL = frm.SelectData.FMODEL;
-                row.FITEMID = frm.SelectData.FID;
-                row.FPRODUCTNAME = frm.SelectData.FPRODUCTNAME;
-                row.FPRODUCTTYPE = frm.SelectData.FPRODUCTTYPE;
-                row.FPRODUCTCODE = frm.SelectData.FPRODUCTCODE;
-                row.FUNITNAME = frm.SelectData.FUNITNAME;
-                row.FUNITID = frm.SelectData.FUNITID;
-                row.FORDERUNIT = frm.SelectData.FSRCUNIT;
-                //row.FWEIGHT = frm.SelectData.FWEIGHT;
-                //row.FVOLUME = frm.SelectData.FVOLUME;
-                //row.FRATE = frm.SelectData.FRATE;
-                row.FCOLORNO = frm.SelectData.FCOLORNO;
-                row.FREMARK = "";
-                row.FBATCHNO = "";
+                row.FITEMID = frm.SelectData.ITEMID;
+                row.FPRODUCTNAME = frm.SelectData.PRODNAME;
+                row.FPRODUCTTYPE = frm.SelectData.LHPRODTYPE;
+                row.FPRODUCTCODE = frm.SelectData.PRODCODE;
+                row.FSRCQTY = 0;
 
-                row.Flevel = "1";
-                row.Funit = frm.SelectData.FUNITNAME;
-                row.FSRCMODEL = frm.SelectData.FSRCMODEL;
-                row.FORDERUNIT = frm.SelectData.FSRCUNIT;
-                row.FMODEL = frm.SelectData.FMODEL;
-                row.FSRCMODEL = frm.SelectData.FSRCMODEL;
-                row.FSRCCODE = frm.SelectData.FSRCCODE;
-                row.FSRCQTY= 0;
 
-                row.FSRCMODEL= frm.SelectData.FSRCMODEL;
-                gridView发货计划明细.ActiveEditor.EditValue = frm.SelectData.FPRODUCTCODE;
+
+                row.Famount = row.FPRICE * row.FSRCQTY;
+
+                row.FSRCNAME = frm.SelectData.PRODMODEL;
+                row.FSRCMODEL = frm.SelectData.PRODSTANDARD;
+                row.FSRCCODE = frm.SelectData.LHPRODTYPE;
+
+                row.MINIMUMQUANTITY = frm.SelectData.MINIMUMQUANTITY;
+                row.CAPPINGQUANTITY = frm.SelectData.CAPPINGQUANTITY;
+                row.DISCOUNTRATE = frm.SelectData.DISCOUNTRATE;
+                row.FPRICE = frm.SelectData.SPECIALOFFER;
+                row.LH_DCTPOLICYITEMID = frm.SelectData.ITEMID;
+
+                list[gridView发货计划明细.GetDataSourceRowIndex(gridView发货计划明细.FocusedRowHandle)] = row;
+                gridView发货计划明细.ActiveEditor.EditValue = frm.SelectData.PRODNAME;
+
                 list = list.OrderBy(x => x.GG).ToList().OrderBy(x => x.GG).ToList();
                 gridControl采购订单明细.DataSource = list;
                 gridControl采购订单明细.RefreshDataSource();
@@ -1015,8 +1093,13 @@ namespace hn.Client
             gridControl采购订单明细.RefreshDataSource();
             cal();
             onCalcWeightTotal();
+            SetcmbPromotionPolicyReadOnly();
         }
-
+        void SetcmbPromotionPolicyReadOnly() {
+            gridView发货计划明细.PostEditor();
+            gridView发货计划明细.UpdateCurrentRow();
+            cmbPromotionPolicy.ReadOnly = gridView发货计划明细.RowCount != 0;
+        }
         private void repositoryItemTextEdit9_EditValueChanged(object sender, EventArgs e)
         {
            

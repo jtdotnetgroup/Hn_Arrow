@@ -417,6 +417,19 @@ namespace hn.Client.Service
                 throw ex;
             }
         }
+        /// <summary>
+        /// 采购订单明细--选择
+        /// </summary>
+        /// <param name="itemid"></param>
+        /// <returns></returns>
+        public List<v_lhproducts_policyModel> v_lhproducts_policy_List(string headid, string keyword = "")
+        {
+            if (!string.IsNullOrEmpty(keyword))
+            {
+                keyword = " AND ";
+            }
+            return v_lhproducts_policyDal.Instance.GetWhereStr(@" AND headid = '" + headid + "'" + keyword +" AND ROWNUM < 11").ToList();
+        }
 
     }
 }

@@ -47,6 +47,16 @@ namespace hn.ArrowInterfac.ArrowLog
             Error(ex);
         }
 
+        public static void WriteLog(Type type,Exception ex)
+        {
+            Error(ex);
+        }
+
+        public static void WriteLog(Type type, string ex)
+        {
+            Error(ex);
+        }
+
         public static void Init(TextWriter writer)
         {
             _textWriter = writer;

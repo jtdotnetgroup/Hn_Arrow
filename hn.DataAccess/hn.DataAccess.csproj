@@ -168,6 +168,7 @@
     <Compile Include="dal\ccdDal.cs" />
     <Compile Include="dal\Common\SelectDal.cs" />
     <Compile Include="dal\TB_DZmanuscript_DAL\TB_DZmanuscript_DAL.cs" />
+    <Compile Include="dal\v_lhproducts_policyDal.cs" />
     <Compile Include="dal\V_QUERY_STOCKDal.cs" />
     <Compile Include="dal\v_icpr_icpo_icseout_thddal.cs" />
     <Compile Include="dal\v_thdDal.cs" />
@@ -271,6 +272,7 @@
     <Compile Include="model\Common\SelectModel.cs" />
     <Compile Include="model\TB_DZmanuscript.cs" />
     <Compile Include="model\TB_Dzsrcdel.cs" />
+    <Compile Include="model\v_lhproducts_policyModel.cs" />
     <Compile Include="model\V_QUERY_STOCKModel.cs" />
     <Compile Include="model\v_icpr_icpo_icseout_thdmodel.cs" />
     <Compile Include="model\v_thdmodel.cs" />

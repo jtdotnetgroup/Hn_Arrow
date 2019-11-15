@@ -14,6 +14,7 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
+using hn.ArrowInterfac.ArrowLog;
 using static hn.Client.FrmPleasePurchasePlan;
 
 namespace hn.Client

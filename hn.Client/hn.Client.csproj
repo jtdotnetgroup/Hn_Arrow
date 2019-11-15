@@ -172,6 +172,12 @@
     <Compile Include="Views\Diglog\FrmQueryPrice.Designer.cs">
       <DependentUpon>FrmQueryPrice.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Diglog\FrmNewQueryProduct.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Diglog\FrmNewQueryProduct.Designer.cs">
+      <DependentUpon>FrmNewQueryProduct.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Diglog\FrmQuerySrc.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -402,6 +408,10 @@
     <None Include="Properties\DataSources\hn.DataAccess.model.Common.SelectModel.datasource" />
     <None Include="Properties\DataSources\hn.DataAccess.Model.SYS_DICSMODEL.datasource" />
     <None Include="Properties\DataSources\hn.DataAccess.model.TB_PREMISEModel.datasource" />
+    <None Include="Properties\DataSources\hn.DataAccess.model.v_icprbillentryModel1.datasource" />
+    <None Include="Properties\DataSources\hn.DataAccess.model.v_icprbillentryModel2.datasource" />
+    <None Include="Properties\DataSources\hn.DataAccess.model.v_icprbillentryModel3.datasource" />
+    <None Include="Properties\DataSources\hn.DataAccess.model.v_lhproducts_policyModel.datasource" />
     <None Include="Properties\DataSources\MApiModel.recApi2.Rootobject1.datasource" />
     <None Include="Properties\DataSources\MApiModel.recApi24.Rootobject.datasource" />
     <None Include="Properties\DataSources\MApiModel.recApi24.Rootobject1.datasource" />
@@ -429,6 +439,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Diglog\FrmQueryPrice.resx">
       <DependentUpon>FrmQueryPrice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Diglog\FrmNewQueryProduct.resx">
+      <DependentUpon>FrmNewQueryProduct.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Diglog\FrmQuerySrc.resx">
       <DependentUpon>FrmQuerySrc.cs</DependentUpon>
@@ -632,35 +645,20 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="default.ico" />
-    <None Include="Service References\ApiService\APIService.xsd">
-      <SubType>Designer</SubType>
-    </None>
     <None Include="Service References\ApiService\APIService1.disco" />
     <None Include="Resources\min.png" />
     <None Include="Resources\close.png" />
+    <None Include="Service References\ApiService\APIService.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Service References\ApiService\APIService1.wsdl" />
     <None Include="Service References\ApiService\APIService1.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Service References\ApiService\APIService10.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Service References\ApiService\APIService11.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\ApiService\APIService110.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\ApiService\APIService111.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\ApiService\APIService112.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\ApiService\APIService113.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\ApiService\APIService115.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\ApiService\APIService116.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\ApiService\APIService12.xsd">
@@ -684,7 +682,28 @@
     <None Include="Service References\ApiService\APIService18.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\ApiService\APIService19.xsd">
+    <None Include="Service References\ApiService\APIService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ApiService\APIService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ApiService\APIService4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ApiService\APIService5.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ApiService\APIService6.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ApiService\APIService7.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ApiService\APIService8.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ApiService\APIService9.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\ApiService\Reference.svcmap">

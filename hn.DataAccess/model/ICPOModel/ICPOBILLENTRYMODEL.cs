@@ -86,7 +86,27 @@ namespace hn.DataAccess.Model
         /// <summary>
         /// 启用状态
         /// </summary>
-        public int FSTATE { get; set; }
+        public int FSTATE { get; set; } 
+
+
+
+        /// <summary>
+        /// 政策起始量
+        /// </summary>
+        public decimal MINIMUMQUANTITY { get; set; }
+        /// <summary>
+        /// 政策封顶量
+        /// </summary>
+        public decimal CAPPINGQUANTITY { get; set; }
+        /// <summary>
+        /// 折扣率
+        /// </summary>
+        public decimal DISCOUNTRATE { get; set; } 
+        /// <summary>
+        /// 促销政策行编码id
+        /// </summary>
+        public string LH_DCTPOLICYITEMID { get; set; }
+
 
         #region 蒙厂需要的字段
 
@@ -122,7 +142,7 @@ namespace hn.DataAccess.Model
                 else return "";
             }
 
-        }
+        }   
         [DbField(false)]
         public string XH
         {

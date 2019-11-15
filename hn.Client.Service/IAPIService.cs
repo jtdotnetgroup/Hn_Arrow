@@ -13,7 +13,6 @@ using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.ServiceModel.Web;
 using System.Text;
-using hn.ArrowInterface.Entities;
 using hn.ArrowInterface.RequestParams;
 
 namespace hn.Client.Service
@@ -157,6 +156,9 @@ MApiModel.api24.Rootobject getapi24);
 
         [OperationContract]
         V_CLIENTACCOUNTModel GetClientByAccount(string faccount);
+
+        [OperationContract]
+        List<v_lhproducts_policyModel> v_lhproducts_policy_List(string headid, string keyword="");
 
         #endregion
 
@@ -672,7 +674,7 @@ MApiModel.api24.Rootobject getapi24);
         /// <param name="pars"></param>
         /// <returns></returns>
         [OperationContract]
-        bool SaleOrderUpload(SaleOrderUploadParam pars);
+        bool SaleOrderUpload(hn.ArrowInterface.RequestParams.SaleOrderUploadParam pars);
 
         /// <summary>
         /// 同步采购订单的OA审批状态
@@ -680,7 +682,7 @@ MApiModel.api24.Rootobject getapi24);
         /// <param name="pars"></param>
         /// <returns></returns>
         [OperationContract]
-        bool AcctOaStatus(AcctOAStatusParam pars);
+        bool AcctOaStatus(hn.ArrowInterface.RequestParams.AcctOAStatusParam pars);
 
         /// <summary>
         /// 同步本地的物流开单记录车牌号到箭牌
@@ -688,7 +690,7 @@ MApiModel.api24.Rootobject getapi24);
         /// <param name="pars"></param>
         /// <returns></returns>
         [OperationContract]
-        bool obOrderUpload(ObOrderUploadParam pars);
+        bool obOrderUpload(hn.ArrowInterface.RequestParams. ObOrderUploadParam pars);
 
         #endregion
 

@@ -83,7 +83,39 @@ namespace hn.DataAccess.Model
         /// </summary>
         public int FSTATE { get; set; }
 
-
+        /// <summary>
+        /// 订单类型
+        /// </summary>
+        public string LH_ORDERTYPE { get; set; }
+        /// <summary>
+        /// 销售渠道
+        /// </summary>
+        public string LH_SALESCHANNEL { get; set; }
+        /// <summary>
+        /// 产品线
+        /// </summary>
+        public string LH_ORDERPRODLINE { get; set; }
+        /// <summary>
+        /// 期望到货日期
+        /// </summary>
+        public DateTime LH_EXPECTEDARRIVEDDATE { get; set; }
+        /// <summary>
+        /// 促销政策头ID
+        /// </summary>
+        public string LH_PROMOTIONPOLICYID { get; set; }
+        /// <summary>
+        /// 出库单号
+        /// </summary>
+        public string LH_OUTBOUNDORDER { get; set; }
+        /// <summary>
+        /// 扣款方式
+        /// </summary>
+        public string LH_ADVERTINGMONEYTYPE { get; set; }
+        /// <summary>
+        /// 业务类型
+        /// </summary>
+        public string LH_BUTYPE { get; set; }
+        
 
         #region 蒙厂的字段
 
