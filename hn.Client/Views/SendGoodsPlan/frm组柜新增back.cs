@@ -1,6 +1,4 @@
-﻿using DevExpress.XtraEditors.Repository;
-using DevExpress.XtraTreeList;
-using hn.Client.Core;
+﻿using DevExpress.XtraTreeList;
 using hn.Common;
 using hn.DataAccess.model;
 using hn.DataAccess.Model;
@@ -10,9 +8,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
 using System.Windows.Forms;
-using hn.ArrowInterfac.ArrowLog;
 using static hn.Client.FrmPleasePurchasePlan;
 
 namespace hn.Client
