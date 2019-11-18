@@ -67,10 +67,14 @@ namespace hn.Client
 
 
         bool bEdit = false;
+        ICPOBILLMODEL ICPOBILLMODELm = new ICPOBILLMODEL();
         public FrmPurchaseOrder(V_ICPOBILLMODEL pModel,bool bzf=false)
         {
             InitializeComponent();
+
             _service = new ApiService.APIServiceClient("BasicHttpBinding_IAPIService", Global.WcfUrl);
+
+            ICPOBILLMODELm = _service.GetSingleOrder(pModel.FID);
             IniValue();
             bEdit = true;
             model = pModel;
@@ -81,7 +85,7 @@ namespace hn.Client
             var listAccount = _service.GetClientAccountList(model.FBRANDID, "");
             txtBillNO.Text = model.FBILLNO;
 
-            txtProjectNo.Text = pModel.FprojectNO;  
+            txtProjectNo.Text = ICPOBILLMODELm.FprojectNO;  
 
             //
             foreach (var sub in listAccount)
@@ -99,7 +103,8 @@ namespace hn.Client
             search价格策略.Tag = model.Fpricepolicy;
             searchDic105.Text = model.FPOtype;
             searchDic105.Tag = model.FPOtype;
-
+            txtLH_OUTBOUNDORDER.Text = ICPOBILLMODELm.LH_OUTBOUNDORDER;
+            dateDHRQ.Text = ICPOBILLMODELm.LH_EXPECTEDARRIVEDDATE.ToStr();
             //初始化品牌列表
             var list = _service.GetBrandList(Global.LoginUser);
 
@@ -174,10 +179,11 @@ namespace hn.Client
 
             foreach (var item in policyList)
             {
-                cmbPromotionPolicy.Properties.Items.Add(new SelectModel(){FID = item.Id,FName = $"{item.PolicyName}-{item.Id}"});
-                if (item.Id == model.LH_PROMOTIONPOLICYID)
+                var tmp = new SelectModel() { FID = item.Id, FName = $"{item.PolicyName}-{item.Id}" };
+                cmbPromotionPolicy.Properties.Items.Add(tmp);
+                if (item.Id == ICPOBILLMODELm.LH_PROMOTIONPOLICYID)
                 {
-                    cmbPromotionPolicy.SelectedItem = item;
+                    cmbPromotionPolicy.SelectedItem = tmp;
                 }
             }
         }
@@ -203,45 +209,49 @@ namespace hn.Client
                 }
                 
             }
+            model.LH_ORDERTYPE = model.LH_ORDERTYPE ?? "";
             foreach (var item in _service.GetDics("LH_ORDER_TYPE", "", true))
             {
-                cmbOrderType.Properties.Items.Add(item);
-                if (item.FNAME == model.LH_ORDERTYPE)
+                cmbOrderType.Properties.Items.Add(item); 
+                if (item.FNAME == model.LH_ORDERTYPE ||item.FID == model.LH_ORDERTYPE)
                 {
                     cmbOrderType.SelectedItem = item;
                 }
             }
+            model.LH_SALESCHANNEL = model.LH_SALESCHANNEL ?? "";
             foreach (var item in _service.GetDics("LH_PROD_CHANNEL", "", true))
             {
                 cmbSaleChannel.Properties.Items.Add(item);
-                if (item.FNAME == model.LH_SALESCHANNEL)
+                if (item.FNAME == model.LH_SALESCHANNEL || item.FID == model.LH_SALESCHANNEL)
                 {
                     cmbSaleChannel.SelectedItem = item;
                 }
             }
+            model.LH_BUTYPE = model.LH_BUTYPE ?? "";
             foreach (var item in _service.GetDics("LH_BU_TYPE", "", true))
             {
                 cmbBusinessType.Properties.Items.Add(item);
-                if (item.FNAME == model.LH_BUTYPE)
+                if (item.FNAME == model.LH_BUTYPE || item.FID == model.LH_BUTYPE)
                 {
                     cmbBusinessType.SelectedItem = item;
                 }
             }
             //政策下接列表
             SetPolicyItem();
-
+            model.LH_ADVERTINGMONEYTYPE = model.LH_ADVERTINGMONEYTYPE ?? "";
             foreach (var item in _service.GetDics("LH_ADV_MONEY_TYPE", "", true))
             {
                 cmbDeductionMethod.Properties.Items.Add(item);
-                if (item.FNAME == model.LH_ADVERTINGMONEYTYPE)
+                if (item.FNAME == model.LH_ADVERTINGMONEYTYPE || item.FID == model.LH_ADVERTINGMONEYTYPE)
                 {
                     cmbDeductionMethod.SelectedItem = item;
                 }
             }
+            model.LH_ORDERPRODLINE = model.LH_ORDERPRODLINE ?? "";
             foreach (var item in _service.GetDics("LH_PROD_LINE", "", true))
             {
                 cboLH_ORDERPRODLINE.Properties.Items.Add(item);
-                if (item.FNAME == model.LH_ORDERPRODLINE)
+                if (item.FNAME == model.LH_ORDERPRODLINE || item.FID == model.LH_ORDERPRODLINE)
                 {
                     cboLH_ORDERPRODLINE.SelectedItem = item;
                 }
@@ -1423,7 +1433,7 @@ namespace hn.Client
             if (policyList != null)
             {
                 var selectList = policyList.Where(p =>
-                        p.DeptName.Contains(brandName)&& p.OrderType.Contains(orderType==null?"":orderType.FNUMBER))
+                        p.DeptName.Contains(brandName)&& p.OrderType.Contains(orderType==null?"":orderType.FNUMBER??""))
                     .Select(p => new SelectModel() {FID = p.Id, FName = $"{p.PolicyName}-{p.Id}"});
 
                 cmbPromotionPolicy.Properties.Items.AddRange(selectList.ToArray());
