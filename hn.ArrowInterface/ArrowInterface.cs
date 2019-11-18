@@ -76,9 +76,9 @@ namespace hn.ArrowInterface
         /// </summary>
         /// <param name="token"></param>
         /// <returns></returns>
-        public AbsRequestResult<QueryPolicy> QueryPolicy(string token, QueryPolicyParam queryPolicyParam)
+        public AbsRequestResult<LH_Policy> QueryPolicy(string token, QueryPolicyParam queryPolicyParam)
         {
-            return BaseRequest<AbsRequestResult<QueryPolicy>, QueryPolicy>(GlobParams.QueryPolicyList, token, queryPolicyParam.ToDictionary());
+            return BaseRequest<AbsRequestResult<LH_Policy>, LH_Policy>(GlobParams.QueryPolicyList, token, queryPolicyParam.ToDictionary());
         }
         /// <summary>
         ///     7、销售订单上传

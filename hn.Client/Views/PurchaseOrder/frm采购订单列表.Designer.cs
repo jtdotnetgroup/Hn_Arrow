@@ -30,8 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmOrderList));
+            DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition3 = new DevExpress.XtraGrid.StyleFormatCondition();
             DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition1 = new DevExpress.XtraGrid.StyleFormatCondition();
-            DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition2 = new DevExpress.XtraGrid.StyleFormatCondition();
             this.gridColumn32 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.imageList2 = new System.Windows.Forms.ImageList(this.components);
             this.panel右 = new System.Windows.Forms.Panel();
@@ -85,6 +85,7 @@
             this.splitContainerControl2 = new DevExpress.XtraEditors.SplitContainerControl();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.backgroundWorker2 = new System.ComponentModel.BackgroundWorker();
+            this.simpleButton9 = new DevExpress.XtraEditors.SimpleButton();
             this.panel右.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
             this.splitContainerControl1.SuspendLayout();
@@ -136,7 +137,7 @@
             this.panel右.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel右.Location = new System.Drawing.Point(0, 0);
             this.panel右.Name = "panel右";
-            this.panel右.Size = new System.Drawing.Size(1358, 600);
+            this.panel右.Size = new System.Drawing.Size(1365, 600);
             this.panel右.TabIndex = 4;
             // 
             // splitContainerControl1
@@ -154,7 +155,7 @@
             this.splitContainerControl1.Panel1.Text = "Panel1";
             this.splitContainerControl1.Panel2.Controls.Add(this.gridControl采购订单明细);
             this.splitContainerControl1.Panel2.Text = "Panel2";
-            this.splitContainerControl1.Size = new System.Drawing.Size(1358, 564);
+            this.splitContainerControl1.Size = new System.Drawing.Size(1365, 564);
             this.splitContainerControl1.SplitterPosition = 317;
             this.splitContainerControl1.TabIndex = 1;
             this.splitContainerControl1.Text = "splitContainerControl1";
@@ -171,7 +172,7 @@
             this.gridControl采购订单列表.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemCheckEdit1,
             this.repositoryItemCheckEdit2});
-            this.gridControl采购订单列表.Size = new System.Drawing.Size(1358, 241);
+            this.gridControl采购订单列表.Size = new System.Drawing.Size(1365, 241);
             this.gridControl采购订单列表.TabIndex = 6;
             this.gridControl采购订单列表.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView采购订单列表});
@@ -213,13 +214,13 @@
             this.gridColumn8,
             this.gridColumn制单日期,
             this.gridColumn2});
-            styleFormatCondition1.Appearance.ForeColor = System.Drawing.Color.Red;
-            styleFormatCondition1.Appearance.Options.UseForeColor = true;
-            styleFormatCondition1.ApplyToRow = true;
-            styleFormatCondition1.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
-            styleFormatCondition1.Value1 = "离线";
+            styleFormatCondition3.Appearance.ForeColor = System.Drawing.Color.Red;
+            styleFormatCondition3.Appearance.Options.UseForeColor = true;
+            styleFormatCondition3.ApplyToRow = true;
+            styleFormatCondition3.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
+            styleFormatCondition3.Value1 = "离线";
             this.gridView采购订单列表.FormatConditions.AddRange(new DevExpress.XtraGrid.StyleFormatCondition[] {
-            styleFormatCondition1});
+            styleFormatCondition3});
             this.gridView采购订单列表.GridControl = this.gridControl采购订单列表;
             this.gridView采购订单列表.IndicatorWidth = 60;
             this.gridView采购订单列表.Name = "gridView采购订单列表";
@@ -375,7 +376,7 @@
             this.gridControl采购订单明细.Name = "gridControl采购订单明细";
             this.gridControl采购订单明细.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemCheckEdit3});
-            this.gridControl采购订单明细.Size = new System.Drawing.Size(1358, 317);
+            this.gridControl采购订单明细.Size = new System.Drawing.Size(1365, 317);
             this.gridControl采购订单明细.TabIndex = 78;
             this.gridControl采购订单明细.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -420,14 +421,14 @@
             this.gridColumn27,
             this.gridColumn32,
             this.gridColumn30});
-            styleFormatCondition2.Appearance.ForeColor = System.Drawing.Color.Red;
-            styleFormatCondition2.Appearance.Options.UseForeColor = true;
-            styleFormatCondition2.ApplyToRow = true;
-            styleFormatCondition2.Column = this.gridColumn32;
-            styleFormatCondition2.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
-            styleFormatCondition2.Value1 = "离线";
+            styleFormatCondition1.Appearance.ForeColor = System.Drawing.Color.Red;
+            styleFormatCondition1.Appearance.Options.UseForeColor = true;
+            styleFormatCondition1.ApplyToRow = true;
+            styleFormatCondition1.Column = this.gridColumn32;
+            styleFormatCondition1.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
+            styleFormatCondition1.Value1 = "离线";
             this.gridView1.FormatConditions.AddRange(new DevExpress.XtraGrid.StyleFormatCondition[] {
-            styleFormatCondition2});
+            styleFormatCondition1});
             this.gridView1.GridControl = this.gridControl采购订单明细;
             this.gridView1.IndicatorWidth = 60;
             this.gridView1.Name = "gridView1";
@@ -612,7 +613,7 @@
             this.pnl跑龙套1.Location = new System.Drawing.Point(0, 0);
             this.pnl跑龙套1.Name = "pnl跑龙套1";
             this.pnl跑龙套1.Padding = new System.Windows.Forms.Padding(3);
-            this.pnl跑龙套1.Size = new System.Drawing.Size(1358, 36);
+            this.pnl跑龙套1.Size = new System.Drawing.Size(1365, 36);
             this.pnl跑龙套1.TabIndex = 0;
             this.pnl跑龙套1.Paint += new System.Windows.Forms.PaintEventHandler(this.pnl跑龙套1_Paint);
             // 
@@ -629,7 +630,7 @@
             this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 3);
             this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(2);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(1352, 30);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(1359, 30);
             this.flowLayoutPanel1.TabIndex = 55;
             // 
             // btn设备预览
@@ -644,10 +645,10 @@
             this.btn设备预览.AppearanceHovered.Options.UseFont = true;
             this.btn设备预览.AppearancePressed.Font = new System.Drawing.Font("微软雅黑", 9.75F);
             this.btn设备预览.AppearancePressed.Options.UseFont = true;
-            this.btn设备预览.ImageIndex = 5;
-            this.btn设备预览.ImageList = this.imageList2;
-            this.btn设备预览.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleLeft;
-            this.btn设备预览.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
+            this.btn设备预览.ImageOptions.ImageIndex = 5;
+            this.btn设备预览.ImageOptions.ImageList = this.imageList2;
+            this.btn设备预览.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
+            this.btn设备预览.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleLeft;
             this.btn设备预览.Location = new System.Drawing.Point(3, 3);
             this.btn设备预览.LookAndFeel.SkinName = "Office 2016 Colorful";
             this.btn设备预览.LookAndFeel.UseDefaultLookAndFeel = false;
@@ -668,10 +669,10 @@
             this.simpleButton2.AppearanceHovered.Font = new System.Drawing.Font("微软雅黑", 9.75F);
             this.simpleButton2.AppearanceHovered.Options.UseFont = true;
             this.simpleButton2.AutoSize = true;
-            this.simpleButton2.ImageIndex = 0;
-            this.simpleButton2.ImageList = this.imageList2;
-            this.simpleButton2.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleLeft;
-            this.simpleButton2.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
+            this.simpleButton2.ImageOptions.ImageIndex = 0;
+            this.simpleButton2.ImageOptions.ImageList = this.imageList2;
+            this.simpleButton2.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
+            this.simpleButton2.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleLeft;
             this.simpleButton2.Location = new System.Drawing.Point(80, 3);
             this.simpleButton2.LookAndFeel.SkinName = "Office 2016 Colorful";
             this.simpleButton2.LookAndFeel.UseDefaultLookAndFeel = false;
@@ -692,9 +693,9 @@
             this.simpleButton6.AppearanceHovered.Font = new System.Drawing.Font("微软雅黑", 9.75F);
             this.simpleButton6.AppearanceHovered.Options.UseFont = true;
             this.simpleButton6.AutoSize = true;
-            this.simpleButton6.ImageList = this.imageList2;
-            this.simpleButton6.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleLeft;
-            this.simpleButton6.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
+            this.simpleButton6.ImageOptions.ImageList = this.imageList2;
+            this.simpleButton6.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
+            this.simpleButton6.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleLeft;
             this.simpleButton6.Location = new System.Drawing.Point(142, 3);
             this.simpleButton6.LookAndFeel.SkinName = "Office 2016 Colorful";
             this.simpleButton6.LookAndFeel.UseDefaultLookAndFeel = false;
@@ -715,10 +716,10 @@
             this.simpleButton3.AppearanceHovered.Font = new System.Drawing.Font("微软雅黑", 9.75F);
             this.simpleButton3.AppearanceHovered.Options.UseFont = true;
             this.simpleButton3.AutoSize = true;
-            this.simpleButton3.ImageIndex = 4;
-            this.simpleButton3.ImageList = this.imageList2;
-            this.simpleButton3.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleLeft;
-            this.simpleButton3.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
+            this.simpleButton3.ImageOptions.ImageIndex = 4;
+            this.simpleButton3.ImageOptions.ImageList = this.imageList2;
+            this.simpleButton3.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
+            this.simpleButton3.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleLeft;
             this.simpleButton3.Location = new System.Drawing.Point(181, 3);
             this.simpleButton3.LookAndFeel.SkinName = "Office 2016 Colorful";
             this.simpleButton3.LookAndFeel.UseDefaultLookAndFeel = false;
@@ -740,10 +741,10 @@
             this.simpleButton8.AppearanceHovered.Options.UseFont = true;
             this.simpleButton8.AppearancePressed.Font = new System.Drawing.Font("微软雅黑", 9.75F);
             this.simpleButton8.AppearancePressed.Options.UseFont = true;
-            this.simpleButton8.ImageIndex = 6;
-            this.simpleButton8.ImageList = this.imageList2;
-            this.simpleButton8.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleLeft;
-            this.simpleButton8.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
+            this.simpleButton8.ImageOptions.ImageIndex = 6;
+            this.simpleButton8.ImageOptions.ImageList = this.imageList2;
+            this.simpleButton8.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
+            this.simpleButton8.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleLeft;
             this.simpleButton8.Location = new System.Drawing.Point(269, 3);
             this.simpleButton8.LookAndFeel.SkinName = "Office 2016 Colorful";
             this.simpleButton8.LookAndFeel.UseDefaultLookAndFeel = false;
@@ -766,10 +767,10 @@
             this.simpleButton4.AppearanceHovered.Options.UseFont = true;
             this.simpleButton4.AppearancePressed.Font = new System.Drawing.Font("微软雅黑", 9.75F);
             this.simpleButton4.AppearancePressed.Options.UseFont = true;
-            this.simpleButton4.ImageIndex = 6;
-            this.simpleButton4.ImageList = this.imageList2;
-            this.simpleButton4.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleLeft;
-            this.simpleButton4.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
+            this.simpleButton4.ImageOptions.ImageIndex = 6;
+            this.simpleButton4.ImageOptions.ImageList = this.imageList2;
+            this.simpleButton4.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
+            this.simpleButton4.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleLeft;
             this.simpleButton4.Location = new System.Drawing.Point(382, 3);
             this.simpleButton4.LookAndFeel.SkinName = "Office 2016 Colorful";
             this.simpleButton4.LookAndFeel.UseDefaultLookAndFeel = false;
@@ -787,6 +788,7 @@
             this.flowLayoutPanel2.Controls.Add(this.btn退出);
             this.flowLayoutPanel2.Controls.Add(this.simpleButton5);
             this.flowLayoutPanel2.Controls.Add(this.simpleButton1);
+            this.flowLayoutPanel2.Controls.Add(this.simpleButton9);
             this.flowLayoutPanel2.Location = new System.Drawing.Point(524, 3);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
             this.flowLayoutPanel2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -804,10 +806,10 @@
             this.btn退出.AppearanceHovered.Font = new System.Drawing.Font("微软雅黑", 9.75F);
             this.btn退出.AppearanceHovered.Options.UseFont = true;
             this.btn退出.AutoSize = true;
-            this.btn退出.ImageIndex = 1;
-            this.btn退出.ImageList = this.imageList2;
-            this.btn退出.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleLeft;
-            this.btn退出.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
+            this.btn退出.ImageOptions.ImageIndex = 1;
+            this.btn退出.ImageOptions.ImageList = this.imageList2;
+            this.btn退出.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
+            this.btn退出.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleLeft;
             this.btn退出.Location = new System.Drawing.Point(325, 3);
             this.btn退出.LookAndFeel.SkinName = "Office 2016 Colorful";
             this.btn退出.LookAndFeel.UseDefaultLookAndFeel = false;
@@ -828,10 +830,10 @@
             this.simpleButton5.AppearanceHovered.Font = new System.Drawing.Font("微软雅黑", 9.75F);
             this.simpleButton5.AppearanceHovered.Options.UseFont = true;
             this.simpleButton5.AutoSize = true;
-            this.simpleButton5.ImageIndex = 7;
-            this.simpleButton5.ImageList = this.imageList2;
-            this.simpleButton5.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleLeft;
-            this.simpleButton5.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
+            this.simpleButton5.ImageOptions.ImageIndex = 7;
+            this.simpleButton5.ImageOptions.ImageList = this.imageList2;
+            this.simpleButton5.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
+            this.simpleButton5.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleLeft;
             this.simpleButton5.Location = new System.Drawing.Point(263, 3);
             this.simpleButton5.LookAndFeel.SkinName = "Office 2016 Colorful";
             this.simpleButton5.LookAndFeel.UseDefaultLookAndFeel = false;
@@ -853,10 +855,10 @@
             this.simpleButton1.AppearanceHovered.Options.UseFont = true;
             this.simpleButton1.AppearancePressed.Font = new System.Drawing.Font("微软雅黑", 9.75F);
             this.simpleButton1.AppearancePressed.Options.UseFont = true;
-            this.simpleButton1.ImageIndex = 6;
-            this.simpleButton1.ImageList = this.imageList2;
-            this.simpleButton1.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleLeft;
-            this.simpleButton1.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
+            this.simpleButton1.ImageOptions.ImageIndex = 6;
+            this.simpleButton1.ImageOptions.ImageList = this.imageList2;
+            this.simpleButton1.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
+            this.simpleButton1.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleLeft;
             this.simpleButton1.Location = new System.Drawing.Point(167, 3);
             this.simpleButton1.LookAndFeel.SkinName = "Office 2016 Colorful";
             this.simpleButton1.LookAndFeel.UseDefaultLookAndFeel = false;
@@ -877,10 +879,10 @@
             this.simpleButton7.AppearanceHovered.Font = new System.Drawing.Font("微软雅黑", 9.75F);
             this.simpleButton7.AppearanceHovered.Options.UseFont = true;
             this.simpleButton7.AutoSize = true;
-            this.simpleButton7.ImageIndex = 3;
-            this.simpleButton7.ImageList = this.imageList2;
-            this.simpleButton7.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleLeft;
-            this.simpleButton7.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
+            this.simpleButton7.ImageOptions.ImageIndex = 3;
+            this.simpleButton7.ImageOptions.ImageList = this.imageList2;
+            this.simpleButton7.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
+            this.simpleButton7.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleLeft;
             this.simpleButton7.Location = new System.Drawing.Point(201, 12);
             this.simpleButton7.LookAndFeel.SkinName = "Office 2016 Colorful";
             this.simpleButton7.LookAndFeel.UseDefaultLookAndFeel = false;
@@ -934,6 +936,15 @@
             this.backgroundWorker2.WorkerSupportsCancellation = true;
             this.backgroundWorker2.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker2_DoWork);
             this.backgroundWorker2.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.backgroundWorker2_RunWorkerCompleted);
+            // 
+            // simpleButton9
+            // 
+            this.simpleButton9.Location = new System.Drawing.Point(86, 3);
+            this.simpleButton9.Name = "simpleButton9";
+            this.simpleButton9.Size = new System.Drawing.Size(75, 23);
+            this.simpleButton9.TabIndex = 61;
+            this.simpleButton9.Text = "刷新";
+            this.simpleButton9.Click += new System.EventHandler(this.simpleButton9_Click);
             // 
             // FrmOrderList
             // 
@@ -1023,5 +1034,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn12;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
         private DevExpress.XtraEditors.SimpleButton simpleButton8;
+        private DevExpress.XtraEditors.SimpleButton simpleButton9;
     }
 }

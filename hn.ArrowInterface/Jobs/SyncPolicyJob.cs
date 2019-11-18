@@ -19,7 +19,7 @@ namespace hn.ArrowInterface.Jobs
             var result = Interface.QueryPolicy(token.Token, pars);
             if (result.Success)
             {
-                Helper.Delete<QueryPolicy>("");
+                Helper.Delete<LH_Policy>("");
 
                 foreach (var row in result.Rows.AsParallel())
                 {

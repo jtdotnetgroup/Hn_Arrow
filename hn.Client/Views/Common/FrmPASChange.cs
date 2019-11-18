@@ -8,6 +8,8 @@ namespace hn.Client
     {
         ApiService.APIServiceClient _service;
 
+        
+
         public FrmPASChange()
         {
             InitializeComponent();

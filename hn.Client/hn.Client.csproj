@@ -60,6 +60,9 @@
   <PropertyGroup>
     <ApplicationIcon>default.ico</ApplicationIcon>
   </PropertyGroup>
+  <PropertyGroup>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="DevExpress.Data.v18.1, Version=18.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Pdf.v18.1.Core, Version=18.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
@@ -597,61 +600,10 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\loginbg.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\loginbg副本.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\loginbg2.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\2.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\shadow.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\shadow-rect.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Core\KControls\" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\btnClose.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\btnConfirm.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\btnPageIcon.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\btnSave.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\btnSearch.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\btnSendGoods.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\btnSetting.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="default.ico" />
-    <None Include="Service References\ApiService\APIService1.disco" />
-    <None Include="Resources\min.png" />
-    <None Include="Resources\close.png" />
+    <None Include="Service References\ApiService\APIService.wsdl" />
     <None Include="Service References\ApiService\APIService.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\ApiService\APIService1.wsdl" />
     <None Include="Service References\ApiService\APIService1.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -706,12 +658,69 @@
     <None Include="Service References\ApiService\APIService9.xsd">
       <SubType>Designer</SubType>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\loginbg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\loginbg副本.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\loginbg2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\shadow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\shadow-rect.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Core\KControls\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btnClose.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btnConfirm.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btnPageIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btnSave.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btnSearch.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btnSendGoods.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btnSetting.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="default.ico" />
+    <None Include="Service References\ApiService\hn.Client.ApiService.LH_Policy.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ApiService\hn.Client.ApiService.Remote_GetICPOEntryResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\ApiService\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
     <None Include="Service References\ApiService\configuration.svcinfo" />
     <None Include="Service References\ApiService\configuration91.svcinfo" />
+    <None Include="Service References\ApiService\APIService.disco" />
+    <None Include="Resources\min.png" />
+    <None Include="Resources\close.png" />
     <None Include="Resources\TitleNormal222.png" />
     <None Include="Resources\TitleNormal22.png" />
     <None Include="Resources\TitleNormal20.png" />
@@ -748,9 +757,6 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadataStorage Include="Service References\ApiService\" />
-  </ItemGroup>
-  <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
   </ItemGroup>
   <ItemGroup>
@@ -769,6 +775,9 @@
       <ProductName>Windows Installer 4.5</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\ApiService\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

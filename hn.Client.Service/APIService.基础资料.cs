@@ -223,15 +223,15 @@ namespace hn.Client.Service
                 */
 
                 string where = " and FBRANDID='" + brandid + "'";               
-                 where += string.Format(" AND (FACCOUNT LIKE '%MN%')", keyword);               
+                 //where += string.Format(" AND (FACCOUNT LIKE '%MN%')", keyword);               
                 var l1= V_CLIENTACCOUNTDal.Instance.GetWhereStr(where).OrderBy(x=>x.FACCOUNT).ToList();
 
                 where = " and FBRANDID='" + brandid + "'";               
-                    where += string.Format(" AND (FACCOUNT LIKE '%FDK%')", keyword);              
+                    //where += string.Format(" AND (FACCOUNT LIKE '%FDK%')", keyword);              
                 var l2 = V_CLIENTACCOUNTDal.Instance.GetWhereStr(where).OrderBy(x => x.FACCOUNT).ToList();
 
                 where = " and FBRANDID='" + brandid + "'";               
-                    where += string.Format(" AND (FACCOUNT LIKE '%GW%')", keyword);
+                    //where += string.Format(" AND (FACCOUNT LIKE '%GW%')", keyword);
                
                 var l3 = V_CLIENTACCOUNTDal.Instance.GetWhereStr(where).OrderBy(x => x.FACCOUNT).ToList();
 

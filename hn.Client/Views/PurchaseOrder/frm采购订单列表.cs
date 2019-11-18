@@ -9,7 +9,9 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text.RegularExpressions;
+using System.Threading.Tasks;
 using System.Windows.Forms;
+using hn.Client.ApiService;
 
 namespace hn.Client
 {
@@ -732,6 +734,12 @@ namespace hn.Client
 
         private void simpleButton3_Click(object sender, EventArgs e)
         {
+            var task = new Task(SyncOrder);
+
+           task.Start();
+
+            return;
+
             test();
             fid_tb.Clear();
             int[] rownumber = this.gridView采购订单列表.GetSelectedRows();//获取选中行号；
@@ -844,10 +852,7 @@ namespace hn.Client
 
                         foreach (var sub in listICPO)
                         {
-
                             ProductViewModel pro = _service.getProductView(sub.FITEMID);
-
-
 
                             MApiModel.api3.Datum subItem = new MApiModel.api3.Datum();
                             subItem.sourceno = tempBillModel.FBILLNO;
@@ -1153,12 +1158,44 @@ namespace hn.Client
         string tuMessage = "";
 
         string optType = "0";//
+        /// <summary>
+        /// 同步订单，异步执行
+        /// </summary>
+        private void SyncOrder()
+        {
+            try
+            {
+                APIServiceClient mapi = new APIServiceClient();
+                var rows = gridView采购订单列表.GetSelectedRows();
+                List<string> billnos = new List<string>();
+
+                foreach (var r in rows)
+                {
+                    var billno = gridView采购订单列表.GetRowCellValue(r, "FBILLNO").ToString();
+                    billnos.Add(billno);
+                }
+
+                if (billnos.Count > 0)
+                {
+                    if (mapi.SaleOrderUpload(billnos.ToArray()))
+                    {
+                        MsgHelper.ShowInformation("同步完成");
+                    };
+                }
+            }
+            catch (Exception exception)
+            {
+                MsgHelper.ShowInformation(exception.Message);
+            }
+        }
+
         private void backgroundWorker2_DoWork(object sender, DoWorkEventArgs e)
         {
 
-            tuMessage = "";
 
 
+
+            #region 蒙厂代码，不适用
             switch (optType)
             {
                 case "0":
@@ -1186,17 +1223,18 @@ namespace hn.Client
                             List<ICPOBILLENTRYMODEL> listICPO = new List<ICPOBILLENTRYMODEL>();
                             foreach (var sub in listEntry)
                             {
+
                                 ICPOBILLENTRYMODEL t = new ICPOBILLENTRYMODEL();
                                 t.FENTRYID = sub.FENTRYID;
                                 t.FICPOBILLID = sub.FICPOBILLID;
                                 t.FID = sub.FID;
-                               
+
                                 listICPO.Add(t);
                             }
 
                             if (_service.AuditSave_ICPO(listICPO.ToArray(), Global.LoginUser, ""))
                             {
-                               // MsgHelper.ShowInformation("审核成功！");
+                                // MsgHelper.ShowInformation("审核成功！");
                                 try
                                 {
                                     listSearch = _service.GetOrderList(
@@ -1217,7 +1255,7 @@ namespace hn.Client
                             }
                         }
                     }
-                    catch(Exception ee)
+                    catch (Exception ee)
                     {
                         tuMessage = ee.ToStr();
                     }
@@ -1225,103 +1263,26 @@ namespace hn.Client
 
                 case "2":
                     try
-                    { 
-                    foreach (var sub11 in fid_fs)
                     {
-
-                        var listEntry1 = _service.GetOrderEntryList(sub11, null);
-                        List<ICPOBILLENTRYMODEL> listICPO1 = new List<ICPOBILLENTRYMODEL>();
-                        foreach (var sub in listEntry1)
+                        foreach (var sub11 in fid_fs)
                         {
-                            ICPOBILLENTRYMODEL t = new ICPOBILLENTRYMODEL();
-                            t.FENTRYID = sub.FENTRYID;
-                            t.FICPOBILLID = sub.FICPOBILLID;
-                            t.FID = sub.FID;
-                            listICPO1.Add(t);
-                        }
 
-                        if (_service.UnAuditSave_ICPO(listICPO1.ToArray(), Global.LoginUser, ""))
-                        {
-                          //  MsgHelper.ShowInformation("反审成功！");
-                            try
+                            var listEntry1 = _service.GetOrderEntryList(sub11, null);
+                            List<ICPOBILLENTRYMODEL> listICPO1 = new List<ICPOBILLENTRYMODEL>();
+                            foreach (var sub in listEntry1)
                             {
-                                listSearch = _service.GetOrderList(
-                                 Global.LoginUser,
-                                 "", query.brand, int.Parse((query.t_status == null ? "0" : query.t_status)), "", query.P_BillNo,
-                                 query.startTime.ToString(),
-                                query.endTime.ToStr(),
-                                 !query.bClose);
+                                ICPOBILLENTRYMODEL t = new ICPOBILLENTRYMODEL();
+                                t.FENTRYID = sub.FENTRYID;
+                                t.FICPOBILLID = sub.FICPOBILLID;
+                                t.FID = sub.FID;
+                                listICPO1.Add(t);
                             }
-                            catch (Exception ee)
-                            {
-                                tuMessage = ee.ToString();
-                            }
-                        }
-                        else
-                        {
-                            MsgHelper.ShowInformation("反审失败！");
-                        }
-                        }
-                    }
-                    catch (Exception ee)
-                    {
-                        tuMessage = ee.ToStr();
-                    }
-                    break;
 
-                case "3":
-                    try
-                    {
-                        ApiService.APIServiceClient mapi = new ApiService.APIServiceClient();
-                        foreach (var sub22 in fid_tb)
-                        {
-                            string s = mapi.Remote_InsertICPOEntry(sub22.Value);
-
-                            if (!s.Contains("error"))
+                            if (_service.UnAuditSave_ICPO(listICPO1.ToArray(), Global.LoginUser, ""))
                             {
-                                Dictionary<int, string> dicEntryID_THDBMDetail = new Dictionary<int, string>();
+                                //  MsgHelper.ShowInformation("反审成功！");
                                 try
                                 {
-                                    MApiModel.api24.Rootobject api24 = new MApiModel.api24.Rootobject();
-                                    api24.action = "getMN_cp_24";
-                                    api24.token = "";
-
-                                    DateTime theTime = DateTime.Now;
-                                    string rq1 = theTime.Year + "/" + (theTime.Month < 10 ? "0" + theTime.Month.ToStr() : theTime.Month.ToStr()) + "/" + (theTime.Day < 10 ? "0" + theTime.Day.ToStr() : theTime.Day.ToStr());
-
-                                    api24.rq1 = rq1;
-                                    api24.rq2 = rq1;
-                                    api24.pageIndex = 1;
-                                    api24.pageSize = 200;
-                                    api24.pzhm = s;
-
-                                    MApiModel.recApi24.Rootobject r24 = new MApiModel.recApi24.Rootobject();
-                                    r24 = _service.Remote_Get24(api24);
-
-                                    Regex reg = new Regex("(\\d+)");
-
-                                    foreach (var subb in r24.resultInfo)
-                                    {
-                                        if (!string.IsNullOrEmpty(subb.khhm1) && reg.IsMatch(subb.khhm1))
-                                        {
-                                            int iEndtry = int.Parse(reg.Match(subb.khhm1).Groups[1].Value);
-                                            if (dicEntryID_THDBMDetail.ContainsKey(iEndtry))
-                                                dicEntryID_THDBMDetail.Add(iEndtry, subb.autoid);
-                                        }
-                                    }
-
-                                }
-                                catch(Exception ee)
-                                { }
-
-
-                                _service.Update_FSYN_Remote_Status(sub22.Key, 4, s,dicEntryID_THDBMDetail);
-
-                                MsgHelper.ShowInformation("同步完毕！");
-                                try
-                                {
-
-
                                     listSearch = _service.GetOrderList(
                                      Global.LoginUser,
                                      "", query.brand, int.Parse((query.t_status == null ? "0" : query.t_status)), "", query.P_BillNo,
@@ -1336,11 +1297,23 @@ namespace hn.Client
                             }
                             else
                             {
-                                MsgHelper.ShowError(s);
+                                MsgHelper.ShowInformation("反审失败！");
                             }
                         }
                     }
-                    catch(Exception ee)
+                    catch (Exception ee)
+                    {
+                        tuMessage = ee.ToStr();
+                    }
+                    break;
+
+                case "3":
+                    try
+                    {
+
+
+                    }
+                    catch (Exception ee)
                     {
                         tuMessage = ee.ToStr();
                     }
@@ -1410,13 +1383,17 @@ namespace hn.Client
                     {
                         listDetail = _service.GetOrderEntryList(fid_detail, null);
                     }
-                    catch(Exception ee)
+                    catch (Exception ee)
                     {
                         tuMessage = ee.ToString();
                     }
                     break;
 
             }
+
+
+            #endregion
+
 
         }
 
@@ -1451,6 +1428,10 @@ namespace hn.Client
             simpleButton6.Enabled = bEnable;
         }
 
-
+        private void simpleButton9_Click(object sender, EventArgs e)
+        {
+            optType = "0";
+            backgroundWorker2.RunWorkerAsync();
+        }
     }
 }

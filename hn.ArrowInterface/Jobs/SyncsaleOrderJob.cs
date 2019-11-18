@@ -103,7 +103,7 @@ namespace hn.ArrowInterface.Jobs
                 catch (Exception e)
                 {
                     tran.Rollback();
-                    tran.Connection.Close();
+                    
                     string message = $"定制订单&常规工程订单&计划工程订单插入失败：{e.Message}";
                     LogHelper.Error(message);
                     LogHelper.Error(e);

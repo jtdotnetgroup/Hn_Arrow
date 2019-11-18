@@ -8,6 +8,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
+using hn.Client.ApiService;
 using hn.Common;
 
 namespace hn.Client
@@ -101,6 +102,8 @@ namespace hn.Client
 
             //初始化品牌列表
             var list = _service.GetBrandList(Global.LoginUser);
+
+
             foreach (var item in list)
             {
 
@@ -159,13 +162,34 @@ namespace hn.Client
             initComboBox();
         }
 
+        /// <summary>
+        /// 设置政策选择列表
+        /// </summary>
+        private void SetPolicyItem()
+        {
+            var policyList = _service.Select_List();
+            //把政策列表放入控件TAG属性中，供后续调用
+            cmbPromotionPolicy.Tag = policyList;
+          
 
+            foreach (var item in policyList)
+            {
+                cmbPromotionPolicy.Properties.Items.Add(new SelectModel(){FID = item.Id,FName = $"{item.PolicyName}-{item.Id}"});
+                if (item.Id == model.LH_PROMOTIONPOLICYID)
+                {
+                    cmbPromotionPolicy.SelectedItem = item;
+                }
+            }
+        }
 
 
         private void initComboBox()
         {
             //初始化品牌列表
             var list = _service.GetBrandList(Global.LoginUser);
+
+            list = list.Where(p => p.FNAME.Contains("箭牌") || p.FNAME.Contains("法恩")).ToArray();
+
             foreach (var item in list)
             {
              
@@ -203,14 +227,9 @@ namespace hn.Client
                     cmbBusinessType.SelectedItem = item;
                 }
             }
-            foreach (var item in _service.Select_List())
-            {
-                cmbPromotionPolicy.Properties.Items.Add(item);
-                if (item.FID == model.LH_PROMOTIONPOLICYID)
-                {
-                    cmbPromotionPolicy.SelectedItem = item;
-                }
-            }
+            //政策下接列表
+            SetPolicyItem();
+
             foreach (var item in _service.GetDics("LH_ADV_MONEY_TYPE", "", true))
             {
                 cmbDeductionMethod.Properties.Items.Add(item);
@@ -496,7 +515,7 @@ namespace hn.Client
                 System.Windows.Forms.MessageBox.Show("期望到货日期不能为空！");
                 return;
             }
-            if ((cmbPromotionPolicy.SelectedItem as SelectModel) == null)
+            if (!(cmbPromotionPolicy.SelectedItem is SelectModel))
             {
                 System.Windows.Forms.MessageBox.Show("促销政策头ID不能为空！");
                 return;
@@ -541,7 +560,7 @@ namespace hn.Client
                 tBill.LH_ORDERTYPE = (cmbOrderType.SelectedItem as SYS_SUBDICSMODEL).FID;
                 tBill.LH_SALESCHANNEL = (cmbSaleChannel.SelectedItem as SYS_SUBDICSMODEL).FID;
                 tBill.LH_ORDERPRODLINE = (cboLH_ORDERPRODLINE.SelectedItem as SYS_SUBDICSMODEL).FID;
-                tBill.LH_EXPECTEDARRIVEDDATE = dateDHRQ.Text.ToDateTime();
+                tBill.LH_EXPECTEDARRIVEDDATE = dateDHRQ.DateTime;
                 tBill.LH_PROMOTIONPOLICYID = (cmbPromotionPolicy.SelectedItem as SelectModel).FID;
                 tBill.LH_OUTBOUNDORDER = txtLH_OUTBOUNDORDER.Text;
                 tBill.LH_ADVERTINGMONEYTYPE = (cmbDeductionMethod.SelectedItem as SYS_SUBDICSMODEL).FID;
@@ -560,7 +579,7 @@ namespace hn.Client
                         string strFID = Guid.NewGuid().ToStr();
                         //插入一条icprentry记录 
                         ICPRBILLENTRYMODEL tModel = new ICPRBILLENTRYMODEL();
-                        tModel.FITEMID = sub.FITEMID;
+                        tModel.FITEMID = sub.FSRCCODE;
                         tModel.FUNITID = sub.FUNITID;
                         tModel.FID = strFID;
                         tModel.FPLANID = strFID;
@@ -625,7 +644,7 @@ namespace hn.Client
 
 
                         //后面添加的字段
-                        sub0.FITEMID = sub.FITEMID;
+                        sub0.FITEMID = sub.FSRCCODE;
                         sub0.FSRCCODE = sub.FSRCCODE;
                         sub0.FSRCNAME = sub.FSRCNAME;
                         sub0.FSRCMODEL = sub.FSRCMODEL;
@@ -691,6 +710,8 @@ namespace hn.Client
 
 
                 tModel.FBRANDID = bmodel.FID;
+                tModel.LH_EXPECTEDARRIVEDDATE = dateDHRQ.DateTime;
+                tModel.LH_PROMOTIONPOLICYID=  (cmbPromotionPolicy.SelectedItem as SelectModel).FID;
                 tModel.FCLIENTID = txt厂家账户.Tag.ToStr();
                 tModel.FDATE = dateDatetime.DateTime;
                 tModel.FBILLNO = txtBillNO.Text;
@@ -741,6 +762,7 @@ namespace hn.Client
                         {
 
                         }
+
                         tRModel.FSTOREHOUSE = sub.FstockNO;
                         tRModel.FNEEDDATE = sub.FNEEDDATE;
                         tRModel.FASKQTY = sub.FASKQTY;
@@ -1035,13 +1057,13 @@ namespace hn.Client
         private void itemButton商品代码_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
             FrmNewQueryProduct frm = new FrmNewQueryProduct();
-            frm.itemid = (cmbPromotionPolicy.SelectedItem as SelectModel).FName;
+            frm.itemid = (cmbPromotionPolicy.SelectedItem as SelectModel).FID;
             if (frm.ShowDialog() == DialogResult.OK)
             {
                 var list = gridControl采购订单明细.DataSource as List<V_ICPOBILLENTRYMODEL>;
                 var row = list[gridView发货计划明细.GetDataSourceRowIndex(gridView发货计划明细.FocusedRowHandle)];
 
-                row.FITEMID = frm.SelectData.ITEMID;
+                row.FITEMID = "";
                 row.FPRODUCTNAME = frm.SelectData.PRODNAME;
                 row.FPRODUCTTYPE = frm.SelectData.LHPRODTYPE;
                 row.FPRODUCTCODE = frm.SelectData.PRODCODE;
@@ -1051,9 +1073,9 @@ namespace hn.Client
 
                 row.Famount = row.FPRICE * row.FSRCQTY;
 
-                row.FSRCNAME = frm.SelectData.PRODMODEL;
-                row.FSRCMODEL = frm.SelectData.PRODSTANDARD;
-                row.FSRCCODE = frm.SelectData.LHPRODTYPE;
+                row.FSRCNAME = frm.SelectData.PRODNAME;
+                row.FSRCMODEL = $"{frm.SelectData.PRODMODEL}/{frm.SelectData.PRODSTANDARD}"; 
+                row.FSRCCODE = frm.SelectData.PRODCODE;
 
                 row.MINIMUMQUANTITY = frm.SelectData.MINIMUMQUANTITY;
                 row.CAPPINGQUANTITY = frm.SelectData.CAPPINGQUANTITY;
@@ -1384,6 +1406,28 @@ namespace hn.Client
         private void simpleButton9_Click(object sender, EventArgs e)
         {
             FPrice_A();
+        }
+
+        /// <summary>
+        /// 所属公司或订单类型改变时过滤可选政策
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void comBrand_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            cmbPromotionPolicy.Properties.Items.Clear();
+            cmbPromotionPolicy.SelectedItem = null;
+            var policyList = cmbPromotionPolicy.Tag as LH_Policy[];
+            var brandName = comBrand.SelectedItem.ToString();
+            var orderType = cmbOrderType.SelectedItem as SYS_SUBDICSMODEL;
+            if (policyList != null)
+            {
+                var selectList = policyList.Where(p =>
+                        p.DeptName.Contains(brandName)&& p.OrderType.Contains(orderType==null?"":orderType.FNUMBER))
+                    .Select(p => new SelectModel() {FID = p.Id, FName = $"{p.PolicyName}-{p.Id}"});
+
+                cmbPromotionPolicy.Properties.Items.AddRange(selectList.ToArray());
+            }
         }
     }
 }

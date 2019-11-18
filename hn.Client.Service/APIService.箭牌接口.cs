@@ -6,6 +6,7 @@ using hn.ArrowInterface.Entities;
 using hn.ArrowInterface.RequestParams;
 using hn.ArrowInterface.WebCommon;
 using hn.Common_Arrow;
+using hn.DataAccess.Model;
 using Newtonsoft.Json;
 
 namespace hn.Client.Service
@@ -17,8 +18,19 @@ namespace hn.Client.Service
             var token = CommonToken.GetToken();
             var http = new ArrowInterface.ArrowInterface();
             var Helper = new OracleDBHelper();
-            string where = $" AND LHOUTSYSTEMOD IN ('{string.Join(",", billNos)}')";
+            string where = $" AND LHOUTSYSTEMOD IN ('{string.Join("','", billNos)}')";
             var bills = Helper.GetWithWhereStr<SaleOrderUploadParam>(where);
+
+            bills.ForEach(b =>
+            {
+
+
+                var details = Helper.GetWhere(new SaleOrderUploadDetailedParam()
+                { lHOutSystemID = b.lHOutSystemID }).ToArray();
+
+                b.saleOrderItemList = details;
+            });
+
             List<string> errors = new List<string>();
 
             bills.ForEach(b =>
@@ -32,25 +44,36 @@ namespace hn.Client.Service
 
                     if (result.Success)
                     {
-                        foreach (var row in result.Rows.AsParallel())
+                        ///返写箭牌销售单号到本地采购订单表ICPOBILL的FDesBillNo字段
+                        var whereStr = $" AND FBILLNO='{b.lHOutSystemOd}'";
+                        var icpobill = Helper.GetWithTranWithWhereStr<ICPOBILLMODEL>(whereStr, tran)
+                            .SingleOrDefault();
+                        foreach (var row in result.item.AsParallel())
                         {
-                            Helper.DeleteWithTran<Order>(row.KeyId(), tran);
+                            Helper.DeleteWithTran(row, tran);
+
                             Helper.InsertWithTransation(row, tran);
-                            tran.Commit();
+
+                            icpobill.FDesBillNo = row.orderNo;
                         }
+                        //更新本地采购订单表ICPOBILL
+                        Helper.Update(icpobill);
+
                     }
                     else
                     {
-                        errors.Add($"单据【{b.lHOutSystemOd}】上传失败");
+                        errors.Add($"单据【{b.lHOutSystemOd}】上传失败:{result.Message}");
                     }
+
+                    tran.Commit();
                 }
-                catch (OracleException e)
+                catch (Exception e)
                 {
                     tran.Rollback();
-                    tran.Connection.Close();
-                    var message = string.Format("销售订单上传结果插入失败：{0}", JsonConvert.SerializeObject(b));
-                    Common_Arrow.LogHelper.Info(message);
-                    Common_Arrow.LogHelper.Error(e);
+                    var message = $"销售订单【{b.lHOutSystemOd}】上传失败：{e.Message}";
+                    LogHelper.Info(message);
+                    LogHelper.Error(e);
+                    throw;
                 }
             });
 
@@ -87,10 +110,9 @@ namespace hn.Client.Service
                     catch (Exception e)
                     {
                         tran.Rollback();
-                        tran.Connection.Close();
                         var message = string.Format("OA同步结果插入失败：{0}", JsonConvert.SerializeObject(row));
-                        Common_Arrow.LogHelper.Info(message);
-                        Common_Arrow.LogHelper.Error(e);
+                        LogHelper.Info(message);
+                        LogHelper.Error(e);
                         return false;
                     }
 
@@ -129,7 +151,7 @@ namespace hn.Client.Service
                     {
                         errors.Add($"单据【{no}】车牌同步失败");
                     }
-                    
+
                 }
                 catch (OracleException e)
                 {

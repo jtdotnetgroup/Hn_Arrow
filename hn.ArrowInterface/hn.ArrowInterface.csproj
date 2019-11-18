@@ -96,7 +96,7 @@
     <Compile Include="Entities\LH_OUTBOUNDORDER.cs" />
     <Compile Include="Entities\SaleOrder.cs" />
     <Compile Include="Entities\QuerylHInventoryPageResult.cs" />
-    <Compile Include="Entities\QueryPolicy.cs" />
+    <Compile Include="Entities\LH_Policy.cs" />
     <Compile Include="Entities\LH_Product.cs" />
     <Compile Include="Entities\RequestRecord.cs" />
     <Compile Include="Entities\SaleOrderUpload.cs" />

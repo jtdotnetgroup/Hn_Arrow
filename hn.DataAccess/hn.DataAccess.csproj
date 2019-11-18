@@ -389,6 +389,10 @@
     <Compile Include="model\SystemModel\SYS_SUBDICSMODEL.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\hn.ArrowInterface\hn.ArrowInterface.csproj">
+      <Project>{C8E030DD-9179-43FD-B82C-2EC742FC2735}</Project>
+      <Name>hn.ArrowInterface</Name>
+    </ProjectReference>
     <ProjectReference Include="..\hn.Common\hn.Common.csproj">
       <Project>{16183c27-23be-4335-ae94-f12bb57421ff}</Project>
       <Name>hn.Common</Name>

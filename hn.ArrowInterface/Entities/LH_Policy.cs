@@ -3,7 +3,7 @@
 namespace hn.ArrowInterface.Entities
 {
     [Table("LH_Policy")]
-    public class QueryPolicy
+    public class LH_Policy
     {
         [Column("HeadId")]
         public string Id { get; set; }

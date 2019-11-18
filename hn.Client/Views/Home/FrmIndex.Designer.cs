@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition4 = new DevExpress.XtraGrid.StyleFormatCondition();
             DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition1 = new DevExpress.XtraGrid.StyleFormatCondition();
             DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition2 = new DevExpress.XtraGrid.StyleFormatCondition();
-            DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition3 = new DevExpress.XtraGrid.StyleFormatCondition();
             this.xtraScrollableControl1 = new DevExpress.XtraEditors.XtraScrollableControl();
             this.pnlLayout3 = new System.Windows.Forms.Panel();
             this.gridControl待发货 = new DevExpress.XtraGrid.GridControl();
@@ -94,9 +94,8 @@
             this.xtraScrollableControl1.Location = new System.Drawing.Point(0, 0);
             this.xtraScrollableControl1.LookAndFeel.SkinName = "Office 2010 Silver";
             this.xtraScrollableControl1.LookAndFeel.UseDefaultLookAndFeel = false;
-            this.xtraScrollableControl1.Margin = new System.Windows.Forms.Padding(4);
             this.xtraScrollableControl1.Name = "xtraScrollableControl1";
-            this.xtraScrollableControl1.Size = new System.Drawing.Size(1677, 779);
+            this.xtraScrollableControl1.Size = new System.Drawing.Size(1258, 623);
             this.xtraScrollableControl1.TabIndex = 3;
             // 
             // pnlLayout3
@@ -104,17 +103,17 @@
             this.pnlLayout3.Controls.Add(this.gridControl待发货);
             this.pnlLayout3.Controls.Add(this.panel6);
             this.pnlLayout3.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pnlLayout3.Location = new System.Drawing.Point(1008, 0);
+            this.pnlLayout3.Location = new System.Drawing.Point(756, 0);
+            this.pnlLayout3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pnlLayout3.Name = "pnlLayout3";
-            this.pnlLayout3.Padding = new System.Windows.Forms.Padding(10);
-            this.pnlLayout3.Size = new System.Drawing.Size(504, 779);
+            this.pnlLayout3.Padding = new System.Windows.Forms.Padding(8, 8, 8, 8);
+            this.pnlLayout3.Size = new System.Drawing.Size(378, 623);
             this.pnlLayout3.TabIndex = 5;
             // 
             // gridControl待发货
             // 
             this.gridControl待发货.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridControl待发货.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(4);
-            this.gridControl待发货.Location = new System.Drawing.Point(10, 54);
+            this.gridControl待发货.Location = new System.Drawing.Point(8, 43);
             this.gridControl待发货.LookAndFeel.SkinName = "Office 2010 Silver";
             this.gridControl待发货.LookAndFeel.UseDefaultLookAndFeel = false;
             this.gridControl待发货.MainView = this.gridView待发货;
@@ -122,7 +121,7 @@
             this.gridControl待发货.Name = "gridControl待发货";
             this.gridControl待发货.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemCheckEdit3});
-            this.gridControl待发货.Size = new System.Drawing.Size(484, 715);
+            this.gridControl待发货.Size = new System.Drawing.Size(362, 572);
             this.gridControl待发货.TabIndex = 32;
             this.gridControl待发货.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView待发货});
@@ -152,16 +151,17 @@
             this.gridView待发货.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.gridColumn3,
             this.gridColumn4});
+            this.gridView待发货.DetailHeight = 280;
             this.gridView待发货.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
-            styleFormatCondition1.Appearance.ForeColor = System.Drawing.Color.Red;
-            styleFormatCondition1.Appearance.Options.UseForeColor = true;
-            styleFormatCondition1.ApplyToRow = true;
-            styleFormatCondition1.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
-            styleFormatCondition1.Value1 = "离线";
+            styleFormatCondition4.Appearance.ForeColor = System.Drawing.Color.Red;
+            styleFormatCondition4.Appearance.Options.UseForeColor = true;
+            styleFormatCondition4.ApplyToRow = true;
+            styleFormatCondition4.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
+            styleFormatCondition4.Value1 = "离线";
             this.gridView待发货.FormatConditions.AddRange(new DevExpress.XtraGrid.StyleFormatCondition[] {
-            styleFormatCondition1});
+            styleFormatCondition4});
             this.gridView待发货.GridControl = this.gridControl待发货;
-            this.gridView待发货.IndicatorWidth = 60;
+            this.gridView待发货.IndicatorWidth = 45;
             this.gridView待发货.Name = "gridView待发货";
             this.gridView待发货.OptionsBehavior.Editable = false;
             this.gridView待发货.OptionsCustomization.AllowQuickHideColumns = false;
@@ -176,10 +176,11 @@
             // 
             this.gridColumn3.Caption = "二级销区";
             this.gridColumn3.FieldName = "FCLASSAREA2NAME";
+            this.gridColumn3.MinWidth = 15;
             this.gridColumn3.Name = "gridColumn3";
             this.gridColumn3.Visible = true;
             this.gridColumn3.VisibleIndex = 0;
-            this.gridColumn3.Width = 130;
+            this.gridColumn3.Width = 97;
             // 
             // gridColumn4
             // 
@@ -187,10 +188,11 @@
             this.gridColumn4.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.gridColumn4.Caption = "请购单号";
             this.gridColumn4.FieldName = "FBILLNO";
+            this.gridColumn4.MinWidth = 15;
             this.gridColumn4.Name = "gridColumn4";
             this.gridColumn4.Visible = true;
             this.gridColumn4.VisibleIndex = 1;
-            this.gridColumn4.Width = 200;
+            this.gridColumn4.Width = 150;
             // 
             // repositoryItemCheckEdit3
             // 
@@ -204,9 +206,10 @@
             this.panel6.Controls.Add(this.labelControl2);
             this.panel6.Controls.Add(this.separatorControl3);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel6.Location = new System.Drawing.Point(10, 10);
+            this.panel6.Location = new System.Drawing.Point(8, 8);
+            this.panel6.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(484, 44);
+            this.panel6.Size = new System.Drawing.Size(362, 35);
             this.panel6.TabIndex = 33;
             // 
             // linkLabel3
@@ -216,10 +219,9 @@
             this.linkLabel3.Font = new System.Drawing.Font("微软雅黑", 10.5F);
             this.linkLabel3.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
             this.linkLabel3.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.linkLabel3.Location = new System.Drawing.Point(394, 5);
-            this.linkLabel3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.linkLabel3.Location = new System.Drawing.Point(295, 4);
             this.linkLabel3.Name = "linkLabel3";
-            this.linkLabel3.Size = new System.Drawing.Size(85, 24);
+            this.linkLabel3.Size = new System.Drawing.Size(67, 20);
             this.linkLabel3.TabIndex = 31;
             this.linkLabel3.TabStop = true;
             this.linkLabel3.Text = "更多>>>";
@@ -230,12 +232,13 @@
             // 
             this.labelControl2.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(188)))), ((int)(((byte)(188)))), ((int)(((byte)(188)))));
             this.labelControl2.Appearance.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.labelControl2.Appearance.Options.UseBackColor = true;
+            this.labelControl2.Appearance.Options.UseFont = true;
             this.labelControl2.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.Vertical;
-            this.labelControl2.Location = new System.Drawing.Point(12, 4);
+            this.labelControl2.Location = new System.Drawing.Point(9, 3);
             this.labelControl2.LookAndFeel.UseDefaultLookAndFeel = false;
-            this.labelControl2.Margin = new System.Windows.Forms.Padding(4);
             this.labelControl2.Name = "labelControl2";
-            this.labelControl2.Size = new System.Drawing.Size(64, 24);
+            this.labelControl2.Size = new System.Drawing.Size(48, 20);
             this.labelControl2.TabIndex = 18;
             this.labelControl2.Text = "待发货";
             // 
@@ -244,13 +247,11 @@
             this.separatorControl3.AutoSizeMode = true;
             this.separatorControl3.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.separatorControl3.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.separatorControl3.Location = new System.Drawing.Point(0, 21);
+            this.separatorControl3.Location = new System.Drawing.Point(0, 16);
             this.separatorControl3.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Office2003;
             this.separatorControl3.LookAndFeel.UseDefaultLookAndFeel = false;
-            this.separatorControl3.Margin = new System.Windows.Forms.Padding(4);
             this.separatorControl3.Name = "separatorControl3";
-            this.separatorControl3.Padding = new System.Windows.Forms.Padding(12, 11, 12, 11);
-            this.separatorControl3.Size = new System.Drawing.Size(484, 23);
+            this.separatorControl3.Size = new System.Drawing.Size(362, 19);
             this.separatorControl3.TabIndex = 17;
             // 
             // pnlLayout2
@@ -258,17 +259,17 @@
             this.pnlLayout2.Controls.Add(this.gridControl待派车);
             this.pnlLayout2.Controls.Add(this.panel4);
             this.pnlLayout2.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pnlLayout2.Location = new System.Drawing.Point(504, 0);
+            this.pnlLayout2.Location = new System.Drawing.Point(378, 0);
+            this.pnlLayout2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pnlLayout2.Name = "pnlLayout2";
-            this.pnlLayout2.Padding = new System.Windows.Forms.Padding(10);
-            this.pnlLayout2.Size = new System.Drawing.Size(504, 779);
+            this.pnlLayout2.Padding = new System.Windows.Forms.Padding(8, 8, 8, 8);
+            this.pnlLayout2.Size = new System.Drawing.Size(378, 623);
             this.pnlLayout2.TabIndex = 4;
             // 
             // gridControl待派车
             // 
             this.gridControl待派车.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridControl待派车.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(4);
-            this.gridControl待派车.Location = new System.Drawing.Point(10, 54);
+            this.gridControl待派车.Location = new System.Drawing.Point(8, 43);
             this.gridControl待派车.LookAndFeel.SkinName = "Office 2010 Silver";
             this.gridControl待派车.LookAndFeel.UseDefaultLookAndFeel = false;
             this.gridControl待派车.MainView = this.gridView待派车;
@@ -276,7 +277,7 @@
             this.gridControl待派车.Name = "gridControl待派车";
             this.gridControl待派车.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemCheckEdit2});
-            this.gridControl待派车.Size = new System.Drawing.Size(484, 715);
+            this.gridControl待派车.Size = new System.Drawing.Size(362, 572);
             this.gridControl待派车.TabIndex = 32;
             this.gridControl待派车.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView待派车});
@@ -306,16 +307,17 @@
             this.gridView待派车.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.gridColumn1,
             this.gridColumn2});
+            this.gridView待派车.DetailHeight = 280;
             this.gridView待派车.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
-            styleFormatCondition2.Appearance.ForeColor = System.Drawing.Color.Red;
-            styleFormatCondition2.Appearance.Options.UseForeColor = true;
-            styleFormatCondition2.ApplyToRow = true;
-            styleFormatCondition2.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
-            styleFormatCondition2.Value1 = "离线";
+            styleFormatCondition1.Appearance.ForeColor = System.Drawing.Color.Red;
+            styleFormatCondition1.Appearance.Options.UseForeColor = true;
+            styleFormatCondition1.ApplyToRow = true;
+            styleFormatCondition1.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
+            styleFormatCondition1.Value1 = "离线";
             this.gridView待派车.FormatConditions.AddRange(new DevExpress.XtraGrid.StyleFormatCondition[] {
-            styleFormatCondition2});
+            styleFormatCondition1});
             this.gridView待派车.GridControl = this.gridControl待派车;
-            this.gridView待派车.IndicatorWidth = 60;
+            this.gridView待派车.IndicatorWidth = 45;
             this.gridView待派车.Name = "gridView待派车";
             this.gridView待派车.OptionsBehavior.Editable = false;
             this.gridView待派车.OptionsCustomization.AllowQuickHideColumns = false;
@@ -330,10 +332,11 @@
             // 
             this.gridColumn1.Caption = "二级销区";
             this.gridColumn1.FieldName = "FCLASSAREA2NAME";
+            this.gridColumn1.MinWidth = 15;
             this.gridColumn1.Name = "gridColumn1";
             this.gridColumn1.Visible = true;
             this.gridColumn1.VisibleIndex = 0;
-            this.gridColumn1.Width = 130;
+            this.gridColumn1.Width = 97;
             // 
             // gridColumn2
             // 
@@ -341,10 +344,11 @@
             this.gridColumn2.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.gridColumn2.Caption = "请购单号";
             this.gridColumn2.FieldName = "FBILLNO";
+            this.gridColumn2.MinWidth = 15;
             this.gridColumn2.Name = "gridColumn2";
             this.gridColumn2.Visible = true;
             this.gridColumn2.VisibleIndex = 1;
-            this.gridColumn2.Width = 200;
+            this.gridColumn2.Width = 150;
             // 
             // repositoryItemCheckEdit2
             // 
@@ -358,9 +362,10 @@
             this.panel4.Controls.Add(this.labelControl1);
             this.panel4.Controls.Add(this.separatorControl2);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel4.Location = new System.Drawing.Point(10, 10);
+            this.panel4.Location = new System.Drawing.Point(8, 8);
+            this.panel4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(484, 44);
+            this.panel4.Size = new System.Drawing.Size(362, 35);
             this.panel4.TabIndex = 33;
             // 
             // linkLabel2
@@ -370,10 +375,9 @@
             this.linkLabel2.Font = new System.Drawing.Font("微软雅黑", 10.5F);
             this.linkLabel2.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
             this.linkLabel2.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.linkLabel2.Location = new System.Drawing.Point(394, 5);
-            this.linkLabel2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.linkLabel2.Location = new System.Drawing.Point(295, 4);
             this.linkLabel2.Name = "linkLabel2";
-            this.linkLabel2.Size = new System.Drawing.Size(85, 24);
+            this.linkLabel2.Size = new System.Drawing.Size(67, 20);
             this.linkLabel2.TabIndex = 31;
             this.linkLabel2.TabStop = true;
             this.linkLabel2.Text = "更多>>>";
@@ -384,12 +388,13 @@
             // 
             this.labelControl1.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(188)))), ((int)(((byte)(188)))), ((int)(((byte)(188)))));
             this.labelControl1.Appearance.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.labelControl1.Appearance.Options.UseBackColor = true;
+            this.labelControl1.Appearance.Options.UseFont = true;
             this.labelControl1.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.Vertical;
-            this.labelControl1.Location = new System.Drawing.Point(12, 4);
+            this.labelControl1.Location = new System.Drawing.Point(9, 3);
             this.labelControl1.LookAndFeel.UseDefaultLookAndFeel = false;
-            this.labelControl1.Margin = new System.Windows.Forms.Padding(4);
             this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(64, 24);
+            this.labelControl1.Size = new System.Drawing.Size(48, 20);
             this.labelControl1.TabIndex = 18;
             this.labelControl1.Text = "待派车";
             // 
@@ -398,13 +403,11 @@
             this.separatorControl2.AutoSizeMode = true;
             this.separatorControl2.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.separatorControl2.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.separatorControl2.Location = new System.Drawing.Point(0, 21);
+            this.separatorControl2.Location = new System.Drawing.Point(0, 16);
             this.separatorControl2.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Office2003;
             this.separatorControl2.LookAndFeel.UseDefaultLookAndFeel = false;
-            this.separatorControl2.Margin = new System.Windows.Forms.Padding(4);
             this.separatorControl2.Name = "separatorControl2";
-            this.separatorControl2.Padding = new System.Windows.Forms.Padding(12, 11, 12, 11);
-            this.separatorControl2.Size = new System.Drawing.Size(484, 23);
+            this.separatorControl2.Size = new System.Drawing.Size(362, 19);
             this.separatorControl2.TabIndex = 17;
             // 
             // pnlLayout1
@@ -413,16 +416,16 @@
             this.pnlLayout1.Controls.Add(this.panel2);
             this.pnlLayout1.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnlLayout1.Location = new System.Drawing.Point(0, 0);
+            this.pnlLayout1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pnlLayout1.Name = "pnlLayout1";
-            this.pnlLayout1.Padding = new System.Windows.Forms.Padding(10);
-            this.pnlLayout1.Size = new System.Drawing.Size(504, 779);
+            this.pnlLayout1.Padding = new System.Windows.Forms.Padding(8, 8, 8, 8);
+            this.pnlLayout1.Size = new System.Drawing.Size(378, 623);
             this.pnlLayout1.TabIndex = 3;
             // 
             // gridControl请购计划列表
             // 
             this.gridControl请购计划列表.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridControl请购计划列表.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(4);
-            this.gridControl请购计划列表.Location = new System.Drawing.Point(10, 54);
+            this.gridControl请购计划列表.Location = new System.Drawing.Point(8, 43);
             this.gridControl请购计划列表.LookAndFeel.SkinName = "Office 2010 Silver";
             this.gridControl请购计划列表.LookAndFeel.UseDefaultLookAndFeel = false;
             this.gridControl请购计划列表.MainView = this.gridView请购计划列表;
@@ -430,7 +433,7 @@
             this.gridControl请购计划列表.Name = "gridControl请购计划列表";
             this.gridControl请购计划列表.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemCheckEdit1});
-            this.gridControl请购计划列表.Size = new System.Drawing.Size(484, 715);
+            this.gridControl请购计划列表.Size = new System.Drawing.Size(362, 572);
             this.gridControl请购计划列表.TabIndex = 32;
             this.gridControl请购计划列表.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView请购计划列表});
@@ -460,16 +463,17 @@
             this.gridView请购计划列表.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.gridColumn5,
             this.gridColumn请购单号});
+            this.gridView请购计划列表.DetailHeight = 280;
             this.gridView请购计划列表.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
-            styleFormatCondition3.Appearance.ForeColor = System.Drawing.Color.Red;
-            styleFormatCondition3.Appearance.Options.UseForeColor = true;
-            styleFormatCondition3.ApplyToRow = true;
-            styleFormatCondition3.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
-            styleFormatCondition3.Value1 = "离线";
+            styleFormatCondition2.Appearance.ForeColor = System.Drawing.Color.Red;
+            styleFormatCondition2.Appearance.Options.UseForeColor = true;
+            styleFormatCondition2.ApplyToRow = true;
+            styleFormatCondition2.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
+            styleFormatCondition2.Value1 = "离线";
             this.gridView请购计划列表.FormatConditions.AddRange(new DevExpress.XtraGrid.StyleFormatCondition[] {
-            styleFormatCondition3});
+            styleFormatCondition2});
             this.gridView请购计划列表.GridControl = this.gridControl请购计划列表;
-            this.gridView请购计划列表.IndicatorWidth = 60;
+            this.gridView请购计划列表.IndicatorWidth = 45;
             this.gridView请购计划列表.Name = "gridView请购计划列表";
             this.gridView请购计划列表.OptionsBehavior.Editable = false;
             this.gridView请购计划列表.OptionsCustomization.AllowQuickHideColumns = false;
@@ -484,10 +488,11 @@
             // 
             this.gridColumn5.Caption = "二级销区";
             this.gridColumn5.FieldName = "FCLASSAREA2NAME";
+            this.gridColumn5.MinWidth = 15;
             this.gridColumn5.Name = "gridColumn5";
             this.gridColumn5.Visible = true;
             this.gridColumn5.VisibleIndex = 0;
-            this.gridColumn5.Width = 130;
+            this.gridColumn5.Width = 97;
             // 
             // gridColumn请购单号
             // 
@@ -495,10 +500,11 @@
             this.gridColumn请购单号.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.gridColumn请购单号.Caption = "请购单号";
             this.gridColumn请购单号.FieldName = "FBILLNO";
+            this.gridColumn请购单号.MinWidth = 15;
             this.gridColumn请购单号.Name = "gridColumn请购单号";
             this.gridColumn请购单号.Visible = true;
             this.gridColumn请购单号.VisibleIndex = 1;
-            this.gridColumn请购单号.Width = 200;
+            this.gridColumn请购单号.Width = 150;
             // 
             // repositoryItemCheckEdit1
             // 
@@ -512,9 +518,10 @@
             this.panel2.Controls.Add(this.lblTitle);
             this.panel2.Controls.Add(this.separatorControl1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(10, 10);
+            this.panel2.Location = new System.Drawing.Point(8, 8);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(484, 44);
+            this.panel2.Size = new System.Drawing.Size(362, 35);
             this.panel2.TabIndex = 33;
             // 
             // linkLabel1
@@ -524,10 +531,9 @@
             this.linkLabel1.Font = new System.Drawing.Font("微软雅黑", 10.5F);
             this.linkLabel1.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
             this.linkLabel1.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.linkLabel1.Location = new System.Drawing.Point(394, 5);
-            this.linkLabel1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.linkLabel1.Location = new System.Drawing.Point(295, 4);
             this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(85, 24);
+            this.linkLabel1.Size = new System.Drawing.Size(67, 20);
             this.linkLabel1.TabIndex = 31;
             this.linkLabel1.TabStop = true;
             this.linkLabel1.Text = "更多>>>";
@@ -538,12 +544,13 @@
             // 
             this.lblTitle.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(188)))), ((int)(((byte)(188)))), ((int)(((byte)(188)))));
             this.lblTitle.Appearance.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lblTitle.Appearance.Options.UseBackColor = true;
+            this.lblTitle.Appearance.Options.UseFont = true;
             this.lblTitle.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.Vertical;
-            this.lblTitle.Location = new System.Drawing.Point(12, 4);
+            this.lblTitle.Location = new System.Drawing.Point(9, 3);
             this.lblTitle.LookAndFeel.UseDefaultLookAndFeel = false;
-            this.lblTitle.Margin = new System.Windows.Forms.Padding(4);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(64, 24);
+            this.lblTitle.Size = new System.Drawing.Size(48, 20);
             this.lblTitle.TabIndex = 18;
             this.lblTitle.Text = "待确认";
             // 
@@ -552,24 +559,21 @@
             this.separatorControl1.AutoSizeMode = true;
             this.separatorControl1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.separatorControl1.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.separatorControl1.Location = new System.Drawing.Point(0, 21);
+            this.separatorControl1.Location = new System.Drawing.Point(0, 16);
             this.separatorControl1.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Office2003;
             this.separatorControl1.LookAndFeel.UseDefaultLookAndFeel = false;
-            this.separatorControl1.Margin = new System.Windows.Forms.Padding(4);
             this.separatorControl1.Name = "separatorControl1";
-            this.separatorControl1.Padding = new System.Windows.Forms.Padding(12, 11, 12, 11);
-            this.separatorControl1.Size = new System.Drawing.Size(484, 23);
+            this.separatorControl1.Size = new System.Drawing.Size(362, 19);
             this.separatorControl1.TabIndex = 17;
             // 
             // FrmIndex
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1677, 779);
+            this.ClientSize = new System.Drawing.Size(1258, 623);
             this.Controls.Add(this.xtraScrollableControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmIndex";
             this.Text = " 首页 ";
             this.Load += new System.EventHandler(this.FrmIndex_Load);

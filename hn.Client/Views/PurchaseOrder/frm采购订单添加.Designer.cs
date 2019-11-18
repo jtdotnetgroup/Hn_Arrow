@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition1 = new DevExpress.XtraGrid.StyleFormatCondition();
+            DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition2 = new DevExpress.XtraGrid.StyleFormatCondition();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPurchaseOrder));
             this.gridColumn43 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryItemCheckEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
@@ -213,7 +213,7 @@
             this.panel左.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel左.Location = new System.Drawing.Point(0, 0);
             this.panel左.Name = "panel左";
-            this.panel左.Size = new System.Drawing.Size(1648, 640);
+            this.panel左.Size = new System.Drawing.Size(1641, 640);
             this.panel左.TabIndex = 3;
             this.panel左.Paint += new System.Windows.Forms.PaintEventHandler(this.panel左_Paint);
             // 
@@ -223,7 +223,7 @@
             this.panelControl4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl4.Location = new System.Drawing.Point(0, 228);
             this.panelControl4.Name = "panelControl4";
-            this.panelControl4.Size = new System.Drawing.Size(1648, 412);
+            this.panelControl4.Size = new System.Drawing.Size(1641, 412);
             this.panelControl4.TabIndex = 79;
             // 
             // gridControl采购订单明细
@@ -252,7 +252,7 @@
             this.itemButton商品代码,
             this.repositoryItemButtonEdit1,
             this.repositoryItemTextEdit9});
-            this.gridControl采购订单明细.Size = new System.Drawing.Size(1644, 408);
+            this.gridControl采购订单明细.Size = new System.Drawing.Size(1637, 408);
             this.gridControl采购订单明细.TabIndex = 1;
             this.gridControl采购订单明细.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView发货计划明细});
@@ -318,14 +318,14 @@
             this.gridColumn7,
             this.gridColumn8});
             this.gridView发货计划明细.DetailHeight = 280;
-            styleFormatCondition1.Appearance.ForeColor = System.Drawing.Color.Red;
-            styleFormatCondition1.Appearance.Options.UseForeColor = true;
-            styleFormatCondition1.ApplyToRow = true;
-            styleFormatCondition1.Column = this.gridColumn43;
-            styleFormatCondition1.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
-            styleFormatCondition1.Value1 = "离线";
+            styleFormatCondition2.Appearance.ForeColor = System.Drawing.Color.Red;
+            styleFormatCondition2.Appearance.Options.UseForeColor = true;
+            styleFormatCondition2.ApplyToRow = true;
+            styleFormatCondition2.Column = this.gridColumn43;
+            styleFormatCondition2.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
+            styleFormatCondition2.Value1 = "离线";
             this.gridView发货计划明细.FormatConditions.AddRange(new DevExpress.XtraGrid.StyleFormatCondition[] {
-            styleFormatCondition1});
+            styleFormatCondition2});
             this.gridView发货计划明细.GridControl = this.gridControl采购订单明细;
             this.gridView发货计划明细.Name = "gridView发货计划明细";
             this.gridView发货计划明细.OptionsBehavior.EditorShowMode = DevExpress.Utils.EditorShowMode.MouseDown;
@@ -906,7 +906,7 @@
             this.panelControl3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl3.Location = new System.Drawing.Point(0, 35);
             this.panelControl3.Name = "panelControl3";
-            this.panelControl3.Size = new System.Drawing.Size(1648, 193);
+            this.panelControl3.Size = new System.Drawing.Size(1641, 193);
             this.panelControl3.TabIndex = 78;
             this.panelControl3.Paint += new System.Windows.Forms.PaintEventHandler(this.panelControl3_Paint);
             // 
@@ -957,7 +957,7 @@
             // 
             // dateDHRQ
             // 
-            this.dateDHRQ.EditValue = new System.DateTime(2019, 11, 5, 0, 0, 0, 0);
+            this.dateDHRQ.EditValue = null;
             this.dateDHRQ.Location = new System.Drawing.Point(904, 54);
             this.dateDHRQ.Margin = new System.Windows.Forms.Padding(2);
             this.dateDHRQ.Name = "dateDHRQ";
@@ -1097,6 +1097,7 @@
             this.cmbOrderType.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.cmbOrderType.Size = new System.Drawing.Size(92, 26);
             this.cmbOrderType.TabIndex = 134;
+            this.cmbOrderType.SelectedIndexChanged += new System.EventHandler(this.comBrand_SelectedIndexChanged);
             // 
             // label6
             // 
@@ -1275,6 +1276,7 @@
             this.comBrand.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.comBrand.Size = new System.Drawing.Size(92, 26);
             this.comBrand.TabIndex = 119;
+            this.comBrand.SelectedIndexChanged += new System.EventHandler(this.comBrand_SelectedIndexChanged);
             // 
             // txtRemarks
             // 
@@ -1425,7 +1427,7 @@
             this.panelControl2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl2.Location = new System.Drawing.Point(0, 0);
             this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Size = new System.Drawing.Size(1648, 35);
+            this.panelControl2.Size = new System.Drawing.Size(1641, 35);
             this.panelControl2.TabIndex = 9;
             // 
             // simpleButton9

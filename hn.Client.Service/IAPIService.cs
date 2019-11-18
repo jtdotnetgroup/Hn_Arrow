@@ -13,6 +13,7 @@ using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.ServiceModel.Web;
 using System.Text;
+using hn.ArrowInterface.Entities;
 using hn.ArrowInterface.RequestParams;
 
 namespace hn.Client.Service
@@ -661,7 +662,7 @@ MApiModel.api24.Rootobject getapi24);
         #region 通用 
 
         [OperationContract]
-        List<SelectModel> Select_List();
+        List<LH_Policy> Select_List();
 
         [OperationContract]
         DataTable Select_DataTable();

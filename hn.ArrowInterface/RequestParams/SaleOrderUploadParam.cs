@@ -11,7 +11,7 @@ namespace hn.ArrowInterface.RequestParams
     /// <summary>
     /// 销售订单上传
     /// </summary> 
-    [Table("ICPOBILL")]
+    [Table("V_LH_POJSON")]
     public class SaleOrderUploadParam : AbstractRequestParams
     {
         public string orderType { get; set; }
@@ -27,7 +27,7 @@ namespace hn.ArrowInterface.RequestParams
         public string lHdepositOrNot { get; set; }
         public string lHdiscountType { get; set; }
         public string lHorgName { get; set; }
-        public DateTime submissionDate { get; set; }
+        public string submissionDate { get; set; }
         public string source { get; set; }
         public string lHOutSystemID { get; set; }
         public string lHOutSystemOd { get; set; }
@@ -36,16 +36,17 @@ namespace hn.ArrowInterface.RequestParams
         public string consignee { get; set; }
         public string lHoutboundOrder { get; set; }
         public string lHAdvertingMoneyType { get; set; }
+        [NotMapped]
         public SaleOrderUploadDetailedParam[] saleOrderItemList { get; set; }
     }
     /// <summary>
     /// 明细
     /// </summary>
-    [Table("ICPOBILLENTRY")]
+    [Table("V_LH_POJSONENTRY")]
     public class SaleOrderUploadDetailedParam
     {
         public string prodCode { get; set; }
-        public decimal qTY { get; set; }
+        public decimal? qTY { get; set; }
         public string lHrowSource { get; set; }
         public string lHOutSystemID { get; set; }
         public string lHOutSystemLineID { get; set; }

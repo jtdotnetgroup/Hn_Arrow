@@ -7,13 +7,18 @@ using hn.Common.Data;
 using hn.Common;
 using hn.Core.Dal;
 using System.Collections;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
 namespace hn.Core.Model
 {
+    [Table("sys_users")]
     [Serializable]
     [TableName("sys_users")]
     [Description("系统用户")]
     public class User
     {
+        [Key]
         public string FID { get; set; }
 
         /// <summary>
@@ -164,9 +169,11 @@ namespace hn.Core.Model
         //    get { return DepartmentDal.Instance.Get(DepartmentId); }
         //}
 
+        [NotMapped]
         [DbField(false)]
         public List<Navigation> Navigations { get; set; }
 
+        [NotMapped]
         [DbField(false)]
         public IEnumerable<Role> Roles
         {
@@ -176,6 +183,7 @@ namespace hn.Core.Model
         /// <summary>
         /// 用户可以访问的部门列表
         /// </summary>
+        [NotMapped]
         [DbField(false)]
         public string Departments
         {

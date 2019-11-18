@@ -34,10 +34,18 @@ namespace hn.Client
 
         private void onSearch(string keyword)
         {
-            var list = _service.GetClientAccountList(_brandID, keyword);
-            gridControl.DataSource = list;
+            try
+            {
+                var list = _service.GetClientAccountList(_brandID, keyword);
+                gridControl.DataSource = list;
 
-            gridControl.Focus();
+                gridControl.Focus();
+            }
+            catch (Exception e)
+            {
+                MsgHelper.ShowError(e.Message);
+            }
+            
         }
 
         private void btn查询_Click(object sender, EventArgs e)

@@ -15,11 +15,246 @@ namespace hn.Client.ApiService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="LH_Policy", Namespace="http://schemas.datacontract.org/2004/07/hn.ArrowInterface.Entities")]
+    [System.SerializableAttribute()]
+    public partial class LH_Policy : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private decimal CappingQUantityField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DeptNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private decimal DiscountRateField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ItemIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private decimal MinimumQuantityField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string OrderSubTypeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string OrderTypeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string PolicyItemTypeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string PolicyNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ProdChannelField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ProdCodeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private decimal SpecialOfferField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public decimal CappingQUantity {
+            get {
+                return this.CappingQUantityField;
+            }
+            set {
+                if ((this.CappingQUantityField.Equals(value) != true)) {
+                    this.CappingQUantityField = value;
+                    this.RaisePropertyChanged("CappingQUantity");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string DeptName {
+            get {
+                return this.DeptNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DeptNameField, value) != true)) {
+                    this.DeptNameField = value;
+                    this.RaisePropertyChanged("DeptName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public decimal DiscountRate {
+            get {
+                return this.DiscountRateField;
+            }
+            set {
+                if ((this.DiscountRateField.Equals(value) != true)) {
+                    this.DiscountRateField = value;
+                    this.RaisePropertyChanged("DiscountRate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.IdField, value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ItemId {
+            get {
+                return this.ItemIdField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ItemIdField, value) != true)) {
+                    this.ItemIdField = value;
+                    this.RaisePropertyChanged("ItemId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public decimal MinimumQuantity {
+            get {
+                return this.MinimumQuantityField;
+            }
+            set {
+                if ((this.MinimumQuantityField.Equals(value) != true)) {
+                    this.MinimumQuantityField = value;
+                    this.RaisePropertyChanged("MinimumQuantity");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string OrderSubType {
+            get {
+                return this.OrderSubTypeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.OrderSubTypeField, value) != true)) {
+                    this.OrderSubTypeField = value;
+                    this.RaisePropertyChanged("OrderSubType");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string OrderType {
+            get {
+                return this.OrderTypeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.OrderTypeField, value) != true)) {
+                    this.OrderTypeField = value;
+                    this.RaisePropertyChanged("OrderType");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string PolicyItemType {
+            get {
+                return this.PolicyItemTypeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PolicyItemTypeField, value) != true)) {
+                    this.PolicyItemTypeField = value;
+                    this.RaisePropertyChanged("PolicyItemType");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string PolicyName {
+            get {
+                return this.PolicyNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PolicyNameField, value) != true)) {
+                    this.PolicyNameField = value;
+                    this.RaisePropertyChanged("PolicyName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ProdChannel {
+            get {
+                return this.ProdChannelField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ProdChannelField, value) != true)) {
+                    this.ProdChannelField = value;
+                    this.RaisePropertyChanged("ProdChannel");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ProdCode {
+            get {
+                return this.ProdCodeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ProdCodeField, value) != true)) {
+                    this.ProdCodeField = value;
+                    this.RaisePropertyChanged("ProdCode");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public decimal SpecialOffer {
+            get {
+                return this.SpecialOfferField;
+            }
+            set {
+                if ((this.SpecialOfferField.Equals(value) != true)) {
+                    this.SpecialOfferField = value;
+                    this.RaisePropertyChanged("SpecialOffer");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="AbstractRequestParams", Namespace="http://schemas.datacontract.org/2004/07/hn.ArrowInterface.WebCommon")]
     [System.SerializableAttribute()]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(hn.Client.ApiService.AcctOAStatusParam))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(hn.Client.ApiService.ObOrderUploadParam))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(hn.Client.ApiService.SaleOrderUploadParam))]
     public partial class AbstractRequestParams : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
@@ -84,713 +319,385 @@ namespace hn.Client.ApiService {
         }
     }
     
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="ObOrderUploadParam", Namespace="http://schemas.datacontract.org/2004/07/hn.ArrowInterface.RequestParams")]
-    [System.SerializableAttribute()]
-    public partial class ObOrderUploadParam : hn.Client.ApiService.AbstractRequestParams {
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string lhodoIDField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string lhplateNoField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string lhodoID {
-            get {
-                return this.lhodoIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.lhodoIDField, value) != true)) {
-                    this.lhodoIDField = value;
-                    this.RaisePropertyChanged("lhodoID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string lhplateNo {
-            get {
-                return this.lhplateNoField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.lhplateNoField, value) != true)) {
-                    this.lhplateNoField = value;
-                    this.RaisePropertyChanged("lhplateNo");
-                }
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="SaleOrderUploadParam", Namespace="http://schemas.datacontract.org/2004/07/hn.ArrowInterface.RequestParams")]
-    [System.SerializableAttribute()]
-    public partial class SaleOrderUploadParam : hn.Client.ApiService.AbstractRequestParams {
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string acctCodeField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string balanceNameField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string billIdNameField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string consigneeField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string contractWayField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string lHAdvertingMoneyTypeField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string lHOutSystemIDField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string lHOutSystemOdField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string lHbuTypeField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string lHdepositOrNotField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string lHdiscountTypeField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string lHexpectedArrivedDateField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string lHorgNameField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string lHoutboundOrderField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string lHpromotionPolicyIDField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string orderProdLineField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string orderTypeField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string remarksField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private hn.Client.ApiService.SaleOrderUploadDetailedParam[] saleOrderItemListField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string salesChannelField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string sourceField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.DateTime submissionDateField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string tradeCompanyNameField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string acctCode {
-            get {
-                return this.acctCodeField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.acctCodeField, value) != true)) {
-                    this.acctCodeField = value;
-                    this.RaisePropertyChanged("acctCode");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string balanceName {
-            get {
-                return this.balanceNameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.balanceNameField, value) != true)) {
-                    this.balanceNameField = value;
-                    this.RaisePropertyChanged("balanceName");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string billIdName {
-            get {
-                return this.billIdNameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.billIdNameField, value) != true)) {
-                    this.billIdNameField = value;
-                    this.RaisePropertyChanged("billIdName");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string consignee {
-            get {
-                return this.consigneeField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.consigneeField, value) != true)) {
-                    this.consigneeField = value;
-                    this.RaisePropertyChanged("consignee");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string contractWay {
-            get {
-                return this.contractWayField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.contractWayField, value) != true)) {
-                    this.contractWayField = value;
-                    this.RaisePropertyChanged("contractWay");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string lHAdvertingMoneyType {
-            get {
-                return this.lHAdvertingMoneyTypeField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.lHAdvertingMoneyTypeField, value) != true)) {
-                    this.lHAdvertingMoneyTypeField = value;
-                    this.RaisePropertyChanged("lHAdvertingMoneyType");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string lHOutSystemID {
-            get {
-                return this.lHOutSystemIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.lHOutSystemIDField, value) != true)) {
-                    this.lHOutSystemIDField = value;
-                    this.RaisePropertyChanged("lHOutSystemID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string lHOutSystemOd {
-            get {
-                return this.lHOutSystemOdField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.lHOutSystemOdField, value) != true)) {
-                    this.lHOutSystemOdField = value;
-                    this.RaisePropertyChanged("lHOutSystemOd");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string lHbuType {
-            get {
-                return this.lHbuTypeField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.lHbuTypeField, value) != true)) {
-                    this.lHbuTypeField = value;
-                    this.RaisePropertyChanged("lHbuType");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string lHdepositOrNot {
-            get {
-                return this.lHdepositOrNotField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.lHdepositOrNotField, value) != true)) {
-                    this.lHdepositOrNotField = value;
-                    this.RaisePropertyChanged("lHdepositOrNot");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string lHdiscountType {
-            get {
-                return this.lHdiscountTypeField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.lHdiscountTypeField, value) != true)) {
-                    this.lHdiscountTypeField = value;
-                    this.RaisePropertyChanged("lHdiscountType");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string lHexpectedArrivedDate {
-            get {
-                return this.lHexpectedArrivedDateField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.lHexpectedArrivedDateField, value) != true)) {
-                    this.lHexpectedArrivedDateField = value;
-                    this.RaisePropertyChanged("lHexpectedArrivedDate");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string lHorgName {
-            get {
-                return this.lHorgNameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.lHorgNameField, value) != true)) {
-                    this.lHorgNameField = value;
-                    this.RaisePropertyChanged("lHorgName");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string lHoutboundOrder {
-            get {
-                return this.lHoutboundOrderField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.lHoutboundOrderField, value) != true)) {
-                    this.lHoutboundOrderField = value;
-                    this.RaisePropertyChanged("lHoutboundOrder");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string lHpromotionPolicyID {
-            get {
-                return this.lHpromotionPolicyIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.lHpromotionPolicyIDField, value) != true)) {
-                    this.lHpromotionPolicyIDField = value;
-                    this.RaisePropertyChanged("lHpromotionPolicyID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string orderProdLine {
-            get {
-                return this.orderProdLineField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.orderProdLineField, value) != true)) {
-                    this.orderProdLineField = value;
-                    this.RaisePropertyChanged("orderProdLine");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string orderType {
-            get {
-                return this.orderTypeField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.orderTypeField, value) != true)) {
-                    this.orderTypeField = value;
-                    this.RaisePropertyChanged("orderType");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string remarks {
-            get {
-                return this.remarksField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.remarksField, value) != true)) {
-                    this.remarksField = value;
-                    this.RaisePropertyChanged("remarks");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public hn.Client.ApiService.SaleOrderUploadDetailedParam[] saleOrderItemList {
-            get {
-                return this.saleOrderItemListField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.saleOrderItemListField, value) != true)) {
-                    this.saleOrderItemListField = value;
-                    this.RaisePropertyChanged("saleOrderItemList");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string salesChannel {
-            get {
-                return this.salesChannelField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.salesChannelField, value) != true)) {
-                    this.salesChannelField = value;
-                    this.RaisePropertyChanged("salesChannel");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string source {
-            get {
-                return this.sourceField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.sourceField, value) != true)) {
-                    this.sourceField = value;
-                    this.RaisePropertyChanged("source");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.DateTime submissionDate {
-            get {
-                return this.submissionDateField;
-            }
-            set {
-                if ((this.submissionDateField.Equals(value) != true)) {
-                    this.submissionDateField = value;
-                    this.RaisePropertyChanged("submissionDate");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string tradeCompanyName {
-            get {
-                return this.tradeCompanyNameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.tradeCompanyNameField, value) != true)) {
-                    this.tradeCompanyNameField = value;
-                    this.RaisePropertyChanged("tradeCompanyName");
-                }
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="SaleOrderUploadDetailedParam", Namespace="http://schemas.datacontract.org/2004/07/hn.ArrowInterface.RequestParams")]
-    [System.SerializableAttribute()]
-    public partial class SaleOrderUploadDetailedParam : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string lHDctpolicyItemIdField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string lHOutSystemIDField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string lHOutSystemLineIDField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string lHcommentsField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string lHrowSourceField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string prodCodeField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private decimal qTYField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string lHDctpolicyItemId {
-            get {
-                return this.lHDctpolicyItemIdField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.lHDctpolicyItemIdField, value) != true)) {
-                    this.lHDctpolicyItemIdField = value;
-                    this.RaisePropertyChanged("lHDctpolicyItemId");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string lHOutSystemID {
-            get {
-                return this.lHOutSystemIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.lHOutSystemIDField, value) != true)) {
-                    this.lHOutSystemIDField = value;
-                    this.RaisePropertyChanged("lHOutSystemID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string lHOutSystemLineID {
-            get {
-                return this.lHOutSystemLineIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.lHOutSystemLineIDField, value) != true)) {
-                    this.lHOutSystemLineIDField = value;
-                    this.RaisePropertyChanged("lHOutSystemLineID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string lHcomments {
-            get {
-                return this.lHcommentsField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.lHcommentsField, value) != true)) {
-                    this.lHcommentsField = value;
-                    this.RaisePropertyChanged("lHcomments");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string lHrowSource {
-            get {
-                return this.lHrowSourceField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.lHrowSourceField, value) != true)) {
-                    this.lHrowSourceField = value;
-                    this.RaisePropertyChanged("lHrowSource");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string prodCode {
-            get {
-                return this.prodCodeField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.prodCodeField, value) != true)) {
-                    this.prodCodeField = value;
-                    this.RaisePropertyChanged("prodCode");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public decimal qTY {
-            get {
-                return this.qTYField;
-            }
-            set {
-                if ((this.qTYField.Equals(value) != true)) {
-                    this.qTYField = value;
-                    this.RaisePropertyChanged("qTY");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ApiService.IAPIService")]
     public interface IAPIService {
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/Remote_GetICPO_BOEntry", ReplyAction="http://tempuri.org/IAPIService/Remote_GetICPO_BOEntryResponse")]
+        hn.DataAccess.Model.ICPO_BOLentryModel[] Remote_GetICPO_BOEntry(string fbillno, string entryid);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/Remote_GetICPO_BOEntry", ReplyAction="http://tempuri.org/IAPIService/Remote_GetICPO_BOEntryResponse")]
+        System.Threading.Tasks.Task<hn.DataAccess.Model.ICPO_BOLentryModel[]> Remote_GetICPO_BOEntryAsync(string fbillno, string entryid);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/Remote_SetICPO_BOEntryStatus", ReplyAction="http://tempuri.org/IAPIService/Remote_SetICPO_BOEntryStatusResponse")]
+        int Remote_SetICPO_BOEntryStatus(string fbillno, string entryid);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/Remote_SetICPO_BOEntryStatus", ReplyAction="http://tempuri.org/IAPIService/Remote_SetICPO_BOEntryStatusResponse")]
+        System.Threading.Tasks.Task<int> Remote_SetICPO_BOEntryStatusAsync(string fbillno, string entryid);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/Save_ICPREntry_List", ReplyAction="http://tempuri.org/IAPIService/Save_ICPREntry_ListResponse")]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(hn.DataAccess.Model.V_ICPRBILLENTRYMODEL))]
+        string Save_ICPREntry_List(hn.DataAccess.Model.ICPRBILLENTRYMODEL tModel);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/Save_ICPREntry_List", ReplyAction="http://tempuri.org/IAPIService/Save_ICPREntry_ListResponse")]
+        System.Threading.Tasks.Task<string> Save_ICPREntry_ListAsync(hn.DataAccess.Model.ICPRBILLENTRYMODEL tModel);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/Update_FSYNStatus", ReplyAction="http://tempuri.org/IAPIService/Update_FSYNStatusResponse")]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(hn.DataAccess.Model.V_ICPOBILLMODEL))]
+        int Update_FSYNStatus(hn.DataAccess.Model.ICPOBILLMODEL billMode, int iStatus);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/Update_FSYNStatus", ReplyAction="http://tempuri.org/IAPIService/Update_FSYNStatusResponse")]
+        System.Threading.Tasks.Task<int> Update_FSYNStatusAsync(hn.DataAccess.Model.ICPOBILLMODEL billMode, int iStatus);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/Update_FSYN_Remote_Status", ReplyAction="http://tempuri.org/IAPIService/Update_FSYN_Remote_StatusResponse")]
+        int Update_FSYN_Remote_Status(string billMode, int iStatus, string cjbh, System.Collections.Generic.Dictionary<int, string> dic_entry_thdbmdetail);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/Update_FSYN_Remote_Status", ReplyAction="http://tempuri.org/IAPIService/Update_FSYN_Remote_StatusResponse")]
+        System.Threading.Tasks.Task<int> Update_FSYN_Remote_StatusAsync(string billMode, int iStatus, string cjbh, System.Collections.Generic.Dictionary<int, string> dic_entry_thdbmdetail);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/Forder_confirm", ReplyAction="http://tempuri.org/IAPIService/Forder_confirmResponse")]
+        hn.DataAccess.DataResult Forder_confirm(hn.DataAccess.bll.Forder_confirm_Input input);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/Forder_confirm", ReplyAction="http://tempuri.org/IAPIService/Forder_confirmResponse")]
+        System.Threading.Tasks.Task<hn.DataAccess.DataResult> Forder_confirmAsync(hn.DataAccess.bll.Forder_confirm_Input input);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/Forder_delivery", ReplyAction="http://tempuri.org/IAPIService/Forder_deliveryResponse")]
+        hn.DataAccess.DataResult Forder_delivery(hn.DataAccess.bll.Forder_delivery_Input[] input);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/Forder_delivery", ReplyAction="http://tempuri.org/IAPIService/Forder_deliveryResponse")]
+        System.Threading.Tasks.Task<hn.DataAccess.DataResult> Forder_deliveryAsync(hn.DataAccess.bll.Forder_delivery_Input[] input);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/Sync_Today_THD", ReplyAction="http://tempuri.org/IAPIService/Sync_Today_THDResponse")]
+        bool Sync_Today_THD(string rq1, string rq2);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/Sync_Today_THD", ReplyAction="http://tempuri.org/IAPIService/Sync_Today_THDResponse")]
+        System.Threading.Tasks.Task<bool> Sync_Today_THDAsync(string rq1, string rq2);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/Select_List", ReplyAction="http://tempuri.org/IAPIService/Select_ListResponse")]
+        hn.Client.ApiService.LH_Policy[] Select_List();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/Select_List", ReplyAction="http://tempuri.org/IAPIService/Select_ListResponse")]
+        System.Threading.Tasks.Task<hn.Client.ApiService.LH_Policy[]> Select_ListAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/Select_DataTable", ReplyAction="http://tempuri.org/IAPIService/Select_DataTableResponse")]
+        System.Data.DataTable Select_DataTable();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/Select_DataTable", ReplyAction="http://tempuri.org/IAPIService/Select_DataTableResponse")]
+        System.Threading.Tasks.Task<System.Data.DataTable> Select_DataTableAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/SaleOrderUpload", ReplyAction="http://tempuri.org/IAPIService/SaleOrderUploadResponse")]
+        bool SaleOrderUpload(string[] billnos);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/SaleOrderUpload", ReplyAction="http://tempuri.org/IAPIService/SaleOrderUploadResponse")]
+        System.Threading.Tasks.Task<bool> SaleOrderUploadAsync(string[] billnos);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/AcctOaStatus", ReplyAction="http://tempuri.org/IAPIService/AcctOaStatusResponse")]
+        bool AcctOaStatus(hn.Client.ApiService.AcctOAStatusParam pars);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/AcctOaStatus", ReplyAction="http://tempuri.org/IAPIService/AcctOaStatusResponse")]
+        System.Threading.Tasks.Task<bool> AcctOaStatusAsync(hn.Client.ApiService.AcctOAStatusParam pars);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/obOrderUpload", ReplyAction="http://tempuri.org/IAPIService/obOrderUploadResponse")]
+        bool obOrderUpload(string[] billnos);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/obOrderUpload", ReplyAction="http://tempuri.org/IAPIService/obOrderUploadResponse")]
+        System.Threading.Tasks.Task<bool> obOrderUploadAsync(string[] billnos);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/Login", ReplyAction="http://tempuri.org/IAPIService/LoginResponse")]
         hn.Core.Model.User Login(string username, string password);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/Login", ReplyAction="http://tempuri.org/IAPIService/LoginResponse")]
+        System.Threading.Tasks.Task<hn.Core.Model.User> LoginAsync(string username, string password);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/ModifyPassword", ReplyAction="http://tempuri.org/IAPIService/ModifyPasswordResponse")]
         string ModifyPassword(string id, string oldpwd, string newpwd);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/ModifyPassword", ReplyAction="http://tempuri.org/IAPIService/ModifyPasswordResponse")]
+        System.Threading.Tasks.Task<string> ModifyPasswordAsync(string id, string oldpwd, string newpwd);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/GetDics", ReplyAction="http://tempuri.org/IAPIService/GetDicsResponse")]
         hn.DataAccess.Model.SYS_SUBDICSMODEL[] GetDics(string categorycode, string keyword, bool all);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/GetDics", ReplyAction="http://tempuri.org/IAPIService/GetDicsResponse")]
+        System.Threading.Tasks.Task<hn.DataAccess.Model.SYS_SUBDICSMODEL[]> GetDicsAsync(string categorycode, string keyword, bool all);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/Remote_Get24", ReplyAction="http://tempuri.org/IAPIService/Remote_Get24Response")]
         MApiModel.recApi24.Rootobject Remote_Get24(MApiModel.api24.Rootobject getapi24);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/Remote_Get24", ReplyAction="http://tempuri.org/IAPIService/Remote_Get24Response")]
+        System.Threading.Tasks.Task<MApiModel.recApi24.Rootobject> Remote_Get24Async(MApiModel.api24.Rootobject getapi24);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/GetDics_Area", ReplyAction="http://tempuri.org/IAPIService/GetDics_AreaResponse")]
         hn.DataAccess.Model.SYS_SUBDICSMODEL[] GetDics_Area(string categorycode, string keyword, bool all);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/GetDics_Area", ReplyAction="http://tempuri.org/IAPIService/GetDics_AreaResponse")]
+        System.Threading.Tasks.Task<hn.DataAccess.Model.SYS_SUBDICSMODEL[]> GetDics_AreaAsync(string categorycode, string keyword, bool all);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/getTHD", ReplyAction="http://tempuri.org/IAPIService/getTHDResponse")]
         hn.DataAccess.Model.v_thdModel getTHD(string thdbm);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/getTHD", ReplyAction="http://tempuri.org/IAPIService/getTHDResponse")]
+        System.Threading.Tasks.Task<hn.DataAccess.Model.v_thdModel> getTHDAsync(string thdbm);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/ZFICPOBILL", ReplyAction="http://tempuri.org/IAPIService/ZFICPOBILLResponse")]
         string ZFICPOBILL(string fEntryID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/ZFICPOBILL", ReplyAction="http://tempuri.org/IAPIService/ZFICPOBILLResponse")]
+        System.Threading.Tasks.Task<string> ZFICPOBILLAsync(string fEntryID);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/ZFICPRBILLEntry", ReplyAction="http://tempuri.org/IAPIService/ZFICPRBILLEntryResponse")]
         string ZFICPRBILLEntry(string fEntryID);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/ZFICPRBILLEntry", ReplyAction="http://tempuri.org/IAPIService/ZFICPRBILLEntryResponse")]
+        System.Threading.Tasks.Task<string> ZFICPRBILLEntryAsync(string fEntryID);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/getICPOBillCLientID", ReplyAction="http://tempuri.org/IAPIService/getICPOBillCLientIDResponse")]
         hn.DataAccess.Model.V_ICPOBILLMODEL getICPOBillCLientID(string thdbm);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/getICPOBillCLientID", ReplyAction="http://tempuri.org/IAPIService/getICPOBillCLientIDResponse")]
+        System.Threading.Tasks.Task<hn.DataAccess.Model.V_ICPOBILLMODEL> getICPOBillCLientIDAsync(string thdbm);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/getLeftNum_THD", ReplyAction="http://tempuri.org/IAPIService/getLeftNum_THDResponse")]
         decimal getLeftNum_THD(string thdbm);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/getLeftNum_THD", ReplyAction="http://tempuri.org/IAPIService/getLeftNum_THDResponse")]
+        System.Threading.Tasks.Task<decimal> getLeftNum_THDAsync(string thdbm);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/GetPremiseList", ReplyAction="http://tempuri.org/IAPIService/GetPremiseListResponse")]
         hn.DataAccess.model.V_PREMISEModel[] GetPremiseList(string keyword);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/GetPremiseList", ReplyAction="http://tempuri.org/IAPIService/GetPremiseListResponse")]
+        System.Threading.Tasks.Task<hn.DataAccess.model.V_PREMISEModel[]> GetPremiseListAsync(string keyword);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/GetBrandList", ReplyAction="http://tempuri.org/IAPIService/GetBrandListResponse")]
         hn.DataAccess.Model.TB_BrandModel[] GetBrandList(hn.Core.Model.User loginUser);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/GetBrandList", ReplyAction="http://tempuri.org/IAPIService/GetBrandListResponse")]
+        System.Threading.Tasks.Task<hn.DataAccess.Model.TB_BrandModel[]> GetBrandListAsync(hn.Core.Model.User loginUser);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/GetClientAccountList", ReplyAction="http://tempuri.org/IAPIService/GetClientAccountListResponse")]
         hn.DataAccess.Model.V_CLIENTACCOUNTModel[] GetClientAccountList(string brandid, string keyword);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/GetClientAccountList", ReplyAction="http://tempuri.org/IAPIService/GetClientAccountListResponse")]
+        System.Threading.Tasks.Task<hn.DataAccess.Model.V_CLIENTACCOUNTModel[]> GetClientAccountListAsync(string brandid, string keyword);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/GetExpressCompanyList", ReplyAction="http://tempuri.org/IAPIService/GetExpressCompanyListResponse")]
         hn.DataAccess.Model.TB_EXPRESSCOMPANYModel[] GetExpressCompanyList(string keyword);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/GetExpressCompanyList", ReplyAction="http://tempuri.org/IAPIService/GetExpressCompanyListResponse")]
+        System.Threading.Tasks.Task<hn.DataAccess.Model.TB_EXPRESSCOMPANYModel[]> GetExpressCompanyListAsync(string keyword);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/GetProductList", ReplyAction="http://tempuri.org/IAPIService/GetProductListResponse")]
         hn.DataAccess.model.ProductViewModel[] GetProductList(hn.Core.Model.User loginUser, string keyword);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/GetProductList", ReplyAction="http://tempuri.org/IAPIService/GetProductListResponse")]
+        System.Threading.Tasks.Task<hn.DataAccess.model.ProductViewModel[]> GetProductListAsync(hn.Core.Model.User loginUser, string keyword);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/GetSrcList", ReplyAction="http://tempuri.org/IAPIService/GetSrcListResponse")]
         hn.DataAccess.Model.SRCModel[] GetSrcList(string productid, string keyword);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/GetSrcList", ReplyAction="http://tempuri.org/IAPIService/GetSrcListResponse")]
+        System.Threading.Tasks.Task<hn.DataAccess.Model.SRCModel[]> GetSrcListAsync(string productid, string keyword);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/GetProvince", ReplyAction="http://tempuri.org/IAPIService/GetProvinceResponse")]
         hn.DataAccess.model.TB_EBPLModel[] GetProvince();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/GetProvince", ReplyAction="http://tempuri.org/IAPIService/GetProvinceResponse")]
+        System.Threading.Tasks.Task<hn.DataAccess.model.TB_EBPLModel[]> GetProvinceAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/GetCity", ReplyAction="http://tempuri.org/IAPIService/GetCityResponse")]
         hn.DataAccess.model.TB_EBPLModel[] GetCity(string provinceid);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/GetCity", ReplyAction="http://tempuri.org/IAPIService/GetCityResponse")]
+        System.Threading.Tasks.Task<hn.DataAccess.model.TB_EBPLModel[]> GetCityAsync(string provinceid);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/GetDistrict", ReplyAction="http://tempuri.org/IAPIService/GetDistrictResponse")]
         hn.DataAccess.model.TB_EBPLModel[] GetDistrict(string cityid);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/GetDistrict", ReplyAction="http://tempuri.org/IAPIService/GetDistrictResponse")]
+        System.Threading.Tasks.Task<hn.DataAccess.model.TB_EBPLModel[]> GetDistrictAsync(string cityid);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/getProductView", ReplyAction="http://tempuri.org/IAPIService/getProductViewResponse")]
         hn.DataAccess.model.ProductViewModel getProductView(string fid);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/getProductView", ReplyAction="http://tempuri.org/IAPIService/getProductViewResponse")]
+        System.Threading.Tasks.Task<hn.DataAccess.model.ProductViewModel> getProductViewAsync(string fid);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/GetSingleDics", ReplyAction="http://tempuri.org/IAPIService/GetSingleDicsResponse")]
         hn.DataAccess.Model.SYS_SUBDICSMODEL GetSingleDics(string fid);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/GetSingleDics", ReplyAction="http://tempuri.org/IAPIService/GetSingleDicsResponse")]
+        System.Threading.Tasks.Task<hn.DataAccess.Model.SYS_SUBDICSMODEL> GetSingleDicsAsync(string fid);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/GetDeliverBaseList", ReplyAction="http://tempuri.org/IAPIService/GetDeliverBaseListResponse")]
         hn.DataAccess.model.TB_DELIVER_BASEModel[] GetDeliverBaseList(string brandid, string keyword);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/GetDeliverBaseList", ReplyAction="http://tempuri.org/IAPIService/GetDeliverBaseListResponse")]
+        System.Threading.Tasks.Task<hn.DataAccess.model.TB_DELIVER_BASEModel[]> GetDeliverBaseListAsync(string brandid, string keyword);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/GetClientAccountSingle", ReplyAction="http://tempuri.org/IAPIService/GetClientAccountSingleResponse")]
         hn.DataAccess.Model.V_CLIENTACCOUNTModel GetClientAccountSingle(string clientid);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/GetClientAccountSingle", ReplyAction="http://tempuri.org/IAPIService/GetClientAccountSingleResponse")]
+        System.Threading.Tasks.Task<hn.DataAccess.Model.V_CLIENTACCOUNTModel> GetClientAccountSingleAsync(string clientid);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/GetClientByAccount", ReplyAction="http://tempuri.org/IAPIService/GetClientByAccountResponse")]
         hn.DataAccess.Model.V_CLIENTACCOUNTModel GetClientByAccount(string faccount);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/GetClientByAccount", ReplyAction="http://tempuri.org/IAPIService/GetClientByAccountResponse")]
+        System.Threading.Tasks.Task<hn.DataAccess.Model.V_CLIENTACCOUNTModel> GetClientByAccountAsync(string faccount);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/v_lhproducts_policy_List", ReplyAction="http://tempuri.org/IAPIService/v_lhproducts_policy_ListResponse")]
         hn.DataAccess.model.v_lhproducts_policyModel[] v_lhproducts_policy_List(string headid, string keyword);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/v_lhproducts_policy_List", ReplyAction="http://tempuri.org/IAPIService/v_lhproducts_policy_ListResponse")]
+        System.Threading.Tasks.Task<hn.DataAccess.model.v_lhproducts_policyModel[]> v_lhproducts_policy_ListAsync(string headid, string keyword);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/GetPurchasePlanList", ReplyAction="http://tempuri.org/IAPIService/GetPurchasePlanListResponse")]
         hn.DataAccess.Model.V_ICPRBILLMODEL[] GetPurchasePlanList(hn.Core.Model.User loginUser, string classarea2name, string brand, int status, string premiseid, string billno, string startdate, string enddate, bool searchclose);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/GetPurchasePlanList", ReplyAction="http://tempuri.org/IAPIService/GetPurchasePlanListResponse")]
+        System.Threading.Tasks.Task<hn.DataAccess.Model.V_ICPRBILLMODEL[]> GetPurchasePlanListAsync(hn.Core.Model.User loginUser, string classarea2name, string brand, int status, string premiseid, string billno, string startdate, string enddate, bool searchclose);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/GetPurchasePlanImport", ReplyAction="http://tempuri.org/IAPIService/GetPurchasePlanImportResponse")]
         hn.DataAccess.Model.V_ICPRBILLMODEL[] GetPurchasePlanImport(hn.Core.Model.User loginUser, string strQuery);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/GetPurchasePlanImport", ReplyAction="http://tempuri.org/IAPIService/GetPurchasePlanImportResponse")]
+        System.Threading.Tasks.Task<hn.DataAccess.Model.V_ICPRBILLMODEL[]> GetPurchasePlanImportAsync(hn.Core.Model.User loginUser, string strQuery);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/GetPurchasePlanImport2", ReplyAction="http://tempuri.org/IAPIService/GetPurchasePlanImport2Response")]
         hn.DataAccess.Model.V_ICPRBILLMODEL[] GetPurchasePlanImport2(hn.Core.Model.User loginUser, string strQuery, string brandid);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/GetPurchasePlanImport2", ReplyAction="http://tempuri.org/IAPIService/GetPurchasePlanImport2Response")]
+        System.Threading.Tasks.Task<hn.DataAccess.Model.V_ICPRBILLMODEL[]> GetPurchasePlanImport2Async(hn.Core.Model.User loginUser, string strQuery, string brandid);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/GetPurchasePlanImport3", ReplyAction="http://tempuri.org/IAPIService/GetPurchasePlanImport3Response")]
         hn.DataAccess.Model.V_ICPRBILLMODEL[] GetPurchasePlanImport3(hn.Core.Model.User loginUser, hn.Common.Cls_query.P_QueryOrder pquery);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/GetPurchasePlanImport3", ReplyAction="http://tempuri.org/IAPIService/GetPurchasePlanImport3Response")]
+        System.Threading.Tasks.Task<hn.DataAccess.Model.V_ICPRBILLMODEL[]> GetPurchasePlanImport3Async(hn.Core.Model.User loginUser, hn.Common.Cls_query.P_QueryOrder pquery);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/GetPurchasePlanModel", ReplyAction="http://tempuri.org/IAPIService/GetPurchasePlanModelResponse")]
         hn.DataAccess.Model.V_ICPRBILLMODEL GetPurchasePlanModel(string icprbillid);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/GetPurchasePlanModel", ReplyAction="http://tempuri.org/IAPIService/GetPurchasePlanModelResponse")]
+        System.Threading.Tasks.Task<hn.DataAccess.Model.V_ICPRBILLMODEL> GetPurchasePlanModelAsync(string icprbillid);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/GetPurchasePlanEntryList", ReplyAction="http://tempuri.org/IAPIService/GetPurchasePlanEntryListResponse")]
         hn.DataAccess.Model.V_ICPRBILLENTRYMODEL[] GetPurchasePlanEntryList(string icprbillid, string statu, bool bICPO);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/GetPurchasePlanEntryList", ReplyAction="http://tempuri.org/IAPIService/GetPurchasePlanEntryListResponse")]
+        System.Threading.Tasks.Task<hn.DataAccess.Model.V_ICPRBILLENTRYMODEL[]> GetPurchasePlanEntryListAsync(string icprbillid, string statu, bool bICPO);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/Delete_ICPO", ReplyAction="http://tempuri.org/IAPIService/Delete_ICPOResponse")]
         bool Delete_ICPO(string fid);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/Delete_ICPO", ReplyAction="http://tempuri.org/IAPIService/Delete_ICPOResponse")]
+        System.Threading.Tasks.Task<bool> Delete_ICPOAsync(string fid);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/GetPurchasePlanEntryByDeliveryList", ReplyAction="http://tempuri.org/IAPIService/GetPurchasePlanEntryByDeliveryListResponse")]
         hn.DataAccess.Model.V_ICPRBILLENTRYMODEL[] GetPurchasePlanEntryByDeliveryList(hn.Core.Model.User loginUser, string productinfo, string classarea2name, string premiseid, string brand, string deliveryaddr, string typename, string billno, int status, bool bHaveSL);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/GetPurchasePlanEntryByDeliveryList", ReplyAction="http://tempuri.org/IAPIService/GetPurchasePlanEntryByDeliveryListResponse")]
+        System.Threading.Tasks.Task<hn.DataAccess.Model.V_ICPRBILLENTRYMODEL[]> GetPurchasePlanEntryByDeliveryListAsync(hn.Core.Model.User loginUser, string productinfo, string classarea2name, string premiseid, string brand, string deliveryaddr, string typename, string billno, int status, bool bHaveSL);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/ConfirmSave", ReplyAction="http://tempuri.org/IAPIService/ConfirmSaveResponse")]
         bool ConfirmSave(string action, hn.DataAccess.Model.ICPRBILLENTRYMODEL[] data, hn.Core.Model.User loginUser);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/ConfirmSave", ReplyAction="http://tempuri.org/IAPIService/ConfirmSaveResponse")]
+        System.Threading.Tasks.Task<bool> ConfirmSaveAsync(string action, hn.DataAccess.Model.ICPRBILLENTRYMODEL[] data, hn.Core.Model.User loginUser);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/CloseSave", ReplyAction="http://tempuri.org/IAPIService/CloseSaveResponse")]
         bool CloseSave(hn.DataAccess.Model.ICPRBILLENTRYMODEL[] data, hn.Core.Model.User loginUser, string content);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/CloseSave", ReplyAction="http://tempuri.org/IAPIService/CloseSaveResponse")]
+        System.Threading.Tasks.Task<bool> CloseSaveAsync(hn.DataAccess.Model.ICPRBILLENTRYMODEL[] data, hn.Core.Model.User loginUser, string content);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/GetStockList", ReplyAction="http://tempuri.org/IAPIService/GetStockListResponse")]
         System.Data.DataTable GetStockList(string productname, string stockname, string productnumber, string wdr, string batchno, string brand, string mode, string colorno, bool isfactory, bool istrust);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/GetStockList", ReplyAction="http://tempuri.org/IAPIService/GetStockListResponse")]
+        System.Threading.Tasks.Task<System.Data.DataTable> GetStockListAsync(string productname, string stockname, string productnumber, string wdr, string batchno, string brand, string mode, string colorno, bool isfactory, bool istrust);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/GetStockListMN", ReplyAction="http://tempuri.org/IAPIService/GetStockListMNResponse")]
         MApiModel.recApi2.Rootobject GetStockListMN(MApiModel.api2.Rootobject getapi2);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/GetStockListMN", ReplyAction="http://tempuri.org/IAPIService/GetStockListMNResponse")]
+        System.Threading.Tasks.Task<MApiModel.recApi2.Rootobject> GetStockListMNAsync(MApiModel.api2.Rootobject getapi2);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/GetStockListMN_2", ReplyAction="http://tempuri.org/IAPIService/GetStockListMN_2Response")]
         MApiModel.recApi2.Rootobject GetStockListMN_2(MApiModel.api2.Rootobject getapi2, int comid);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/GetStockListMN_2", ReplyAction="http://tempuri.org/IAPIService/GetStockListMN_2Response")]
+        System.Threading.Tasks.Task<MApiModel.recApi2.Rootobject> GetStockListMN_2Async(MApiModel.api2.Rootobject getapi2, int comid);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/GetAttachmentList", ReplyAction="http://tempuri.org/IAPIService/GetAttachmentListResponse")]
         hn.DataAccess.Model.TB_ATTACHMENTModel[] GetAttachmentList(string icprbillid);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/GetAttachmentList", ReplyAction="http://tempuri.org/IAPIService/GetAttachmentListResponse")]
+        System.Threading.Tasks.Task<hn.DataAccess.Model.TB_ATTACHMENTModel[]> GetAttachmentListAsync(string icprbillid);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/UpdateICPRBILL", ReplyAction="http://tempuri.org/IAPIService/UpdateICPRBILLResponse")]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(hn.DataAccess.Model.V_ICPRBILLMODEL))]
         int UpdateICPRBILL(hn.DataAccess.Model.ICPRBILLMODEL model);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/UpdateICPRBILL", ReplyAction="http://tempuri.org/IAPIService/UpdateICPRBILLResponse")]
+        System.Threading.Tasks.Task<int> UpdateICPRBILLAsync(hn.DataAccess.Model.ICPRBILLMODEL model);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/RefrshPriceNumberList", ReplyAction="http://tempuri.org/IAPIService/RefrshPriceNumberListResponse")]
         hn.DataAccess.Model.V_ICPRBILLENTRYMODEL[] RefrshPriceNumberList(string icprbillid, string[] entryids);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/RefrshPriceNumberList", ReplyAction="http://tempuri.org/IAPIService/RefrshPriceNumberListResponse")]
+        System.Threading.Tasks.Task<hn.DataAccess.Model.V_ICPRBILLENTRYMODEL[]> RefrshPriceNumberListAsync(string icprbillid, string[] entryids);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/GetPriceNumberListByItemID", ReplyAction="http://tempuri.org/IAPIService/GetPriceNumberListByItemIDResponse")]
         hn.DataAccess.model.TB_PRICEPOLICYModel[] GetPriceNumberListByItemID(string itemid);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/GetPriceNumberListByItemID", ReplyAction="http://tempuri.org/IAPIService/GetPriceNumberListByItemIDResponse")]
+        System.Threading.Tasks.Task<hn.DataAccess.model.TB_PRICEPOLICYModel[]> GetPriceNumberListByItemIDAsync(string itemid);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/GetPriceNumberListByBrandID", ReplyAction="http://tempuri.org/IAPIService/GetPriceNumberListByBrandIDResponse")]
         hn.DataAccess.model.TB_PRICEPOLICYModel[] GetPriceNumberListByBrandID(string itemid);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/GetPriceNumberListByBrandID", ReplyAction="http://tempuri.org/IAPIService/GetPriceNumberListByBrandIDResponse")]
+        System.Threading.Tasks.Task<hn.DataAccess.model.TB_PRICEPOLICYModel[]> GetPriceNumberListByBrandIDAsync(string itemid);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/UpdateConfirmTime", ReplyAction="http://tempuri.org/IAPIService/UpdateConfirmTimeResponse")]
         void UpdateConfirmTime(string FPlanId);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/UpdateConfirmTime", ReplyAction="http://tempuri.org/IAPIService/UpdateConfirmTimeResponse")]
+        System.Threading.Tasks.Task UpdateConfirmTimeAsync(string FPlanId);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/getTHDList", ReplyAction="http://tempuri.org/IAPIService/getTHDListResponse")]
         hn.DataAccess.Model.v_thdModel[] getTHDList(string[] thdbmList);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/getTHDList", ReplyAction="http://tempuri.org/IAPIService/getTHDListResponse")]
+        System.Threading.Tasks.Task<hn.DataAccess.Model.v_thdModel[]> getTHDListAsync(string[] thdbmList);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/GetNewBillNo", ReplyAction="http://tempuri.org/IAPIService/GetNewBillNoResponse")]
         string GetNewBillNo(string billtype);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/GetNewBillNo", ReplyAction="http://tempuri.org/IAPIService/GetNewBillNoResponse")]
+        System.Threading.Tasks.Task<string> GetNewBillNoAsync(string billtype);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/DeleteGroupBill", ReplyAction="http://tempuri.org/IAPIService/DeleteGroupBillResponse")]
         bool DeleteGroupBill(string groupno);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/DeleteGroupBill", ReplyAction="http://tempuri.org/IAPIService/DeleteGroupBillResponse")]
+        System.Threading.Tasks.Task<bool> DeleteGroupBillAsync(string groupno);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/DeliveryBillSave", ReplyAction="http://tempuri.org/IAPIService/DeliveryBillSaveResponse")]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(hn.DataAccess.Model.V_ICSEOUTBILLMODEL))]
         bool DeliveryBillSave(hn.DataAccess.Model.ICSEOUTBILLMODEL model, hn.DataAccess.Model.ICSEOUTBILLENTRYMODEL[] entrys, bool delivery);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/DeliveryBillSave", ReplyAction="http://tempuri.org/IAPIService/DeliveryBillSaveResponse")]
+        System.Threading.Tasks.Task<bool> DeliveryBillSaveAsync(hn.DataAccess.Model.ICSEOUTBILLMODEL model, hn.DataAccess.Model.ICSEOUTBILLENTRYMODEL[] entrys, bool delivery);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/UpdateIdentification", ReplyAction="http://tempuri.org/IAPIService/UpdateIdentificationResponse")]
         bool UpdateIdentification(string ids, string centent);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/UpdateIdentification", ReplyAction="http://tempuri.org/IAPIService/UpdateIdentificationResponse")]
+        System.Threading.Tasks.Task<bool> UpdateIdentificationAsync(string ids, string centent);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/GetDeliveryList", ReplyAction="http://tempuri.org/IAPIService/GetDeliveryListResponse")]
         hn.DataAccess.Model.V_ICSEOUTBILLMODEL[] GetDeliveryList(
@@ -811,155 +718,287 @@ namespace hn.Client.ApiService {
                     string enddate, 
                     bool searchclose);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/GetDeliveryList", ReplyAction="http://tempuri.org/IAPIService/GetDeliveryListResponse")]
+        System.Threading.Tasks.Task<hn.DataAccess.Model.V_ICSEOUTBILLMODEL[]> GetDeliveryListAsync(
+                    hn.Core.Model.User loginUser, 
+                    string brand, 
+                    string classarea2name, 
+                    string premiseid, 
+                    int status, 
+                    string car, 
+                    string stock, 
+                    string account, 
+                    string expresscompany, 
+                    string factotryno, 
+                    string billno, 
+                    string groupno, 
+                    string projectname, 
+                    string startdate, 
+                    string enddate, 
+                    bool searchclose);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/GetDeliveryEntryList", ReplyAction="http://tempuri.org/IAPIService/GetDeliveryEntryListResponse")]
         hn.DataAccess.Model.V_ICSEOUTBILLENTRYMODEL[] GetDeliveryEntryList(string billid);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/GetDeliveryEntryList", ReplyAction="http://tempuri.org/IAPIService/GetDeliveryEntryListResponse")]
+        System.Threading.Tasks.Task<hn.DataAccess.Model.V_ICSEOUTBILLENTRYMODEL[]> GetDeliveryEntryListAsync(string billid);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/DeleteDeliveryByIDs", ReplyAction="http://tempuri.org/IAPIService/DeleteDeliveryByIDsResponse")]
         int DeleteDeliveryByIDs(string ids);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/DeleteDeliveryByIDs", ReplyAction="http://tempuri.org/IAPIService/DeleteDeliveryByIDsResponse")]
+        System.Threading.Tasks.Task<int> DeleteDeliveryByIDsAsync(string ids);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/AuditDeliveryByIDs", ReplyAction="http://tempuri.org/IAPIService/AuditDeliveryByIDsResponse")]
         int AuditDeliveryByIDs(string ids, int status, hn.Core.Model.User loginUser);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/AuditDeliveryByIDs", ReplyAction="http://tempuri.org/IAPIService/AuditDeliveryByIDsResponse")]
+        System.Threading.Tasks.Task<int> AuditDeliveryByIDsAsync(string ids, int status, hn.Core.Model.User loginUser);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/AuditAntiDeliveryByIDs", ReplyAction="http://tempuri.org/IAPIService/AuditAntiDeliveryByIDsResponse")]
         int AuditAntiDeliveryByIDs(string ids);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/AuditAntiDeliveryByIDs", ReplyAction="http://tempuri.org/IAPIService/AuditAntiDeliveryByIDsResponse")]
+        System.Threading.Tasks.Task<int> AuditAntiDeliveryByIDsAsync(string ids);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/SyncDeliveryByIDs", ReplyAction="http://tempuri.org/IAPIService/SyncDeliveryByIDsResponse")]
         string SyncDeliveryByIDs(string ids);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/SyncDeliveryByIDs", ReplyAction="http://tempuri.org/IAPIService/SyncDeliveryByIDsResponse")]
+        System.Threading.Tasks.Task<string> SyncDeliveryByIDsAsync(string ids);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/SyncDeliveryByIDsMN", ReplyAction="http://tempuri.org/IAPIService/SyncDeliveryByIDsMNResponse")]
         string SyncDeliveryByIDsMN(string strJson, string fid);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/SyncDeliveryByIDsMN", ReplyAction="http://tempuri.org/IAPIService/SyncDeliveryByIDsMNResponse")]
+        System.Threading.Tasks.Task<string> SyncDeliveryByIDsMNAsync(string strJson, string fid);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/SynDeliveryNot", ReplyAction="http://tempuri.org/IAPIService/SynDeliveryNotResponse")]
         string SynDeliveryNot(string fid);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/SynDeliveryNot", ReplyAction="http://tempuri.org/IAPIService/SynDeliveryNotResponse")]
+        System.Threading.Tasks.Task<string> SynDeliveryNotAsync(string fid);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/GetDeliveryEntryByGroupNo", ReplyAction="http://tempuri.org/IAPIService/GetDeliveryEntryByGroupNoResponse")]
         hn.DataAccess.Model.V_ICSEOUTBILLENTRYMODEL[] GetDeliveryEntryByGroupNo(string groupno);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/GetDeliveryEntryByGroupNo", ReplyAction="http://tempuri.org/IAPIService/GetDeliveryEntryByGroupNoResponse")]
+        System.Threading.Tasks.Task<hn.DataAccess.Model.V_ICSEOUTBILLENTRYMODEL[]> GetDeliveryEntryByGroupNoAsync(string groupno);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/GetDeliveryByGroupNo", ReplyAction="http://tempuri.org/IAPIService/GetDeliveryByGroupNoResponse")]
         hn.DataAccess.Model.V_ICSEOUTBILLMODEL[] GetDeliveryByGroupNo(string groupno);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/GetDeliveryByGroupNo", ReplyAction="http://tempuri.org/IAPIService/GetDeliveryByGroupNoResponse")]
+        System.Threading.Tasks.Task<hn.DataAccess.Model.V_ICSEOUTBILLMODEL[]> GetDeliveryByGroupNoAsync(string groupno);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/GetSrcModelByItemID", ReplyAction="http://tempuri.org/IAPIService/GetSrcModelByItemIDResponse")]
         hn.DataAccess.Model.SRCModel GetSrcModelByItemID(string itemid);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/GetSrcModelByItemID", ReplyAction="http://tempuri.org/IAPIService/GetSrcModelByItemIDResponse")]
+        System.Threading.Tasks.Task<hn.DataAccess.Model.SRCModel> GetSrcModelByItemIDAsync(string itemid);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/UpdateGetDeliveryEntryData", ReplyAction="http://tempuri.org/IAPIService/UpdateGetDeliveryEntryDataResponse")]
         bool UpdateGetDeliveryEntryData(string id, decimal commitqty);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/UpdateGetDeliveryEntryData", ReplyAction="http://tempuri.org/IAPIService/UpdateGetDeliveryEntryDataResponse")]
+        System.Threading.Tasks.Task<bool> UpdateGetDeliveryEntryDataAsync(string id, decimal commitqty);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/GetDismantlingNo", ReplyAction="http://tempuri.org/IAPIService/GetDismantlingNoResponse")]
         string GetDismantlingNo(string no);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/GetDismantlingNo", ReplyAction="http://tempuri.org/IAPIService/GetDismantlingNoResponse")]
+        System.Threading.Tasks.Task<string> GetDismantlingNoAsync(string no);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/UpdateDeliveryGroupStatus", ReplyAction="http://tempuri.org/IAPIService/UpdateDeliveryGroupStatusResponse")]
         string UpdateDeliveryGroupStatus(string ids, int status);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/UpdateDeliveryGroupStatus", ReplyAction="http://tempuri.org/IAPIService/UpdateDeliveryGroupStatusResponse")]
+        System.Threading.Tasks.Task<string> UpdateDeliveryGroupStatusAsync(string ids, int status);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/ContractCar", ReplyAction="http://tempuri.org/IAPIService/ContractCarResponse")]
         string ContractCar(string[] ids);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/ContractCar", ReplyAction="http://tempuri.org/IAPIService/ContractCarResponse")]
+        System.Threading.Tasks.Task<string> ContractCarAsync(string[] ids);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/SaveICPOBILL", ReplyAction="http://tempuri.org/IAPIService/SaveICPOBILLResponse")]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(hn.DataAccess.Model.V_ICPOBILLMODEL))]
         string SaveICPOBILL(hn.DataAccess.Model.ICPOBILLMODEL ICPOBILL, hn.DataAccess.Model.ICPOBILLENTRYMODEL[] ICPOBILLENTRYList);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/SaveICPOBILL", ReplyAction="http://tempuri.org/IAPIService/SaveICPOBILLResponse")]
+        System.Threading.Tasks.Task<string> SaveICPOBILLAsync(hn.DataAccess.Model.ICPOBILLMODEL ICPOBILL, hn.DataAccess.Model.ICPOBILLENTRYMODEL[] ICPOBILLENTRYList);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/GetOrderList", ReplyAction="http://tempuri.org/IAPIService/GetOrderListResponse")]
         hn.DataAccess.Model.V_ICPOBILLMODEL[] GetOrderList(hn.Core.Model.User loginUser, string classarea2name, string brand, int status, string premiseid, string billno, string startdate, string enddate, bool searchclose);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/GetOrderList", ReplyAction="http://tempuri.org/IAPIService/GetOrderListResponse")]
+        System.Threading.Tasks.Task<hn.DataAccess.Model.V_ICPOBILLMODEL[]> GetOrderListAsync(hn.Core.Model.User loginUser, string classarea2name, string brand, int status, string premiseid, string billno, string startdate, string enddate, bool searchclose);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/GetOrderEntryList", ReplyAction="http://tempuri.org/IAPIService/GetOrderEntryListResponse")]
         hn.DataAccess.Model.V_ICPOBILLENTRYMODEL[] GetOrderEntryList(string icprbillid, string status);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/GetOrderEntryList", ReplyAction="http://tempuri.org/IAPIService/GetOrderEntryListResponse")]
+        System.Threading.Tasks.Task<hn.DataAccess.Model.V_ICPOBILLENTRYMODEL[]> GetOrderEntryListAsync(string icprbillid, string status);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/GetSingleOrder", ReplyAction="http://tempuri.org/IAPIService/GetSingleOrderResponse")]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(hn.DataAccess.Model.V_ICPOBILLMODEL))]
         hn.DataAccess.Model.ICPOBILLMODEL GetSingleOrder(string icprbillid);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/GetSingleOrder", ReplyAction="http://tempuri.org/IAPIService/GetSingleOrderResponse")]
+        System.Threading.Tasks.Task<hn.DataAccess.Model.ICPOBILLMODEL> GetSingleOrderAsync(string icprbillid);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/GeICPO_BOLList", ReplyAction="http://tempuri.org/IAPIService/GeICPO_BOLListResponse")]
         hn.DataAccess.Model.ICPO_BOLentryModel[] GeICPO_BOLList(hn.Core.Model.User loginUser, string FPObillno, string Ficbolno, int FSYNCSTATUS, string FACCOUNT, string FITEMID, string startdate, string enddate, bool searchclose);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/GeICPO_BOLList", ReplyAction="http://tempuri.org/IAPIService/GeICPO_BOLListResponse")]
+        System.Threading.Tasks.Task<hn.DataAccess.Model.ICPO_BOLentryModel[]> GeICPO_BOLListAsync(hn.Core.Model.User loginUser, string FPObillno, string Ficbolno, int FSYNCSTATUS, string FACCOUNT, string FITEMID, string startdate, string enddate, bool searchclose);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/GetStartDate_syn", ReplyAction="http://tempuri.org/IAPIService/GetStartDate_synResponse")]
         string GetStartDate_syn();
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/GetStartDate_syn", ReplyAction="http://tempuri.org/IAPIService/GetStartDate_synResponse")]
+        System.Threading.Tasks.Task<string> GetStartDate_synAsync();
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/GetStartDate_syn_cc", ReplyAction="http://tempuri.org/IAPIService/GetStartDate_syn_ccResponse")]
         string GetStartDate_syn_cc();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/GetStartDate_syn_cc", ReplyAction="http://tempuri.org/IAPIService/GetStartDate_syn_ccResponse")]
+        System.Threading.Tasks.Task<string> GetStartDate_syn_ccAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/GetJYDW", ReplyAction="http://tempuri.org/IAPIService/GetJYDWResponse")]
         hn.DataAccess.model.TB_PREMISEModel[] GetJYDW(string keyword);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/GetJYDW", ReplyAction="http://tempuri.org/IAPIService/GetJYDWResponse")]
+        System.Threading.Tasks.Task<hn.DataAccess.model.TB_PREMISEModel[]> GetJYDWAsync(string keyword);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/getSrc", ReplyAction="http://tempuri.org/IAPIService/getSrcResponse")]
         hn.DataAccess.Model.SRCModel getSrc(string pz, string gg, string xh);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/getSrc", ReplyAction="http://tempuri.org/IAPIService/getSrcResponse")]
+        System.Threading.Tasks.Task<hn.DataAccess.Model.SRCModel> getSrcAsync(string pz, string gg, string xh);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/GetArea2", ReplyAction="http://tempuri.org/IAPIService/GetArea2Response")]
         hn.DataAccess.Model.SYS_SUBDICSMODEL GetArea2(string fid);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/GetArea2", ReplyAction="http://tempuri.org/IAPIService/GetArea2Response")]
+        System.Threading.Tasks.Task<hn.DataAccess.Model.SYS_SUBDICSMODEL> GetArea2Async(string fid);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/GeICPO_BOLListMN_syn", ReplyAction="http://tempuri.org/IAPIService/GeICPO_BOLListMN_synResponse")]
         string GeICPO_BOLListMN_syn(System.DateTime starttime);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/GeICPO_BOLListMN_syn", ReplyAction="http://tempuri.org/IAPIService/GeICPO_BOLListMN_synResponse")]
+        System.Threading.Tasks.Task<string> GeICPO_BOLListMN_synAsync(System.DateTime starttime);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/GetLocalSum", ReplyAction="http://tempuri.org/IAPIService/GetLocalSumResponse")]
         int GetLocalSum(string autoid, string icseoutbillentryid);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/GetLocalSum", ReplyAction="http://tempuri.org/IAPIService/GetLocalSumResponse")]
+        System.Threading.Tasks.Task<int> GetLocalSumAsync(string autoid, string icseoutbillentryid);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/GeICPO_BOLListMN_syn_cc", ReplyAction="http://tempuri.org/IAPIService/GeICPO_BOLListMN_syn_ccResponse")]
         string GeICPO_BOLListMN_syn_cc(System.DateTime starttime);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/GeICPO_BOLListMN_syn_cc", ReplyAction="http://tempuri.org/IAPIService/GeICPO_BOLListMN_syn_ccResponse")]
+        System.Threading.Tasks.Task<string> GeICPO_BOLListMN_syn_ccAsync(System.DateTime starttime);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/GetCCD", ReplyAction="http://tempuri.org/IAPIService/GetCCDResponse")]
         string GetCCD(System.DateTime starttime);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/GetCCD", ReplyAction="http://tempuri.org/IAPIService/GetCCDResponse")]
+        System.Threading.Tasks.Task<string> GetCCDAsync(System.DateTime starttime);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/GeICPO_BOLListMN_db", ReplyAction="http://tempuri.org/IAPIService/GeICPO_BOLListMN_dbResponse")]
         hn.DataAccess.Model.v_thdModel[] GeICPO_BOLListMN_db(MApiModel.api8.Rootobject getapi8, string cpxh, string cpgg, string jhdh, string thd, string area2, int bNotArea);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/GeICPO_BOLListMN_db", ReplyAction="http://tempuri.org/IAPIService/GeICPO_BOLListMN_dbResponse")]
+        System.Threading.Tasks.Task<hn.DataAccess.Model.v_thdModel[]> GeICPO_BOLListMN_dbAsync(MApiModel.api8.Rootobject getapi8, string cpxh, string cpgg, string jhdh, string thd, string area2, int bNotArea);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/ConfirmSave_ICPO", ReplyAction="http://tempuri.org/IAPIService/ConfirmSave_ICPOResponse")]
         bool ConfirmSave_ICPO(string action, hn.DataAccess.Model.ICPOBILLENTRYMODEL[] data, hn.Core.Model.User loginUser);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/ConfirmSave_ICPO", ReplyAction="http://tempuri.org/IAPIService/ConfirmSave_ICPOResponse")]
+        System.Threading.Tasks.Task<bool> ConfirmSave_ICPOAsync(string action, hn.DataAccess.Model.ICPOBILLENTRYMODEL[] data, hn.Core.Model.User loginUser);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/CloseSave_ICPO", ReplyAction="http://tempuri.org/IAPIService/CloseSave_ICPOResponse")]
         bool CloseSave_ICPO(hn.DataAccess.Model.ICPOBILLENTRYMODEL[] data, hn.Core.Model.User loginUser, string content);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/CloseSave_ICPO", ReplyAction="http://tempuri.org/IAPIService/CloseSave_ICPOResponse")]
+        System.Threading.Tasks.Task<bool> CloseSave_ICPOAsync(hn.DataAccess.Model.ICPOBILLENTRYMODEL[] data, hn.Core.Model.User loginUser, string content);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/AuditSave_ICPO", ReplyAction="http://tempuri.org/IAPIService/AuditSave_ICPOResponse")]
         bool AuditSave_ICPO(hn.DataAccess.Model.ICPOBILLENTRYMODEL[] data, hn.Core.Model.User loginUser, string content);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/AuditSave_ICPO", ReplyAction="http://tempuri.org/IAPIService/AuditSave_ICPOResponse")]
+        System.Threading.Tasks.Task<bool> AuditSave_ICPOAsync(hn.DataAccess.Model.ICPOBILLENTRYMODEL[] data, hn.Core.Model.User loginUser, string content);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/UnAuditSave_ICPO", ReplyAction="http://tempuri.org/IAPIService/UnAuditSave_ICPOResponse")]
         bool UnAuditSave_ICPO(hn.DataAccess.Model.ICPOBILLENTRYMODEL[] data, hn.Core.Model.User loginUser, string content);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/UnAuditSave_ICPO", ReplyAction="http://tempuri.org/IAPIService/UnAuditSave_ICPOResponse")]
+        System.Threading.Tasks.Task<bool> UnAuditSave_ICPOAsync(hn.DataAccess.Model.ICPOBILLENTRYMODEL[] data, hn.Core.Model.User loginUser, string content);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/Remote_InsertICPOEntry", ReplyAction="http://tempuri.org/IAPIService/Remote_InsertICPOEntryResponse")]
         string Remote_InsertICPOEntry(MApiModel.api3.Rootobject getapi3);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/Remote_InsertICPOEntry", ReplyAction="http://tempuri.org/IAPIService/Remote_InsertICPOEntryResponse")]
+        System.Threading.Tasks.Task<string> Remote_InsertICPOEntryAsync(MApiModel.api3.Rootobject getapi3);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/Remote_GetICPOEntry", ReplyAction="http://tempuri.org/IAPIService/Remote_GetICPOEntryResponse")]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(hn.DataAccess.Model.V_ICPOBILLMODEL))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(hn.DataAccess.Model.V_ICPOBILLENTRYMODEL))]
-        void Remote_GetICPOEntry(string strFID, string strEntryID, ref hn.DataAccess.Model.ICPOBILLMODEL billModel, ref hn.DataAccess.Model.ICPOBILLENTRYMODEL entryModel);
+        hn.Client.ApiService.Remote_GetICPOEntryResponse Remote_GetICPOEntry(hn.Client.ApiService.Remote_GetICPOEntryRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/Remote_GetICPO_BOEntry", ReplyAction="http://tempuri.org/IAPIService/Remote_GetICPO_BOEntryResponse")]
-        hn.DataAccess.Model.ICPO_BOLentryModel[] Remote_GetICPO_BOEntry(string fbillno, string entryid);
+        // CODEGEN: 正在生成消息协定，应为该操作具有多个返回值。
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/Remote_GetICPOEntry", ReplyAction="http://tempuri.org/IAPIService/Remote_GetICPOEntryResponse")]
+        System.Threading.Tasks.Task<hn.Client.ApiService.Remote_GetICPOEntryResponse> Remote_GetICPOEntryAsync(hn.Client.ApiService.Remote_GetICPOEntryRequest request);
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="Remote_GetICPOEntry", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class Remote_GetICPOEntryRequest {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/Remote_SetICPO_BOEntryStatus", ReplyAction="http://tempuri.org/IAPIService/Remote_SetICPO_BOEntryStatusResponse")]
-        int Remote_SetICPO_BOEntryStatus(string fbillno, string entryid);
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public string strFID;
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/Save_ICPREntry_List", ReplyAction="http://tempuri.org/IAPIService/Save_ICPREntry_ListResponse")]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(hn.DataAccess.Model.V_ICPRBILLENTRYMODEL))]
-        string Save_ICPREntry_List(hn.DataAccess.Model.ICPRBILLENTRYMODEL tModel);
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
+        public string strEntryID;
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/Update_FSYNStatus", ReplyAction="http://tempuri.org/IAPIService/Update_FSYNStatusResponse")]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(hn.DataAccess.Model.V_ICPOBILLMODEL))]
-        int Update_FSYNStatus(hn.DataAccess.Model.ICPOBILLMODEL billMode, int iStatus);
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=2)]
+        public hn.DataAccess.Model.ICPOBILLMODEL billModel;
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/Update_FSYN_Remote_Status", ReplyAction="http://tempuri.org/IAPIService/Update_FSYN_Remote_StatusResponse")]
-        int Update_FSYN_Remote_Status(string billMode, int iStatus, string cjbh, System.Collections.Generic.Dictionary<int, string> dic_entry_thdbmdetail);
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=3)]
+        public hn.DataAccess.Model.ICPOBILLENTRYMODEL entryModel;
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/Forder_confirm", ReplyAction="http://tempuri.org/IAPIService/Forder_confirmResponse")]
-        hn.DataAccess.DataResult Forder_confirm(hn.DataAccess.bll.Forder_confirm_Input input);
+        public Remote_GetICPOEntryRequest() {
+        }
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/Forder_delivery", ReplyAction="http://tempuri.org/IAPIService/Forder_deliveryResponse")]
-        hn.DataAccess.DataResult Forder_delivery(hn.DataAccess.bll.Forder_delivery_Input[] input);
+        public Remote_GetICPOEntryRequest(string strFID, string strEntryID, hn.DataAccess.Model.ICPOBILLMODEL billModel, hn.DataAccess.Model.ICPOBILLENTRYMODEL entryModel) {
+            this.strFID = strFID;
+            this.strEntryID = strEntryID;
+            this.billModel = billModel;
+            this.entryModel = entryModel;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="Remote_GetICPOEntryResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class Remote_GetICPOEntryResponse {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/Sync_Today_THD", ReplyAction="http://tempuri.org/IAPIService/Sync_Today_THDResponse")]
-        bool Sync_Today_THD(string rq1, string rq2);
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public hn.DataAccess.Model.ICPOBILLMODEL billModel;
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/Select_List", ReplyAction="http://tempuri.org/IAPIService/Select_ListResponse")]
-        hn.DataAccess.model.Common.SelectModel[] Select_List();
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
+        public hn.DataAccess.Model.ICPOBILLENTRYMODEL entryModel;
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/Select_DataTable", ReplyAction="http://tempuri.org/IAPIService/Select_DataTableResponse")]
-        System.Data.DataTable Select_DataTable();
+        public Remote_GetICPOEntryResponse() {
+        }
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/SaleOrderUpload", ReplyAction="http://tempuri.org/IAPIService/SaleOrderUploadResponse")]
-        bool SaleOrderUpload(hn.Client.ApiService.SaleOrderUploadParam pars);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/AcctOaStatus", ReplyAction="http://tempuri.org/IAPIService/AcctOaStatusResponse")]
-        bool AcctOaStatus(hn.Client.ApiService.AcctOAStatusParam pars);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/obOrderUpload", ReplyAction="http://tempuri.org/IAPIService/obOrderUploadResponse")]
-        bool obOrderUpload(hn.Client.ApiService.ObOrderUploadParam pars);
+        public Remote_GetICPOEntryResponse(hn.DataAccess.Model.ICPOBILLMODEL billModel, hn.DataAccess.Model.ICPOBILLENTRYMODEL entryModel) {
+            this.billModel = billModel;
+            this.entryModel = entryModel;
+        }
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -989,200 +1028,500 @@ namespace hn.Client.ApiService {
                 base(binding, remoteAddress) {
         }
         
+        public hn.DataAccess.Model.ICPO_BOLentryModel[] Remote_GetICPO_BOEntry(string fbillno, string entryid) {
+            return base.Channel.Remote_GetICPO_BOEntry(fbillno, entryid);
+        }
+        
+        public System.Threading.Tasks.Task<hn.DataAccess.Model.ICPO_BOLentryModel[]> Remote_GetICPO_BOEntryAsync(string fbillno, string entryid) {
+            return base.Channel.Remote_GetICPO_BOEntryAsync(fbillno, entryid);
+        }
+        
+        public int Remote_SetICPO_BOEntryStatus(string fbillno, string entryid) {
+            return base.Channel.Remote_SetICPO_BOEntryStatus(fbillno, entryid);
+        }
+        
+        public System.Threading.Tasks.Task<int> Remote_SetICPO_BOEntryStatusAsync(string fbillno, string entryid) {
+            return base.Channel.Remote_SetICPO_BOEntryStatusAsync(fbillno, entryid);
+        }
+        
+        public string Save_ICPREntry_List(hn.DataAccess.Model.ICPRBILLENTRYMODEL tModel) {
+            return base.Channel.Save_ICPREntry_List(tModel);
+        }
+        
+        public System.Threading.Tasks.Task<string> Save_ICPREntry_ListAsync(hn.DataAccess.Model.ICPRBILLENTRYMODEL tModel) {
+            return base.Channel.Save_ICPREntry_ListAsync(tModel);
+        }
+        
+        public int Update_FSYNStatus(hn.DataAccess.Model.ICPOBILLMODEL billMode, int iStatus) {
+            return base.Channel.Update_FSYNStatus(billMode, iStatus);
+        }
+        
+        public System.Threading.Tasks.Task<int> Update_FSYNStatusAsync(hn.DataAccess.Model.ICPOBILLMODEL billMode, int iStatus) {
+            return base.Channel.Update_FSYNStatusAsync(billMode, iStatus);
+        }
+        
+        public int Update_FSYN_Remote_Status(string billMode, int iStatus, string cjbh, System.Collections.Generic.Dictionary<int, string> dic_entry_thdbmdetail) {
+            return base.Channel.Update_FSYN_Remote_Status(billMode, iStatus, cjbh, dic_entry_thdbmdetail);
+        }
+        
+        public System.Threading.Tasks.Task<int> Update_FSYN_Remote_StatusAsync(string billMode, int iStatus, string cjbh, System.Collections.Generic.Dictionary<int, string> dic_entry_thdbmdetail) {
+            return base.Channel.Update_FSYN_Remote_StatusAsync(billMode, iStatus, cjbh, dic_entry_thdbmdetail);
+        }
+        
+        public hn.DataAccess.DataResult Forder_confirm(hn.DataAccess.bll.Forder_confirm_Input input) {
+            return base.Channel.Forder_confirm(input);
+        }
+        
+        public System.Threading.Tasks.Task<hn.DataAccess.DataResult> Forder_confirmAsync(hn.DataAccess.bll.Forder_confirm_Input input) {
+            return base.Channel.Forder_confirmAsync(input);
+        }
+        
+        public hn.DataAccess.DataResult Forder_delivery(hn.DataAccess.bll.Forder_delivery_Input[] input) {
+            return base.Channel.Forder_delivery(input);
+        }
+        
+        public System.Threading.Tasks.Task<hn.DataAccess.DataResult> Forder_deliveryAsync(hn.DataAccess.bll.Forder_delivery_Input[] input) {
+            return base.Channel.Forder_deliveryAsync(input);
+        }
+        
+        public bool Sync_Today_THD(string rq1, string rq2) {
+            return base.Channel.Sync_Today_THD(rq1, rq2);
+        }
+        
+        public System.Threading.Tasks.Task<bool> Sync_Today_THDAsync(string rq1, string rq2) {
+            return base.Channel.Sync_Today_THDAsync(rq1, rq2);
+        }
+        
+        public hn.Client.ApiService.LH_Policy[] Select_List() {
+            return base.Channel.Select_List();
+        }
+        
+        public System.Threading.Tasks.Task<hn.Client.ApiService.LH_Policy[]> Select_ListAsync() {
+            return base.Channel.Select_ListAsync();
+        }
+        
+        public System.Data.DataTable Select_DataTable() {
+            return base.Channel.Select_DataTable();
+        }
+        
+        public System.Threading.Tasks.Task<System.Data.DataTable> Select_DataTableAsync() {
+            return base.Channel.Select_DataTableAsync();
+        }
+        
+        public bool SaleOrderUpload(string[] billnos) {
+            return base.Channel.SaleOrderUpload(billnos);
+        }
+        
+        public System.Threading.Tasks.Task<bool> SaleOrderUploadAsync(string[] billnos) {
+            return base.Channel.SaleOrderUploadAsync(billnos);
+        }
+        
+        public bool AcctOaStatus(hn.Client.ApiService.AcctOAStatusParam pars) {
+            return base.Channel.AcctOaStatus(pars);
+        }
+        
+        public System.Threading.Tasks.Task<bool> AcctOaStatusAsync(hn.Client.ApiService.AcctOAStatusParam pars) {
+            return base.Channel.AcctOaStatusAsync(pars);
+        }
+        
+        public bool obOrderUpload(string[] billnos) {
+            return base.Channel.obOrderUpload(billnos);
+        }
+        
+        public System.Threading.Tasks.Task<bool> obOrderUploadAsync(string[] billnos) {
+            return base.Channel.obOrderUploadAsync(billnos);
+        }
+        
         public hn.Core.Model.User Login(string username, string password) {
             return base.Channel.Login(username, password);
+        }
+        
+        public System.Threading.Tasks.Task<hn.Core.Model.User> LoginAsync(string username, string password) {
+            return base.Channel.LoginAsync(username, password);
         }
         
         public string ModifyPassword(string id, string oldpwd, string newpwd) {
             return base.Channel.ModifyPassword(id, oldpwd, newpwd);
         }
         
+        public System.Threading.Tasks.Task<string> ModifyPasswordAsync(string id, string oldpwd, string newpwd) {
+            return base.Channel.ModifyPasswordAsync(id, oldpwd, newpwd);
+        }
+        
         public hn.DataAccess.Model.SYS_SUBDICSMODEL[] GetDics(string categorycode, string keyword, bool all) {
             return base.Channel.GetDics(categorycode, keyword, all);
+        }
+        
+        public System.Threading.Tasks.Task<hn.DataAccess.Model.SYS_SUBDICSMODEL[]> GetDicsAsync(string categorycode, string keyword, bool all) {
+            return base.Channel.GetDicsAsync(categorycode, keyword, all);
         }
         
         public MApiModel.recApi24.Rootobject Remote_Get24(MApiModel.api24.Rootobject getapi24) {
             return base.Channel.Remote_Get24(getapi24);
         }
         
+        public System.Threading.Tasks.Task<MApiModel.recApi24.Rootobject> Remote_Get24Async(MApiModel.api24.Rootobject getapi24) {
+            return base.Channel.Remote_Get24Async(getapi24);
+        }
+        
         public hn.DataAccess.Model.SYS_SUBDICSMODEL[] GetDics_Area(string categorycode, string keyword, bool all) {
             return base.Channel.GetDics_Area(categorycode, keyword, all);
+        }
+        
+        public System.Threading.Tasks.Task<hn.DataAccess.Model.SYS_SUBDICSMODEL[]> GetDics_AreaAsync(string categorycode, string keyword, bool all) {
+            return base.Channel.GetDics_AreaAsync(categorycode, keyword, all);
         }
         
         public hn.DataAccess.Model.v_thdModel getTHD(string thdbm) {
             return base.Channel.getTHD(thdbm);
         }
         
+        public System.Threading.Tasks.Task<hn.DataAccess.Model.v_thdModel> getTHDAsync(string thdbm) {
+            return base.Channel.getTHDAsync(thdbm);
+        }
+        
         public string ZFICPOBILL(string fEntryID) {
             return base.Channel.ZFICPOBILL(fEntryID);
+        }
+        
+        public System.Threading.Tasks.Task<string> ZFICPOBILLAsync(string fEntryID) {
+            return base.Channel.ZFICPOBILLAsync(fEntryID);
         }
         
         public string ZFICPRBILLEntry(string fEntryID) {
             return base.Channel.ZFICPRBILLEntry(fEntryID);
         }
         
+        public System.Threading.Tasks.Task<string> ZFICPRBILLEntryAsync(string fEntryID) {
+            return base.Channel.ZFICPRBILLEntryAsync(fEntryID);
+        }
+        
         public hn.DataAccess.Model.V_ICPOBILLMODEL getICPOBillCLientID(string thdbm) {
             return base.Channel.getICPOBillCLientID(thdbm);
+        }
+        
+        public System.Threading.Tasks.Task<hn.DataAccess.Model.V_ICPOBILLMODEL> getICPOBillCLientIDAsync(string thdbm) {
+            return base.Channel.getICPOBillCLientIDAsync(thdbm);
         }
         
         public decimal getLeftNum_THD(string thdbm) {
             return base.Channel.getLeftNum_THD(thdbm);
         }
         
+        public System.Threading.Tasks.Task<decimal> getLeftNum_THDAsync(string thdbm) {
+            return base.Channel.getLeftNum_THDAsync(thdbm);
+        }
+        
         public hn.DataAccess.model.V_PREMISEModel[] GetPremiseList(string keyword) {
             return base.Channel.GetPremiseList(keyword);
+        }
+        
+        public System.Threading.Tasks.Task<hn.DataAccess.model.V_PREMISEModel[]> GetPremiseListAsync(string keyword) {
+            return base.Channel.GetPremiseListAsync(keyword);
         }
         
         public hn.DataAccess.Model.TB_BrandModel[] GetBrandList(hn.Core.Model.User loginUser) {
             return base.Channel.GetBrandList(loginUser);
         }
         
+        public System.Threading.Tasks.Task<hn.DataAccess.Model.TB_BrandModel[]> GetBrandListAsync(hn.Core.Model.User loginUser) {
+            return base.Channel.GetBrandListAsync(loginUser);
+        }
+        
         public hn.DataAccess.Model.V_CLIENTACCOUNTModel[] GetClientAccountList(string brandid, string keyword) {
             return base.Channel.GetClientAccountList(brandid, keyword);
+        }
+        
+        public System.Threading.Tasks.Task<hn.DataAccess.Model.V_CLIENTACCOUNTModel[]> GetClientAccountListAsync(string brandid, string keyword) {
+            return base.Channel.GetClientAccountListAsync(brandid, keyword);
         }
         
         public hn.DataAccess.Model.TB_EXPRESSCOMPANYModel[] GetExpressCompanyList(string keyword) {
             return base.Channel.GetExpressCompanyList(keyword);
         }
         
+        public System.Threading.Tasks.Task<hn.DataAccess.Model.TB_EXPRESSCOMPANYModel[]> GetExpressCompanyListAsync(string keyword) {
+            return base.Channel.GetExpressCompanyListAsync(keyword);
+        }
+        
         public hn.DataAccess.model.ProductViewModel[] GetProductList(hn.Core.Model.User loginUser, string keyword) {
             return base.Channel.GetProductList(loginUser, keyword);
+        }
+        
+        public System.Threading.Tasks.Task<hn.DataAccess.model.ProductViewModel[]> GetProductListAsync(hn.Core.Model.User loginUser, string keyword) {
+            return base.Channel.GetProductListAsync(loginUser, keyword);
         }
         
         public hn.DataAccess.Model.SRCModel[] GetSrcList(string productid, string keyword) {
             return base.Channel.GetSrcList(productid, keyword);
         }
         
+        public System.Threading.Tasks.Task<hn.DataAccess.Model.SRCModel[]> GetSrcListAsync(string productid, string keyword) {
+            return base.Channel.GetSrcListAsync(productid, keyword);
+        }
+        
         public hn.DataAccess.model.TB_EBPLModel[] GetProvince() {
             return base.Channel.GetProvince();
+        }
+        
+        public System.Threading.Tasks.Task<hn.DataAccess.model.TB_EBPLModel[]> GetProvinceAsync() {
+            return base.Channel.GetProvinceAsync();
         }
         
         public hn.DataAccess.model.TB_EBPLModel[] GetCity(string provinceid) {
             return base.Channel.GetCity(provinceid);
         }
         
+        public System.Threading.Tasks.Task<hn.DataAccess.model.TB_EBPLModel[]> GetCityAsync(string provinceid) {
+            return base.Channel.GetCityAsync(provinceid);
+        }
+        
         public hn.DataAccess.model.TB_EBPLModel[] GetDistrict(string cityid) {
             return base.Channel.GetDistrict(cityid);
+        }
+        
+        public System.Threading.Tasks.Task<hn.DataAccess.model.TB_EBPLModel[]> GetDistrictAsync(string cityid) {
+            return base.Channel.GetDistrictAsync(cityid);
         }
         
         public hn.DataAccess.model.ProductViewModel getProductView(string fid) {
             return base.Channel.getProductView(fid);
         }
         
+        public System.Threading.Tasks.Task<hn.DataAccess.model.ProductViewModel> getProductViewAsync(string fid) {
+            return base.Channel.getProductViewAsync(fid);
+        }
+        
         public hn.DataAccess.Model.SYS_SUBDICSMODEL GetSingleDics(string fid) {
             return base.Channel.GetSingleDics(fid);
+        }
+        
+        public System.Threading.Tasks.Task<hn.DataAccess.Model.SYS_SUBDICSMODEL> GetSingleDicsAsync(string fid) {
+            return base.Channel.GetSingleDicsAsync(fid);
         }
         
         public hn.DataAccess.model.TB_DELIVER_BASEModel[] GetDeliverBaseList(string brandid, string keyword) {
             return base.Channel.GetDeliverBaseList(brandid, keyword);
         }
         
+        public System.Threading.Tasks.Task<hn.DataAccess.model.TB_DELIVER_BASEModel[]> GetDeliverBaseListAsync(string brandid, string keyword) {
+            return base.Channel.GetDeliverBaseListAsync(brandid, keyword);
+        }
+        
         public hn.DataAccess.Model.V_CLIENTACCOUNTModel GetClientAccountSingle(string clientid) {
             return base.Channel.GetClientAccountSingle(clientid);
+        }
+        
+        public System.Threading.Tasks.Task<hn.DataAccess.Model.V_CLIENTACCOUNTModel> GetClientAccountSingleAsync(string clientid) {
+            return base.Channel.GetClientAccountSingleAsync(clientid);
         }
         
         public hn.DataAccess.Model.V_CLIENTACCOUNTModel GetClientByAccount(string faccount) {
             return base.Channel.GetClientByAccount(faccount);
         }
         
+        public System.Threading.Tasks.Task<hn.DataAccess.Model.V_CLIENTACCOUNTModel> GetClientByAccountAsync(string faccount) {
+            return base.Channel.GetClientByAccountAsync(faccount);
+        }
+        
         public hn.DataAccess.model.v_lhproducts_policyModel[] v_lhproducts_policy_List(string headid, string keyword) {
             return base.Channel.v_lhproducts_policy_List(headid, keyword);
+        }
+        
+        public System.Threading.Tasks.Task<hn.DataAccess.model.v_lhproducts_policyModel[]> v_lhproducts_policy_ListAsync(string headid, string keyword) {
+            return base.Channel.v_lhproducts_policy_ListAsync(headid, keyword);
         }
         
         public hn.DataAccess.Model.V_ICPRBILLMODEL[] GetPurchasePlanList(hn.Core.Model.User loginUser, string classarea2name, string brand, int status, string premiseid, string billno, string startdate, string enddate, bool searchclose) {
             return base.Channel.GetPurchasePlanList(loginUser, classarea2name, brand, status, premiseid, billno, startdate, enddate, searchclose);
         }
         
+        public System.Threading.Tasks.Task<hn.DataAccess.Model.V_ICPRBILLMODEL[]> GetPurchasePlanListAsync(hn.Core.Model.User loginUser, string classarea2name, string brand, int status, string premiseid, string billno, string startdate, string enddate, bool searchclose) {
+            return base.Channel.GetPurchasePlanListAsync(loginUser, classarea2name, brand, status, premiseid, billno, startdate, enddate, searchclose);
+        }
+        
         public hn.DataAccess.Model.V_ICPRBILLMODEL[] GetPurchasePlanImport(hn.Core.Model.User loginUser, string strQuery) {
             return base.Channel.GetPurchasePlanImport(loginUser, strQuery);
+        }
+        
+        public System.Threading.Tasks.Task<hn.DataAccess.Model.V_ICPRBILLMODEL[]> GetPurchasePlanImportAsync(hn.Core.Model.User loginUser, string strQuery) {
+            return base.Channel.GetPurchasePlanImportAsync(loginUser, strQuery);
         }
         
         public hn.DataAccess.Model.V_ICPRBILLMODEL[] GetPurchasePlanImport2(hn.Core.Model.User loginUser, string strQuery, string brandid) {
             return base.Channel.GetPurchasePlanImport2(loginUser, strQuery, brandid);
         }
         
+        public System.Threading.Tasks.Task<hn.DataAccess.Model.V_ICPRBILLMODEL[]> GetPurchasePlanImport2Async(hn.Core.Model.User loginUser, string strQuery, string brandid) {
+            return base.Channel.GetPurchasePlanImport2Async(loginUser, strQuery, brandid);
+        }
+        
         public hn.DataAccess.Model.V_ICPRBILLMODEL[] GetPurchasePlanImport3(hn.Core.Model.User loginUser, hn.Common.Cls_query.P_QueryOrder pquery) {
             return base.Channel.GetPurchasePlanImport3(loginUser, pquery);
+        }
+        
+        public System.Threading.Tasks.Task<hn.DataAccess.Model.V_ICPRBILLMODEL[]> GetPurchasePlanImport3Async(hn.Core.Model.User loginUser, hn.Common.Cls_query.P_QueryOrder pquery) {
+            return base.Channel.GetPurchasePlanImport3Async(loginUser, pquery);
         }
         
         public hn.DataAccess.Model.V_ICPRBILLMODEL GetPurchasePlanModel(string icprbillid) {
             return base.Channel.GetPurchasePlanModel(icprbillid);
         }
         
+        public System.Threading.Tasks.Task<hn.DataAccess.Model.V_ICPRBILLMODEL> GetPurchasePlanModelAsync(string icprbillid) {
+            return base.Channel.GetPurchasePlanModelAsync(icprbillid);
+        }
+        
         public hn.DataAccess.Model.V_ICPRBILLENTRYMODEL[] GetPurchasePlanEntryList(string icprbillid, string statu, bool bICPO) {
             return base.Channel.GetPurchasePlanEntryList(icprbillid, statu, bICPO);
+        }
+        
+        public System.Threading.Tasks.Task<hn.DataAccess.Model.V_ICPRBILLENTRYMODEL[]> GetPurchasePlanEntryListAsync(string icprbillid, string statu, bool bICPO) {
+            return base.Channel.GetPurchasePlanEntryListAsync(icprbillid, statu, bICPO);
         }
         
         public bool Delete_ICPO(string fid) {
             return base.Channel.Delete_ICPO(fid);
         }
         
+        public System.Threading.Tasks.Task<bool> Delete_ICPOAsync(string fid) {
+            return base.Channel.Delete_ICPOAsync(fid);
+        }
+        
         public hn.DataAccess.Model.V_ICPRBILLENTRYMODEL[] GetPurchasePlanEntryByDeliveryList(hn.Core.Model.User loginUser, string productinfo, string classarea2name, string premiseid, string brand, string deliveryaddr, string typename, string billno, int status, bool bHaveSL) {
             return base.Channel.GetPurchasePlanEntryByDeliveryList(loginUser, productinfo, classarea2name, premiseid, brand, deliveryaddr, typename, billno, status, bHaveSL);
+        }
+        
+        public System.Threading.Tasks.Task<hn.DataAccess.Model.V_ICPRBILLENTRYMODEL[]> GetPurchasePlanEntryByDeliveryListAsync(hn.Core.Model.User loginUser, string productinfo, string classarea2name, string premiseid, string brand, string deliveryaddr, string typename, string billno, int status, bool bHaveSL) {
+            return base.Channel.GetPurchasePlanEntryByDeliveryListAsync(loginUser, productinfo, classarea2name, premiseid, brand, deliveryaddr, typename, billno, status, bHaveSL);
         }
         
         public bool ConfirmSave(string action, hn.DataAccess.Model.ICPRBILLENTRYMODEL[] data, hn.Core.Model.User loginUser) {
             return base.Channel.ConfirmSave(action, data, loginUser);
         }
         
+        public System.Threading.Tasks.Task<bool> ConfirmSaveAsync(string action, hn.DataAccess.Model.ICPRBILLENTRYMODEL[] data, hn.Core.Model.User loginUser) {
+            return base.Channel.ConfirmSaveAsync(action, data, loginUser);
+        }
+        
         public bool CloseSave(hn.DataAccess.Model.ICPRBILLENTRYMODEL[] data, hn.Core.Model.User loginUser, string content) {
             return base.Channel.CloseSave(data, loginUser, content);
+        }
+        
+        public System.Threading.Tasks.Task<bool> CloseSaveAsync(hn.DataAccess.Model.ICPRBILLENTRYMODEL[] data, hn.Core.Model.User loginUser, string content) {
+            return base.Channel.CloseSaveAsync(data, loginUser, content);
         }
         
         public System.Data.DataTable GetStockList(string productname, string stockname, string productnumber, string wdr, string batchno, string brand, string mode, string colorno, bool isfactory, bool istrust) {
             return base.Channel.GetStockList(productname, stockname, productnumber, wdr, batchno, brand, mode, colorno, isfactory, istrust);
         }
         
+        public System.Threading.Tasks.Task<System.Data.DataTable> GetStockListAsync(string productname, string stockname, string productnumber, string wdr, string batchno, string brand, string mode, string colorno, bool isfactory, bool istrust) {
+            return base.Channel.GetStockListAsync(productname, stockname, productnumber, wdr, batchno, brand, mode, colorno, isfactory, istrust);
+        }
+        
         public MApiModel.recApi2.Rootobject GetStockListMN(MApiModel.api2.Rootobject getapi2) {
             return base.Channel.GetStockListMN(getapi2);
+        }
+        
+        public System.Threading.Tasks.Task<MApiModel.recApi2.Rootobject> GetStockListMNAsync(MApiModel.api2.Rootobject getapi2) {
+            return base.Channel.GetStockListMNAsync(getapi2);
         }
         
         public MApiModel.recApi2.Rootobject GetStockListMN_2(MApiModel.api2.Rootobject getapi2, int comid) {
             return base.Channel.GetStockListMN_2(getapi2, comid);
         }
         
+        public System.Threading.Tasks.Task<MApiModel.recApi2.Rootobject> GetStockListMN_2Async(MApiModel.api2.Rootobject getapi2, int comid) {
+            return base.Channel.GetStockListMN_2Async(getapi2, comid);
+        }
+        
         public hn.DataAccess.Model.TB_ATTACHMENTModel[] GetAttachmentList(string icprbillid) {
             return base.Channel.GetAttachmentList(icprbillid);
+        }
+        
+        public System.Threading.Tasks.Task<hn.DataAccess.Model.TB_ATTACHMENTModel[]> GetAttachmentListAsync(string icprbillid) {
+            return base.Channel.GetAttachmentListAsync(icprbillid);
         }
         
         public int UpdateICPRBILL(hn.DataAccess.Model.ICPRBILLMODEL model) {
             return base.Channel.UpdateICPRBILL(model);
         }
         
+        public System.Threading.Tasks.Task<int> UpdateICPRBILLAsync(hn.DataAccess.Model.ICPRBILLMODEL model) {
+            return base.Channel.UpdateICPRBILLAsync(model);
+        }
+        
         public hn.DataAccess.Model.V_ICPRBILLENTRYMODEL[] RefrshPriceNumberList(string icprbillid, string[] entryids) {
             return base.Channel.RefrshPriceNumberList(icprbillid, entryids);
+        }
+        
+        public System.Threading.Tasks.Task<hn.DataAccess.Model.V_ICPRBILLENTRYMODEL[]> RefrshPriceNumberListAsync(string icprbillid, string[] entryids) {
+            return base.Channel.RefrshPriceNumberListAsync(icprbillid, entryids);
         }
         
         public hn.DataAccess.model.TB_PRICEPOLICYModel[] GetPriceNumberListByItemID(string itemid) {
             return base.Channel.GetPriceNumberListByItemID(itemid);
         }
         
+        public System.Threading.Tasks.Task<hn.DataAccess.model.TB_PRICEPOLICYModel[]> GetPriceNumberListByItemIDAsync(string itemid) {
+            return base.Channel.GetPriceNumberListByItemIDAsync(itemid);
+        }
+        
         public hn.DataAccess.model.TB_PRICEPOLICYModel[] GetPriceNumberListByBrandID(string itemid) {
             return base.Channel.GetPriceNumberListByBrandID(itemid);
+        }
+        
+        public System.Threading.Tasks.Task<hn.DataAccess.model.TB_PRICEPOLICYModel[]> GetPriceNumberListByBrandIDAsync(string itemid) {
+            return base.Channel.GetPriceNumberListByBrandIDAsync(itemid);
         }
         
         public void UpdateConfirmTime(string FPlanId) {
             base.Channel.UpdateConfirmTime(FPlanId);
         }
         
+        public System.Threading.Tasks.Task UpdateConfirmTimeAsync(string FPlanId) {
+            return base.Channel.UpdateConfirmTimeAsync(FPlanId);
+        }
+        
         public hn.DataAccess.Model.v_thdModel[] getTHDList(string[] thdbmList) {
             return base.Channel.getTHDList(thdbmList);
+        }
+        
+        public System.Threading.Tasks.Task<hn.DataAccess.Model.v_thdModel[]> getTHDListAsync(string[] thdbmList) {
+            return base.Channel.getTHDListAsync(thdbmList);
         }
         
         public string GetNewBillNo(string billtype) {
             return base.Channel.GetNewBillNo(billtype);
         }
         
+        public System.Threading.Tasks.Task<string> GetNewBillNoAsync(string billtype) {
+            return base.Channel.GetNewBillNoAsync(billtype);
+        }
+        
         public bool DeleteGroupBill(string groupno) {
             return base.Channel.DeleteGroupBill(groupno);
+        }
+        
+        public System.Threading.Tasks.Task<bool> DeleteGroupBillAsync(string groupno) {
+            return base.Channel.DeleteGroupBillAsync(groupno);
         }
         
         public bool DeliveryBillSave(hn.DataAccess.Model.ICSEOUTBILLMODEL model, hn.DataAccess.Model.ICSEOUTBILLENTRYMODEL[] entrys, bool delivery) {
             return base.Channel.DeliveryBillSave(model, entrys, delivery);
         }
         
+        public System.Threading.Tasks.Task<bool> DeliveryBillSaveAsync(hn.DataAccess.Model.ICSEOUTBILLMODEL model, hn.DataAccess.Model.ICSEOUTBILLENTRYMODEL[] entrys, bool delivery) {
+            return base.Channel.DeliveryBillSaveAsync(model, entrys, delivery);
+        }
+        
         public bool UpdateIdentification(string ids, string centent) {
             return base.Channel.UpdateIdentification(ids, centent);
+        }
+        
+        public System.Threading.Tasks.Task<bool> UpdateIdentificationAsync(string ids, string centent) {
+            return base.Channel.UpdateIdentificationAsync(ids, centent);
         }
         
         public hn.DataAccess.Model.V_ICSEOUTBILLMODEL[] GetDeliveryList(
@@ -1205,196 +1544,316 @@ namespace hn.Client.ApiService {
             return base.Channel.GetDeliveryList(loginUser, brand, classarea2name, premiseid, status, car, stock, account, expresscompany, factotryno, billno, groupno, projectname, startdate, enddate, searchclose);
         }
         
+        public System.Threading.Tasks.Task<hn.DataAccess.Model.V_ICSEOUTBILLMODEL[]> GetDeliveryListAsync(
+                    hn.Core.Model.User loginUser, 
+                    string brand, 
+                    string classarea2name, 
+                    string premiseid, 
+                    int status, 
+                    string car, 
+                    string stock, 
+                    string account, 
+                    string expresscompany, 
+                    string factotryno, 
+                    string billno, 
+                    string groupno, 
+                    string projectname, 
+                    string startdate, 
+                    string enddate, 
+                    bool searchclose) {
+            return base.Channel.GetDeliveryListAsync(loginUser, brand, classarea2name, premiseid, status, car, stock, account, expresscompany, factotryno, billno, groupno, projectname, startdate, enddate, searchclose);
+        }
+        
         public hn.DataAccess.Model.V_ICSEOUTBILLENTRYMODEL[] GetDeliveryEntryList(string billid) {
             return base.Channel.GetDeliveryEntryList(billid);
+        }
+        
+        public System.Threading.Tasks.Task<hn.DataAccess.Model.V_ICSEOUTBILLENTRYMODEL[]> GetDeliveryEntryListAsync(string billid) {
+            return base.Channel.GetDeliveryEntryListAsync(billid);
         }
         
         public int DeleteDeliveryByIDs(string ids) {
             return base.Channel.DeleteDeliveryByIDs(ids);
         }
         
+        public System.Threading.Tasks.Task<int> DeleteDeliveryByIDsAsync(string ids) {
+            return base.Channel.DeleteDeliveryByIDsAsync(ids);
+        }
+        
         public int AuditDeliveryByIDs(string ids, int status, hn.Core.Model.User loginUser) {
             return base.Channel.AuditDeliveryByIDs(ids, status, loginUser);
+        }
+        
+        public System.Threading.Tasks.Task<int> AuditDeliveryByIDsAsync(string ids, int status, hn.Core.Model.User loginUser) {
+            return base.Channel.AuditDeliveryByIDsAsync(ids, status, loginUser);
         }
         
         public int AuditAntiDeliveryByIDs(string ids) {
             return base.Channel.AuditAntiDeliveryByIDs(ids);
         }
         
+        public System.Threading.Tasks.Task<int> AuditAntiDeliveryByIDsAsync(string ids) {
+            return base.Channel.AuditAntiDeliveryByIDsAsync(ids);
+        }
+        
         public string SyncDeliveryByIDs(string ids) {
             return base.Channel.SyncDeliveryByIDs(ids);
+        }
+        
+        public System.Threading.Tasks.Task<string> SyncDeliveryByIDsAsync(string ids) {
+            return base.Channel.SyncDeliveryByIDsAsync(ids);
         }
         
         public string SyncDeliveryByIDsMN(string strJson, string fid) {
             return base.Channel.SyncDeliveryByIDsMN(strJson, fid);
         }
         
+        public System.Threading.Tasks.Task<string> SyncDeliveryByIDsMNAsync(string strJson, string fid) {
+            return base.Channel.SyncDeliveryByIDsMNAsync(strJson, fid);
+        }
+        
         public string SynDeliveryNot(string fid) {
             return base.Channel.SynDeliveryNot(fid);
+        }
+        
+        public System.Threading.Tasks.Task<string> SynDeliveryNotAsync(string fid) {
+            return base.Channel.SynDeliveryNotAsync(fid);
         }
         
         public hn.DataAccess.Model.V_ICSEOUTBILLENTRYMODEL[] GetDeliveryEntryByGroupNo(string groupno) {
             return base.Channel.GetDeliveryEntryByGroupNo(groupno);
         }
         
+        public System.Threading.Tasks.Task<hn.DataAccess.Model.V_ICSEOUTBILLENTRYMODEL[]> GetDeliveryEntryByGroupNoAsync(string groupno) {
+            return base.Channel.GetDeliveryEntryByGroupNoAsync(groupno);
+        }
+        
         public hn.DataAccess.Model.V_ICSEOUTBILLMODEL[] GetDeliveryByGroupNo(string groupno) {
             return base.Channel.GetDeliveryByGroupNo(groupno);
+        }
+        
+        public System.Threading.Tasks.Task<hn.DataAccess.Model.V_ICSEOUTBILLMODEL[]> GetDeliveryByGroupNoAsync(string groupno) {
+            return base.Channel.GetDeliveryByGroupNoAsync(groupno);
         }
         
         public hn.DataAccess.Model.SRCModel GetSrcModelByItemID(string itemid) {
             return base.Channel.GetSrcModelByItemID(itemid);
         }
         
+        public System.Threading.Tasks.Task<hn.DataAccess.Model.SRCModel> GetSrcModelByItemIDAsync(string itemid) {
+            return base.Channel.GetSrcModelByItemIDAsync(itemid);
+        }
+        
         public bool UpdateGetDeliveryEntryData(string id, decimal commitqty) {
             return base.Channel.UpdateGetDeliveryEntryData(id, commitqty);
+        }
+        
+        public System.Threading.Tasks.Task<bool> UpdateGetDeliveryEntryDataAsync(string id, decimal commitqty) {
+            return base.Channel.UpdateGetDeliveryEntryDataAsync(id, commitqty);
         }
         
         public string GetDismantlingNo(string no) {
             return base.Channel.GetDismantlingNo(no);
         }
         
+        public System.Threading.Tasks.Task<string> GetDismantlingNoAsync(string no) {
+            return base.Channel.GetDismantlingNoAsync(no);
+        }
+        
         public string UpdateDeliveryGroupStatus(string ids, int status) {
             return base.Channel.UpdateDeliveryGroupStatus(ids, status);
+        }
+        
+        public System.Threading.Tasks.Task<string> UpdateDeliveryGroupStatusAsync(string ids, int status) {
+            return base.Channel.UpdateDeliveryGroupStatusAsync(ids, status);
         }
         
         public string ContractCar(string[] ids) {
             return base.Channel.ContractCar(ids);
         }
         
+        public System.Threading.Tasks.Task<string> ContractCarAsync(string[] ids) {
+            return base.Channel.ContractCarAsync(ids);
+        }
+        
         public string SaveICPOBILL(hn.DataAccess.Model.ICPOBILLMODEL ICPOBILL, hn.DataAccess.Model.ICPOBILLENTRYMODEL[] ICPOBILLENTRYList) {
             return base.Channel.SaveICPOBILL(ICPOBILL, ICPOBILLENTRYList);
+        }
+        
+        public System.Threading.Tasks.Task<string> SaveICPOBILLAsync(hn.DataAccess.Model.ICPOBILLMODEL ICPOBILL, hn.DataAccess.Model.ICPOBILLENTRYMODEL[] ICPOBILLENTRYList) {
+            return base.Channel.SaveICPOBILLAsync(ICPOBILL, ICPOBILLENTRYList);
         }
         
         public hn.DataAccess.Model.V_ICPOBILLMODEL[] GetOrderList(hn.Core.Model.User loginUser, string classarea2name, string brand, int status, string premiseid, string billno, string startdate, string enddate, bool searchclose) {
             return base.Channel.GetOrderList(loginUser, classarea2name, brand, status, premiseid, billno, startdate, enddate, searchclose);
         }
         
+        public System.Threading.Tasks.Task<hn.DataAccess.Model.V_ICPOBILLMODEL[]> GetOrderListAsync(hn.Core.Model.User loginUser, string classarea2name, string brand, int status, string premiseid, string billno, string startdate, string enddate, bool searchclose) {
+            return base.Channel.GetOrderListAsync(loginUser, classarea2name, brand, status, premiseid, billno, startdate, enddate, searchclose);
+        }
+        
         public hn.DataAccess.Model.V_ICPOBILLENTRYMODEL[] GetOrderEntryList(string icprbillid, string status) {
             return base.Channel.GetOrderEntryList(icprbillid, status);
+        }
+        
+        public System.Threading.Tasks.Task<hn.DataAccess.Model.V_ICPOBILLENTRYMODEL[]> GetOrderEntryListAsync(string icprbillid, string status) {
+            return base.Channel.GetOrderEntryListAsync(icprbillid, status);
         }
         
         public hn.DataAccess.Model.ICPOBILLMODEL GetSingleOrder(string icprbillid) {
             return base.Channel.GetSingleOrder(icprbillid);
         }
         
+        public System.Threading.Tasks.Task<hn.DataAccess.Model.ICPOBILLMODEL> GetSingleOrderAsync(string icprbillid) {
+            return base.Channel.GetSingleOrderAsync(icprbillid);
+        }
+        
         public hn.DataAccess.Model.ICPO_BOLentryModel[] GeICPO_BOLList(hn.Core.Model.User loginUser, string FPObillno, string Ficbolno, int FSYNCSTATUS, string FACCOUNT, string FITEMID, string startdate, string enddate, bool searchclose) {
             return base.Channel.GeICPO_BOLList(loginUser, FPObillno, Ficbolno, FSYNCSTATUS, FACCOUNT, FITEMID, startdate, enddate, searchclose);
+        }
+        
+        public System.Threading.Tasks.Task<hn.DataAccess.Model.ICPO_BOLentryModel[]> GeICPO_BOLListAsync(hn.Core.Model.User loginUser, string FPObillno, string Ficbolno, int FSYNCSTATUS, string FACCOUNT, string FITEMID, string startdate, string enddate, bool searchclose) {
+            return base.Channel.GeICPO_BOLListAsync(loginUser, FPObillno, Ficbolno, FSYNCSTATUS, FACCOUNT, FITEMID, startdate, enddate, searchclose);
         }
         
         public string GetStartDate_syn() {
             return base.Channel.GetStartDate_syn();
         }
         
+        public System.Threading.Tasks.Task<string> GetStartDate_synAsync() {
+            return base.Channel.GetStartDate_synAsync();
+        }
+        
         public string GetStartDate_syn_cc() {
             return base.Channel.GetStartDate_syn_cc();
+        }
+        
+        public System.Threading.Tasks.Task<string> GetStartDate_syn_ccAsync() {
+            return base.Channel.GetStartDate_syn_ccAsync();
         }
         
         public hn.DataAccess.model.TB_PREMISEModel[] GetJYDW(string keyword) {
             return base.Channel.GetJYDW(keyword);
         }
         
+        public System.Threading.Tasks.Task<hn.DataAccess.model.TB_PREMISEModel[]> GetJYDWAsync(string keyword) {
+            return base.Channel.GetJYDWAsync(keyword);
+        }
+        
         public hn.DataAccess.Model.SRCModel getSrc(string pz, string gg, string xh) {
             return base.Channel.getSrc(pz, gg, xh);
+        }
+        
+        public System.Threading.Tasks.Task<hn.DataAccess.Model.SRCModel> getSrcAsync(string pz, string gg, string xh) {
+            return base.Channel.getSrcAsync(pz, gg, xh);
         }
         
         public hn.DataAccess.Model.SYS_SUBDICSMODEL GetArea2(string fid) {
             return base.Channel.GetArea2(fid);
         }
         
+        public System.Threading.Tasks.Task<hn.DataAccess.Model.SYS_SUBDICSMODEL> GetArea2Async(string fid) {
+            return base.Channel.GetArea2Async(fid);
+        }
+        
         public string GeICPO_BOLListMN_syn(System.DateTime starttime) {
             return base.Channel.GeICPO_BOLListMN_syn(starttime);
+        }
+        
+        public System.Threading.Tasks.Task<string> GeICPO_BOLListMN_synAsync(System.DateTime starttime) {
+            return base.Channel.GeICPO_BOLListMN_synAsync(starttime);
         }
         
         public int GetLocalSum(string autoid, string icseoutbillentryid) {
             return base.Channel.GetLocalSum(autoid, icseoutbillentryid);
         }
         
+        public System.Threading.Tasks.Task<int> GetLocalSumAsync(string autoid, string icseoutbillentryid) {
+            return base.Channel.GetLocalSumAsync(autoid, icseoutbillentryid);
+        }
+        
         public string GeICPO_BOLListMN_syn_cc(System.DateTime starttime) {
             return base.Channel.GeICPO_BOLListMN_syn_cc(starttime);
+        }
+        
+        public System.Threading.Tasks.Task<string> GeICPO_BOLListMN_syn_ccAsync(System.DateTime starttime) {
+            return base.Channel.GeICPO_BOLListMN_syn_ccAsync(starttime);
         }
         
         public string GetCCD(System.DateTime starttime) {
             return base.Channel.GetCCD(starttime);
         }
         
+        public System.Threading.Tasks.Task<string> GetCCDAsync(System.DateTime starttime) {
+            return base.Channel.GetCCDAsync(starttime);
+        }
+        
         public hn.DataAccess.Model.v_thdModel[] GeICPO_BOLListMN_db(MApiModel.api8.Rootobject getapi8, string cpxh, string cpgg, string jhdh, string thd, string area2, int bNotArea) {
             return base.Channel.GeICPO_BOLListMN_db(getapi8, cpxh, cpgg, jhdh, thd, area2, bNotArea);
+        }
+        
+        public System.Threading.Tasks.Task<hn.DataAccess.Model.v_thdModel[]> GeICPO_BOLListMN_dbAsync(MApiModel.api8.Rootobject getapi8, string cpxh, string cpgg, string jhdh, string thd, string area2, int bNotArea) {
+            return base.Channel.GeICPO_BOLListMN_dbAsync(getapi8, cpxh, cpgg, jhdh, thd, area2, bNotArea);
         }
         
         public bool ConfirmSave_ICPO(string action, hn.DataAccess.Model.ICPOBILLENTRYMODEL[] data, hn.Core.Model.User loginUser) {
             return base.Channel.ConfirmSave_ICPO(action, data, loginUser);
         }
         
+        public System.Threading.Tasks.Task<bool> ConfirmSave_ICPOAsync(string action, hn.DataAccess.Model.ICPOBILLENTRYMODEL[] data, hn.Core.Model.User loginUser) {
+            return base.Channel.ConfirmSave_ICPOAsync(action, data, loginUser);
+        }
+        
         public bool CloseSave_ICPO(hn.DataAccess.Model.ICPOBILLENTRYMODEL[] data, hn.Core.Model.User loginUser, string content) {
             return base.Channel.CloseSave_ICPO(data, loginUser, content);
+        }
+        
+        public System.Threading.Tasks.Task<bool> CloseSave_ICPOAsync(hn.DataAccess.Model.ICPOBILLENTRYMODEL[] data, hn.Core.Model.User loginUser, string content) {
+            return base.Channel.CloseSave_ICPOAsync(data, loginUser, content);
         }
         
         public bool AuditSave_ICPO(hn.DataAccess.Model.ICPOBILLENTRYMODEL[] data, hn.Core.Model.User loginUser, string content) {
             return base.Channel.AuditSave_ICPO(data, loginUser, content);
         }
         
+        public System.Threading.Tasks.Task<bool> AuditSave_ICPOAsync(hn.DataAccess.Model.ICPOBILLENTRYMODEL[] data, hn.Core.Model.User loginUser, string content) {
+            return base.Channel.AuditSave_ICPOAsync(data, loginUser, content);
+        }
+        
         public bool UnAuditSave_ICPO(hn.DataAccess.Model.ICPOBILLENTRYMODEL[] data, hn.Core.Model.User loginUser, string content) {
             return base.Channel.UnAuditSave_ICPO(data, loginUser, content);
+        }
+        
+        public System.Threading.Tasks.Task<bool> UnAuditSave_ICPOAsync(hn.DataAccess.Model.ICPOBILLENTRYMODEL[] data, hn.Core.Model.User loginUser, string content) {
+            return base.Channel.UnAuditSave_ICPOAsync(data, loginUser, content);
         }
         
         public string Remote_InsertICPOEntry(MApiModel.api3.Rootobject getapi3) {
             return base.Channel.Remote_InsertICPOEntry(getapi3);
         }
         
+        public System.Threading.Tasks.Task<string> Remote_InsertICPOEntryAsync(MApiModel.api3.Rootobject getapi3) {
+            return base.Channel.Remote_InsertICPOEntryAsync(getapi3);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        hn.Client.ApiService.Remote_GetICPOEntryResponse hn.Client.ApiService.IAPIService.Remote_GetICPOEntry(hn.Client.ApiService.Remote_GetICPOEntryRequest request) {
+            return base.Channel.Remote_GetICPOEntry(request);
+        }
+        
         public void Remote_GetICPOEntry(string strFID, string strEntryID, ref hn.DataAccess.Model.ICPOBILLMODEL billModel, ref hn.DataAccess.Model.ICPOBILLENTRYMODEL entryModel) {
-            base.Channel.Remote_GetICPOEntry(strFID, strEntryID, ref billModel, ref entryModel);
+            hn.Client.ApiService.Remote_GetICPOEntryRequest inValue = new hn.Client.ApiService.Remote_GetICPOEntryRequest();
+            inValue.strFID = strFID;
+            inValue.strEntryID = strEntryID;
+            inValue.billModel = billModel;
+            inValue.entryModel = entryModel;
+            hn.Client.ApiService.Remote_GetICPOEntryResponse retVal = ((hn.Client.ApiService.IAPIService)(this)).Remote_GetICPOEntry(inValue);
+            billModel = retVal.billModel;
+            entryModel = retVal.entryModel;
         }
         
-        public hn.DataAccess.Model.ICPO_BOLentryModel[] Remote_GetICPO_BOEntry(string fbillno, string entryid) {
-            return base.Channel.Remote_GetICPO_BOEntry(fbillno, entryid);
-        }
-        
-        public int Remote_SetICPO_BOEntryStatus(string fbillno, string entryid) {
-            return base.Channel.Remote_SetICPO_BOEntryStatus(fbillno, entryid);
-        }
-        
-        public string Save_ICPREntry_List(hn.DataAccess.Model.ICPRBILLENTRYMODEL tModel) {
-            return base.Channel.Save_ICPREntry_List(tModel);
-        }
-        
-        public int Update_FSYNStatus(hn.DataAccess.Model.ICPOBILLMODEL billMode, int iStatus) {
-            return base.Channel.Update_FSYNStatus(billMode, iStatus);
-        }
-        
-        public int Update_FSYN_Remote_Status(string billMode, int iStatus, string cjbh, System.Collections.Generic.Dictionary<int, string> dic_entry_thdbmdetail) {
-            return base.Channel.Update_FSYN_Remote_Status(billMode, iStatus, cjbh, dic_entry_thdbmdetail);
-        }
-        
-        public hn.DataAccess.DataResult Forder_confirm(hn.DataAccess.bll.Forder_confirm_Input input) {
-            return base.Channel.Forder_confirm(input);
-        }
-        
-        public hn.DataAccess.DataResult Forder_delivery(hn.DataAccess.bll.Forder_delivery_Input[] input) {
-            return base.Channel.Forder_delivery(input);
-        }
-        
-        public bool Sync_Today_THD(string rq1, string rq2) {
-            return base.Channel.Sync_Today_THD(rq1, rq2);
-        }
-        
-        public hn.DataAccess.model.Common.SelectModel[] Select_List() {
-            return base.Channel.Select_List();
-        }
-        
-        public System.Data.DataTable Select_DataTable() {
-            return base.Channel.Select_DataTable();
-        }
-        
-        public bool SaleOrderUpload(hn.Client.ApiService.SaleOrderUploadParam pars) {
-            return base.Channel.SaleOrderUpload(pars);
-        }
-        
-        public bool AcctOaStatus(hn.Client.ApiService.AcctOAStatusParam pars) {
-            return base.Channel.AcctOaStatus(pars);
-        }
-        
-        public bool obOrderUpload(hn.Client.ApiService.ObOrderUploadParam pars) {
-            return base.Channel.obOrderUpload(pars);
+        public System.Threading.Tasks.Task<hn.Client.ApiService.Remote_GetICPOEntryResponse> Remote_GetICPOEntryAsync(hn.Client.ApiService.Remote_GetICPOEntryRequest request) {
+            return base.Channel.Remote_GetICPOEntryAsync(request);
         }
     }
 }

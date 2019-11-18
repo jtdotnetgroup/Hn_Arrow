@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace hn.ArrowInterface.Entities
@@ -9,6 +10,7 @@ namespace hn.ArrowInterface.Entities
     [Table("LH_SALEORDERRESULT")]
     public class Order
     {  
+        [Key]
         public string lHOutSystemID { get; set; }
         public string orderNo { get; set; }
         public string lHreviweStatus { get; set; } 

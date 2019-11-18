@@ -46,7 +46,7 @@ namespace hn.ArrowInterface.Jobs
                         {
                             //发生异常，回滚事务
                             tran.Rollback();
-                            tran.Connection.Close();
+                            
                             string message = string.Format("物流部开单记录下载：{0}", JsonConvert.SerializeObject(row));
                             LogHelper.Info(message);
                             LogHelper.Error(e);

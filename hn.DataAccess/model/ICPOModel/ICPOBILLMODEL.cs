@@ -7,10 +7,13 @@ using hn.Common.Data;
 using hn.Common;
 using hn.Core.Dal;
 using System.Collections;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using hn.Core.Model;
 using hn.DataAccess.Dal;
 namespace hn.DataAccess.Model
 {
+    [Table("ICPOBILL")]
     [TableName("ICPOBILL")]
     [Description("采购订单")]
     public class ICPOBILLMODEL
@@ -39,7 +42,7 @@ namespace hn.DataAccess.Model
         /// 订单日期
         /// </summary>
         public DateTime FDATE { get; set; }
-
+        [NotMapped]
         [DbField(false)]
         public string FDATESTR { get; set; }
 
@@ -51,6 +54,7 @@ namespace hn.DataAccess.Model
         /// <summary>
         /// 制单人名称
         /// </summary>
+        [NotMapped]
         [DbField(false)]
         public string FBILLERNAME { get; set; }
 
@@ -128,6 +132,7 @@ namespace hn.DataAccess.Model
         /// <summary>
         /// 内码ID
         /// </summary>
+        [Key]
         public string FID { get; set; }
 
         /// <summary>
@@ -185,6 +190,8 @@ namespace hn.DataAccess.Model
         /// <summary>
         /// 启用状态
         /// </summary>
+        ///
+        [NotMapped]
         [DbField(false)]
         public string FSTATENAME
         {
@@ -194,6 +201,7 @@ namespace hn.DataAccess.Model
             }
         }
 
+        [NotMapped]
         [DbField(false)]
         public string FSYNCSTATUSNAME
         {

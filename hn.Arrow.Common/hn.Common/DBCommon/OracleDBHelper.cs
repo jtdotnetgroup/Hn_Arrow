@@ -440,15 +440,13 @@ namespace hn.Common_Arrow
 
             var sql = string.Format("DELETE FROM {0} WHERE 1=1 {1}", tableName, where);
 
-            var cmd = factory.CreateCommand();
+            var cmd = tran.Connection.CreateCommand();
             cmd.CommandText = sql;
-            cmd.Connection = tran.Connection;
             cmd.Transaction = tran;
 
             try
             {
                 if (conn.State == ConnectionState.Closed) conn.Open();
-
                 return cmd.ExecuteNonQuery();
             }
             catch (Exception e)
@@ -475,7 +473,15 @@ namespace hn.Common_Arrow
             }
 
             string keyFieldName = "";
+            var keyValue = keyPropertyInfo.GetValue(obj, null);
+            if (keyValue == null)
+            {
+                throw  new ArgumentException($"主键【{keyFieldName}】值不能为空");
+            }
 
+            var par = factory.CreateParameter();
+            par.ParameterName = $":{keyFieldName}";
+            par.Value = keyValue;
             keyFieldName = keyPropertyInfo.Name;
 
             if (keyPropertyInfo.GetCustomAttributes(true).SingleOrDefault(o => o.GetType() == typeof(ColumnAttribute)) is
@@ -484,10 +490,9 @@ namespace hn.Common_Arrow
 
             var sql = $"DELETE FROM {tableName} WHERE {keyFieldName}=:{keyPropertyInfo.Name}";
 
-            var cmd = GetCommand(sql, obj);
+            var cmd = tran.Connection.CreateCommand();
             cmd.CommandText = sql;
-            cmd.Connection = conn;
-            cmd.Transaction = tran;
+            cmd.Parameters.Add(par);
 
             try
             {
@@ -551,7 +556,22 @@ namespace hn.Common_Arrow
                     if (pi != null)
                     {
                         var value = row[col.ColumnName];
-                        if (value != null && !string.IsNullOrEmpty(value.ToString())) pi.SetValue(item, value, null);
+
+
+
+                        if (value != null && !string.IsNullOrEmpty(value.ToString()))
+                        {
+
+                            pi.SetValue(item, value, null);
+
+                        }
+                        else
+                        {
+                            if (pi.PropertyType.Name == typeof(string).Name)
+                            {
+                                pi.SetValue(item,"");
+                            }
+                        }
                     }
                 }
 
@@ -587,10 +607,17 @@ namespace hn.Common_Arrow
             da.SelectCommand = cmd;
             var table = new DataTable();
             da.Fill(table);
+            try
+            {
+                var result = DataTableToList<T>(table).SingleOrDefault();
 
-            var result = DataTableToList<T>(table).FirstOrDefault();
-
-            return result;
+                return result;
+            }
+            catch (InvalidOperationException e)
+            {
+                LogHelper.Error(e);
+                throw;
+            }
         }
 
         public bool BatchInsert<T>(List<T> data, DbTransaction tran = null)
@@ -680,6 +707,22 @@ namespace hn.Common_Arrow
             return builder.ToString();
         }
 
+        public string GetSelectSqlWithDistinct<T>()
+        {
+            var t = typeof(T);
+            var tableAttr =
+                t.GetCustomAttributes(true)
+                    .FirstOrDefault(p => p.GetType() == typeof(TableAttribute)) as TableAttribute;
+            var tableName = tableAttr == null ? t.Name : tableAttr.Name;
+
+            var builder = new StringBuilder();
+            builder.Append("SELECT Distinct * FROM ");
+            builder.Append(tableName);
+            builder.Append(" Where 1=1");
+
+            return builder.ToString();
+        }
+
         public T Get<T>(object id) where T : new()
         {
             if (conn.State == ConnectionState.Closed) conn.Open();
@@ -712,6 +755,13 @@ namespace hn.Common_Arrow
         public List<T> GetAll<T>() where T : new()
         {
             var sql = GetSelectSql<T>();
+            return Select<T>(sql);
+        }
+
+
+        public List<T> GetListWithDisdinct<T>() where T : new()
+        {
+            var sql = GetSelectSqlWithDistinct<T>();
             return Select<T>(sql);
         }
 
@@ -798,7 +848,7 @@ namespace hn.Common_Arrow
         }
 
 
-        public List<T> GetWithWhereStr<T>(string @where)where T:new()
+        public List<T> GetWithWhereStr<T>(string @where) where T : new()
         {
             string sql = GetSelectSql<T>();
             sql += where;
@@ -809,12 +859,31 @@ namespace hn.Common_Arrow
             using (var da = factory.CreateDataAdapter())
             {
                 da.SelectCommand = cmd;
-                var datatable=new DataTable();
+                var datatable = new DataTable();
                 da.Fill(datatable);
                 var result = DataTableToList<T>(datatable);
                 return result;
             }
-            
+
+        }
+
+        public List<T> GetWithTranWithWhereStr<T>(string where,DbTransaction tran) where T : new()
+        {
+            string sql = GetSelectSql<T>();
+            sql += where;
+            if (tran.Connection.State == ConnectionState.Closed) tran.Connection.Open();
+
+            var cmd = tran.Connection.CreateCommand();
+            cmd.CommandText = sql;
+            using (var da = factory.CreateDataAdapter())
+            {
+                da.SelectCommand = cmd;
+                var datatable = new DataTable();
+                da.Fill(datatable);
+                var result = DataTableToList<T>(datatable);
+                return result;
+            }
+
         }
     }
 }

@@ -8,6 +8,8 @@ using System.Data;
 using System.Data.OracleClient;
 using System.Linq;
 using System.Web;
+using hn.ArrowInterface.Entities;
+using hn.Common_Arrow;
 
 namespace hn.Client.Service
 {
@@ -25,9 +27,14 @@ namespace hn.Client.Service
         /// </summary>
         /// <param name="vSql"></param>
         /// <returns></returns>
-        public List<SelectModel> Select_List()
+        public List<LH_Policy> Select_List()
         {
-            return SelectDal.Instance.Select_List();
+            var helper = new OracleDBHelper();
+        
+            var list = helper.Select<LH_Policy>(@"SELECT DISTINCT HEADID,POLICYNAME,ORDERTYPE,ORDERSUBTYPE,PRODCHANNEL,DEPTNAME from LH_POLICY");
+
+            return list;
+
         }
         public DataTable Select_DataTable()
         {

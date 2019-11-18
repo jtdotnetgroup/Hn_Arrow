@@ -71,7 +71,7 @@ namespace hn.ArrowInterface.Jobs
                     catch (Exception e)
                     {
                         tran.Rollback();
-                        tran.Connection.Close();
+                        
                         string message = "出库单插入失败";
                         LogHelper.Error(message);
                         LogHelper.Error(e);

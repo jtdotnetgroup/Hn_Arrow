@@ -6,7 +6,8 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
 using System.Web;
-using hn.Common;
+using hn.Common_Arrow;
+using LogHelper = hn.Common.LogHelper;
 
 namespace hn.Client.Service
 {
@@ -22,7 +23,7 @@ namespace hn.Client.Service
         {
             try
             {
-                User u = UserDal.Instance.GetUserBy(username);
+                User u = UserDal.Instance.GetWhere(" USERNAME=:USERNAME", new{USERNAME=username}).SingleOrDefault();
                 if (u != null)
                 {
                     if (u.IsDisabled != 1)
