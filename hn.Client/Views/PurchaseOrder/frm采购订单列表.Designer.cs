@@ -30,8 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmOrderList));
+            DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition2 = new DevExpress.XtraGrid.StyleFormatCondition();
             DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition3 = new DevExpress.XtraGrid.StyleFormatCondition();
-            DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition1 = new DevExpress.XtraGrid.StyleFormatCondition();
             this.gridColumn32 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.imageList2 = new System.Windows.Forms.ImageList(this.components);
             this.panel右 = new System.Windows.Forms.Panel();
@@ -79,13 +79,14 @@
             this.btn退出 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton5 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
+            this.simpleButton9 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton7 = new DevExpress.XtraEditors.SimpleButton();
             this.gridColumn15 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.bgw加载数据 = new System.ComponentModel.BackgroundWorker();
             this.splitContainerControl2 = new DevExpress.XtraEditors.SplitContainerControl();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.backgroundWorker2 = new System.ComponentModel.BackgroundWorker();
-            this.simpleButton9 = new DevExpress.XtraEditors.SimpleButton();
+            this.btnAync = new DevExpress.XtraEditors.SimpleButton();
             this.panel右.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
             this.splitContainerControl1.SuspendLayout();
@@ -113,7 +114,7 @@
             this.gridColumn32.MinWidth = 120;
             this.gridColumn32.Name = "gridColumn32";
             this.gridColumn32.Visible = true;
-            this.gridColumn32.VisibleIndex = 10;
+            this.gridColumn32.VisibleIndex = 2;
             this.gridColumn32.Width = 120;
             // 
             // imageList2
@@ -214,13 +215,13 @@
             this.gridColumn8,
             this.gridColumn制单日期,
             this.gridColumn2});
-            styleFormatCondition3.Appearance.ForeColor = System.Drawing.Color.Red;
-            styleFormatCondition3.Appearance.Options.UseForeColor = true;
-            styleFormatCondition3.ApplyToRow = true;
-            styleFormatCondition3.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
-            styleFormatCondition3.Value1 = "离线";
+            styleFormatCondition2.Appearance.ForeColor = System.Drawing.Color.Red;
+            styleFormatCondition2.Appearance.Options.UseForeColor = true;
+            styleFormatCondition2.ApplyToRow = true;
+            styleFormatCondition2.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
+            styleFormatCondition2.Value1 = "离线";
             this.gridView采购订单列表.FormatConditions.AddRange(new DevExpress.XtraGrid.StyleFormatCondition[] {
-            styleFormatCondition3});
+            styleFormatCondition2});
             this.gridView采购订单列表.GridControl = this.gridControl采购订单列表;
             this.gridView采购订单列表.IndicatorWidth = 60;
             this.gridView采购订单列表.Name = "gridView采购订单列表";
@@ -410,6 +411,7 @@
             this.gridColumn31,
             this.gridColumn10,
             this.gridColumn9,
+            this.gridColumn32,
             this.gridColumn33,
             this.gridColumn35,
             this.gridColumn36,
@@ -419,16 +421,15 @@
             this.gridColumn42,
             this.gridColumn38,
             this.gridColumn27,
-            this.gridColumn32,
             this.gridColumn30});
-            styleFormatCondition1.Appearance.ForeColor = System.Drawing.Color.Red;
-            styleFormatCondition1.Appearance.Options.UseForeColor = true;
-            styleFormatCondition1.ApplyToRow = true;
-            styleFormatCondition1.Column = this.gridColumn32;
-            styleFormatCondition1.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
-            styleFormatCondition1.Value1 = "离线";
+            styleFormatCondition3.Appearance.ForeColor = System.Drawing.Color.Red;
+            styleFormatCondition3.Appearance.Options.UseForeColor = true;
+            styleFormatCondition3.ApplyToRow = true;
+            styleFormatCondition3.Column = this.gridColumn32;
+            styleFormatCondition3.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
+            styleFormatCondition3.Value1 = "离线";
             this.gridView1.FormatConditions.AddRange(new DevExpress.XtraGrid.StyleFormatCondition[] {
-            styleFormatCondition1});
+            styleFormatCondition3});
             this.gridView1.GridControl = this.gridControl采购订单明细;
             this.gridView1.IndicatorWidth = 60;
             this.gridView1.Name = "gridView1";
@@ -484,7 +485,7 @@
             this.gridColumn33.FieldName = "FCOLORNO";
             this.gridColumn33.Name = "gridColumn33";
             this.gridColumn33.Visible = true;
-            this.gridColumn33.VisibleIndex = 2;
+            this.gridColumn33.VisibleIndex = 3;
             this.gridColumn33.Width = 100;
             // 
             // gridColumn35
@@ -497,7 +498,7 @@
             this.gridColumn35.FieldName = "FORDERUNIT";
             this.gridColumn35.Name = "gridColumn35";
             this.gridColumn35.Visible = true;
-            this.gridColumn35.VisibleIndex = 3;
+            this.gridColumn35.VisibleIndex = 4;
             this.gridColumn35.Width = 80;
             // 
             // gridColumn36
@@ -517,7 +518,7 @@
             this.gridColumn36.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "FORDERUNITQTY", "数量={0:N0}")});
             this.gridColumn36.Visible = true;
-            this.gridColumn36.VisibleIndex = 4;
+            this.gridColumn36.VisibleIndex = 5;
             this.gridColumn36.Width = 112;
             // 
             // gridColumn11
@@ -526,7 +527,7 @@
             this.gridColumn11.FieldName = "cjkcs";
             this.gridColumn11.Name = "gridColumn11";
             this.gridColumn11.Visible = true;
-            this.gridColumn11.VisibleIndex = 5;
+            this.gridColumn11.VisibleIndex = 6;
             // 
             // gridColumn5
             // 
@@ -536,7 +537,7 @@
             this.gridColumn5.FieldName = "FPRICE";
             this.gridColumn5.Name = "gridColumn5";
             this.gridColumn5.Visible = true;
-            this.gridColumn5.VisibleIndex = 6;
+            this.gridColumn5.VisibleIndex = 7;
             // 
             // gridColumn37
             // 
@@ -551,7 +552,7 @@
             this.gridColumn37.FieldName = "Famount";
             this.gridColumn37.Name = "gridColumn37";
             this.gridColumn37.Visible = true;
-            this.gridColumn37.VisibleIndex = 7;
+            this.gridColumn37.VisibleIndex = 8;
             this.gridColumn37.Width = 80;
             // 
             // gridColumn42
@@ -562,7 +563,7 @@
             this.gridColumn42.FieldName = "FREMARK";
             this.gridColumn42.Name = "gridColumn42";
             this.gridColumn42.Visible = true;
-            this.gridColumn42.VisibleIndex = 8;
+            this.gridColumn42.VisibleIndex = 9;
             this.gridColumn42.Width = 160;
             // 
             // gridColumn38
@@ -575,7 +576,7 @@
             this.gridColumn38.FieldName = "FCOMMITQTY";
             this.gridColumn38.Name = "gridColumn38";
             this.gridColumn38.Visible = true;
-            this.gridColumn38.VisibleIndex = 9;
+            this.gridColumn38.VisibleIndex = 10;
             this.gridColumn38.Width = 113;
             // 
             // gridColumn27
@@ -625,6 +626,7 @@
             this.flowLayoutPanel1.Controls.Add(this.simpleButton3);
             this.flowLayoutPanel1.Controls.Add(this.simpleButton8);
             this.flowLayoutPanel1.Controls.Add(this.simpleButton4);
+            this.flowLayoutPanel1.Controls.Add(this.btnAync);
             this.flowLayoutPanel1.Controls.Add(this.flowLayoutPanel2);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 3);
@@ -789,10 +791,10 @@
             this.flowLayoutPanel2.Controls.Add(this.simpleButton5);
             this.flowLayoutPanel2.Controls.Add(this.simpleButton1);
             this.flowLayoutPanel2.Controls.Add(this.simpleButton9);
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(524, 3);
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(614, 3);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
             this.flowLayoutPanel2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(412, 27);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(343, 27);
             this.flowLayoutPanel2.TabIndex = 64;
             // 
             // btn退出
@@ -810,7 +812,7 @@
             this.btn退出.ImageOptions.ImageList = this.imageList2;
             this.btn退出.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
             this.btn退出.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleLeft;
-            this.btn退出.Location = new System.Drawing.Point(325, 3);
+            this.btn退出.Location = new System.Drawing.Point(256, 3);
             this.btn退出.LookAndFeel.SkinName = "Office 2016 Colorful";
             this.btn退出.LookAndFeel.UseDefaultLookAndFeel = false;
             this.btn退出.Name = "btn退出";
@@ -834,7 +836,7 @@
             this.simpleButton5.ImageOptions.ImageList = this.imageList2;
             this.simpleButton5.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
             this.simpleButton5.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleLeft;
-            this.simpleButton5.Location = new System.Drawing.Point(263, 3);
+            this.simpleButton5.Location = new System.Drawing.Point(194, 3);
             this.simpleButton5.LookAndFeel.SkinName = "Office 2016 Colorful";
             this.simpleButton5.LookAndFeel.UseDefaultLookAndFeel = false;
             this.simpleButton5.Name = "simpleButton5";
@@ -859,7 +861,7 @@
             this.simpleButton1.ImageOptions.ImageList = this.imageList2;
             this.simpleButton1.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
             this.simpleButton1.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleLeft;
-            this.simpleButton1.Location = new System.Drawing.Point(167, 3);
+            this.simpleButton1.Location = new System.Drawing.Point(98, 3);
             this.simpleButton1.LookAndFeel.SkinName = "Office 2016 Colorful";
             this.simpleButton1.LookAndFeel.UseDefaultLookAndFeel = false;
             this.simpleButton1.Name = "simpleButton1";
@@ -867,6 +869,15 @@
             this.simpleButton1.TabIndex = 56;
             this.simpleButton1.Text = "整单关闭";
             this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
+            // 
+            // simpleButton9
+            // 
+            this.simpleButton9.Location = new System.Drawing.Point(17, 3);
+            this.simpleButton9.Name = "simpleButton9";
+            this.simpleButton9.Size = new System.Drawing.Size(75, 23);
+            this.simpleButton9.TabIndex = 61;
+            this.simpleButton9.Text = "刷新";
+            this.simpleButton9.Click += new System.EventHandler(this.simpleButton9_Click);
             // 
             // simpleButton7
             // 
@@ -937,14 +948,31 @@
             this.backgroundWorker2.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker2_DoWork);
             this.backgroundWorker2.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.backgroundWorker2_RunWorkerCompleted);
             // 
-            // simpleButton9
+            // btnAync
             // 
-            this.simpleButton9.Location = new System.Drawing.Point(86, 3);
-            this.simpleButton9.Name = "simpleButton9";
-            this.simpleButton9.Size = new System.Drawing.Size(75, 23);
-            this.simpleButton9.TabIndex = 61;
-            this.simpleButton9.Text = "刷新";
-            this.simpleButton9.Click += new System.EventHandler(this.simpleButton9_Click);
+            this.btnAync.Appearance.Font = new System.Drawing.Font("微软雅黑", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAync.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btnAync.Appearance.Options.UseFont = true;
+            this.btnAync.Appearance.Options.UseForeColor = true;
+            this.btnAync.AppearanceDisabled.Font = new System.Drawing.Font("微软雅黑", 9.75F);
+            this.btnAync.AppearanceDisabled.Options.UseFont = true;
+            this.btnAync.AppearanceHovered.Font = new System.Drawing.Font("微软雅黑", 9.75F);
+            this.btnAync.AppearanceHovered.Options.UseFont = true;
+            this.btnAync.AppearancePressed.Font = new System.Drawing.Font("微软雅黑", 9.75F);
+            this.btnAync.AppearancePressed.Options.UseFont = true;
+            this.btnAync.ImageOptions.ImageIndex = 6;
+            this.btnAync.ImageOptions.ImageList = this.imageList2;
+            this.btnAync.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
+            this.btnAync.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleLeft;
+            this.btnAync.Location = new System.Drawing.Point(524, 3);
+            this.btnAync.LookAndFeel.SkinName = "Office 2016 Colorful";
+            this.btnAync.LookAndFeel.UseDefaultLookAndFeel = false;
+            this.btnAync.Name = "btnAync";
+            this.btnAync.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.btnAync.Size = new System.Drawing.Size(84, 24);
+            this.btnAync.TabIndex = 66;
+            this.btnAync.Text = "OA同步";
+            this.btnAync.Click += new System.EventHandler(this.btnAync_Click);
             // 
             // FrmOrderList
             // 
@@ -1035,5 +1063,6 @@
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
         private DevExpress.XtraEditors.SimpleButton simpleButton8;
         private DevExpress.XtraEditors.SimpleButton simpleButton9;
+        private DevExpress.XtraEditors.SimpleButton btnAync;
     }
 }

@@ -4,25 +4,37 @@
     <xsd:schema targetNamespace="http://tempuri.org/Imports">
       <xsd:import schemaLocation="http://localhost:62036/APIService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
       <xsd:import schemaLocation="http://localhost:62036/APIService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
-      <xsd:import schemaLocation="http://localhost:62036/APIService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/hn.DataAccess.Model" />
-      <xsd:import schemaLocation="http://localhost:62036/APIService.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
-      <xsd:import schemaLocation="http://localhost:62036/APIService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/hn.DataAccess.bll" />
-      <xsd:import schemaLocation="http://localhost:62036/APIService.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/hn.DataAccess" />
-      <xsd:import schemaLocation="http://localhost:62036/APIService.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/hn.ArrowInterface.Entities" />
-      <xsd:import schemaLocation="http://localhost:62036/APIService.svc?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/System.Data" />
-      <xsd:import schemaLocation="http://localhost:62036/APIService.svc?xsd=xsd8" namespace="http://schemas.datacontract.org/2004/07/hn.ArrowInterface.RequestParams" />
-      <xsd:import schemaLocation="http://localhost:62036/APIService.svc?xsd=xsd9" namespace="http://schemas.datacontract.org/2004/07/hn.ArrowInterface.WebCommon" />
-      <xsd:import schemaLocation="http://localhost:62036/APIService.svc?xsd=xsd10" namespace="http://schemas.datacontract.org/2004/07/hn.Core.Model" />
-      <xsd:import schemaLocation="http://localhost:62036/APIService.svc?xsd=xsd11" namespace="http://schemas.datacontract.org/2004/07/MApiModel.api24" />
-      <xsd:import schemaLocation="http://localhost:62036/APIService.svc?xsd=xsd12" namespace="http://schemas.datacontract.org/2004/07/MApiModel.recApi24" />
-      <xsd:import schemaLocation="http://localhost:62036/APIService.svc?xsd=xsd13" namespace="http://schemas.datacontract.org/2004/07/hn.DataAccess.model" />
-      <xsd:import schemaLocation="http://localhost:62036/APIService.svc?xsd=xsd14" namespace="http://schemas.datacontract.org/2004/07/hn.Common.Cls_query" />
-      <xsd:import schemaLocation="http://localhost:62036/APIService.svc?xsd=xsd15" namespace="http://schemas.datacontract.org/2004/07/MApiModel.api2" />
-      <xsd:import schemaLocation="http://localhost:62036/APIService.svc?xsd=xsd16" namespace="http://schemas.datacontract.org/2004/07/MApiModel.recApi2" />
-      <xsd:import schemaLocation="http://localhost:62036/APIService.svc?xsd=xsd17" namespace="http://schemas.datacontract.org/2004/07/MApiModel.api8" />
-      <xsd:import schemaLocation="http://localhost:62036/APIService.svc?xsd=xsd18" namespace="http://schemas.datacontract.org/2004/07/MApiModel.api3" />
+      <xsd:import schemaLocation="http://localhost:62036/APIService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/MApiModel.api3" />
+      <xsd:import schemaLocation="http://localhost:62036/APIService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/hn.DataAccess.Model" />
+      <xsd:import schemaLocation="http://localhost:62036/APIService.svc?xsd=xsd4" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://localhost:62036/APIService.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/hn.DataAccess.bll" />
+      <xsd:import schemaLocation="http://localhost:62036/APIService.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/hn.DataAccess" />
+      <xsd:import schemaLocation="http://localhost:62036/APIService.svc?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/hn.ArrowInterface.Entities" />
+      <xsd:import schemaLocation="http://localhost:62036/APIService.svc?xsd=xsd8" namespace="http://schemas.datacontract.org/2004/07/System.Data" />
+      <xsd:import schemaLocation="http://localhost:62036/APIService.svc?xsd=xsd9" namespace="http://schemas.datacontract.org/2004/07/hn.ArrowInterface.RequestParams" />
+      <xsd:import schemaLocation="http://localhost:62036/APIService.svc?xsd=xsd10" namespace="http://schemas.datacontract.org/2004/07/hn.ArrowInterface.WebCommon" />
+      <xsd:import schemaLocation="http://localhost:62036/APIService.svc?xsd=xsd11" namespace="http://schemas.datacontract.org/2004/07/hn.Core.Model" />
+      <xsd:import schemaLocation="http://localhost:62036/APIService.svc?xsd=xsd12" namespace="http://schemas.datacontract.org/2004/07/MApiModel.api24" />
+      <xsd:import schemaLocation="http://localhost:62036/APIService.svc?xsd=xsd13" namespace="http://schemas.datacontract.org/2004/07/MApiModel.recApi24" />
+      <xsd:import schemaLocation="http://localhost:62036/APIService.svc?xsd=xsd14" namespace="http://schemas.datacontract.org/2004/07/hn.DataAccess.model" />
+      <xsd:import schemaLocation="http://localhost:62036/APIService.svc?xsd=xsd15" namespace="http://schemas.datacontract.org/2004/07/hn.Common.Cls_query" />
+      <xsd:import schemaLocation="http://localhost:62036/APIService.svc?xsd=xsd16" namespace="http://schemas.datacontract.org/2004/07/MApiModel.api2" />
+      <xsd:import schemaLocation="http://localhost:62036/APIService.svc?xsd=xsd17" namespace="http://schemas.datacontract.org/2004/07/MApiModel.recApi2" />
+      <xsd:import schemaLocation="http://localhost:62036/APIService.svc?xsd=xsd18" namespace="http://schemas.datacontract.org/2004/07/MApiModel.api8" />
     </xsd:schema>
   </wsdl:types>
+  <wsdl:message name="IAPIService_Remote_InsertICPOEntry_InputMessage">
+    <wsdl:part name="parameters" element="tns:Remote_InsertICPOEntry" />
+  </wsdl:message>
+  <wsdl:message name="IAPIService_Remote_InsertICPOEntry_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Remote_InsertICPOEntryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAPIService_Remote_GetICPOEntry_InputMessage">
+    <wsdl:part name="parameters" element="tns:Remote_GetICPOEntry" />
+  </wsdl:message>
+  <wsdl:message name="IAPIService_Remote_GetICPOEntry_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Remote_GetICPOEntryResponse" />
+  </wsdl:message>
   <wsdl:message name="IAPIService_Remote_GetICPO_BOEntry_InputMessage">
     <wsdl:part name="parameters" element="tns:Remote_GetICPO_BOEntry" />
   </wsdl:message>
@@ -599,19 +611,27 @@
   <wsdl:message name="IAPIService_UnAuditSave_ICPO_OutputMessage">
     <wsdl:part name="parameters" element="tns:UnAuditSave_ICPOResponse" />
   </wsdl:message>
-  <wsdl:message name="IAPIService_Remote_InsertICPOEntry_InputMessage">
-    <wsdl:part name="parameters" element="tns:Remote_InsertICPOEntry" />
+  <wsdl:message name="IAPIService_ICPOBILLENTRYMODEL_List_InputMessage">
+    <wsdl:part name="parameters" element="tns:ICPOBILLENTRYMODEL_List" />
   </wsdl:message>
-  <wsdl:message name="IAPIService_Remote_InsertICPOEntry_OutputMessage">
-    <wsdl:part name="parameters" element="tns:Remote_InsertICPOEntryResponse" />
+  <wsdl:message name="IAPIService_ICPOBILLENTRYMODEL_List_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ICPOBILLENTRYMODEL_ListResponse" />
   </wsdl:message>
-  <wsdl:message name="IAPIService_Remote_GetICPOEntry_InputMessage">
-    <wsdl:part name="parameters" element="tns:Remote_GetICPOEntry" />
+  <wsdl:message name="IAPIService_OA_Status_InputMessage">
+    <wsdl:part name="parameters" element="tns:OA_Status" />
   </wsdl:message>
-  <wsdl:message name="IAPIService_Remote_GetICPOEntry_OutputMessage">
-    <wsdl:part name="parameters" element="tns:Remote_GetICPOEntryResponse" />
+  <wsdl:message name="IAPIService_OA_Status_OutputMessage">
+    <wsdl:part name="parameters" element="tns:OA_StatusResponse" />
   </wsdl:message>
   <wsdl:portType name="IAPIService">
+    <wsdl:operation name="Remote_InsertICPOEntry">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAPIService/Remote_InsertICPOEntry" message="tns:IAPIService_Remote_InsertICPOEntry_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAPIService/Remote_InsertICPOEntryResponse" message="tns:IAPIService_Remote_InsertICPOEntry_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Remote_GetICPOEntry">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAPIService/Remote_GetICPOEntry" message="tns:IAPIService_Remote_GetICPOEntry_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAPIService/Remote_GetICPOEntryResponse" message="tns:IAPIService_Remote_GetICPOEntry_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="Remote_GetICPO_BOEntry">
       <wsdl:input wsaw:Action="http://tempuri.org/IAPIService/Remote_GetICPO_BOEntry" message="tns:IAPIService_Remote_GetICPO_BOEntry_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IAPIService/Remote_GetICPO_BOEntryResponse" message="tns:IAPIService_Remote_GetICPO_BOEntry_OutputMessage" />
@@ -996,17 +1016,35 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IAPIService/UnAuditSave_ICPO" message="tns:IAPIService_UnAuditSave_ICPO_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IAPIService/UnAuditSave_ICPOResponse" message="tns:IAPIService_UnAuditSave_ICPO_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="Remote_InsertICPOEntry">
-      <wsdl:input wsaw:Action="http://tempuri.org/IAPIService/Remote_InsertICPOEntry" message="tns:IAPIService_Remote_InsertICPOEntry_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IAPIService/Remote_InsertICPOEntryResponse" message="tns:IAPIService_Remote_InsertICPOEntry_OutputMessage" />
+    <wsdl:operation name="ICPOBILLENTRYMODEL_List">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAPIService/ICPOBILLENTRYMODEL_List" message="tns:IAPIService_ICPOBILLENTRYMODEL_List_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAPIService/ICPOBILLENTRYMODEL_ListResponse" message="tns:IAPIService_ICPOBILLENTRYMODEL_List_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="Remote_GetICPOEntry">
-      <wsdl:input wsaw:Action="http://tempuri.org/IAPIService/Remote_GetICPOEntry" message="tns:IAPIService_Remote_GetICPOEntry_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IAPIService/Remote_GetICPOEntryResponse" message="tns:IAPIService_Remote_GetICPOEntry_OutputMessage" />
+    <wsdl:operation name="OA_Status">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAPIService/OA_Status" message="tns:IAPIService_OA_Status_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAPIService/OA_StatusResponse" message="tns:IAPIService_OA_Status_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IAPIService" type="tns:IAPIService">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Remote_InsertICPOEntry">
+      <soap:operation soapAction="http://tempuri.org/IAPIService/Remote_InsertICPOEntry" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Remote_GetICPOEntry">
+      <soap:operation soapAction="http://tempuri.org/IAPIService/Remote_GetICPOEntry" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="Remote_GetICPO_BOEntry">
       <soap:operation soapAction="http://tempuri.org/IAPIService/Remote_GetICPO_BOEntry" style="document" />
       <wsdl:input>
@@ -1871,8 +1909,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="Remote_InsertICPOEntry">
-      <soap:operation soapAction="http://tempuri.org/IAPIService/Remote_InsertICPOEntry" style="document" />
+    <wsdl:operation name="ICPOBILLENTRYMODEL_List">
+      <soap:operation soapAction="http://tempuri.org/IAPIService/ICPOBILLENTRYMODEL_List" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -1880,8 +1918,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="Remote_GetICPOEntry">
-      <soap:operation soapAction="http://tempuri.org/IAPIService/Remote_GetICPOEntry" style="document" />
+    <wsdl:operation name="OA_Status">
+      <soap:operation soapAction="http://tempuri.org/IAPIService/OA_Status" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

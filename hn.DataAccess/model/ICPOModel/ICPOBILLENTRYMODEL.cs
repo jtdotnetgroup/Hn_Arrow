@@ -133,50 +133,18 @@ namespace hn.DataAccess.Model
         /// 厂家代码/品种
         /// </summary>
         public string FSRCCODE { get; set; }
-
-        [DbField(false)]
-        public string PZ { get {
-                if (string.IsNullOrEmpty(FSRCCODE)) return "";
-                string[] arrCode = FSRCCODE.Split(new string[] { "||" }, StringSplitOptions.RemoveEmptyEntries);
-                if (arrCode.Length == 3) return arrCode[0];
-                else return "";
-            }
-
-        }   
-        [DbField(false)]
-        public string XH
-        {
-            get
-            {
-                if (string.IsNullOrEmpty(FSRCCODE)) return "";
-                string[] arrCode = FSRCCODE.Split(new string[] { "||" }, StringSplitOptions.RemoveEmptyEntries);
-                if (arrCode.Length == 3) return arrCode[1];
-                else return "";
-            }
-
-        }
-        [DbField(false)]
-        public string GG
-        {
-            get
-            {
-                if (string.IsNullOrEmpty(FSRCCODE)) return "";
-                string[] arrCode = FSRCCODE.Split(new string[] { "||" }, StringSplitOptions.RemoveEmptyEntries);
-                if (arrCode.Length == 3) return arrCode[2];
-                else return "";
-            }
-
-        }
+         
 
         /// <summary>
-        /// 厂家名称/型号
+        /// 厂家名称
         /// </summary>
         public string FSRCNAME { get; set; }
 
         /// <summary>
-        /// 厂家规格
+        /// 厂家 大类+型号+规格
         /// </summary>
         public string FSRCMODEL { get; set; }
+
 
         /// <summary>
         /// 等级

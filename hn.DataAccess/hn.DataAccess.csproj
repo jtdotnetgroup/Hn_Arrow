@@ -173,6 +173,11 @@
     <Compile Include="Constant.cs" />
     <Compile Include="dal\ccdDal.cs" />
     <Compile Include="dal\Common\SelectDal.cs" />
+    <Compile Include="dal\ICPOBILLENTRYMODELDal.cs" />
+    <Compile Include="dal\LHDal\LH_OUTBOUNDORDERDal.cs" />
+    <Compile Include="dal\LHDal\LH_OUTBOUNDORDERDETAILEDDal.cs" />
+    <Compile Include="model\LHModel\LH_OUTBOUNDORDERDETAILEDModel.cs" />
+    <Compile Include="model\LHModel\LH_OUTBOUNDORDERModel.cs" />
     <Compile Include="dal\TB_DZmanuscript_DAL\TB_DZmanuscript_DAL.cs" />
     <Compile Include="dal\v_lhproducts_policyDal.cs" />
     <Compile Include="dal\V_QUERY_STOCKDal.cs" />

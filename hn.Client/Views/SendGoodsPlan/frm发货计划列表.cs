@@ -499,7 +499,7 @@ namespace hn.Client
         }
 
 
-      
+
 
         string xq = "";
         string brand = "";
@@ -558,7 +558,7 @@ namespace hn.Client
                 backgroundWorker2.RunWorkerAsync();
             }
 
-            
+
 
 
 
@@ -618,7 +618,7 @@ namespace hn.Client
         private void btn审核_Click(object sender, EventArgs e)
         {
             string ids = "";
-             list = new List<string>();
+            list = new List<string>();
 
             for (int i = 0; i < gridView发货计划列表.RowCount; i++)
             {
@@ -649,7 +649,7 @@ namespace hn.Client
                 }
 
 
-              
+
 
             }
             else
@@ -689,7 +689,7 @@ namespace hn.Client
             {
                 optype = "3";
 
-             
+
 
                 if (MsgHelper.AskQuestion("点击确认退回到待审核状态，可修改资料！"))
                 {
@@ -699,7 +699,7 @@ namespace hn.Client
                         backgroundWorker2.RunWorkerAsync();
                     }
 
-                  
+
                 }
             }
             else
@@ -719,23 +719,23 @@ namespace hn.Client
             fid_tb.Clear();
             List<string> list = new List<string>();
             listModels.Clear();
-          
+
 
 
             string comid = "2";
             for (int i = 0; i < gridView发货计划列表.RowCount; i++)
             {
-               
+
                 bool b = gridView发货计划列表.GetRowCellValue(i, "FCHECK").ToBool();
                 if (b)
                 {
-                    
+
 
                     var rowIndex = gridView发货计划列表.GetDataSourceRowIndex(i);
                     var rowData = _dataSrouce[rowIndex];
                     if (rowData.FSTATUS == 3 && (rowData.FSYNCSTATUS == 0 || rowData.FSYNCSTATUS == -1))
                     {
-                        listModels.Add(rowData);  
+                        listModels.Add(rowData);
                     }
 
                 }
@@ -1012,7 +1012,7 @@ namespace hn.Client
             gridControl发货计划列表.RefreshDataSource();
         }
 
-      
+
 
         private void btn约车_Click(object sender, EventArgs e)
         {
@@ -1058,10 +1058,10 @@ namespace hn.Client
 
         //        new Thread(() =>
         //        {
-                    
+
         //        }).Start();
 
-                
+
 
         //        //var list = _service.GetDeliveryEntryList(fid);
 
@@ -1102,7 +1102,7 @@ namespace hn.Client
 
             var v_thdmodelList = _service.getTHDList(thdbmList);
 
-            
+
 
             //v_thdModel v = _service.getTHD(sub.thdbm);
 
@@ -1134,7 +1134,7 @@ namespace hn.Client
                   bindData(data);
               });
 
-            Invoke(action, list);       
+            Invoke(action, list);
 
         }
 
@@ -1159,7 +1159,7 @@ namespace hn.Client
             //    }
             //}
 
-        
+
             for (int i = 0; i < gridView发货计划列表.RowCount; i++)
             {
                 bool b = gridView发货计划列表.GetRowCellValue(i, "FCHECK").ToBool();
@@ -1187,24 +1187,24 @@ namespace hn.Client
             {
                 case "0":
                     try
-                    { 
-                    _dataSrouce = _service.GetDeliveryList(
-                Global.LoginUser,
-                brand,
-                xq == "全部" ? "" : xq,
-                "",
-                status,
-                car,
-                "",
-                account,
-                expresscompany,
-                txt厂家单号.Text,
-                txt发货计划单号.Text,
-                txt组柜单号.Text,
-                txt工程名称.Text,
-                startdate == "0001/01/01" ? "" : startdate,
-                enddate == "0001/01/01" ? "" : enddate,
-                !chkClose.Checked);
+                    {
+                        _dataSrouce = _service.GetDeliveryList(
+                    Global.LoginUser,
+                    brand,
+                    xq == "全部" ? "" : xq,
+                    "",
+                    status,
+                    car,
+                    "",
+                    account,
+                    expresscompany,
+                    txt厂家单号.Text,
+                    txt发货计划单号.Text,
+                    txt组柜单号.Text,
+                    txt工程名称.Text,
+                    startdate == "0001/01/01" ? "" : startdate,
+                    enddate == "0001/01/01" ? "" : enddate,
+                    !chkClose.Checked);
                     }
                     catch (Exception ee)
                     {
@@ -1245,7 +1245,7 @@ namespace hn.Client
                             }
                         }
                     }
-                    catch(Exception ee)
+                    catch (Exception ee)
                     {
                         tumMessage = ee.ToStr();
                     }
@@ -1254,11 +1254,11 @@ namespace hn.Client
                 case "3":
                     //调用发货计划删除接口
                     try
-                    { 
-                    int res = _service.AuditAntiDeliveryByIDs(ids_sh);
-                    if (res > 0)
                     {
-                        MsgHelper.ShowInformation("处理成功！");
+                        int res = _service.AuditAntiDeliveryByIDs(ids_sh);
+                        if (res > 0)
+                        {
+                            MsgHelper.ShowInformation("处理成功！");
 
                         }
                     }
@@ -1273,7 +1273,7 @@ namespace hn.Client
                     try
                     {
                         fid_tb.Clear();
-                        for(int k=0;k<listModels.Count;k++)
+                        for (int k = 0; k < listModels.Count; k++)
                         {
                             V_ICSEOUTBILLMODEL rowData = listModels[k];
                             List<MApiModel.api12.Datum> LItem = new List<MApiModel.api12.Datum>();
@@ -1310,7 +1310,7 @@ namespace hn.Client
 
                                 //list.Add(rowData.FID);
                                 MApiModel.api12.Datum subItem = new MApiModel.api12.Datum();
-                                subItem.pzhm = rowData.FBILLNO.Replace("DP","");
+                                subItem.pzhm = rowData.FBILLNO.Replace("DP", "");
                                 subItem.rq = rowData.FBILLDATE.Year + "/" + (rowData.FBILLDATE.Month < 10 ? "0" + rowData.FBILLDATE.Month.ToStr() : rowData.FBILLDATE.Month.ToStr()) + "/" + (rowData.FBILLDATE.Day < 10 ? "0" + rowData.FBILLDATE.Day.ToStr() : rowData.FBILLDATE.Day.ToStr());
                                 subItem.khhm = vTHD.khhm;
                                 subItem.khmc = vTHD.khmc;
@@ -1339,7 +1339,7 @@ namespace hn.Client
                                 subItem.ks = int.Parse(vTHD.ks);
                                 subItem.sl = (int)subEntry.FCOMMITQTY;
                                 subItem.bz = string.IsNullOrEmpty(subEntry.FREMARK) ? "" : subEntry.FREMARK;
-                                subItem.gg = vTHD.gg == null ? "" :vTHD.gg;
+                                subItem.gg = vTHD.gg == null ? "" : vTHD.gg;
 
                                 try
                                 {
@@ -1348,10 +1348,10 @@ namespace hn.Client
                                 }
                                 catch
                                 {
-                                    subItem.ggs = vTHD.GGS == null ? "" :vTHD.GGS;
+                                    subItem.ggs = vTHD.GGS == null ? "" : vTHD.GGS;
                                 }
 
-                                
+
                                 subItem.pjhm1 = "";
                                 //
                                 //subItem.package = vTHD.tpackage;
@@ -1363,11 +1363,11 @@ namespace hn.Client
                                 strCarno += string.IsNullOrEmpty(rowData.FDELIVERER) ? "" : " 司机:" + rowData.FDELIVERER;
                                 strCarno += string.IsNullOrEmpty(rowData.FDELIVERERTEL) ? "" : " 电话:" + rowData.FDELIVERERTEL;
 
-                               decimal dLength=  decimal.Parse(IniHelper.ReadString(Global.IniUrl, "CONFIG", "cph", "40"));
+                                decimal dLength = decimal.Parse(IniHelper.ReadString(Global.IniUrl, "CONFIG", "cph", "40"));
 
-                                if (strCarno.Length > (int)dLength) strCarno = strCarno.Substring(0, (int)dLength-1);
+                                if (strCarno.Length > (int)dLength) strCarno = strCarno.Substring(0, (int)dLength - 1);
 
-                                subItem.carno = strCarno.Trim().Replace("  ","");
+                                subItem.carno = strCarno.Trim().Replace("  ", "");
 
 
                                 subItem.jsdz = string.IsNullOrEmpty(rowData.FRECEIVER_DISTRICT_NAME) ? "广东省" : rowData.FRECEIVER_DISTRICT_NAME;
@@ -1378,7 +1378,7 @@ namespace hn.Client
                                 subItem.Province = string.IsNullOrEmpty(rowData.FRECEIVER_PROVINCE_NAME) ? "广东省" : rowData.FRECEIVER_PROVINCE_NAME;
                                 subItem.City = string.IsNullOrEmpty(rowData.FRECEIVER_CITY_NAME) ? "佛山市" : rowData.FRECEIVER_CITY_NAME;
                                 subItem.Region = "南海区";
-                                subItem.bz =string.IsNullOrEmpty( rowData.FREMARK)?"":rowData.FREMARK;
+                                subItem.bz = string.IsNullOrEmpty(rowData.FREMARK) ? "" : rowData.FREMARK;
                                 LItem.Add(subItem);
                             }
 
@@ -1389,7 +1389,7 @@ namespace hn.Client
                                 getapi6.comid = int.Parse(comid);
                                 string fid = rowData.FID;
 
-                                if (!fid_tb.ContainsKey(fid)&&fid!="")
+                                if (!fid_tb.ContainsKey(fid) && fid != "")
                                 {
                                     fid_tb.Add(fid, getapi6);
                                 }
@@ -1410,7 +1410,7 @@ namespace hn.Client
                             if (!fid_tb.ContainsKey(sub33)) continue;
                             iIndex++;
                             string k = sub33;
-                          
+
                             MApiModel.api12.Rootobject v = fid_tb[sub33];
                             var jsonData = JsonHelper.ToJson(v);
                             string res1 = _service.SyncDeliveryByIDsMN(jsonData, k);
@@ -1422,14 +1422,14 @@ namespace hn.Client
                             {
                                 listFalse.Add("第" + iIndex + "条发生错误：" + res1);
                             }
-                        }                        
+                        }
 
                         if (listFalse.Count > 0)
                         {
                             string mes = "";
                             foreach (var sub in listFalse)
                             {
-                                mes += sub+"\r\n";
+                                mes += sub + "\r\n";
                             }
 
                             MsgHelper.ShowError(mes);
@@ -1474,7 +1474,7 @@ namespace hn.Client
 
         private void gridView发货计划列表_DoubleClick(object sender, EventArgs e)
         {
-            btn编辑_Click(null,null);
+            btn编辑_Click(null, null);
         }
 
         private void gridView发货计划列表_RowCellClick(object sender, RowCellClickEventArgs e)
@@ -1503,7 +1503,7 @@ namespace hn.Client
 
         private void gridView发货计划列表_Click(object sender, EventArgs e)
         {
-            
+
         }
     }
 }

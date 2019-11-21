@@ -289,6 +289,22 @@ namespace hn.Client.Service
             }
             return result;
         }
+        /// <summary>
+        /// 明细列表
+        /// </summary>
+        /// <param name="FICPOBILLID"></param>
+        /// <returns></returns>
+        public List<ICPOBILLENTRYMODEL> ICPOBILLENTRYMODEL_List(string FICPOBILLID) {
+            return ICPOBILLENTRYMODELDal.Instance.GetWhere(new { FICPOBILLID = FICPOBILLID }).ToList();
+        }
+        /// <summary>
+        /// 审核OA状态
+        /// </summary>
+        /// <param name="idStrings"></param>
+        /// <returns></returns>
+        public bool OA_Status(string[] idStrings) {
+            return ICPOBILLBLL.Instance.OA_Status(idStrings);
+        }
 
 
         /// <summary>

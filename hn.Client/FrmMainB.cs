@@ -433,5 +433,17 @@ namespace hn.Client
             Form1 f = new Form1();
             f.ShowDialog();
         }
+
+        private void barbtnOutOrder_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            try
+            {
+                OpenChildForm(new FrmOutOrderList());
+            }
+            catch (Exception ex)
+            {
+                LogError(ex);
+            }
+        }
     }
 }

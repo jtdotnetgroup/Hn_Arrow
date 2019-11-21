@@ -612,6 +612,12 @@ MApiModel.api24.Rootobject getapi24);
         bool AuditSave_ICPO(List<ICPOBILLENTRYMODEL> data, User loginUser, string content);
         [OperationContract]
         bool UnAuditSave_ICPO(List<ICPOBILLENTRYMODEL> data, User loginUser, string content);
+
+        [OperationContract]
+        List<ICPOBILLENTRYMODEL> ICPOBILLENTRYMODEL_List(string FICPOBILLID);
+
+        [OperationContract]
+        bool OA_Status(string[] idStrings);
         #endregion
 
 

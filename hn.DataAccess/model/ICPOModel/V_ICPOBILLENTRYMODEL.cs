@@ -88,8 +88,8 @@ namespace hn.DataAccess.Model
         {
             get
             {
-                if (string.IsNullOrEmpty(FSRCCODE)) return "";
-                string[] arrCode = FSRCCODE.Split(new string[] { "||" }, StringSplitOptions.RemoveEmptyEntries);
+                if (string.IsNullOrEmpty(FSRCMODEL)) return "";
+                string[] arrCode = FSRCMODEL.Split(new string[] { "||" }, StringSplitOptions.RemoveEmptyEntries);
                 if (arrCode.Length == 3) return arrCode[0];
                 else return "";
             }
@@ -100,8 +100,8 @@ namespace hn.DataAccess.Model
         {
             get
             {
-                if (string.IsNullOrEmpty(FSRCCODE)) return "";
-                string[] arrCode = FSRCCODE.Split(new string[] { "||" }, StringSplitOptions.RemoveEmptyEntries);
+                if (string.IsNullOrEmpty(FSRCMODEL)) return "";
+                string[] arrCode = FSRCMODEL.Split(new string[] { "||" }, StringSplitOptions.RemoveEmptyEntries);
                 if (arrCode.Length == 3) return arrCode[1];
                 else return "";
             }
@@ -112,13 +112,11 @@ namespace hn.DataAccess.Model
         {
             get
             {
-                if (string.IsNullOrEmpty(FSRCCODE)) return "";
-                string[] arrCode = FSRCCODE.Split(new string[] { "||" }, StringSplitOptions.RemoveEmptyEntries);
+                if (string.IsNullOrEmpty(FSRCMODEL)) return "";
+                string[] arrCode = FSRCMODEL.Split(new string[] { "||" }, StringSplitOptions.RemoveEmptyEntries);
                 if (arrCode.Length == 3) return arrCode[2];
                 else return "";
-            }
-
-        }
-
+            } 
+        } 
     }
 }

@@ -7,6 +7,8 @@ using hn.DataAccess;
 using hn.DataAccess.bll;
 using hn.DataAccess.Bll;
 using hn.DataAccess.dal;
+using hn.DataAccess.dal.LHDal;
+using hn.DataAccess.dal.LHModel;
 using hn.DataAccess.Dal;
 using hn.DataAccess.model;
 using hn.DataAccess.Model;
@@ -22,9 +24,21 @@ namespace hn.Client.Service
 {
     public partial class APIService
     {
-
-
-
+        /// <summary>
+        /// 出库单
+        /// </summary>
+        /// <returns></returns>
+        public List<LH_OUTBOUNDORDERModel> LH_OUTBOUNDORDER_List() {
+           return LH_OUTBOUNDORDERDal.Instance.GetAll().Take(10).Skip(0).ToList();
+        }
+        /// <summary>
+        /// 出库单明细
+        /// </summary>
+        /// <returns></returns>
+        public List<LH_OUTBOUNDORDERDETAILEDModel> LH_OUTBOUNDORDERDETAILED_List(string Id)
+        {
+            return LH_OUTBOUNDORDERDETAILEDDal.Instance.GetList(@" AND LHODOID = '" + Id + "'").ToList();
+        }
         /// <summary>
         /// 生成单据编号
         /// </summary>

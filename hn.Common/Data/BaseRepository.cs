@@ -96,7 +96,11 @@ namespace hn.Common.Data
         {
             return DbUtils.GetExecuteScalarWhere<T>(field,where);
         }
-
+        public int ExecuteNonQuery(string vSql)
+        {
+            return DbUtils.ExecuteNonQuery(vSql);
+        }
+        
 
         public int CountBySQL(string sql)
         {
