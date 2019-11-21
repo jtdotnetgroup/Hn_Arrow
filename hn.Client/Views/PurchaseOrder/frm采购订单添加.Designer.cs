@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition2 = new DevExpress.XtraGrid.StyleFormatCondition();
+            DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition1 = new DevExpress.XtraGrid.StyleFormatCondition();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPurchaseOrder));
             this.gridColumn43 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryItemCheckEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
@@ -39,24 +39,30 @@
             this.gridView发货计划明细 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn20 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.itemButton商品代码 = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
-            this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn9 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn18 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.repositoryItemTextEdit6 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
+            this.gridColumn23 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn39 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn42 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryItemTextEdit5 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
-            this.gridColumn19 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.repositoryItemTextEdit7 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.gridColumn17 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn18 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repositoryItemTextEdit6 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.gridColumn41 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryItemTextEdit9 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
-            this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn27 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn28 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn29 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn222 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryItemTextEdit4 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
+            this.gridColumn29 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn6 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn7 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn28 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn36 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn19 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repositoryItemTextEdit7 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
+            this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn37 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn21 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryItemButtonEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
@@ -72,13 +78,8 @@
             this.gridColumn30 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn31 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn45 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn23 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn39 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn36 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn6 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn7 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn8 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryItemCheckEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
             this.repositoryItemCheckEdit3 = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
             this.repositoryItemSearchLookUpEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemSearchLookUpEdit();
@@ -147,11 +148,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridControl采购订单明细)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView发货计划明细)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.itemButton商品代码)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit2)).BeginInit();
@@ -213,7 +214,7 @@
             this.panel左.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel左.Location = new System.Drawing.Point(0, 0);
             this.panel左.Name = "panel左";
-            this.panel左.Size = new System.Drawing.Size(1641, 640);
+            this.panel左.Size = new System.Drawing.Size(1648, 640);
             this.panel左.TabIndex = 3;
             this.panel左.Paint += new System.Windows.Forms.PaintEventHandler(this.panel左_Paint);
             // 
@@ -223,7 +224,7 @@
             this.panelControl4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl4.Location = new System.Drawing.Point(0, 228);
             this.panelControl4.Name = "panelControl4";
-            this.panelControl4.Size = new System.Drawing.Size(1641, 412);
+            this.panelControl4.Size = new System.Drawing.Size(1648, 412);
             this.panelControl4.TabIndex = 79;
             // 
             // gridControl采购订单明细
@@ -252,7 +253,7 @@
             this.itemButton商品代码,
             this.repositoryItemButtonEdit1,
             this.repositoryItemTextEdit9});
-            this.gridControl采购订单明细.Size = new System.Drawing.Size(1637, 408);
+            this.gridControl采购订单明细.Size = new System.Drawing.Size(1644, 408);
             this.gridControl采购订单明细.TabIndex = 1;
             this.gridControl采购订单明细.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView发货计划明细});
@@ -286,19 +287,25 @@
             this.gridView发货计划明细.Appearance.SelectedRow.Options.UseBackColor = true;
             this.gridView发货计划明细.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.gridColumn20,
-            this.gridColumn3,
+            this.gridColumn9,
             this.gridColumn1,
             this.gridColumn2,
-            this.gridColumn18,
+            this.gridColumn23,
+            this.gridColumn39,
             this.gridColumn42,
-            this.gridColumn19,
             this.gridColumn17,
+            this.gridColumn18,
             this.gridColumn41,
-            this.gridColumn4,
             this.gridColumn27,
-            this.gridColumn28,
-            this.gridColumn29,
             this.gridColumn222,
+            this.gridColumn29,
+            this.gridColumn5,
+            this.gridColumn6,
+            this.gridColumn7,
+            this.gridColumn28,
+            this.gridColumn36,
+            this.gridColumn19,
+            this.gridColumn4,
             this.gridColumn37,
             this.gridColumn21,
             this.gridColumn44,
@@ -310,22 +317,17 @@
             this.gridColumn30,
             this.gridColumn31,
             this.gridColumn45,
-            this.gridColumn23,
-            this.gridColumn39,
-            this.gridColumn36,
-            this.gridColumn5,
-            this.gridColumn6,
-            this.gridColumn7,
-            this.gridColumn8});
+            this.gridColumn8,
+            this.gridColumn3});
             this.gridView发货计划明细.DetailHeight = 280;
-            styleFormatCondition2.Appearance.ForeColor = System.Drawing.Color.Red;
-            styleFormatCondition2.Appearance.Options.UseForeColor = true;
-            styleFormatCondition2.ApplyToRow = true;
-            styleFormatCondition2.Column = this.gridColumn43;
-            styleFormatCondition2.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
-            styleFormatCondition2.Value1 = "离线";
+            styleFormatCondition1.Appearance.ForeColor = System.Drawing.Color.Red;
+            styleFormatCondition1.Appearance.Options.UseForeColor = true;
+            styleFormatCondition1.ApplyToRow = true;
+            styleFormatCondition1.Column = this.gridColumn43;
+            styleFormatCondition1.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
+            styleFormatCondition1.Value1 = "离线";
             this.gridView发货计划明细.FormatConditions.AddRange(new DevExpress.XtraGrid.StyleFormatCondition[] {
-            styleFormatCondition2});
+            styleFormatCondition1});
             this.gridView发货计划明细.GridControl = this.gridControl采购订单明细;
             this.gridView发货计划明细.Name = "gridView发货计划明细";
             this.gridView发货计划明细.OptionsBehavior.EditorShowMode = DevExpress.Utils.EditorShowMode.MouseDown;
@@ -350,7 +352,7 @@
             this.gridColumn20.Name = "gridColumn20";
             this.gridColumn20.Visible = true;
             this.gridColumn20.VisibleIndex = 1;
-            this.gridColumn20.Width = 30;
+            this.gridColumn20.Width = 50;
             // 
             // itemButton商品代码
             // 
@@ -360,64 +362,69 @@
             this.itemButton商品代码.Name = "itemButton商品代码";
             this.itemButton商品代码.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.itemButton商品代码_ButtonClick);
             // 
-            // gridColumn3
+            // gridColumn9
             // 
-            this.gridColumn3.Caption = "请购ID";
-            this.gridColumn3.FieldName = "FPLANID";
-            this.gridColumn3.MinWidth = 15;
-            this.gridColumn3.Name = "gridColumn3";
-            this.gridColumn3.Width = 56;
+            this.gridColumn9.Caption = "产品编码";
+            this.gridColumn9.FieldName = "FSRCCODE";
+            this.gridColumn9.Name = "gridColumn9";
+            this.gridColumn9.OptionsColumn.AllowEdit = false;
+            this.gridColumn9.Visible = true;
+            this.gridColumn9.VisibleIndex = 2;
             // 
             // gridColumn1
             // 
             this.gridColumn1.AppearanceCell.Options.UseTextOptions = true;
             this.gridColumn1.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.gridColumn1.Caption = "厂家规格";
-            this.gridColumn1.FieldName = "FSRCMODEL";
+            this.gridColumn1.FieldName = "GG";
             this.gridColumn1.MinWidth = 15;
             this.gridColumn1.Name = "gridColumn1";
+            this.gridColumn1.OptionsColumn.AllowEdit = false;
             this.gridColumn1.Visible = true;
-            this.gridColumn1.VisibleIndex = 2;
+            this.gridColumn1.VisibleIndex = 3;
             // 
             // gridColumn2
             // 
             this.gridColumn2.AppearanceCell.Options.UseTextOptions = true;
             this.gridColumn2.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.gridColumn2.Caption = "厂家型号";
-            this.gridColumn2.FieldName = "FSRCNAME";
+            this.gridColumn2.FieldName = "XH";
             this.gridColumn2.MinWidth = 15;
             this.gridColumn2.Name = "gridColumn2";
+            this.gridColumn2.OptionsColumn.AllowEdit = false;
             this.gridColumn2.Visible = true;
-            this.gridColumn2.VisibleIndex = 3;
+            this.gridColumn2.VisibleIndex = 4;
             this.gridColumn2.Width = 112;
             // 
-            // gridColumn18
+            // gridColumn23
             // 
-            this.gridColumn18.AppearanceCell.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.gridColumn18.AppearanceCell.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.gridColumn18.AppearanceCell.Options.UseBackColor = true;
-            this.gridColumn18.AppearanceCell.Options.UseTextOptions = true;
-            this.gridColumn18.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.gridColumn18.AppearanceHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.gridColumn18.AppearanceHeader.Options.UseBackColor = true;
-            this.gridColumn18.Caption = "等级";
-            this.gridColumn18.ColumnEdit = this.repositoryItemTextEdit6;
-            this.gridColumn18.FieldName = "Flevel";
-            this.gridColumn18.MinWidth = 15;
-            this.gridColumn18.Name = "gridColumn18";
-            this.gridColumn18.Visible = true;
-            this.gridColumn18.VisibleIndex = 4;
-            this.gridColumn18.Width = 56;
+            this.gridColumn23.AppearanceCell.Options.UseTextOptions = true;
+            this.gridColumn23.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumn23.Caption = "产品大类";
+            this.gridColumn23.FieldName = "PZ";
+            this.gridColumn23.MinWidth = 15;
+            this.gridColumn23.Name = "gridColumn23";
+            this.gridColumn23.OptionsColumn.AllowEdit = false;
+            this.gridColumn23.Visible = true;
+            this.gridColumn23.VisibleIndex = 5;
+            this.gridColumn23.Width = 60;
             // 
-            // repositoryItemTextEdit6
+            // gridColumn39
             // 
-            this.repositoryItemTextEdit6.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.repositoryItemTextEdit6.Appearance.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.repositoryItemTextEdit6.Appearance.ForeColor = System.Drawing.Color.Black;
-            this.repositoryItemTextEdit6.Appearance.Options.UseBackColor = true;
-            this.repositoryItemTextEdit6.Appearance.Options.UseForeColor = true;
-            this.repositoryItemTextEdit6.AutoHeight = false;
-            this.repositoryItemTextEdit6.Name = "repositoryItemTextEdit6";
+            this.gridColumn39.AppearanceCell.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.gridColumn39.AppearanceCell.Options.UseBackColor = true;
+            this.gridColumn39.AppearanceCell.Options.UseTextOptions = true;
+            this.gridColumn39.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumn39.AppearanceHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.gridColumn39.AppearanceHeader.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.gridColumn39.AppearanceHeader.Options.UseBackColor = true;
+            this.gridColumn39.Caption = "合同号(批号)";
+            this.gridColumn39.FieldName = "FBATCHNO";
+            this.gridColumn39.MinWidth = 15;
+            this.gridColumn39.Name = "gridColumn39";
+            this.gridColumn39.Visible = true;
+            this.gridColumn39.VisibleIndex = 6;
+            this.gridColumn39.Width = 80;
             // 
             // gridColumn42
             // 
@@ -435,7 +442,7 @@
             this.gridColumn42.MinWidth = 15;
             this.gridColumn42.Name = "gridColumn42";
             this.gridColumn42.Visible = true;
-            this.gridColumn42.VisibleIndex = 5;
+            this.gridColumn42.VisibleIndex = 7;
             // 
             // repositoryItemTextEdit5
             // 
@@ -447,36 +454,11 @@
             this.repositoryItemTextEdit5.AutoHeight = false;
             this.repositoryItemTextEdit5.Name = "repositoryItemTextEdit5";
             // 
-            // gridColumn19
-            // 
-            this.gridColumn19.AppearanceCell.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.gridColumn19.AppearanceCell.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.gridColumn19.AppearanceCell.Options.UseBackColor = true;
-            this.gridColumn19.AppearanceCell.Options.UseTextOptions = true;
-            this.gridColumn19.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.gridColumn19.AppearanceHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.gridColumn19.AppearanceHeader.Options.UseBackColor = true;
-            this.gridColumn19.Caption = "仓库";
-            this.gridColumn19.ColumnEdit = this.repositoryItemTextEdit7;
-            this.gridColumn19.FieldName = "FSTOCK";
-            this.gridColumn19.MinWidth = 15;
-            this.gridColumn19.Name = "gridColumn19";
-            this.gridColumn19.Visible = true;
-            this.gridColumn19.VisibleIndex = 6;
-            this.gridColumn19.Width = 56;
-            // 
-            // repositoryItemTextEdit7
-            // 
-            this.repositoryItemTextEdit7.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.repositoryItemTextEdit7.Appearance.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.repositoryItemTextEdit7.Appearance.ForeColor = System.Drawing.Color.Black;
-            this.repositoryItemTextEdit7.Appearance.Options.UseBackColor = true;
-            this.repositoryItemTextEdit7.Appearance.Options.UseForeColor = true;
-            this.repositoryItemTextEdit7.AutoHeight = false;
-            this.repositoryItemTextEdit7.Name = "repositoryItemTextEdit7";
-            // 
             // gridColumn17
             // 
+            this.gridColumn17.AppearanceCell.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.gridColumn17.AppearanceCell.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.gridColumn17.AppearanceCell.Options.UseBackColor = true;
             this.gridColumn17.AppearanceCell.Options.UseTextOptions = true;
             this.gridColumn17.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.gridColumn17.AppearanceHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
@@ -486,8 +468,36 @@
             this.gridColumn17.MinWidth = 15;
             this.gridColumn17.Name = "gridColumn17";
             this.gridColumn17.Visible = true;
-            this.gridColumn17.VisibleIndex = 7;
+            this.gridColumn17.VisibleIndex = 8;
             this.gridColumn17.Width = 60;
+            // 
+            // gridColumn18
+            // 
+            this.gridColumn18.AppearanceCell.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.gridColumn18.AppearanceCell.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.gridColumn18.AppearanceCell.Options.UseBackColor = true;
+            this.gridColumn18.AppearanceCell.Options.UseTextOptions = true;
+            this.gridColumn18.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumn18.AppearanceHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.gridColumn18.AppearanceHeader.Options.UseBackColor = true;
+            this.gridColumn18.Caption = "等级";
+            this.gridColumn18.ColumnEdit = this.repositoryItemTextEdit6;
+            this.gridColumn18.FieldName = "Flevel";
+            this.gridColumn18.MinWidth = 15;
+            this.gridColumn18.Name = "gridColumn18";
+            this.gridColumn18.Visible = true;
+            this.gridColumn18.VisibleIndex = 9;
+            this.gridColumn18.Width = 56;
+            // 
+            // repositoryItemTextEdit6
+            // 
+            this.repositoryItemTextEdit6.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.repositoryItemTextEdit6.Appearance.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.repositoryItemTextEdit6.Appearance.ForeColor = System.Drawing.Color.Black;
+            this.repositoryItemTextEdit6.Appearance.Options.UseBackColor = true;
+            this.repositoryItemTextEdit6.Appearance.Options.UseForeColor = true;
+            this.repositoryItemTextEdit6.AutoHeight = false;
+            this.repositoryItemTextEdit6.Name = "repositoryItemTextEdit6";
             // 
             // gridColumn41
             // 
@@ -508,23 +518,13 @@
             this.gridColumn41.MinWidth = 15;
             this.gridColumn41.Name = "gridColumn41";
             this.gridColumn41.Visible = true;
-            this.gridColumn41.VisibleIndex = 8;
+            this.gridColumn41.VisibleIndex = 10;
             // 
             // repositoryItemTextEdit9
             // 
             this.repositoryItemTextEdit9.AutoHeight = false;
             this.repositoryItemTextEdit9.Name = "repositoryItemTextEdit9";
             this.repositoryItemTextEdit9.EditValueChanged += new System.EventHandler(this.repositoryItemTextEdit9_EditValueChanged);
-            // 
-            // gridColumn4
-            // 
-            this.gridColumn4.Caption = "厂家库存数";
-            this.gridColumn4.FieldName = "cjkcs";
-            this.gridColumn4.MinWidth = 15;
-            this.gridColumn4.Name = "gridColumn4";
-            this.gridColumn4.Visible = true;
-            this.gridColumn4.VisibleIndex = 9;
-            this.gridColumn4.Width = 56;
             // 
             // gridColumn27
             // 
@@ -540,20 +540,31 @@
             this.gridColumn27.MinWidth = 15;
             this.gridColumn27.Name = "gridColumn27";
             this.gridColumn27.Visible = true;
-            this.gridColumn27.VisibleIndex = 10;
+            this.gridColumn27.VisibleIndex = 11;
             this.gridColumn27.Width = 60;
             // 
-            // gridColumn28
+            // gridColumn222
             // 
-            this.gridColumn28.AppearanceCell.Options.UseTextOptions = true;
-            this.gridColumn28.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.gridColumn28.Caption = "金额";
-            this.gridColumn28.FieldName = "Famount";
-            this.gridColumn28.MinWidth = 15;
-            this.gridColumn28.Name = "gridColumn28";
-            this.gridColumn28.OptionsColumn.AllowEdit = false;
-            this.gridColumn28.Visible = true;
-            this.gridColumn28.VisibleIndex = 11;
+            this.gridColumn222.AppearanceCell.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.gridColumn222.AppearanceCell.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.gridColumn222.AppearanceCell.Options.UseBackColor = true;
+            this.gridColumn222.AppearanceCell.Options.UseTextOptions = true;
+            this.gridColumn222.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumn222.Caption = "备注";
+            this.gridColumn222.ColumnEdit = this.repositoryItemTextEdit4;
+            this.gridColumn222.FieldName = "FREMARK";
+            this.gridColumn222.MinWidth = 15;
+            this.gridColumn222.Name = "gridColumn222";
+            this.gridColumn222.Visible = true;
+            this.gridColumn222.VisibleIndex = 12;
+            this.gridColumn222.Width = 187;
+            // 
+            // repositoryItemTextEdit4
+            // 
+            this.repositoryItemTextEdit4.Appearance.ForeColor = System.Drawing.Color.Black;
+            this.repositoryItemTextEdit4.Appearance.Options.UseForeColor = true;
+            this.repositoryItemTextEdit4.AutoHeight = false;
+            this.repositoryItemTextEdit4.Name = "repositoryItemTextEdit4";
             // 
             // gridColumn29
             // 
@@ -567,28 +578,103 @@
             this.gridColumn29.Name = "gridColumn29";
             this.gridColumn29.OptionsColumn.AllowEdit = false;
             this.gridColumn29.Visible = true;
-            this.gridColumn29.VisibleIndex = 12;
+            this.gridColumn29.VisibleIndex = 13;
             this.gridColumn29.Width = 60;
             // 
-            // gridColumn222
+            // gridColumn5
             // 
-            this.gridColumn222.AppearanceCell.Options.UseTextOptions = true;
-            this.gridColumn222.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.gridColumn222.Caption = "备注";
-            this.gridColumn222.ColumnEdit = this.repositoryItemTextEdit4;
-            this.gridColumn222.FieldName = "FREMARK";
-            this.gridColumn222.MinWidth = 15;
-            this.gridColumn222.Name = "gridColumn222";
-            this.gridColumn222.Visible = true;
-            this.gridColumn222.VisibleIndex = 13;
-            this.gridColumn222.Width = 187;
+            this.gridColumn5.Caption = "政策起始量";
+            this.gridColumn5.FieldName = "MINIMUMQUANTITY";
+            this.gridColumn5.MinWidth = 15;
+            this.gridColumn5.Name = "gridColumn5";
+            this.gridColumn5.OptionsColumn.AllowEdit = false;
+            this.gridColumn5.Visible = true;
+            this.gridColumn5.VisibleIndex = 14;
+            this.gridColumn5.Width = 80;
             // 
-            // repositoryItemTextEdit4
+            // gridColumn6
             // 
-            this.repositoryItemTextEdit4.Appearance.ForeColor = System.Drawing.Color.Black;
-            this.repositoryItemTextEdit4.Appearance.Options.UseForeColor = true;
-            this.repositoryItemTextEdit4.AutoHeight = false;
-            this.repositoryItemTextEdit4.Name = "repositoryItemTextEdit4";
+            this.gridColumn6.Caption = "政策封顶量";
+            this.gridColumn6.FieldName = "CAPPINGQUANTITY";
+            this.gridColumn6.MinWidth = 15;
+            this.gridColumn6.Name = "gridColumn6";
+            this.gridColumn6.OptionsColumn.AllowEdit = false;
+            this.gridColumn6.Visible = true;
+            this.gridColumn6.VisibleIndex = 15;
+            this.gridColumn6.Width = 80;
+            // 
+            // gridColumn7
+            // 
+            this.gridColumn7.Caption = "折扣率";
+            this.gridColumn7.FieldName = "DISCOUNTRATE";
+            this.gridColumn7.MinWidth = 15;
+            this.gridColumn7.Name = "gridColumn7";
+            this.gridColumn7.OptionsColumn.AllowEdit = false;
+            this.gridColumn7.Visible = true;
+            this.gridColumn7.VisibleIndex = 16;
+            this.gridColumn7.Width = 80;
+            // 
+            // gridColumn28
+            // 
+            this.gridColumn28.AppearanceCell.Options.UseTextOptions = true;
+            this.gridColumn28.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumn28.Caption = "金额";
+            this.gridColumn28.FieldName = "Famount";
+            this.gridColumn28.MinWidth = 15;
+            this.gridColumn28.Name = "gridColumn28";
+            this.gridColumn28.OptionsColumn.AllowEdit = false;
+            this.gridColumn28.Visible = true;
+            this.gridColumn28.VisibleIndex = 17;
+            this.gridColumn28.Width = 80;
+            // 
+            // gridColumn36
+            // 
+            this.gridColumn36.AppearanceCell.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.gridColumn36.AppearanceCell.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.gridColumn36.AppearanceCell.Options.UseBackColor = true;
+            this.gridColumn36.AppearanceCell.Options.UseTextOptions = true;
+            this.gridColumn36.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumn36.Caption = "厂家系统检查错误信息";
+            this.gridColumn36.FieldName = "FERR_MESSAGE";
+            this.gridColumn36.MinWidth = 15;
+            this.gridColumn36.Name = "gridColumn36";
+            this.gridColumn36.Visible = true;
+            this.gridColumn36.VisibleIndex = 18;
+            this.gridColumn36.Width = 112;
+            // 
+            // gridColumn19
+            // 
+            this.gridColumn19.AppearanceCell.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.gridColumn19.AppearanceCell.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.gridColumn19.AppearanceCell.Options.UseBackColor = true;
+            this.gridColumn19.AppearanceCell.Options.UseTextOptions = true;
+            this.gridColumn19.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumn19.AppearanceHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.gridColumn19.AppearanceHeader.Options.UseBackColor = true;
+            this.gridColumn19.Caption = "仓库";
+            this.gridColumn19.ColumnEdit = this.repositoryItemTextEdit7;
+            this.gridColumn19.FieldName = "FSTOCK";
+            this.gridColumn19.MinWidth = 15;
+            this.gridColumn19.Name = "gridColumn19";
+            this.gridColumn19.Width = 56;
+            // 
+            // repositoryItemTextEdit7
+            // 
+            this.repositoryItemTextEdit7.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.repositoryItemTextEdit7.Appearance.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.repositoryItemTextEdit7.Appearance.ForeColor = System.Drawing.Color.Black;
+            this.repositoryItemTextEdit7.Appearance.Options.UseBackColor = true;
+            this.repositoryItemTextEdit7.Appearance.Options.UseForeColor = true;
+            this.repositoryItemTextEdit7.AutoHeight = false;
+            this.repositoryItemTextEdit7.Name = "repositoryItemTextEdit7";
+            // 
+            // gridColumn4
+            // 
+            this.gridColumn4.Caption = "厂家库存数";
+            this.gridColumn4.FieldName = "cjkcs";
+            this.gridColumn4.MinWidth = 15;
+            this.gridColumn4.Name = "gridColumn4";
+            this.gridColumn4.Width = 56;
             // 
             // gridColumn37
             // 
@@ -734,8 +820,6 @@
             this.gridColumn31.MinWidth = 15;
             this.gridColumn31.Name = "gridColumn31";
             this.gridColumn31.OptionsColumn.AllowEdit = false;
-            this.gridColumn31.Visible = true;
-            this.gridColumn31.VisibleIndex = 14;
             this.gridColumn31.Width = 124;
             // 
             // gridColumn45
@@ -750,83 +834,19 @@
             this.gridColumn45.Name = "gridColumn45";
             this.gridColumn45.Width = 98;
             // 
-            // gridColumn23
-            // 
-            this.gridColumn23.AppearanceCell.Options.UseTextOptions = true;
-            this.gridColumn23.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.gridColumn23.Caption = "厂家品种";
-            this.gridColumn23.FieldName = "FSRCCODE";
-            this.gridColumn23.MinWidth = 15;
-            this.gridColumn23.Name = "gridColumn23";
-            this.gridColumn23.OptionsColumn.AllowEdit = false;
-            this.gridColumn23.Visible = true;
-            this.gridColumn23.VisibleIndex = 15;
-            this.gridColumn23.Width = 60;
-            // 
-            // gridColumn39
-            // 
-            this.gridColumn39.AppearanceCell.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.gridColumn39.AppearanceCell.Options.UseBackColor = true;
-            this.gridColumn39.AppearanceCell.Options.UseTextOptions = true;
-            this.gridColumn39.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.gridColumn39.AppearanceHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.gridColumn39.AppearanceHeader.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.gridColumn39.AppearanceHeader.Options.UseBackColor = true;
-            this.gridColumn39.Caption = "合同号(批号)";
-            this.gridColumn39.FieldName = "FBATCHNO";
-            this.gridColumn39.MinWidth = 15;
-            this.gridColumn39.Name = "gridColumn39";
-            this.gridColumn39.Visible = true;
-            this.gridColumn39.VisibleIndex = 16;
-            this.gridColumn39.Width = 65;
-            // 
-            // gridColumn36
-            // 
-            this.gridColumn36.AppearanceCell.Options.UseTextOptions = true;
-            this.gridColumn36.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.gridColumn36.Caption = "厂家系统检查错误信息";
-            this.gridColumn36.FieldName = "FERR_MESSAGE";
-            this.gridColumn36.MinWidth = 15;
-            this.gridColumn36.Name = "gridColumn36";
-            this.gridColumn36.Visible = true;
-            this.gridColumn36.VisibleIndex = 17;
-            this.gridColumn36.Width = 112;
-            // 
-            // gridColumn5
-            // 
-            this.gridColumn5.Caption = "政策起始量";
-            this.gridColumn5.FieldName = "MINIMUMQUANTITY";
-            this.gridColumn5.MinWidth = 15;
-            this.gridColumn5.Name = "gridColumn5";
-            this.gridColumn5.Visible = true;
-            this.gridColumn5.VisibleIndex = 18;
-            this.gridColumn5.Width = 56;
-            // 
-            // gridColumn6
-            // 
-            this.gridColumn6.Caption = "政策封顶量";
-            this.gridColumn6.FieldName = "CAPPINGQUANTITY";
-            this.gridColumn6.MinWidth = 15;
-            this.gridColumn6.Name = "gridColumn6";
-            this.gridColumn6.Visible = true;
-            this.gridColumn6.VisibleIndex = 19;
-            this.gridColumn6.Width = 56;
-            // 
-            // gridColumn7
-            // 
-            this.gridColumn7.Caption = "折扣率";
-            this.gridColumn7.FieldName = "DISCOUNTRATE";
-            this.gridColumn7.MinWidth = 15;
-            this.gridColumn7.Name = "gridColumn7";
-            this.gridColumn7.Visible = true;
-            this.gridColumn7.VisibleIndex = 20;
-            this.gridColumn7.Width = 56;
-            // 
             // gridColumn8
             // 
             this.gridColumn8.Caption = "LH_DCTPOLICYITEMID";
             this.gridColumn8.FieldName = "LH_DCTPOLICYITEMID";
             this.gridColumn8.Name = "gridColumn8";
+            // 
+            // gridColumn3
+            // 
+            this.gridColumn3.Caption = "请购ID";
+            this.gridColumn3.FieldName = "FPLANID";
+            this.gridColumn3.MinWidth = 15;
+            this.gridColumn3.Name = "gridColumn3";
+            this.gridColumn3.Width = 56;
             // 
             // repositoryItemCheckEdit2
             // 
@@ -906,7 +926,7 @@
             this.panelControl3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl3.Location = new System.Drawing.Point(0, 35);
             this.panelControl3.Name = "panelControl3";
-            this.panelControl3.Size = new System.Drawing.Size(1641, 193);
+            this.panelControl3.Size = new System.Drawing.Size(1648, 193);
             this.panelControl3.TabIndex = 78;
             this.panelControl3.Paint += new System.Windows.Forms.PaintEventHandler(this.panelControl3_Paint);
             // 
@@ -1427,7 +1447,7 @@
             this.panelControl2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl2.Location = new System.Drawing.Point(0, 0);
             this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Size = new System.Drawing.Size(1641, 35);
+            this.panelControl2.Size = new System.Drawing.Size(1648, 35);
             this.panelControl2.TabIndex = 9;
             // 
             // simpleButton9
@@ -1699,11 +1719,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridControl采购订单明细)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView发货计划明细)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.itemButton商品代码)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit2)).EndInit();
@@ -1855,5 +1875,6 @@
         private DevExpress.XtraEditors.TextEdit txtLH_OUTBOUNDORDER;
         private System.Windows.Forms.Label label19;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn8;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn9;
     }
 }

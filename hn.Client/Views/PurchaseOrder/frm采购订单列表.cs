@@ -33,7 +33,8 @@ namespace hn.Client
         {
             InitializeComponent();
 
-
+            gridView采购订单列表.OptionsSelection.MultiSelect = true;
+            gridView采购订单列表.OptionsSelection.MultiSelectMode = DevExpress.XtraGrid.Views.Grid.GridMultiSelectMode.CheckBoxRowSelect;
             gridControl采购订单明细.MouseWheel += GridControl采购订单明细_MouseWheel;
 
             _service = new ApiService.APIServiceClient("BasicHttpBinding_IAPIService", Global.WcfUrl);
@@ -64,8 +65,9 @@ namespace hn.Client
                 query.endTime = DateTime.Parse(DateTime.Now.ToString("yyyy-MM-dd 23:59:59"));
                 query.t_status = "0";
                 query.bClose = true;
-                onSearch();
-               
+                onSearch(); 
+
+
             }
             catch (Exception ex)
             {
@@ -375,7 +377,17 @@ namespace hn.Client
                 string fid = gridView采购订单列表.GetRowCellValue(e.RowHandle, "FID").ToString();
                
                 V_ICPOBILLENTRYMODEL[] list = _service.GetOrderEntryList(fid, null);
-
+                var tmp = _service.ICPOBILLENTRYMODEL_List(fid);
+                foreach (var item in tmp)
+                {
+                    var mtiem = list.Where(w => w.FID.Equals(item.FID)).FirstOrDefault();
+                    mtiem.FERR_MESSAGE = item.FERR_MESSAGE;
+                    mtiem.FSRCMODEL = item.FSRCMODEL;
+                    mtiem.FORDERUNIT = item.Funit;
+                    mtiem.Funit = item.Funit;
+                    mtiem.Flevel = item.Flevel;
+                    mtiem.FSRCCODE = item.FSRCCODE;
+                }
                 foreach (var sub in list)
                 {
                     ProductViewModel pro = _service.getProductView(sub.FITEMID);
@@ -1400,6 +1412,7 @@ namespace hn.Client
         private void backgroundWorker2_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
             seButton(true);
+
             if (!string.IsNullOrEmpty(tuMessage))
             {
                 DevExpress.XtraEditors.XtraMessageBox.Show(tuMessage, "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -1432,6 +1445,38 @@ namespace hn.Client
         {
             optType = "0";
             backgroundWorker2.RunWorkerAsync();
+        }
+        /// <summary>
+        /// 同步
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnAync_Click(object sender, EventArgs e)
+        {
+            gridView采购订单列表.PostEditor();
+            gridView采购订单列表.UpdateCurrentRow();
+            int[] RowsNum = gridView采购订单列表.GetSelectedRows();
+            if (RowsNum.Length == 0) { MsgHelper.Warning("请选择要同步的数据！"); return; }
+            List<string> idStrings = new List<string>();
+            DataRow row = null;
+            var list = gridView采购订单列表.DataSource as V_ICPOBILLMODEL[];
+            foreach (int tmp in RowsNum)
+            {
+                idStrings.Add(list[tmp].FBILLNO);
+            }
+            if (!_service.AcctOaStatus(new AcctOAStatusParam { idStrings = idStrings.ToArray() }))
+            {
+                MsgHelper.Warning("同步失败！");
+                return;
+            }
+            if (_service.OA_Status(idStrings.ToArray())) {
+                MsgHelper.ShowInformation("同步成功！");
+                simpleButton9_Click(null,null);
+            }
+            else {
+                MsgHelper.Warning("同步失败！");
+            }
+            
         }
     }
 }

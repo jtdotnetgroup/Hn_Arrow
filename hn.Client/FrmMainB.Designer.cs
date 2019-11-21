@@ -60,6 +60,8 @@
             this.barButtonItem5 = new DevExpress.XtraBars.BarButtonItem();
             this.barbtn发货计划 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem6 = new DevExpress.XtraBars.BarButtonItem();
+            this.barbtnOutOrder = new DevExpress.XtraBars.BarButtonItem();
             this.barSubItem3 = new DevExpress.XtraBars.BarSubItem();
             this.skinBarSubItem1 = new DevExpress.XtraBars.SkinBarSubItem();
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
@@ -77,7 +79,6 @@
             this.skinBarSubItem2 = new DevExpress.XtraBars.SkinBarSubItem();
             this.barSubItem8 = new DevExpress.XtraBars.BarSubItem();
             this.barButtonItem4 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem6 = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.pnlTitleBar)).BeginInit();
             this.pnlTitleBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -176,10 +177,11 @@
             // 
             this.btn修改密码.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btn修改密码.Appearance.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btn修改密码.Appearance.Options.UseFont = true;
             this.btn修改密码.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn修改密码.Location = new System.Drawing.Point(1142, 4);
             this.btn修改密码.Name = "btn修改密码";
-            this.btn修改密码.Size = new System.Drawing.Size(56, 20);
+            this.btn修改密码.Size = new System.Drawing.Size(56, 19);
             this.btn修改密码.TabIndex = 5;
             this.btn修改密码.Text = "修改密码";
             this.btn修改密码.Click += new System.EventHandler(this.btn修改密码_Click);
@@ -188,10 +190,11 @@
             // 
             this.lbl登录用户.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lbl登录用户.Appearance.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lbl登录用户.Appearance.Options.UseFont = true;
             this.lbl登录用户.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lbl登录用户.Location = new System.Drawing.Point(1025, 4);
             this.lbl登录用户.Name = "lbl登录用户";
-            this.lbl登录用户.Size = new System.Drawing.Size(97, 20);
+            this.lbl登录用户.Size = new System.Drawing.Size(100, 19);
             this.lbl登录用户.TabIndex = 4;
             this.lbl登录用户.Text = "XXX，下午好！";
             // 
@@ -199,6 +202,7 @@
             // 
             this.lblCopyrightInfo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblCopyrightInfo.Appearance.Font = new System.Drawing.Font("微软雅黑", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lblCopyrightInfo.Appearance.Options.UseFont = true;
             this.lblCopyrightInfo.Location = new System.Drawing.Point(361, 4);
             this.lblCopyrightInfo.Name = "lblCopyrightInfo";
             this.lblCopyrightInfo.Size = new System.Drawing.Size(346, 19);
@@ -302,6 +306,7 @@
             this.standaloneBarDockControl1.CausesValidation = false;
             this.standaloneBarDockControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.standaloneBarDockControl1.Location = new System.Drawing.Point(1, 39);
+            this.standaloneBarDockControl1.Manager = this.barManager1;
             this.standaloneBarDockControl1.Name = "standaloneBarDockControl1";
             this.standaloneBarDockControl1.Size = new System.Drawing.Size(1220, 37);
             this.standaloneBarDockControl1.Text = "standaloneBarDockControl1";
@@ -339,8 +344,9 @@
             this.barSubItem8,
             this.barButtonItem4,
             this.barButtonItem5,
-            this.barButtonItem6});
-            this.barManager1.MaxItemId = 23;
+            this.barButtonItem6,
+            this.barbtnOutOrder});
+            this.barManager1.MaxItemId = 24;
             // 
             // bar1
             // 
@@ -406,7 +412,8 @@
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem5),
             new DevExpress.XtraBars.LinkPersistInfo(this.barbtn发货计划),
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem2),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem6)});
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem6),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barbtnOutOrder)});
             this.barSubItem2.Name = "barSubItem2";
             // 
             // barbtn请购计划
@@ -437,6 +444,20 @@
             this.barButtonItem2.Name = "barButtonItem2";
             this.barButtonItem2.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem2_ItemClick);
             // 
+            // barButtonItem6
+            // 
+            this.barButtonItem6.Caption = "同步出仓单";
+            this.barButtonItem6.Id = 22;
+            this.barButtonItem6.Name = "barButtonItem6";
+            this.barButtonItem6.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem6_ItemClick);
+            // 
+            // barbtnOutOrder
+            // 
+            this.barbtnOutOrder.Caption = "出库单";
+            this.barbtnOutOrder.Id = 23;
+            this.barbtnOutOrder.Name = "barbtnOutOrder";
+            this.barbtnOutOrder.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barbtnOutOrder_ItemClick);
+            // 
             // barSubItem3
             // 
             this.barSubItem3.Caption = "报表管理(&P)";
@@ -454,6 +475,7 @@
             this.barDockControlTop.CausesValidation = false;
             this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControlTop.Location = new System.Drawing.Point(1, 1);
+            this.barDockControlTop.Manager = this.barManager1;
             this.barDockControlTop.Size = new System.Drawing.Size(1220, 0);
             // 
             // barDockControlBottom
@@ -461,6 +483,7 @@
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.barDockControlBottom.Location = new System.Drawing.Point(1, 719);
+            this.barDockControlBottom.Manager = this.barManager1;
             this.barDockControlBottom.Size = new System.Drawing.Size(1220, 0);
             // 
             // barDockControlLeft
@@ -468,6 +491,7 @@
             this.barDockControlLeft.CausesValidation = false;
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
             this.barDockControlLeft.Location = new System.Drawing.Point(1, 1);
+            this.barDockControlLeft.Manager = this.barManager1;
             this.barDockControlLeft.Size = new System.Drawing.Size(0, 718);
             // 
             // barDockControlRight
@@ -475,6 +499,7 @@
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
             this.barDockControlRight.Location = new System.Drawing.Point(1221, 1);
+            this.barDockControlRight.Manager = this.barManager1;
             this.barDockControlRight.Size = new System.Drawing.Size(0, 718);
             // 
             // barButtonItem1
@@ -549,13 +574,6 @@
             this.barButtonItem4.Id = 20;
             this.barButtonItem4.Name = "barButtonItem4";
             this.barButtonItem4.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem4_ItemClick);
-            // 
-            // barButtonItem6
-            // 
-            this.barButtonItem6.Caption = "同步出仓单";
-            this.barButtonItem6.Id = 22;
-            this.barButtonItem6.Name = "barButtonItem6";
-            this.barButtonItem6.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem6_ItemClick);
             // 
             // FrmMainB
             // 
@@ -650,5 +668,6 @@
         private DevExpress.XtraBars.BarSubItem barSubItem8;
         private DevExpress.XtraBars.BarButtonItem barButtonItem5;
         private DevExpress.XtraBars.BarButtonItem barButtonItem6;
+        private DevExpress.XtraBars.BarButtonItem barbtnOutOrder;
     }
 }

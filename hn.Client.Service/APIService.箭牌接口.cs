@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data.OracleClient;
 using System.Linq;
 using hn.ArrowInterface.Entities;
@@ -89,7 +90,7 @@ namespace hn.Client.Service
         {
             var token = CommonToken.GetToken();
             var http = new ArrowInterface.ArrowInterface();
-
+            pars.acctCode = ConfigurationManager.AppSettings["dealerCode"];
             var result = http.AcctOaStatus(token.Token, pars);
 
             var Helper = new OracleDBHelper();

@@ -323,6 +323,21 @@ namespace hn.Client.ApiService {
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ApiService.IAPIService")]
     public interface IAPIService {
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/Remote_InsertICPOEntry", ReplyAction="http://tempuri.org/IAPIService/Remote_InsertICPOEntryResponse")]
+        string Remote_InsertICPOEntry(MApiModel.api3.Rootobject getapi3);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/Remote_InsertICPOEntry", ReplyAction="http://tempuri.org/IAPIService/Remote_InsertICPOEntryResponse")]
+        System.Threading.Tasks.Task<string> Remote_InsertICPOEntryAsync(MApiModel.api3.Rootobject getapi3);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/Remote_GetICPOEntry", ReplyAction="http://tempuri.org/IAPIService/Remote_GetICPOEntryResponse")]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(hn.DataAccess.Model.V_ICPOBILLMODEL))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(hn.DataAccess.Model.V_ICPOBILLENTRYMODEL))]
+        hn.Client.ApiService.Remote_GetICPOEntryResponse Remote_GetICPOEntry(hn.Client.ApiService.Remote_GetICPOEntryRequest request);
+        
+        // CODEGEN: 正在生成消息协定，应为该操作具有多个返回值。
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/Remote_GetICPOEntry", ReplyAction="http://tempuri.org/IAPIService/Remote_GetICPOEntryResponse")]
+        System.Threading.Tasks.Task<hn.Client.ApiService.Remote_GetICPOEntryResponse> Remote_GetICPOEntryAsync(hn.Client.ApiService.Remote_GetICPOEntryRequest request);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/Remote_GetICPO_BOEntry", ReplyAction="http://tempuri.org/IAPIService/Remote_GetICPO_BOEntryResponse")]
         hn.DataAccess.Model.ICPO_BOLentryModel[] Remote_GetICPO_BOEntry(string fbillno, string entryid);
         
@@ -937,20 +952,17 @@ namespace hn.Client.ApiService {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/UnAuditSave_ICPO", ReplyAction="http://tempuri.org/IAPIService/UnAuditSave_ICPOResponse")]
         System.Threading.Tasks.Task<bool> UnAuditSave_ICPOAsync(hn.DataAccess.Model.ICPOBILLENTRYMODEL[] data, hn.Core.Model.User loginUser, string content);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/Remote_InsertICPOEntry", ReplyAction="http://tempuri.org/IAPIService/Remote_InsertICPOEntryResponse")]
-        string Remote_InsertICPOEntry(MApiModel.api3.Rootobject getapi3);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/ICPOBILLENTRYMODEL_List", ReplyAction="http://tempuri.org/IAPIService/ICPOBILLENTRYMODEL_ListResponse")]
+        hn.DataAccess.Model.ICPOBILLENTRYMODEL[] ICPOBILLENTRYMODEL_List(string FICPOBILLID);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/Remote_InsertICPOEntry", ReplyAction="http://tempuri.org/IAPIService/Remote_InsertICPOEntryResponse")]
-        System.Threading.Tasks.Task<string> Remote_InsertICPOEntryAsync(MApiModel.api3.Rootobject getapi3);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/ICPOBILLENTRYMODEL_List", ReplyAction="http://tempuri.org/IAPIService/ICPOBILLENTRYMODEL_ListResponse")]
+        System.Threading.Tasks.Task<hn.DataAccess.Model.ICPOBILLENTRYMODEL[]> ICPOBILLENTRYMODEL_ListAsync(string FICPOBILLID);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/Remote_GetICPOEntry", ReplyAction="http://tempuri.org/IAPIService/Remote_GetICPOEntryResponse")]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(hn.DataAccess.Model.V_ICPOBILLMODEL))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(hn.DataAccess.Model.V_ICPOBILLENTRYMODEL))]
-        hn.Client.ApiService.Remote_GetICPOEntryResponse Remote_GetICPOEntry(hn.Client.ApiService.Remote_GetICPOEntryRequest request);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/OA_Status", ReplyAction="http://tempuri.org/IAPIService/OA_StatusResponse")]
+        bool OA_Status(string[] idStrings);
         
-        // CODEGEN: 正在生成消息协定，应为该操作具有多个返回值。
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/Remote_GetICPOEntry", ReplyAction="http://tempuri.org/IAPIService/Remote_GetICPOEntryResponse")]
-        System.Threading.Tasks.Task<hn.Client.ApiService.Remote_GetICPOEntryResponse> Remote_GetICPOEntryAsync(hn.Client.ApiService.Remote_GetICPOEntryRequest request);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/OA_Status", ReplyAction="http://tempuri.org/IAPIService/OA_StatusResponse")]
+        System.Threading.Tasks.Task<bool> OA_StatusAsync(string[] idStrings);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -1026,6 +1038,34 @@ namespace hn.Client.ApiService {
         
         public APIServiceClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(binding, remoteAddress) {
+        }
+        
+        public string Remote_InsertICPOEntry(MApiModel.api3.Rootobject getapi3) {
+            return base.Channel.Remote_InsertICPOEntry(getapi3);
+        }
+        
+        public System.Threading.Tasks.Task<string> Remote_InsertICPOEntryAsync(MApiModel.api3.Rootobject getapi3) {
+            return base.Channel.Remote_InsertICPOEntryAsync(getapi3);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        hn.Client.ApiService.Remote_GetICPOEntryResponse hn.Client.ApiService.IAPIService.Remote_GetICPOEntry(hn.Client.ApiService.Remote_GetICPOEntryRequest request) {
+            return base.Channel.Remote_GetICPOEntry(request);
+        }
+        
+        public void Remote_GetICPOEntry(string strFID, string strEntryID, ref hn.DataAccess.Model.ICPOBILLMODEL billModel, ref hn.DataAccess.Model.ICPOBILLENTRYMODEL entryModel) {
+            hn.Client.ApiService.Remote_GetICPOEntryRequest inValue = new hn.Client.ApiService.Remote_GetICPOEntryRequest();
+            inValue.strFID = strFID;
+            inValue.strEntryID = strEntryID;
+            inValue.billModel = billModel;
+            inValue.entryModel = entryModel;
+            hn.Client.ApiService.Remote_GetICPOEntryResponse retVal = ((hn.Client.ApiService.IAPIService)(this)).Remote_GetICPOEntry(inValue);
+            billModel = retVal.billModel;
+            entryModel = retVal.entryModel;
+        }
+        
+        public System.Threading.Tasks.Task<hn.Client.ApiService.Remote_GetICPOEntryResponse> Remote_GetICPOEntryAsync(hn.Client.ApiService.Remote_GetICPOEntryRequest request) {
+            return base.Channel.Remote_GetICPOEntryAsync(request);
         }
         
         public hn.DataAccess.Model.ICPO_BOLentryModel[] Remote_GetICPO_BOEntry(string fbillno, string entryid) {
@@ -1828,32 +1868,20 @@ namespace hn.Client.ApiService {
             return base.Channel.UnAuditSave_ICPOAsync(data, loginUser, content);
         }
         
-        public string Remote_InsertICPOEntry(MApiModel.api3.Rootobject getapi3) {
-            return base.Channel.Remote_InsertICPOEntry(getapi3);
+        public hn.DataAccess.Model.ICPOBILLENTRYMODEL[] ICPOBILLENTRYMODEL_List(string FICPOBILLID) {
+            return base.Channel.ICPOBILLENTRYMODEL_List(FICPOBILLID);
         }
         
-        public System.Threading.Tasks.Task<string> Remote_InsertICPOEntryAsync(MApiModel.api3.Rootobject getapi3) {
-            return base.Channel.Remote_InsertICPOEntryAsync(getapi3);
+        public System.Threading.Tasks.Task<hn.DataAccess.Model.ICPOBILLENTRYMODEL[]> ICPOBILLENTRYMODEL_ListAsync(string FICPOBILLID) {
+            return base.Channel.ICPOBILLENTRYMODEL_ListAsync(FICPOBILLID);
         }
         
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        hn.Client.ApiService.Remote_GetICPOEntryResponse hn.Client.ApiService.IAPIService.Remote_GetICPOEntry(hn.Client.ApiService.Remote_GetICPOEntryRequest request) {
-            return base.Channel.Remote_GetICPOEntry(request);
+        public bool OA_Status(string[] idStrings) {
+            return base.Channel.OA_Status(idStrings);
         }
         
-        public void Remote_GetICPOEntry(string strFID, string strEntryID, ref hn.DataAccess.Model.ICPOBILLMODEL billModel, ref hn.DataAccess.Model.ICPOBILLENTRYMODEL entryModel) {
-            hn.Client.ApiService.Remote_GetICPOEntryRequest inValue = new hn.Client.ApiService.Remote_GetICPOEntryRequest();
-            inValue.strFID = strFID;
-            inValue.strEntryID = strEntryID;
-            inValue.billModel = billModel;
-            inValue.entryModel = entryModel;
-            hn.Client.ApiService.Remote_GetICPOEntryResponse retVal = ((hn.Client.ApiService.IAPIService)(this)).Remote_GetICPOEntry(inValue);
-            billModel = retVal.billModel;
-            entryModel = retVal.entryModel;
-        }
-        
-        public System.Threading.Tasks.Task<hn.Client.ApiService.Remote_GetICPOEntryResponse> Remote_GetICPOEntryAsync(hn.Client.ApiService.Remote_GetICPOEntryRequest request) {
-            return base.Channel.Remote_GetICPOEntryAsync(request);
+        public System.Threading.Tasks.Task<bool> OA_StatusAsync(string[] idStrings) {
+            return base.Channel.OA_StatusAsync(idStrings);
         }
     }
 }

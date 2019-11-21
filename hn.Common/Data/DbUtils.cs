@@ -694,7 +694,8 @@ namespace hn.Common.Data
                 {
                     cmd.CommandType = CommandType.Text;
                     cmd.CommandText = commendText;
-                    conn.Open();
+                    conn.Open(); 
+                    LogHelper.WriteLog(commendText);
                     return cmd.ExecuteNonQuery();
                 }
             }

@@ -183,7 +183,11 @@ namespace hn.DataAccess.Model
       
         public string FTIMESTAMP { get; set; }
 
-
+        /// <summary>
+        /// OA状态
+        /// </summary>
+        public int? OASTATUS { get; set; }
+        
         #endregion
 
 

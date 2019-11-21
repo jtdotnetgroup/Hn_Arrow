@@ -282,5 +282,15 @@ namespace hn.DataAccess.Bll
         {
             return ICPOBILLDAL.Instance.GetStatus(FID);
         }
+
+        /// <summary>
+        /// 审核OA状态
+        /// </summary>
+        /// <param name="idStrings"></param>
+        /// <returns></returns>
+        public bool OA_Status(string[] idStrings)
+        {
+            return ICPOBILLDAL.Instance.ExecuteNonQuery(@"Update ICPOBILL SET OASTATUS = 1 WHERE FBILLNO IN('"+string.Join("','",idStrings) + "')") > 0;
+        }
     }
 }

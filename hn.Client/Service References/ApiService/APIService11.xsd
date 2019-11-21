@@ -1,20 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="http://localhost:62036/APIService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/hn.DataAccess.Model" />
-  <xs:import schemaLocation="http://localhost:62036/APIService.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
-  <xs:import schemaLocation="http://localhost:62036/APIService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/hn.DataAccess.bll" />
-  <xs:import schemaLocation="http://localhost:62036/APIService.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/hn.DataAccess" />
-  <xs:import schemaLocation="http://localhost:62036/APIService.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/hn.ArrowInterface.Entities" />
-  <xs:import schemaLocation="http://localhost:62036/APIService.svc?xsd=xsd8" namespace="http://schemas.datacontract.org/2004/07/hn.ArrowInterface.RequestParams" />
-  <xs:import schemaLocation="http://localhost:62036/APIService.svc?xsd=xsd10" namespace="http://schemas.datacontract.org/2004/07/hn.Core.Model" />
-  <xs:import schemaLocation="http://localhost:62036/APIService.svc?xsd=xsd11" namespace="http://schemas.datacontract.org/2004/07/MApiModel.api24" />
-  <xs:import schemaLocation="http://localhost:62036/APIService.svc?xsd=xsd12" namespace="http://schemas.datacontract.org/2004/07/MApiModel.recApi24" />
-  <xs:import schemaLocation="http://localhost:62036/APIService.svc?xsd=xsd13" namespace="http://schemas.datacontract.org/2004/07/hn.DataAccess.model" />
-  <xs:import schemaLocation="http://localhost:62036/APIService.svc?xsd=xsd14" namespace="http://schemas.datacontract.org/2004/07/hn.Common.Cls_query" />
-  <xs:import schemaLocation="http://localhost:62036/APIService.svc?xsd=xsd15" namespace="http://schemas.datacontract.org/2004/07/MApiModel.api2" />
-  <xs:import schemaLocation="http://localhost:62036/APIService.svc?xsd=xsd16" namespace="http://schemas.datacontract.org/2004/07/MApiModel.recApi2" />
-  <xs:import schemaLocation="http://localhost:62036/APIService.svc?xsd=xsd17" namespace="http://schemas.datacontract.org/2004/07/MApiModel.api8" />
-  <xs:import schemaLocation="http://localhost:62036/APIService.svc?xsd=xsd18" namespace="http://schemas.datacontract.org/2004/07/MApiModel.api3" />
+  <xs:import schemaLocation="http://localhost:62036/APIService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/MApiModel.api3" />
+  <xs:import schemaLocation="http://localhost:62036/APIService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/hn.DataAccess.Model" />
+  <xs:import schemaLocation="http://localhost:62036/APIService.svc?xsd=xsd4" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:import schemaLocation="http://localhost:62036/APIService.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/hn.DataAccess.bll" />
+  <xs:import schemaLocation="http://localhost:62036/APIService.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/hn.DataAccess" />
+  <xs:import schemaLocation="http://localhost:62036/APIService.svc?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/hn.ArrowInterface.Entities" />
+  <xs:import schemaLocation="http://localhost:62036/APIService.svc?xsd=xsd9" namespace="http://schemas.datacontract.org/2004/07/hn.ArrowInterface.RequestParams" />
+  <xs:import schemaLocation="http://localhost:62036/APIService.svc?xsd=xsd11" namespace="http://schemas.datacontract.org/2004/07/hn.Core.Model" />
+  <xs:import schemaLocation="http://localhost:62036/APIService.svc?xsd=xsd12" namespace="http://schemas.datacontract.org/2004/07/MApiModel.api24" />
+  <xs:import schemaLocation="http://localhost:62036/APIService.svc?xsd=xsd13" namespace="http://schemas.datacontract.org/2004/07/MApiModel.recApi24" />
+  <xs:import schemaLocation="http://localhost:62036/APIService.svc?xsd=xsd14" namespace="http://schemas.datacontract.org/2004/07/hn.DataAccess.model" />
+  <xs:import schemaLocation="http://localhost:62036/APIService.svc?xsd=xsd15" namespace="http://schemas.datacontract.org/2004/07/hn.Common.Cls_query" />
+  <xs:import schemaLocation="http://localhost:62036/APIService.svc?xsd=xsd16" namespace="http://schemas.datacontract.org/2004/07/MApiModel.api2" />
+  <xs:import schemaLocation="http://localhost:62036/APIService.svc?xsd=xsd17" namespace="http://schemas.datacontract.org/2004/07/MApiModel.recApi2" />
+  <xs:import schemaLocation="http://localhost:62036/APIService.svc?xsd=xsd18" namespace="http://schemas.datacontract.org/2004/07/MApiModel.api8" />
+  <xs:element name="Remote_InsertICPOEntry">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/MApiModel.api3" minOccurs="0" name="getapi3" nillable="true" type="q1:Rootobject" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Remote_InsertICPOEntryResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Remote_InsertICPOEntryResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Remote_GetICPOEntry">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strFID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strEntryID" nillable="true" type="xs:string" />
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/hn.DataAccess.Model" minOccurs="0" name="billModel" nillable="true" type="q2:ICPOBILLMODEL" />
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/hn.DataAccess.Model" minOccurs="0" name="entryModel" nillable="true" type="q3:ICPOBILLENTRYMODEL" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Remote_GetICPOEntryResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/hn.DataAccess.Model" minOccurs="0" name="billModel" nillable="true" type="q4:ICPOBILLMODEL" />
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/hn.DataAccess.Model" minOccurs="0" name="entryModel" nillable="true" type="q5:ICPOBILLENTRYMODEL" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="Remote_GetICPO_BOEntry">
     <xs:complexType>
       <xs:sequence>
@@ -26,7 +58,7 @@
   <xs:element name="Remote_GetICPO_BOEntryResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/hn.DataAccess.Model" minOccurs="0" name="Remote_GetICPO_BOEntryResult" nillable="true" type="q1:ArrayOfICPO_BOLentryModel" />
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/hn.DataAccess.Model" minOccurs="0" name="Remote_GetICPO_BOEntryResult" nillable="true" type="q6:ArrayOfICPO_BOLentryModel" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -48,7 +80,7 @@
   <xs:element name="Save_ICPREntry_List">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/hn.DataAccess.Model" minOccurs="0" name="tModel" nillable="true" type="q2:ICPRBILLENTRYMODEL" />
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/hn.DataAccess.Model" minOccurs="0" name="tModel" nillable="true" type="q7:ICPRBILLENTRYMODEL" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -62,7 +94,7 @@
   <xs:element name="Update_FSYNStatus">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/hn.DataAccess.Model" minOccurs="0" name="billMode" nillable="true" type="q3:ICPOBILLMODEL" />
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/hn.DataAccess.Model" minOccurs="0" name="billMode" nillable="true" type="q8:ICPOBILLMODEL" />
         <xs:element minOccurs="0" name="iStatus" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
@@ -80,7 +112,7 @@
         <xs:element minOccurs="0" name="billMode" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="iStatus" type="xs:int" />
         <xs:element minOccurs="0" name="cjbh" nillable="true" type="xs:string" />
-        <xs:element xmlns:q4="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="dic_entry_thdbmdetail" nillable="true" type="q4:ArrayOfKeyValueOfintstring" />
+        <xs:element xmlns:q9="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="dic_entry_thdbmdetail" nillable="true" type="q9:ArrayOfKeyValueOfintstring" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -94,28 +126,28 @@
   <xs:element name="Forder_confirm">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/hn.DataAccess.bll" minOccurs="0" name="input" nillable="true" type="q5:Forder_confirm_Input" />
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/hn.DataAccess.bll" minOccurs="0" name="input" nillable="true" type="q10:Forder_confirm_Input" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="Forder_confirmResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/hn.DataAccess" minOccurs="0" name="Forder_confirmResult" nillable="true" type="q6:DataResult" />
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/hn.DataAccess" minOccurs="0" name="Forder_confirmResult" nillable="true" type="q11:DataResult" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="Forder_delivery">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/hn.DataAccess.bll" minOccurs="0" name="input" nillable="true" type="q7:ArrayOfForder_delivery_Input" />
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/hn.DataAccess.bll" minOccurs="0" name="input" nillable="true" type="q12:ArrayOfForder_delivery_Input" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="Forder_deliveryResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/hn.DataAccess" minOccurs="0" name="Forder_deliveryResult" nillable="true" type="q8:DataResult" />
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/hn.DataAccess" minOccurs="0" name="Forder_deliveryResult" nillable="true" type="q13:DataResult" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -142,7 +174,7 @@
   <xs:element name="Select_ListResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/hn.ArrowInterface.Entities" minOccurs="0" name="Select_ListResult" nillable="true" type="q9:ArrayOfLH_Policy" />
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/hn.ArrowInterface.Entities" minOccurs="0" name="Select_ListResult" nillable="true" type="q14:ArrayOfLH_Policy" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -173,7 +205,7 @@
   <xs:element name="SaleOrderUpload">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q10="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="billnos" nillable="true" type="q10:ArrayOfstring" />
+        <xs:element xmlns:q15="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="billnos" nillable="true" type="q15:ArrayOfstring" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -187,7 +219,7 @@
   <xs:element name="AcctOaStatus">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/hn.ArrowInterface.RequestParams" minOccurs="0" name="pars" nillable="true" type="q11:AcctOAStatusParam" />
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/hn.ArrowInterface.RequestParams" minOccurs="0" name="pars" nillable="true" type="q16:AcctOAStatusParam" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -201,7 +233,7 @@
   <xs:element name="obOrderUpload">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q12="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="billnos" nillable="true" type="q12:ArrayOfstring" />
+        <xs:element xmlns:q17="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="billnos" nillable="true" type="q17:ArrayOfstring" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -223,7 +255,7 @@
   <xs:element name="LoginResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/hn.Core.Model" minOccurs="0" name="LoginResult" nillable="true" type="q13:User" />
+        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/hn.Core.Model" minOccurs="0" name="LoginResult" nillable="true" type="q18:User" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -255,21 +287,21 @@
   <xs:element name="GetDicsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/hn.DataAccess.Model" minOccurs="0" name="GetDicsResult" nillable="true" type="q14:ArrayOfSYS_SUBDICSMODEL" />
+        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/hn.DataAccess.Model" minOccurs="0" name="GetDicsResult" nillable="true" type="q19:ArrayOfSYS_SUBDICSMODEL" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="Remote_Get24">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/MApiModel.api24" minOccurs="0" name="getapi24" nillable="true" type="q15:Rootobject" />
+        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/MApiModel.api24" minOccurs="0" name="getapi24" nillable="true" type="q20:Rootobject" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="Remote_Get24Response">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/MApiModel.recApi24" minOccurs="0" name="Remote_Get24Result" nillable="true" type="q16:Rootobject" />
+        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/MApiModel.recApi24" minOccurs="0" name="Remote_Get24Result" nillable="true" type="q21:Rootobject" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -285,7 +317,7 @@
   <xs:element name="GetDics_AreaResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/hn.DataAccess.Model" minOccurs="0" name="GetDics_AreaResult" nillable="true" type="q17:ArrayOfSYS_SUBDICSMODEL" />
+        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/hn.DataAccess.Model" minOccurs="0" name="GetDics_AreaResult" nillable="true" type="q22:ArrayOfSYS_SUBDICSMODEL" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -299,7 +331,7 @@
   <xs:element name="getTHDResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/hn.DataAccess.Model" minOccurs="0" name="getTHDResult" nillable="true" type="q18:v_thdModel" />
+        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/hn.DataAccess.Model" minOccurs="0" name="getTHDResult" nillable="true" type="q23:v_thdModel" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -341,7 +373,7 @@
   <xs:element name="getICPOBillCLientIDResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/hn.DataAccess.Model" minOccurs="0" name="getICPOBillCLientIDResult" nillable="true" type="q19:V_ICPOBILLMODEL" />
+        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/hn.DataAccess.Model" minOccurs="0" name="getICPOBillCLientIDResult" nillable="true" type="q24:V_ICPOBILLMODEL" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -369,21 +401,21 @@
   <xs:element name="GetPremiseListResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/hn.DataAccess.model" minOccurs="0" name="GetPremiseListResult" nillable="true" type="q20:ArrayOfV_PREMISEModel" />
+        <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/hn.DataAccess.model" minOccurs="0" name="GetPremiseListResult" nillable="true" type="q25:ArrayOfV_PREMISEModel" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetBrandList">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/hn.Core.Model" minOccurs="0" name="loginUser" nillable="true" type="q21:User" />
+        <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/hn.Core.Model" minOccurs="0" name="loginUser" nillable="true" type="q26:User" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetBrandListResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/hn.DataAccess.Model" minOccurs="0" name="GetBrandListResult" nillable="true" type="q22:ArrayOfTB_BrandModel" />
+        <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/hn.DataAccess.Model" minOccurs="0" name="GetBrandListResult" nillable="true" type="q27:ArrayOfTB_BrandModel" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -398,7 +430,7 @@
   <xs:element name="GetClientAccountListResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/hn.DataAccess.Model" minOccurs="0" name="GetClientAccountListResult" nillable="true" type="q23:ArrayOfV_CLIENTACCOUNTModel" />
+        <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/hn.DataAccess.Model" minOccurs="0" name="GetClientAccountListResult" nillable="true" type="q28:ArrayOfV_CLIENTACCOUNTModel" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -412,14 +444,14 @@
   <xs:element name="GetExpressCompanyListResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/hn.DataAccess.Model" minOccurs="0" name="GetExpressCompanyListResult" nillable="true" type="q24:ArrayOfTB_EXPRESSCOMPANYModel" />
+        <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/hn.DataAccess.Model" minOccurs="0" name="GetExpressCompanyListResult" nillable="true" type="q29:ArrayOfTB_EXPRESSCOMPANYModel" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetProductList">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/hn.Core.Model" minOccurs="0" name="loginUser" nillable="true" type="q25:User" />
+        <xs:element xmlns:q30="http://schemas.datacontract.org/2004/07/hn.Core.Model" minOccurs="0" name="loginUser" nillable="true" type="q30:User" />
         <xs:element minOccurs="0" name="keyword" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
@@ -427,7 +459,7 @@
   <xs:element name="GetProductListResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/hn.DataAccess.model" minOccurs="0" name="GetProductListResult" nillable="true" type="q26:ArrayOfProductViewModel" />
+        <xs:element xmlns:q31="http://schemas.datacontract.org/2004/07/hn.DataAccess.model" minOccurs="0" name="GetProductListResult" nillable="true" type="q31:ArrayOfProductViewModel" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -442,7 +474,7 @@
   <xs:element name="GetSrcListResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/hn.DataAccess.Model" minOccurs="0" name="GetSrcListResult" nillable="true" type="q27:ArrayOfSRCModel" />
+        <xs:element xmlns:q32="http://schemas.datacontract.org/2004/07/hn.DataAccess.Model" minOccurs="0" name="GetSrcListResult" nillable="true" type="q32:ArrayOfSRCModel" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -454,7 +486,7 @@
   <xs:element name="GetProvinceResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/hn.DataAccess.model" minOccurs="0" name="GetProvinceResult" nillable="true" type="q28:ArrayOfTB_EBPLModel" />
+        <xs:element xmlns:q33="http://schemas.datacontract.org/2004/07/hn.DataAccess.model" minOccurs="0" name="GetProvinceResult" nillable="true" type="q33:ArrayOfTB_EBPLModel" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -468,7 +500,7 @@
   <xs:element name="GetCityResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/hn.DataAccess.model" minOccurs="0" name="GetCityResult" nillable="true" type="q29:ArrayOfTB_EBPLModel" />
+        <xs:element xmlns:q34="http://schemas.datacontract.org/2004/07/hn.DataAccess.model" minOccurs="0" name="GetCityResult" nillable="true" type="q34:ArrayOfTB_EBPLModel" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -482,7 +514,7 @@
   <xs:element name="GetDistrictResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q30="http://schemas.datacontract.org/2004/07/hn.DataAccess.model" minOccurs="0" name="GetDistrictResult" nillable="true" type="q30:ArrayOfTB_EBPLModel" />
+        <xs:element xmlns:q35="http://schemas.datacontract.org/2004/07/hn.DataAccess.model" minOccurs="0" name="GetDistrictResult" nillable="true" type="q35:ArrayOfTB_EBPLModel" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -496,7 +528,7 @@
   <xs:element name="getProductViewResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q31="http://schemas.datacontract.org/2004/07/hn.DataAccess.model" minOccurs="0" name="getProductViewResult" nillable="true" type="q31:ProductViewModel" />
+        <xs:element xmlns:q36="http://schemas.datacontract.org/2004/07/hn.DataAccess.model" minOccurs="0" name="getProductViewResult" nillable="true" type="q36:ProductViewModel" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -510,7 +542,7 @@
   <xs:element name="GetSingleDicsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q32="http://schemas.datacontract.org/2004/07/hn.DataAccess.Model" minOccurs="0" name="GetSingleDicsResult" nillable="true" type="q32:SYS_SUBDICSMODEL" />
+        <xs:element xmlns:q37="http://schemas.datacontract.org/2004/07/hn.DataAccess.Model" minOccurs="0" name="GetSingleDicsResult" nillable="true" type="q37:SYS_SUBDICSMODEL" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -525,7 +557,7 @@
   <xs:element name="GetDeliverBaseListResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q33="http://schemas.datacontract.org/2004/07/hn.DataAccess.model" minOccurs="0" name="GetDeliverBaseListResult" nillable="true" type="q33:ArrayOfTB_DELIVER_BASEModel" />
+        <xs:element xmlns:q38="http://schemas.datacontract.org/2004/07/hn.DataAccess.model" minOccurs="0" name="GetDeliverBaseListResult" nillable="true" type="q38:ArrayOfTB_DELIVER_BASEModel" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -539,7 +571,7 @@
   <xs:element name="GetClientAccountSingleResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q34="http://schemas.datacontract.org/2004/07/hn.DataAccess.Model" minOccurs="0" name="GetClientAccountSingleResult" nillable="true" type="q34:V_CLIENTACCOUNTModel" />
+        <xs:element xmlns:q39="http://schemas.datacontract.org/2004/07/hn.DataAccess.Model" minOccurs="0" name="GetClientAccountSingleResult" nillable="true" type="q39:V_CLIENTACCOUNTModel" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -553,7 +585,7 @@
   <xs:element name="GetClientByAccountResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q35="http://schemas.datacontract.org/2004/07/hn.DataAccess.Model" minOccurs="0" name="GetClientByAccountResult" nillable="true" type="q35:V_CLIENTACCOUNTModel" />
+        <xs:element xmlns:q40="http://schemas.datacontract.org/2004/07/hn.DataAccess.Model" minOccurs="0" name="GetClientByAccountResult" nillable="true" type="q40:V_CLIENTACCOUNTModel" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -568,14 +600,14 @@
   <xs:element name="v_lhproducts_policy_ListResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q36="http://schemas.datacontract.org/2004/07/hn.DataAccess.model" minOccurs="0" name="v_lhproducts_policy_ListResult" nillable="true" type="q36:ArrayOfv_lhproducts_policyModel" />
+        <xs:element xmlns:q41="http://schemas.datacontract.org/2004/07/hn.DataAccess.model" minOccurs="0" name="v_lhproducts_policy_ListResult" nillable="true" type="q41:ArrayOfv_lhproducts_policyModel" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetPurchasePlanList">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q37="http://schemas.datacontract.org/2004/07/hn.Core.Model" minOccurs="0" name="loginUser" nillable="true" type="q37:User" />
+        <xs:element xmlns:q42="http://schemas.datacontract.org/2004/07/hn.Core.Model" minOccurs="0" name="loginUser" nillable="true" type="q42:User" />
         <xs:element minOccurs="0" name="classarea2name" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="brand" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="status" type="xs:int" />
@@ -590,14 +622,14 @@
   <xs:element name="GetPurchasePlanListResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q38="http://schemas.datacontract.org/2004/07/hn.DataAccess.Model" minOccurs="0" name="GetPurchasePlanListResult" nillable="true" type="q38:ArrayOfV_ICPRBILLMODEL" />
+        <xs:element xmlns:q43="http://schemas.datacontract.org/2004/07/hn.DataAccess.Model" minOccurs="0" name="GetPurchasePlanListResult" nillable="true" type="q43:ArrayOfV_ICPRBILLMODEL" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetPurchasePlanImport">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q39="http://schemas.datacontract.org/2004/07/hn.Core.Model" minOccurs="0" name="loginUser" nillable="true" type="q39:User" />
+        <xs:element xmlns:q44="http://schemas.datacontract.org/2004/07/hn.Core.Model" minOccurs="0" name="loginUser" nillable="true" type="q44:User" />
         <xs:element minOccurs="0" name="strQuery" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
@@ -605,14 +637,14 @@
   <xs:element name="GetPurchasePlanImportResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q40="http://schemas.datacontract.org/2004/07/hn.DataAccess.Model" minOccurs="0" name="GetPurchasePlanImportResult" nillable="true" type="q40:ArrayOfV_ICPRBILLMODEL" />
+        <xs:element xmlns:q45="http://schemas.datacontract.org/2004/07/hn.DataAccess.Model" minOccurs="0" name="GetPurchasePlanImportResult" nillable="true" type="q45:ArrayOfV_ICPRBILLMODEL" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetPurchasePlanImport2">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q41="http://schemas.datacontract.org/2004/07/hn.Core.Model" minOccurs="0" name="loginUser" nillable="true" type="q41:User" />
+        <xs:element xmlns:q46="http://schemas.datacontract.org/2004/07/hn.Core.Model" minOccurs="0" name="loginUser" nillable="true" type="q46:User" />
         <xs:element minOccurs="0" name="strQuery" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="brandid" nillable="true" type="xs:string" />
       </xs:sequence>
@@ -621,22 +653,22 @@
   <xs:element name="GetPurchasePlanImport2Response">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q42="http://schemas.datacontract.org/2004/07/hn.DataAccess.Model" minOccurs="0" name="GetPurchasePlanImport2Result" nillable="true" type="q42:ArrayOfV_ICPRBILLMODEL" />
+        <xs:element xmlns:q47="http://schemas.datacontract.org/2004/07/hn.DataAccess.Model" minOccurs="0" name="GetPurchasePlanImport2Result" nillable="true" type="q47:ArrayOfV_ICPRBILLMODEL" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetPurchasePlanImport3">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q43="http://schemas.datacontract.org/2004/07/hn.Core.Model" minOccurs="0" name="loginUser" nillable="true" type="q43:User" />
-        <xs:element xmlns:q44="http://schemas.datacontract.org/2004/07/hn.Common.Cls_query" minOccurs="0" name="pquery" nillable="true" type="q44:P_QueryOrder" />
+        <xs:element xmlns:q48="http://schemas.datacontract.org/2004/07/hn.Core.Model" minOccurs="0" name="loginUser" nillable="true" type="q48:User" />
+        <xs:element xmlns:q49="http://schemas.datacontract.org/2004/07/hn.Common.Cls_query" minOccurs="0" name="pquery" nillable="true" type="q49:P_QueryOrder" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetPurchasePlanImport3Response">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q45="http://schemas.datacontract.org/2004/07/hn.DataAccess.Model" minOccurs="0" name="GetPurchasePlanImport3Result" nillable="true" type="q45:ArrayOfV_ICPRBILLMODEL" />
+        <xs:element xmlns:q50="http://schemas.datacontract.org/2004/07/hn.DataAccess.Model" minOccurs="0" name="GetPurchasePlanImport3Result" nillable="true" type="q50:ArrayOfV_ICPRBILLMODEL" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -650,7 +682,7 @@
   <xs:element name="GetPurchasePlanModelResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q46="http://schemas.datacontract.org/2004/07/hn.DataAccess.Model" minOccurs="0" name="GetPurchasePlanModelResult" nillable="true" type="q46:V_ICPRBILLMODEL" />
+        <xs:element xmlns:q51="http://schemas.datacontract.org/2004/07/hn.DataAccess.Model" minOccurs="0" name="GetPurchasePlanModelResult" nillable="true" type="q51:V_ICPRBILLMODEL" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -666,7 +698,7 @@
   <xs:element name="GetPurchasePlanEntryListResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q47="http://schemas.datacontract.org/2004/07/hn.DataAccess.Model" minOccurs="0" name="GetPurchasePlanEntryListResult" nillable="true" type="q47:ArrayOfV_ICPRBILLENTRYMODEL" />
+        <xs:element xmlns:q52="http://schemas.datacontract.org/2004/07/hn.DataAccess.Model" minOccurs="0" name="GetPurchasePlanEntryListResult" nillable="true" type="q52:ArrayOfV_ICPRBILLENTRYMODEL" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -687,7 +719,7 @@
   <xs:element name="GetPurchasePlanEntryByDeliveryList">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q48="http://schemas.datacontract.org/2004/07/hn.Core.Model" minOccurs="0" name="loginUser" nillable="true" type="q48:User" />
+        <xs:element xmlns:q53="http://schemas.datacontract.org/2004/07/hn.Core.Model" minOccurs="0" name="loginUser" nillable="true" type="q53:User" />
         <xs:element minOccurs="0" name="productinfo" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="classarea2name" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="premiseid" nillable="true" type="xs:string" />
@@ -703,7 +735,7 @@
   <xs:element name="GetPurchasePlanEntryByDeliveryListResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q49="http://schemas.datacontract.org/2004/07/hn.DataAccess.Model" minOccurs="0" name="GetPurchasePlanEntryByDeliveryListResult" nillable="true" type="q49:ArrayOfV_ICPRBILLENTRYMODEL" />
+        <xs:element xmlns:q54="http://schemas.datacontract.org/2004/07/hn.DataAccess.Model" minOccurs="0" name="GetPurchasePlanEntryByDeliveryListResult" nillable="true" type="q54:ArrayOfV_ICPRBILLENTRYMODEL" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -711,8 +743,8 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="action" nillable="true" type="xs:string" />
-        <xs:element xmlns:q50="http://schemas.datacontract.org/2004/07/hn.DataAccess.Model" minOccurs="0" name="data" nillable="true" type="q50:ArrayOfICPRBILLENTRYMODEL" />
-        <xs:element xmlns:q51="http://schemas.datacontract.org/2004/07/hn.Core.Model" minOccurs="0" name="loginUser" nillable="true" type="q51:User" />
+        <xs:element xmlns:q55="http://schemas.datacontract.org/2004/07/hn.DataAccess.Model" minOccurs="0" name="data" nillable="true" type="q55:ArrayOfICPRBILLENTRYMODEL" />
+        <xs:element xmlns:q56="http://schemas.datacontract.org/2004/07/hn.Core.Model" minOccurs="0" name="loginUser" nillable="true" type="q56:User" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -726,8 +758,8 @@
   <xs:element name="CloseSave">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q52="http://schemas.datacontract.org/2004/07/hn.DataAccess.Model" minOccurs="0" name="data" nillable="true" type="q52:ArrayOfICPRBILLENTRYMODEL" />
-        <xs:element xmlns:q53="http://schemas.datacontract.org/2004/07/hn.Core.Model" minOccurs="0" name="loginUser" nillable="true" type="q53:User" />
+        <xs:element xmlns:q57="http://schemas.datacontract.org/2004/07/hn.DataAccess.Model" minOccurs="0" name="data" nillable="true" type="q57:ArrayOfICPRBILLENTRYMODEL" />
+        <xs:element xmlns:q58="http://schemas.datacontract.org/2004/07/hn.Core.Model" minOccurs="0" name="loginUser" nillable="true" type="q58:User" />
         <xs:element minOccurs="0" name="content" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
@@ -777,21 +809,21 @@
   <xs:element name="GetStockListMN">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q54="http://schemas.datacontract.org/2004/07/MApiModel.api2" minOccurs="0" name="getapi2" nillable="true" type="q54:Rootobject" />
+        <xs:element xmlns:q59="http://schemas.datacontract.org/2004/07/MApiModel.api2" minOccurs="0" name="getapi2" nillable="true" type="q59:Rootobject" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetStockListMNResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q55="http://schemas.datacontract.org/2004/07/MApiModel.recApi2" minOccurs="0" name="GetStockListMNResult" nillable="true" type="q55:Rootobject" />
+        <xs:element xmlns:q60="http://schemas.datacontract.org/2004/07/MApiModel.recApi2" minOccurs="0" name="GetStockListMNResult" nillable="true" type="q60:Rootobject" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetStockListMN_2">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q56="http://schemas.datacontract.org/2004/07/MApiModel.api2" minOccurs="0" name="getapi2" nillable="true" type="q56:Rootobject" />
+        <xs:element xmlns:q61="http://schemas.datacontract.org/2004/07/MApiModel.api2" minOccurs="0" name="getapi2" nillable="true" type="q61:Rootobject" />
         <xs:element minOccurs="0" name="comid" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
@@ -799,7 +831,7 @@
   <xs:element name="GetStockListMN_2Response">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q57="http://schemas.datacontract.org/2004/07/MApiModel.recApi2" minOccurs="0" name="GetStockListMN_2Result" nillable="true" type="q57:Rootobject" />
+        <xs:element xmlns:q62="http://schemas.datacontract.org/2004/07/MApiModel.recApi2" minOccurs="0" name="GetStockListMN_2Result" nillable="true" type="q62:Rootobject" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -813,14 +845,14 @@
   <xs:element name="GetAttachmentListResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q58="http://schemas.datacontract.org/2004/07/hn.DataAccess.Model" minOccurs="0" name="GetAttachmentListResult" nillable="true" type="q58:ArrayOfTB_ATTACHMENTModel" />
+        <xs:element xmlns:q63="http://schemas.datacontract.org/2004/07/hn.DataAccess.Model" minOccurs="0" name="GetAttachmentListResult" nillable="true" type="q63:ArrayOfTB_ATTACHMENTModel" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="UpdateICPRBILL">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q59="http://schemas.datacontract.org/2004/07/hn.DataAccess.Model" minOccurs="0" name="model" nillable="true" type="q59:ICPRBILLMODEL" />
+        <xs:element xmlns:q64="http://schemas.datacontract.org/2004/07/hn.DataAccess.Model" minOccurs="0" name="model" nillable="true" type="q64:ICPRBILLMODEL" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -835,14 +867,14 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="icprbillid" nillable="true" type="xs:string" />
-        <xs:element xmlns:q60="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="entryids" nillable="true" type="q60:ArrayOfstring" />
+        <xs:element xmlns:q65="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="entryids" nillable="true" type="q65:ArrayOfstring" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="RefrshPriceNumberListResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q61="http://schemas.datacontract.org/2004/07/hn.DataAccess.Model" minOccurs="0" name="RefrshPriceNumberListResult" nillable="true" type="q61:ArrayOfV_ICPRBILLENTRYMODEL" />
+        <xs:element xmlns:q66="http://schemas.datacontract.org/2004/07/hn.DataAccess.Model" minOccurs="0" name="RefrshPriceNumberListResult" nillable="true" type="q66:ArrayOfV_ICPRBILLENTRYMODEL" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -856,7 +888,7 @@
   <xs:element name="GetPriceNumberListByItemIDResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q62="http://schemas.datacontract.org/2004/07/hn.DataAccess.model" minOccurs="0" name="GetPriceNumberListByItemIDResult" nillable="true" type="q62:ArrayOfTB_PRICEPOLICYModel" />
+        <xs:element xmlns:q67="http://schemas.datacontract.org/2004/07/hn.DataAccess.model" minOccurs="0" name="GetPriceNumberListByItemIDResult" nillable="true" type="q67:ArrayOfTB_PRICEPOLICYModel" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -870,7 +902,7 @@
   <xs:element name="GetPriceNumberListByBrandIDResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q63="http://schemas.datacontract.org/2004/07/hn.DataAccess.model" minOccurs="0" name="GetPriceNumberListByBrandIDResult" nillable="true" type="q63:ArrayOfTB_PRICEPOLICYModel" />
+        <xs:element xmlns:q68="http://schemas.datacontract.org/2004/07/hn.DataAccess.model" minOccurs="0" name="GetPriceNumberListByBrandIDResult" nillable="true" type="q68:ArrayOfTB_PRICEPOLICYModel" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -889,14 +921,14 @@
   <xs:element name="getTHDList">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q64="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="thdbmList" nillable="true" type="q64:ArrayOfstring" />
+        <xs:element xmlns:q69="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="thdbmList" nillable="true" type="q69:ArrayOfstring" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="getTHDListResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q65="http://schemas.datacontract.org/2004/07/hn.DataAccess.Model" minOccurs="0" name="getTHDListResult" nillable="true" type="q65:ArrayOfv_thdModel" />
+        <xs:element xmlns:q70="http://schemas.datacontract.org/2004/07/hn.DataAccess.Model" minOccurs="0" name="getTHDListResult" nillable="true" type="q70:ArrayOfv_thdModel" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -931,8 +963,8 @@
   <xs:element name="DeliveryBillSave">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q66="http://schemas.datacontract.org/2004/07/hn.DataAccess.Model" minOccurs="0" name="model" nillable="true" type="q66:ICSEOUTBILLMODEL" />
-        <xs:element xmlns:q67="http://schemas.datacontract.org/2004/07/hn.DataAccess.Model" minOccurs="0" name="entrys" nillable="true" type="q67:ArrayOfICSEOUTBILLENTRYMODEL" />
+        <xs:element xmlns:q71="http://schemas.datacontract.org/2004/07/hn.DataAccess.Model" minOccurs="0" name="model" nillable="true" type="q71:ICSEOUTBILLMODEL" />
+        <xs:element xmlns:q72="http://schemas.datacontract.org/2004/07/hn.DataAccess.Model" minOccurs="0" name="entrys" nillable="true" type="q72:ArrayOfICSEOUTBILLENTRYMODEL" />
         <xs:element minOccurs="0" name="delivery" type="xs:boolean" />
       </xs:sequence>
     </xs:complexType>
@@ -962,7 +994,7 @@
   <xs:element name="GetDeliveryList">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q68="http://schemas.datacontract.org/2004/07/hn.Core.Model" minOccurs="0" name="loginUser" nillable="true" type="q68:User" />
+        <xs:element xmlns:q73="http://schemas.datacontract.org/2004/07/hn.Core.Model" minOccurs="0" name="loginUser" nillable="true" type="q73:User" />
         <xs:element minOccurs="0" name="brand" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="classarea2name" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="premiseid" nillable="true" type="xs:string" />
@@ -984,7 +1016,7 @@
   <xs:element name="GetDeliveryListResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q69="http://schemas.datacontract.org/2004/07/hn.DataAccess.Model" minOccurs="0" name="GetDeliveryListResult" nillable="true" type="q69:ArrayOfV_ICSEOUTBILLMODEL" />
+        <xs:element xmlns:q74="http://schemas.datacontract.org/2004/07/hn.DataAccess.Model" minOccurs="0" name="GetDeliveryListResult" nillable="true" type="q74:ArrayOfV_ICSEOUTBILLMODEL" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -998,7 +1030,7 @@
   <xs:element name="GetDeliveryEntryListResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q70="http://schemas.datacontract.org/2004/07/hn.DataAccess.Model" minOccurs="0" name="GetDeliveryEntryListResult" nillable="true" type="q70:ArrayOfV_ICSEOUTBILLENTRYMODEL" />
+        <xs:element xmlns:q75="http://schemas.datacontract.org/2004/07/hn.DataAccess.Model" minOccurs="0" name="GetDeliveryEntryListResult" nillable="true" type="q75:ArrayOfV_ICSEOUTBILLENTRYMODEL" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1021,7 +1053,7 @@
       <xs:sequence>
         <xs:element minOccurs="0" name="ids" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="status" type="xs:int" />
-        <xs:element xmlns:q71="http://schemas.datacontract.org/2004/07/hn.Core.Model" minOccurs="0" name="loginUser" nillable="true" type="q71:User" />
+        <xs:element xmlns:q76="http://schemas.datacontract.org/2004/07/hn.Core.Model" minOccurs="0" name="loginUser" nillable="true" type="q76:User" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1099,7 +1131,7 @@
   <xs:element name="GetDeliveryEntryByGroupNoResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q72="http://schemas.datacontract.org/2004/07/hn.DataAccess.Model" minOccurs="0" name="GetDeliveryEntryByGroupNoResult" nillable="true" type="q72:ArrayOfV_ICSEOUTBILLENTRYMODEL" />
+        <xs:element xmlns:q77="http://schemas.datacontract.org/2004/07/hn.DataAccess.Model" minOccurs="0" name="GetDeliveryEntryByGroupNoResult" nillable="true" type="q77:ArrayOfV_ICSEOUTBILLENTRYMODEL" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1113,7 +1145,7 @@
   <xs:element name="GetDeliveryByGroupNoResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q73="http://schemas.datacontract.org/2004/07/hn.DataAccess.Model" minOccurs="0" name="GetDeliveryByGroupNoResult" nillable="true" type="q73:ArrayOfV_ICSEOUTBILLMODEL" />
+        <xs:element xmlns:q78="http://schemas.datacontract.org/2004/07/hn.DataAccess.Model" minOccurs="0" name="GetDeliveryByGroupNoResult" nillable="true" type="q78:ArrayOfV_ICSEOUTBILLMODEL" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1127,7 +1159,7 @@
   <xs:element name="GetSrcModelByItemIDResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q74="http://schemas.datacontract.org/2004/07/hn.DataAccess.Model" minOccurs="0" name="GetSrcModelByItemIDResult" nillable="true" type="q74:SRCModel" />
+        <xs:element xmlns:q79="http://schemas.datacontract.org/2004/07/hn.DataAccess.Model" minOccurs="0" name="GetSrcModelByItemIDResult" nillable="true" type="q79:SRCModel" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1178,7 +1210,7 @@
   <xs:element name="ContractCar">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q75="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ids" nillable="true" type="q75:ArrayOfstring" />
+        <xs:element xmlns:q80="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ids" nillable="true" type="q80:ArrayOfstring" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1192,8 +1224,8 @@
   <xs:element name="SaveICPOBILL">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q76="http://schemas.datacontract.org/2004/07/hn.DataAccess.Model" minOccurs="0" name="ICPOBILL" nillable="true" type="q76:ICPOBILLMODEL" />
-        <xs:element xmlns:q77="http://schemas.datacontract.org/2004/07/hn.DataAccess.Model" minOccurs="0" name="ICPOBILLENTRYList" nillable="true" type="q77:ArrayOfICPOBILLENTRYMODEL" />
+        <xs:element xmlns:q81="http://schemas.datacontract.org/2004/07/hn.DataAccess.Model" minOccurs="0" name="ICPOBILL" nillable="true" type="q81:ICPOBILLMODEL" />
+        <xs:element xmlns:q82="http://schemas.datacontract.org/2004/07/hn.DataAccess.Model" minOccurs="0" name="ICPOBILLENTRYList" nillable="true" type="q82:ArrayOfICPOBILLENTRYMODEL" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1207,7 +1239,7 @@
   <xs:element name="GetOrderList">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q78="http://schemas.datacontract.org/2004/07/hn.Core.Model" minOccurs="0" name="loginUser" nillable="true" type="q78:User" />
+        <xs:element xmlns:q83="http://schemas.datacontract.org/2004/07/hn.Core.Model" minOccurs="0" name="loginUser" nillable="true" type="q83:User" />
         <xs:element minOccurs="0" name="classarea2name" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="brand" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="status" type="xs:int" />
@@ -1222,7 +1254,7 @@
   <xs:element name="GetOrderListResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q79="http://schemas.datacontract.org/2004/07/hn.DataAccess.Model" minOccurs="0" name="GetOrderListResult" nillable="true" type="q79:ArrayOfV_ICPOBILLMODEL" />
+        <xs:element xmlns:q84="http://schemas.datacontract.org/2004/07/hn.DataAccess.Model" minOccurs="0" name="GetOrderListResult" nillable="true" type="q84:ArrayOfV_ICPOBILLMODEL" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1237,7 +1269,7 @@
   <xs:element name="GetOrderEntryListResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q80="http://schemas.datacontract.org/2004/07/hn.DataAccess.Model" minOccurs="0" name="GetOrderEntryListResult" nillable="true" type="q80:ArrayOfV_ICPOBILLENTRYMODEL" />
+        <xs:element xmlns:q85="http://schemas.datacontract.org/2004/07/hn.DataAccess.Model" minOccurs="0" name="GetOrderEntryListResult" nillable="true" type="q85:ArrayOfV_ICPOBILLENTRYMODEL" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1251,14 +1283,14 @@
   <xs:element name="GetSingleOrderResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q81="http://schemas.datacontract.org/2004/07/hn.DataAccess.Model" minOccurs="0" name="GetSingleOrderResult" nillable="true" type="q81:ICPOBILLMODEL" />
+        <xs:element xmlns:q86="http://schemas.datacontract.org/2004/07/hn.DataAccess.Model" minOccurs="0" name="GetSingleOrderResult" nillable="true" type="q86:ICPOBILLMODEL" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GeICPO_BOLList">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q82="http://schemas.datacontract.org/2004/07/hn.Core.Model" minOccurs="0" name="loginUser" nillable="true" type="q82:User" />
+        <xs:element xmlns:q87="http://schemas.datacontract.org/2004/07/hn.Core.Model" minOccurs="0" name="loginUser" nillable="true" type="q87:User" />
         <xs:element minOccurs="0" name="FPObillno" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="Ficbolno" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="FSYNCSTATUS" type="xs:int" />
@@ -1273,7 +1305,7 @@
   <xs:element name="GeICPO_BOLListResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q83="http://schemas.datacontract.org/2004/07/hn.DataAccess.Model" minOccurs="0" name="GeICPO_BOLListResult" nillable="true" type="q83:ArrayOfICPO_BOLentryModel" />
+        <xs:element xmlns:q88="http://schemas.datacontract.org/2004/07/hn.DataAccess.Model" minOccurs="0" name="GeICPO_BOLListResult" nillable="true" type="q88:ArrayOfICPO_BOLentryModel" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1311,7 +1343,7 @@
   <xs:element name="GetJYDWResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q84="http://schemas.datacontract.org/2004/07/hn.DataAccess.model" minOccurs="0" name="GetJYDWResult" nillable="true" type="q84:ArrayOfTB_PREMISEModel" />
+        <xs:element xmlns:q89="http://schemas.datacontract.org/2004/07/hn.DataAccess.model" minOccurs="0" name="GetJYDWResult" nillable="true" type="q89:ArrayOfTB_PREMISEModel" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1327,7 +1359,7 @@
   <xs:element name="getSrcResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q85="http://schemas.datacontract.org/2004/07/hn.DataAccess.Model" minOccurs="0" name="getSrcResult" nillable="true" type="q85:SRCModel" />
+        <xs:element xmlns:q90="http://schemas.datacontract.org/2004/07/hn.DataAccess.Model" minOccurs="0" name="getSrcResult" nillable="true" type="q90:SRCModel" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1341,7 +1373,7 @@
   <xs:element name="GetArea2Response">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q86="http://schemas.datacontract.org/2004/07/hn.DataAccess.Model" minOccurs="0" name="GetArea2Result" nillable="true" type="q86:SYS_SUBDICSMODEL" />
+        <xs:element xmlns:q91="http://schemas.datacontract.org/2004/07/hn.DataAccess.Model" minOccurs="0" name="GetArea2Result" nillable="true" type="q91:SYS_SUBDICSMODEL" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1405,7 +1437,7 @@
   <xs:element name="GeICPO_BOLListMN_db">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q87="http://schemas.datacontract.org/2004/07/MApiModel.api8" minOccurs="0" name="getapi8" nillable="true" type="q87:Rootobject" />
+        <xs:element xmlns:q92="http://schemas.datacontract.org/2004/07/MApiModel.api8" minOccurs="0" name="getapi8" nillable="true" type="q92:Rootobject" />
         <xs:element minOccurs="0" name="cpxh" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="cpgg" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="jhdh" nillable="true" type="xs:string" />
@@ -1418,7 +1450,7 @@
   <xs:element name="GeICPO_BOLListMN_dbResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q88="http://schemas.datacontract.org/2004/07/hn.DataAccess.Model" minOccurs="0" name="GeICPO_BOLListMN_dbResult" nillable="true" type="q88:ArrayOfv_thdModel" />
+        <xs:element xmlns:q93="http://schemas.datacontract.org/2004/07/hn.DataAccess.Model" minOccurs="0" name="GeICPO_BOLListMN_dbResult" nillable="true" type="q93:ArrayOfv_thdModel" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1426,8 +1458,8 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="action" nillable="true" type="xs:string" />
-        <xs:element xmlns:q89="http://schemas.datacontract.org/2004/07/hn.DataAccess.Model" minOccurs="0" name="data" nillable="true" type="q89:ArrayOfICPOBILLENTRYMODEL" />
-        <xs:element xmlns:q90="http://schemas.datacontract.org/2004/07/hn.Core.Model" minOccurs="0" name="loginUser" nillable="true" type="q90:User" />
+        <xs:element xmlns:q94="http://schemas.datacontract.org/2004/07/hn.DataAccess.Model" minOccurs="0" name="data" nillable="true" type="q94:ArrayOfICPOBILLENTRYMODEL" />
+        <xs:element xmlns:q95="http://schemas.datacontract.org/2004/07/hn.Core.Model" minOccurs="0" name="loginUser" nillable="true" type="q95:User" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1441,8 +1473,8 @@
   <xs:element name="CloseSave_ICPO">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q91="http://schemas.datacontract.org/2004/07/hn.DataAccess.Model" minOccurs="0" name="data" nillable="true" type="q91:ArrayOfICPOBILLENTRYMODEL" />
-        <xs:element xmlns:q92="http://schemas.datacontract.org/2004/07/hn.Core.Model" minOccurs="0" name="loginUser" nillable="true" type="q92:User" />
+        <xs:element xmlns:q96="http://schemas.datacontract.org/2004/07/hn.DataAccess.Model" minOccurs="0" name="data" nillable="true" type="q96:ArrayOfICPOBILLENTRYMODEL" />
+        <xs:element xmlns:q97="http://schemas.datacontract.org/2004/07/hn.Core.Model" minOccurs="0" name="loginUser" nillable="true" type="q97:User" />
         <xs:element minOccurs="0" name="content" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
@@ -1457,8 +1489,8 @@
   <xs:element name="AuditSave_ICPO">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q93="http://schemas.datacontract.org/2004/07/hn.DataAccess.Model" minOccurs="0" name="data" nillable="true" type="q93:ArrayOfICPOBILLENTRYMODEL" />
-        <xs:element xmlns:q94="http://schemas.datacontract.org/2004/07/hn.Core.Model" minOccurs="0" name="loginUser" nillable="true" type="q94:User" />
+        <xs:element xmlns:q98="http://schemas.datacontract.org/2004/07/hn.DataAccess.Model" minOccurs="0" name="data" nillable="true" type="q98:ArrayOfICPOBILLENTRYMODEL" />
+        <xs:element xmlns:q99="http://schemas.datacontract.org/2004/07/hn.Core.Model" minOccurs="0" name="loginUser" nillable="true" type="q99:User" />
         <xs:element minOccurs="0" name="content" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
@@ -1473,8 +1505,8 @@
   <xs:element name="UnAuditSave_ICPO">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q95="http://schemas.datacontract.org/2004/07/hn.DataAccess.Model" minOccurs="0" name="data" nillable="true" type="q95:ArrayOfICPOBILLENTRYMODEL" />
-        <xs:element xmlns:q96="http://schemas.datacontract.org/2004/07/hn.Core.Model" minOccurs="0" name="loginUser" nillable="true" type="q96:User" />
+        <xs:element xmlns:q100="http://schemas.datacontract.org/2004/07/hn.DataAccess.Model" minOccurs="0" name="data" nillable="true" type="q100:ArrayOfICPOBILLENTRYMODEL" />
+        <xs:element xmlns:q101="http://schemas.datacontract.org/2004/07/hn.Core.Model" minOccurs="0" name="loginUser" nillable="true" type="q101:User" />
         <xs:element minOccurs="0" name="content" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
@@ -1486,35 +1518,31 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="Remote_InsertICPOEntry">
+  <xs:element name="ICPOBILLENTRYMODEL_List">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q97="http://schemas.datacontract.org/2004/07/MApiModel.api3" minOccurs="0" name="getapi3" nillable="true" type="q97:Rootobject" />
+        <xs:element minOccurs="0" name="FICPOBILLID" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="Remote_InsertICPOEntryResponse">
+  <xs:element name="ICPOBILLENTRYMODEL_ListResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="Remote_InsertICPOEntryResult" nillable="true" type="xs:string" />
+        <xs:element xmlns:q102="http://schemas.datacontract.org/2004/07/hn.DataAccess.Model" minOccurs="0" name="ICPOBILLENTRYMODEL_ListResult" nillable="true" type="q102:ArrayOfICPOBILLENTRYMODEL" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="Remote_GetICPOEntry">
+  <xs:element name="OA_Status">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="strFID" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="strEntryID" nillable="true" type="xs:string" />
-        <xs:element xmlns:q98="http://schemas.datacontract.org/2004/07/hn.DataAccess.Model" minOccurs="0" name="billModel" nillable="true" type="q98:ICPOBILLMODEL" />
-        <xs:element xmlns:q99="http://schemas.datacontract.org/2004/07/hn.DataAccess.Model" minOccurs="0" name="entryModel" nillable="true" type="q99:ICPOBILLENTRYMODEL" />
+        <xs:element xmlns:q103="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="idStrings" nillable="true" type="q103:ArrayOfstring" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="Remote_GetICPOEntryResponse">
+  <xs:element name="OA_StatusResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q100="http://schemas.datacontract.org/2004/07/hn.DataAccess.Model" minOccurs="0" name="billModel" nillable="true" type="q100:ICPOBILLMODEL" />
-        <xs:element xmlns:q101="http://schemas.datacontract.org/2004/07/hn.DataAccess.Model" minOccurs="0" name="entryModel" nillable="true" type="q101:ICPOBILLENTRYMODEL" />
+        <xs:element minOccurs="0" name="OA_StatusResult" type="xs:boolean" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
