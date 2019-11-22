@@ -712,6 +712,7 @@ MApiModel.api24.Rootobject getapi24);
         [OperationContract]
         bool obOrderUpload(List<string> billnos);
 
+
         #endregion
 
     }

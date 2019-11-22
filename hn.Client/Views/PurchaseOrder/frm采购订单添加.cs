@@ -1113,11 +1113,14 @@ namespace hn.Client
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void comBrand_SelectedIndexChanged(object sender, EventArgs e)
-        {
+        {  
+            //1、选择订单类型为常规订单的，如果用户要选择促销政策头ID的话则需要同时判断：订单所属公司（事业部）、厂家账号（经销商账号）、销售渠道、业务类型、五项头字段信息来取促销政策头ID信息
             cmbPromotionPolicy.Properties.Items.Clear();
             cmbPromotionPolicy.SelectedItem = null;
             var policyList = cmbPromotionPolicy.Tag as LH_Policy[];
+            //订单所属公司（事业部）
             var brandName = comBrand.SelectedItem.ToString();
+            //订单类型
             var orderType = cmbOrderType.SelectedItem as SYS_SUBDICSMODEL;
             if (policyList != null)
             {
