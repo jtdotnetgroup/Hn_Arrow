@@ -28,16 +28,38 @@ namespace hn.Client.Service
         /// 出库单
         /// </summary>
         /// <returns></returns>
-        public List<LH_OUTBOUNDORDERModel> LH_OUTBOUNDORDER_List() {
-           return LH_OUTBOUNDORDERDal.Instance.GetAll().Take(10).Skip(0).ToList();
+        public List<LH_OUTBOUNDORDERModel> LH_OUTBOUNDORDER_List(DateTime Strat, DateTime End)
+        {
+            //return LH_OUTBOUNDORDERDal.Instance.GetAll().Where(w => Strat <= w.LHDELIVERYTIME && w.LHDELIVERYTIME <= End).ToList();
+            return LH_OUTBOUNDORDERDal.Instance.GetAll().ToList();
         }
+        /// <summary>
+        /// 出库单
+        /// </summary>
+        /// <param name="LHODOID"></param>
+        /// <returns></returns>
+        public List<LH_OUTBOUNDORDERModel> LH_OUTBOUNDORDER_LHODOID_List(string[] LHODOID)
+        {
+            return LH_OUTBOUNDORDERDal.Instance.GetAll().Where(w => LHODOID.Any(a => a.Equals(w.LHODOID))).ToList();
+        }
+        /// <summary>
+        /// 更改车牌
+        /// </summary>
+        /// <param name="LHODONO"></param>
+        /// <param name="FCARNO"></param>
+        /// <returns></returns>
+        public bool LH_OUTBOUNDORDER_Update_FCARNO(string LHODONO,string FCARNO)
+        {
+            return LH_OUTBOUNDORDERDal.Instance.ExecuteNonQuery(@"UPDATE LH_OUTBOUNDORDER SET FCARNO = '" + FCARNO + "' WHERE LHODONO ='"+ LHODONO +"'") > 0;
+        }
+        
         /// <summary>
         /// 出库单明细
         /// </summary>
         /// <returns></returns>
         public List<LH_OUTBOUNDORDERDETAILEDModel> LH_OUTBOUNDORDERDETAILED_List(string Id)
         {
-            return LH_OUTBOUNDORDERDETAILEDDal.Instance.GetList(@" AND LHODOID = '" + Id + "'").ToList();
+            return LH_OUTBOUNDORDERDETAILEDDal.Instance.GetList(@"SELECT * FROM LH_OUTBOUNDORDERDETAILED WHERE LHODOID = '" + Id + "'").ToList();
         }
         /// <summary>
         /// 生成单据编号

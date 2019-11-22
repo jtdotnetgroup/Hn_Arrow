@@ -1,5 +1,4 @@
 ﻿using hn.DataAccess.dal.LHModel;
-using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -12,10 +11,10 @@ using System.Windows.Forms;
 
 namespace hn.Client
 {
-    public partial class FrmOutOrderList : Form
+    public partial class FrmOutOrderDetailed : Form
     {
         #region 窗体
-        public FrmOutOrderList()
+        public FrmOutOrderDetailed()
         {
             InitializeComponent(); 
         }
@@ -26,34 +25,20 @@ namespace hn.Client
         }
         #endregion
 
-        #region 按钮事件   
-        private void btnSearch_Click(object sender, EventArgs e)
-        {
-            LaodData();
-        } 
-
-        private void btnSyncCar_Click(object sender, EventArgs e)
+        #region 按钮事件 
+        private void btnSave_Click(object sender, EventArgs e)
         {
             LH_OUTBOUNDORDERModel[] row = BillGrid.DataSource as LH_OUTBOUNDORDERModel[];
-            int[] RowNum = BillGrid.GetSelectedRows();
-            if (RowNum.Length == 0)
+            if (row.Length == 0) { MessageBox.Show("程序异常!"); return; }
+            if (_service.LH_OUTBOUNDORDER_Update_FCARNO(row[0].LHODONO, row[0].FCARNO))
             {
-                MessageBox.Show("请选择要同步的数据！");
-                return;
+                MessageBox.Show("保存成功!");
+                this.Close();
             }
-            List<string> LHODONO = new List<string>();
-            foreach (var item in RowNum)
-            {
-                LHODONO.Add(row[item].LHODONO);
+            else {
+                MessageBox.Show("保存失败");
             }
-            if (_service.obOrderUpload(LHODONO.ToArray()))
-            {
-                MessageBox.Show("同步成功！");
-            }
-            else
-            {
-                MessageBox.Show("同步失败！");
-            }
+
         }
         private void btnExit_Click(object sender, EventArgs e)
         {
@@ -75,17 +60,13 @@ namespace hn.Client
             if (row == null) { return; }
             if (row.Length < BillGrid.GetFocusedDataSourceRowIndex()) { return; }
             LH_OUTBOUNDORDERModel LH_OutOrderModel = row[BillGrid.GetFocusedDataSourceRowIndex()];
-            FrmOutOrderDetailed Frm = new FrmOutOrderDetailed();
-            Frm.BillData.Add(LH_OutOrderModel);
-            if (Frm.ShowDialog().Equals(DialogResult.OK))
-            {
 
-            }
         }
         #endregion
 
         #region 公共变量
-        ApiService.APIServiceClient _service; 
+        ApiService.APIServiceClient _service;
+        public List<LH_OUTBOUNDORDERModel> BillData = new List<LH_OUTBOUNDORDERModel>(); 
         List<ColStyle> BillStyle;
         List<ColStyle> EntryStyle;
         #endregion
@@ -95,22 +76,17 @@ namespace hn.Client
         /// </summary>
         void Init()
         {
-            dateStart.Text = DateTime.Now.AddDays(-7).ToStr();
-            dateEnd.Text = DateTime.Now.AddDays(7).ToStr();
-            Style(); 
+            Style();
             LaodData();
             LaodDateiledData();
-        }
+        } 
         /// <summary>
         /// 所有控件样式控制
         /// </summary>
         void Style()
         {
             BillGrid.OptionsBehavior.Editable = true;
-            BillGrid.OptionsCustomization.AllowFilter = true;
-            BillGrid.OptionsView.ShowAutoFilterRow = true;
-            BillGrid.OptionsSelection.MultiSelect = true;
-            BillGrid.OptionsSelection.MultiSelectMode = DevExpress.XtraGrid.Views.Grid.GridMultiSelectMode.CheckBoxRowSelect;
+            BillGrid.OptionsCustomization.AllowFilter = true; 
             BillStyle = new List<ColStyle>();
             BillStyle.AddRange(new ColStyle[]{
             new ColStyle
@@ -286,10 +262,10 @@ namespace hn.Client
                 Caption = "同步的车牌",
                 FieldName = "FCARNO",
                 Visible = true,
+                ReadOnly = false,
                 Width = 100,
-                ReadOnly = true
             }
-            });  
+            });
             SetCol(BillGrid, BillStyle);
 
             EntryGrid.OptionsBehavior.Editable = false;
@@ -408,7 +384,8 @@ namespace hn.Client
         /// </summary>
         /// <param name="Grid"></param>
         /// <param name="colStyles"></param>
-        void SetCol(DevExpress.XtraGrid.Views.Grid.GridView Grid, List<ColStyle> colStyles) {
+        void SetCol(DevExpress.XtraGrid.Views.Grid.GridView Grid, List<ColStyle> colStyles)
+        {
             foreach (var item in colStyles)
             {
                 var DataCol = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -427,19 +404,14 @@ namespace hn.Client
         /// 填充表格
         /// </summary>
         void LaodData() { 
-            BillList.DataSource = _service.LH_OUTBOUNDORDER_List(dateStart.Value,dateEnd.Value);
+            BillList.DataSource = _service.LH_OUTBOUNDORDER_LHODOID_List(BillData.Select(s=>s.LHODOID).ToArray());
         }
         /// <summary>
         /// 加载明细
         /// </summary>
         void LaodDateiledData()
-        {
-            LH_OUTBOUNDORDERModel[] row = BillGrid.DataSource as LH_OUTBOUNDORDERModel[];
-            if (row == null) { return; }
-            int i = BillGrid.GetFocusedDataSourceRowIndex();
-            if (row.Length < i && i>0 || row.Length==0) { return; }
-
-            EntryList.DataSource = _service.LH_OUTBOUNDORDERDETAILED_List(row[i].LHODOID);
+        { 
+            EntryList.DataSource = _service.LH_OUTBOUNDORDERDETAILED_List(BillData[0].LHODOID);
         }
         /// <summary>
         /// 表格样式
@@ -454,43 +426,5 @@ namespace hn.Client
             public int VisibleIndex { get; set; }
             public DevExpress.Utils.FormatType FormatType { get; set; }
         }
-        /// <summary>
-        /// 将List转换为DataTable
-        /// </summary>
-        /// <param name="list">请求数据</param>
-        /// <returns></returns>
-        public static DataTable ListToDataTable<T>(List<T> list)
-        {
-            //创建一个名为"tableName"的空表
-            DataTable dt = new DataTable("tableName");
-
-            //创建传入对象名称的列
-            foreach (var item in list.FirstOrDefault().GetType().GetProperties())
-            {
-                dt.Columns.Add(item.Name);
-            }
-            //循环存储
-            foreach (var item in list)
-            {
-                //新加行
-                DataRow value = dt.NewRow();
-                //根据DataTable中的值，进行对应的赋值
-                foreach (DataColumn dtColumn in dt.Columns)
-                {
-                    int i = dt.Columns.IndexOf(dtColumn);
-                    //基元元素，直接复制，对象类型等，进行序列化
-                    if (value.GetType().IsPrimitive)
-                    {
-                        value[i] = item.GetType().GetProperty(dtColumn.ColumnName).GetValue(item);
-                    }
-                    else
-                    {
-                        value[i] = JsonConvert.SerializeObject(item.GetType().GetProperty(dtColumn.ColumnName).GetValue(item));
-                    }
-                }
-                dt.Rows.Add(value);
-            }
-            return dt;
-        } 
     }
 }

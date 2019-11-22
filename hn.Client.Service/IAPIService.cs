@@ -15,6 +15,7 @@ using System.ServiceModel.Web;
 using System.Text;
 using hn.ArrowInterface.Entities;
 using hn.ArrowInterface.RequestParams;
+using hn.DataAccess.dal.LHModel;
 
 namespace hn.Client.Service
 {
@@ -618,6 +619,18 @@ MApiModel.api24.Rootobject getapi24);
 
         [OperationContract]
         bool OA_Status(string[] idStrings);
+
+        [OperationContract]
+        List<LH_OUTBOUNDORDERModel> LH_OUTBOUNDORDER_List(DateTime Strat, DateTime End);
+
+        [OperationContract]
+        List<LH_OUTBOUNDORDERModel> LH_OUTBOUNDORDER_LHODOID_List(string[] LHODOID);
+
+        [OperationContract]
+        bool LH_OUTBOUNDORDER_Update_FCARNO(string LHODONO, string FCARNO);
+
+        [OperationContract]
+        List<LH_OUTBOUNDORDERDETAILEDModel> LH_OUTBOUNDORDERDETAILED_List(string Id);
         #endregion
 
 

@@ -323,6 +323,30 @@ namespace hn.Client.ApiService {
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ApiService.IAPIService")]
     public interface IAPIService {
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/LH_OUTBOUNDORDER_List", ReplyAction="http://tempuri.org/IAPIService/LH_OUTBOUNDORDER_ListResponse")]
+        hn.DataAccess.dal.LHModel.LH_OUTBOUNDORDERModel[] LH_OUTBOUNDORDER_List(System.DateTime Strat, System.DateTime End);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/LH_OUTBOUNDORDER_List", ReplyAction="http://tempuri.org/IAPIService/LH_OUTBOUNDORDER_ListResponse")]
+        System.Threading.Tasks.Task<hn.DataAccess.dal.LHModel.LH_OUTBOUNDORDERModel[]> LH_OUTBOUNDORDER_ListAsync(System.DateTime Strat, System.DateTime End);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/LH_OUTBOUNDORDER_LHODOID_List", ReplyAction="http://tempuri.org/IAPIService/LH_OUTBOUNDORDER_LHODOID_ListResponse")]
+        hn.DataAccess.dal.LHModel.LH_OUTBOUNDORDERModel[] LH_OUTBOUNDORDER_LHODOID_List(string[] LHODOID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/LH_OUTBOUNDORDER_LHODOID_List", ReplyAction="http://tempuri.org/IAPIService/LH_OUTBOUNDORDER_LHODOID_ListResponse")]
+        System.Threading.Tasks.Task<hn.DataAccess.dal.LHModel.LH_OUTBOUNDORDERModel[]> LH_OUTBOUNDORDER_LHODOID_ListAsync(string[] LHODOID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/LH_OUTBOUNDORDER_Update_FCARNO", ReplyAction="http://tempuri.org/IAPIService/LH_OUTBOUNDORDER_Update_FCARNOResponse")]
+        bool LH_OUTBOUNDORDER_Update_FCARNO(string LHODONO, string FCARNO);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/LH_OUTBOUNDORDER_Update_FCARNO", ReplyAction="http://tempuri.org/IAPIService/LH_OUTBOUNDORDER_Update_FCARNOResponse")]
+        System.Threading.Tasks.Task<bool> LH_OUTBOUNDORDER_Update_FCARNOAsync(string LHODONO, string FCARNO);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/LH_OUTBOUNDORDERDETAILED_List", ReplyAction="http://tempuri.org/IAPIService/LH_OUTBOUNDORDERDETAILED_ListResponse")]
+        hn.DataAccess.dal.LHModel.LH_OUTBOUNDORDERDETAILEDModel[] LH_OUTBOUNDORDERDETAILED_List(string Id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/LH_OUTBOUNDORDERDETAILED_List", ReplyAction="http://tempuri.org/IAPIService/LH_OUTBOUNDORDERDETAILED_ListResponse")]
+        System.Threading.Tasks.Task<hn.DataAccess.dal.LHModel.LH_OUTBOUNDORDERDETAILEDModel[]> LH_OUTBOUNDORDERDETAILED_ListAsync(string Id);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/Remote_InsertICPOEntry", ReplyAction="http://tempuri.org/IAPIService/Remote_InsertICPOEntryResponse")]
         string Remote_InsertICPOEntry(MApiModel.api3.Rootobject getapi3);
         
@@ -1038,6 +1062,38 @@ namespace hn.Client.ApiService {
         
         public APIServiceClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(binding, remoteAddress) {
+        }
+        
+        public hn.DataAccess.dal.LHModel.LH_OUTBOUNDORDERModel[] LH_OUTBOUNDORDER_List(System.DateTime Strat, System.DateTime End) {
+            return base.Channel.LH_OUTBOUNDORDER_List(Strat, End);
+        }
+        
+        public System.Threading.Tasks.Task<hn.DataAccess.dal.LHModel.LH_OUTBOUNDORDERModel[]> LH_OUTBOUNDORDER_ListAsync(System.DateTime Strat, System.DateTime End) {
+            return base.Channel.LH_OUTBOUNDORDER_ListAsync(Strat, End);
+        }
+        
+        public hn.DataAccess.dal.LHModel.LH_OUTBOUNDORDERModel[] LH_OUTBOUNDORDER_LHODOID_List(string[] LHODOID) {
+            return base.Channel.LH_OUTBOUNDORDER_LHODOID_List(LHODOID);
+        }
+        
+        public System.Threading.Tasks.Task<hn.DataAccess.dal.LHModel.LH_OUTBOUNDORDERModel[]> LH_OUTBOUNDORDER_LHODOID_ListAsync(string[] LHODOID) {
+            return base.Channel.LH_OUTBOUNDORDER_LHODOID_ListAsync(LHODOID);
+        }
+        
+        public bool LH_OUTBOUNDORDER_Update_FCARNO(string LHODONO, string FCARNO) {
+            return base.Channel.LH_OUTBOUNDORDER_Update_FCARNO(LHODONO, FCARNO);
+        }
+        
+        public System.Threading.Tasks.Task<bool> LH_OUTBOUNDORDER_Update_FCARNOAsync(string LHODONO, string FCARNO) {
+            return base.Channel.LH_OUTBOUNDORDER_Update_FCARNOAsync(LHODONO, FCARNO);
+        }
+        
+        public hn.DataAccess.dal.LHModel.LH_OUTBOUNDORDERDETAILEDModel[] LH_OUTBOUNDORDERDETAILED_List(string Id) {
+            return base.Channel.LH_OUTBOUNDORDERDETAILED_List(Id);
+        }
+        
+        public System.Threading.Tasks.Task<hn.DataAccess.dal.LHModel.LH_OUTBOUNDORDERDETAILEDModel[]> LH_OUTBOUNDORDERDETAILED_ListAsync(string Id) {
+            return base.Channel.LH_OUTBOUNDORDERDETAILED_ListAsync(Id);
         }
         
         public string Remote_InsertICPOEntry(MApiModel.api3.Rootobject getapi3) {

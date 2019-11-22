@@ -28,20 +28,39 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DevExpress.XtraGrid.GridLevelNode gridLevelNode2 = new DevExpress.XtraGrid.GridLevelNode();
+            DevExpress.XtraGrid.GridLevelNode gridLevelNode1 = new DevExpress.XtraGrid.GridLevelNode();
             this.splCC = new DevExpress.XtraEditors.SplitContainerControl();
             this.palList = new DevExpress.XtraEditors.PanelControl();
             this.BillList = new DevExpress.XtraGrid.GridControl();
             this.BillGrid = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.repositoryItemCheckEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
+            this.toolStrip2 = new System.Windows.Forms.ToolStrip();
+            this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
             this.PInfo = new System.Windows.Forms.Panel();
+            this.dateEnd = new System.Windows.Forms.DateTimePicker();
+            this.dateStart = new System.Windows.Forms.DateTimePicker();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.textBox9 = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.BtnSetting = new System.Windows.Forms.Button();
             this.MaintoolStrip = new System.Windows.Forms.ToolStrip();
-            this.btnRefresh = new System.Windows.Forms.ToolStripButton();
             this.btnSearch = new System.Windows.Forms.ToolStripButton();
-            this.btnClearAll = new System.Windows.Forms.ToolStripButton();
-            this.btnSelectAll = new System.Windows.Forms.ToolStripButton();
-            this.btnSaveAs = new System.Windows.Forms.ToolStripButton();
+            this.btnSyncCar = new System.Windows.Forms.ToolStripButton();
             this.btnExit = new System.Windows.Forms.ToolStripButton();
             this.dgvList = new System.Windows.Forms.DataGridView();
             this.palDetailed = new DevExpress.XtraEditors.PanelControl();
@@ -59,6 +78,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.BillList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BillGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit2)).BeginInit();
+            this.toolStrip2.SuspendLayout();
             this.PInfo.SuspendLayout();
             this.MaintoolStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvList)).BeginInit();
@@ -92,6 +112,7 @@
             // 
             this.palList.AutoSize = true;
             this.palList.Controls.Add(this.BillList);
+            this.palList.Controls.Add(this.toolStrip2);
             this.palList.Controls.Add(this.PInfo);
             this.palList.Controls.Add(this.MaintoolStrip);
             this.palList.Controls.Add(this.dgvList);
@@ -106,19 +127,21 @@
             // 
             this.BillList.Dock = System.Windows.Forms.DockStyle.Fill;
             this.BillList.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            gridLevelNode2.RelationName = "Level1";
+            gridLevelNode1.RelationName = "Level1";
             this.BillList.LevelTree.Nodes.AddRange(new DevExpress.XtraGrid.GridLevelNode[] {
-            gridLevelNode2});
-            this.BillList.Location = new System.Drawing.Point(2, 112);
+            gridLevelNode1});
+            this.BillList.Location = new System.Drawing.Point(2, 64);
             this.BillList.MainView = this.BillGrid;
             this.BillList.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.BillList.Name = "BillList";
             this.BillList.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemCheckEdit2});
-            this.BillList.Size = new System.Drawing.Size(1057, 327);
-            this.BillList.TabIndex = 55;
+            this.BillList.Size = new System.Drawing.Size(1057, 375);
+            this.BillList.TabIndex = 57;
             this.BillList.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.BillGrid});
+            this.BillList.Click += new System.EventHandler(this.BillList_Click);
+            this.BillList.DoubleClick += new System.EventHandler(this.BillList_DoubleClick);
             // 
             // BillGrid
             // 
@@ -138,16 +161,229 @@
             this.repositoryItemCheckEdit2.AutoHeight = false;
             this.repositoryItemCheckEdit2.Name = "repositoryItemCheckEdit2";
             // 
+            // toolStrip2
+            // 
+            this.toolStrip2.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.toolStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripLabel2});
+            this.toolStrip2.Location = new System.Drawing.Point(2, 39);
+            this.toolStrip2.Name = "toolStrip2";
+            this.toolStrip2.Size = new System.Drawing.Size(1057, 25);
+            this.toolStrip2.TabIndex = 56;
+            this.toolStrip2.Text = "toolStrip2";
+            // 
+            // toolStripLabel2
+            // 
+            this.toolStripLabel2.Name = "toolStripLabel2";
+            this.toolStripLabel2.Size = new System.Drawing.Size(56, 22);
+            this.toolStripLabel2.Text = "出库列表";
+            // 
             // PInfo
             // 
             this.PInfo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.PInfo.Controls.Add(this.dateEnd);
+            this.PInfo.Controls.Add(this.dateStart);
+            this.PInfo.Controls.Add(this.label10);
+            this.PInfo.Controls.Add(this.label7);
+            this.PInfo.Controls.Add(this.textBox9);
+            this.PInfo.Controls.Add(this.label9);
+            this.PInfo.Controls.Add(this.textBox6);
+            this.PInfo.Controls.Add(this.label6);
+            this.PInfo.Controls.Add(this.textBox8);
+            this.PInfo.Controls.Add(this.label8);
+            this.PInfo.Controls.Add(this.textBox5);
+            this.PInfo.Controls.Add(this.label5);
+            this.PInfo.Controls.Add(this.textBox4);
+            this.PInfo.Controls.Add(this.label4);
+            this.PInfo.Controls.Add(this.textBox3);
+            this.PInfo.Controls.Add(this.label3);
+            this.PInfo.Controls.Add(this.textBox2);
+            this.PInfo.Controls.Add(this.label2);
+            this.PInfo.Controls.Add(this.textBox1);
+            this.PInfo.Controls.Add(this.label1);
             this.PInfo.Controls.Add(this.BtnSetting);
             this.PInfo.Dock = System.Windows.Forms.DockStyle.Top;
-            this.PInfo.Location = new System.Drawing.Point(2, 27);
+            this.PInfo.Location = new System.Drawing.Point(2, 29);
             this.PInfo.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.PInfo.Name = "PInfo";
-            this.PInfo.Size = new System.Drawing.Size(1057, 85);
+            this.PInfo.Size = new System.Drawing.Size(1057, 10);
             this.PInfo.TabIndex = 46;
+            // 
+            // dateEnd
+            // 
+            this.dateEnd.Location = new System.Drawing.Point(251, 11);
+            this.dateEnd.Name = "dateEnd";
+            this.dateEnd.Size = new System.Drawing.Size(134, 22);
+            this.dateEnd.TabIndex = 51;
+            // 
+            // dateStart
+            // 
+            this.dateStart.Location = new System.Drawing.Point(92, 11);
+            this.dateStart.Name = "dateStart";
+            this.dateStart.Size = new System.Drawing.Size(134, 22);
+            this.dateStart.TabIndex = 50;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(229, 15);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(19, 14);
+            this.label10.TabIndex = 48;
+            this.label10.Text = "到";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(19, 14);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(67, 14);
+            this.label7.TabIndex = 46;
+            this.label7.Text = "发货日期：";
+            // 
+            // textBox9
+            // 
+            this.textBox9.Location = new System.Drawing.Point(859, 11);
+            this.textBox9.Name = "textBox9";
+            this.textBox9.Size = new System.Drawing.Size(100, 22);
+            this.textBox9.TabIndex = 45;
+            this.textBox9.Visible = false;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(786, 14);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(63, 14);
+            this.label9.TabIndex = 44;
+            this.label9.Text = "提 货 人：";
+            this.label9.Visible = false;
+            // 
+            // textBox6
+            // 
+            this.textBox6.Location = new System.Drawing.Point(474, 42);
+            this.textBox6.Name = "textBox6";
+            this.textBox6.Size = new System.Drawing.Size(100, 22);
+            this.textBox6.TabIndex = 43;
+            this.textBox6.Visible = false;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(401, 45);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(67, 14);
+            this.label6.TabIndex = 42;
+            this.label6.Text = "同步车牌：";
+            this.label6.Visible = false;
+            // 
+            // textBox8
+            // 
+            this.textBox8.Location = new System.Drawing.Point(286, 42);
+            this.textBox8.Name = "textBox8";
+            this.textBox8.Size = new System.Drawing.Size(100, 22);
+            this.textBox8.TabIndex = 39;
+            this.textBox8.Visible = false;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(213, 45);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(67, 14);
+            this.label8.TabIndex = 38;
+            this.label8.Text = "客户名称：";
+            this.label8.Visible = false;
+            // 
+            // textBox5
+            // 
+            this.textBox5.Location = new System.Drawing.Point(666, 11);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(100, 22);
+            this.textBox5.TabIndex = 37;
+            this.textBox5.Visible = false;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(593, 14);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(67, 14);
+            this.label5.TabIndex = 36;
+            this.label5.Text = "发货基地：";
+            this.label5.Visible = false;
+            // 
+            // textBox4
+            // 
+            this.textBox4.Location = new System.Drawing.Point(474, 11);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(100, 22);
+            this.textBox4.TabIndex = 35;
+            this.textBox4.Visible = false;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(401, 14);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(63, 14);
+            this.label4.TabIndex = 34;
+            this.label4.Text = "事 业 部：";
+            this.label4.Visible = false;
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(859, 42);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(100, 22);
+            this.textBox3.TabIndex = 33;
+            this.textBox3.Visible = false;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(786, 45);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(67, 14);
+            this.label3.TabIndex = 32;
+            this.label3.Text = "订单类型：";
+            this.label3.Visible = false;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(92, 42);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(100, 22);
+            this.textBox2.TabIndex = 31;
+            this.textBox2.Visible = false;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(19, 45);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(67, 14);
+            this.label2.TabIndex = 30;
+            this.label2.Text = "客户编号：";
+            this.label2.Visible = false;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(666, 42);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 22);
+            this.textBox1.TabIndex = 29;
+            this.textBox1.Visible = false;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(593, 45);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(67, 14);
+            this.label1.TabIndex = 28;
+            this.label1.Text = "出库单号：";
+            this.label1.Visible = false;
             // 
             // BtnSetting
             // 
@@ -159,7 +395,7 @@
             this.BtnSetting.Location = new System.Drawing.Point(1033, 0);
             this.BtnSetting.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.BtnSetting.Name = "BtnSetting";
-            this.BtnSetting.Size = new System.Drawing.Size(22, 83);
+            this.BtnSetting.Size = new System.Drawing.Size(22, 8);
             this.BtnSetting.TabIndex = 27;
             this.BtnSetting.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BtnSetting.UseVisualStyleBackColor = true;
@@ -168,61 +404,42 @@
             // 
             this.MaintoolStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.MaintoolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.btnRefresh,
             this.btnSearch,
-            this.btnClearAll,
-            this.btnSelectAll,
-            this.btnSaveAs,
+            this.btnSyncCar,
             this.btnExit});
             this.MaintoolStrip.Location = new System.Drawing.Point(2, 2);
             this.MaintoolStrip.Name = "MaintoolStrip";
-            this.MaintoolStrip.Size = new System.Drawing.Size(1057, 25);
+            this.MaintoolStrip.Size = new System.Drawing.Size(1057, 27);
             this.MaintoolStrip.TabIndex = 10;
             this.MaintoolStrip.Text = "toolStrip1";
             // 
-            // btnRefresh
-            // 
-            this.btnRefresh.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(52, 22);
-            this.btnRefresh.Text = "刷新(&R)";
-            // 
             // btnSearch
             // 
+            this.btnSearch.Image = global::hn.Client.Properties.Resources.btnSearch;
             this.btnSearch.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(50, 22);
+            this.btnSearch.Size = new System.Drawing.Size(70, 24);
             this.btnSearch.Text = "查询(&F)";
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
-            // btnClearAll
+            // btnSyncCar
             // 
-            this.btnClearAll.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnClearAll.Name = "btnClearAll";
-            this.btnClearAll.Size = new System.Drawing.Size(53, 22);
-            this.btnClearAll.Text = "全清(&U)";
-            // 
-            // btnSelectAll
-            // 
-            this.btnSelectAll.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnSelectAll.Name = "btnSelectAll";
-            this.btnSelectAll.Size = new System.Drawing.Size(51, 22);
-            this.btnSelectAll.Text = "全选(&S)";
-            // 
-            // btnSaveAs
-            // 
-            this.btnSaveAs.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnSaveAs.Name = "btnSaveAs";
-            this.btnSaveAs.Size = new System.Drawing.Size(48, 22);
-            this.btnSaveAs.Text = "导出(&I)";
-            this.btnSaveAs.ToolTipText = "toolStripButtonsh3";
+            this.btnSyncCar.Image = global::hn.Client.Properties.Resources.TitleNormal222;
+            this.btnSyncCar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnSyncCar.Name = "btnSyncCar";
+            this.btnSyncCar.Size = new System.Drawing.Size(95, 24);
+            this.btnSyncCar.Text = "同步车牌(&T)";
+            this.btnSyncCar.Click += new System.EventHandler(this.btnSyncCar_Click);
             // 
             // btnExit
             // 
+            this.btnExit.Image = global::hn.Client.Properties.Resources.btnClose;
             this.btnExit.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(62, 22);
+            this.btnExit.Size = new System.Drawing.Size(82, 24);
             this.btnExit.Text = "退出(&Q）";
             this.btnExit.ToolTipText = "退出(&X)";
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // dgvList
             // 
@@ -248,7 +465,7 @@
             this.palDetailed.Location = new System.Drawing.Point(0, 0);
             this.palDetailed.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.palDetailed.Name = "palDetailed";
-            this.palDetailed.Size = new System.Drawing.Size(1061, 223);
+            this.palDetailed.Size = new System.Drawing.Size(1061, 230);
             this.palDetailed.TabIndex = 0;
             // 
             // palEnty
@@ -257,7 +474,7 @@
             this.palEnty.Dock = System.Windows.Forms.DockStyle.Fill;
             this.palEnty.Location = new System.Drawing.Point(2, 27);
             this.palEnty.Name = "palEnty";
-            this.palEnty.Size = new System.Drawing.Size(1057, 194);
+            this.palEnty.Size = new System.Drawing.Size(1057, 201);
             this.palEnty.TabIndex = 57;
             // 
             // EntryList
@@ -270,7 +487,7 @@
             this.EntryList.Name = "EntryList";
             this.EntryList.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemCheckEdit1});
-            this.EntryList.Size = new System.Drawing.Size(1053, 190);
+            this.EntryList.Size = new System.Drawing.Size(1053, 197);
             this.EntryList.TabIndex = 49;
             this.EntryList.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.EntryGrid});
@@ -316,7 +533,7 @@
             this.dvgDetailed.Name = "dvgDetailed";
             this.dvgDetailed.ReadOnly = true;
             this.dvgDetailed.RowTemplate.Height = 23;
-            this.dvgDetailed.Size = new System.Drawing.Size(1057, 219);
+            this.dvgDetailed.Size = new System.Drawing.Size(1057, 226);
             this.dvgDetailed.TabIndex = 0;
             // 
             // FrmOutOrderList
@@ -337,7 +554,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.BillList)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.BillGrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit2)).EndInit();
+            this.toolStrip2.ResumeLayout(false);
+            this.toolStrip2.PerformLayout();
             this.PInfo.ResumeLayout(false);
+            this.PInfo.PerformLayout();
             this.MaintoolStrip.ResumeLayout(false);
             this.MaintoolStrip.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvList)).EndInit();
@@ -360,18 +580,10 @@
 
         private DevExpress.XtraEditors.SplitContainerControl splCC;
         private DevExpress.XtraEditors.PanelControl palList;
-        public DevExpress.XtraGrid.GridControl BillList;
-        public DevExpress.XtraGrid.Views.Grid.GridView BillGrid;
-        public DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit repositoryItemCheckEdit2;
         public System.Windows.Forms.Panel PInfo;
         public System.Windows.Forms.Button BtnSetting;
         public System.Windows.Forms.ToolStrip MaintoolStrip;
-        public System.Windows.Forms.ToolStripButton btnRefresh;
-        public System.Windows.Forms.ToolStripButton btnSearch;
-        private System.Windows.Forms.ToolStripButton btnClearAll;
-        private System.Windows.Forms.ToolStripButton btnSelectAll;
-        public System.Windows.Forms.ToolStripButton btnSaveAs;
-        public System.Windows.Forms.ToolStripButton btnExit;
+        public System.Windows.Forms.ToolStripButton btnSyncCar;
         private System.Windows.Forms.DataGridView dgvList;
         private DevExpress.XtraEditors.PanelControl palDetailed;
         private DevExpress.XtraEditors.PanelControl palEnty;
@@ -381,5 +593,32 @@
         public System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripLabel toolStripLabel1;
         private System.Windows.Forms.DataGridView dvgDetailed;
+        public DevExpress.XtraGrid.GridControl BillList;
+        public DevExpress.XtraGrid.Views.Grid.GridView BillGrid;
+        public DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit repositoryItemCheckEdit2;
+        public System.Windows.Forms.ToolStrip toolStrip2;
+        private System.Windows.Forms.ToolStripLabel toolStripLabel2;
+        public System.Windows.Forms.ToolStripButton btnExit;
+        public System.Windows.Forms.ToolStripButton btnSearch;
+        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox textBox9;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.DateTimePicker dateEnd;
+        private System.Windows.Forms.DateTimePicker dateStart;
+        private System.Windows.Forms.Label label10;
     }
 }
