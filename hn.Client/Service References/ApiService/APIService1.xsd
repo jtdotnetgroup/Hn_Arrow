@@ -24,4 +24,15 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="LH_Policy" nillable="true" type="tns:LH_Policy" />
+  <xs:complexType name="ICPOBILL_PolicyDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Account" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BrandName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Channel" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="HeadID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OrderSubType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OrderType" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ICPOBILL_PolicyDTO" nillable="true" type="tns:ICPOBILL_PolicyDTO" />
 </xs:schema>

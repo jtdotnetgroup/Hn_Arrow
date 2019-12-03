@@ -71,10 +71,16 @@
     <ManifestKeyFile>hn.Client_TemporaryKey.pfx</ManifestKeyFile>
   </PropertyGroup>
   <PropertyGroup>
-    <GenerateManifests>true</GenerateManifests>
+    <GenerateManifests>false</GenerateManifests>
   </PropertyGroup>
   <PropertyGroup>
-    <SignManifests>true</SignManifests>
+    <SignManifests>false</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetZone>LocalIntranet</TargetZone>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="DevExpress.Data.v18.1, Version=18.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
@@ -426,6 +432,8 @@
     </EmbeddedResource>
     <None Include="hn.Client_TemporaryKey.pfx" />
     <None Include="packages.config" />
+    <None Include="Properties\app.manifest" />
+    <None Include="Properties\DataSources\hn.ArrowInterface.Entities.LH_Policy.datasource" />
     <None Include="Properties\DataSources\hn.Core.Model.SysDics.datasource" />
     <None Include="Properties\DataSources\hn.DataAccess.DataResult.datasource" />
     <None Include="Properties\DataSources\hn.DataAccess.model.Common.SelectModel.datasource" />
@@ -438,7 +446,7 @@
     <None Include="Properties\DataSources\MApiModel.recApi2.Rootobject1.datasource" />
     <None Include="Properties\DataSources\MApiModel.recApi24.Rootobject.datasource" />
     <None Include="Properties\DataSources\MApiModel.recApi24.Rootobject1.datasource" />
-    <None Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Views\Diglog\FrmInput.resx">
       <DependentUpon>FrmInput.cs</DependentUpon>
     </EmbeddedResource>
@@ -657,6 +665,9 @@
     <None Include="Service References\ApiService\APIService18.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Service References\ApiService\APIService19.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Service References\ApiService\APIService2.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -705,6 +716,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Core\KControls\" />
+    <Folder Include="CustomControl\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\btnClose.png" />
@@ -729,9 +741,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="default.ico" />
-    <None Include="Service References\ApiService\hn.Client.ApiService.LH_Policy.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
     <None Include="Service References\ApiService\hn.Client.ApiService.Remote_GetICPOEntryResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -755,6 +764,10 @@
     <None Include="Resources\TitleClose26.png" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\hn.ArrowInterface\hn.ArrowInterface.csproj">
+      <Project>{c8e030dd-9179-43fd-b82c-2ec742fc2735}</Project>
+      <Name>hn.ArrowInterface</Name>
+    </ProjectReference>
     <ProjectReference Include="..\hn.Common\hn.Common.csproj">
       <Project>{16183c27-23be-4335-ae94-f12bb57421ff}</Project>
       <Name>hn.Common</Name>

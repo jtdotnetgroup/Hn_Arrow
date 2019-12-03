@@ -37,8 +37,6 @@
             this.panelControl4 = new DevExpress.XtraEditors.PanelControl();
             this.gridControl采购订单明细 = new DevExpress.XtraGrid.GridControl();
             this.gridView发货计划明细 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.gridColumn20 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.itemButton商品代码 = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.gridColumn9 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -80,11 +78,14 @@
             this.gridColumn45 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn8 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn10 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn11 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryItemCheckEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
             this.repositoryItemCheckEdit3 = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
             this.repositoryItemSearchLookUpEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemSearchLookUpEdit();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.itemButton厂家代码 = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
+            this.itemButton商品代码 = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
             this.txtLH_OUTBOUNDORDER = new DevExpress.XtraEditors.TextEdit();
             this.label19 = new System.Windows.Forms.Label();
@@ -147,7 +148,6 @@
             this.panelControl4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl采购订单明细)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView发货计划明细)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.itemButton商品代码)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit9)).BeginInit();
@@ -163,6 +163,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSearchLookUpEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.itemButton厂家代码)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.itemButton商品代码)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).BeginInit();
             this.panelControl3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtLH_OUTBOUNDORDER.Properties)).BeginInit();
@@ -214,7 +215,7 @@
             this.panel左.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel左.Location = new System.Drawing.Point(0, 0);
             this.panel左.Name = "panel左";
-            this.panel左.Size = new System.Drawing.Size(1648, 640);
+            this.panel左.Size = new System.Drawing.Size(1641, 640);
             this.panel左.TabIndex = 3;
             this.panel左.Paint += new System.Windows.Forms.PaintEventHandler(this.panel左_Paint);
             // 
@@ -224,7 +225,7 @@
             this.panelControl4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl4.Location = new System.Drawing.Point(0, 228);
             this.panelControl4.Name = "panelControl4";
-            this.panelControl4.Size = new System.Drawing.Size(1648, 412);
+            this.panelControl4.Size = new System.Drawing.Size(1641, 412);
             this.panelControl4.TabIndex = 79;
             // 
             // gridControl采购订单明细
@@ -253,7 +254,7 @@
             this.itemButton商品代码,
             this.repositoryItemButtonEdit1,
             this.repositoryItemTextEdit9});
-            this.gridControl采购订单明细.Size = new System.Drawing.Size(1644, 408);
+            this.gridControl采购订单明细.Size = new System.Drawing.Size(1637, 408);
             this.gridControl采购订单明细.TabIndex = 1;
             this.gridControl采购订单明细.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView发货计划明细});
@@ -286,7 +287,6 @@
             this.gridView发货计划明细.Appearance.SelectedRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(158)))), ((int)(((byte)(216)))));
             this.gridView发货计划明细.Appearance.SelectedRow.Options.UseBackColor = true;
             this.gridView发货计划明细.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.gridColumn20,
             this.gridColumn9,
             this.gridColumn1,
             this.gridColumn2,
@@ -318,7 +318,9 @@
             this.gridColumn31,
             this.gridColumn45,
             this.gridColumn8,
-            this.gridColumn3});
+            this.gridColumn3,
+            this.gridColumn10,
+            this.gridColumn11});
             this.gridView发货计划明细.DetailHeight = 280;
             styleFormatCondition1.Appearance.ForeColor = System.Drawing.Color.Red;
             styleFormatCondition1.Appearance.Options.UseForeColor = true;
@@ -342,26 +344,6 @@
             this.gridView发货计划明细.CellValueChanged += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.gridView发货计划明细_CellValueChanged);
             this.gridView发货计划明细.CellValueChanging += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.gridView发货计划明细_CellValueChanging);
             // 
-            // gridColumn20
-            // 
-            this.gridColumn20.AppearanceCell.Options.UseTextOptions = true;
-            this.gridColumn20.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.gridColumn20.Caption = "选择";
-            this.gridColumn20.ColumnEdit = this.itemButton商品代码;
-            this.gridColumn20.MinWidth = 15;
-            this.gridColumn20.Name = "gridColumn20";
-            this.gridColumn20.Visible = true;
-            this.gridColumn20.VisibleIndex = 1;
-            this.gridColumn20.Width = 50;
-            // 
-            // itemButton商品代码
-            // 
-            this.itemButton商品代码.AutoHeight = false;
-            this.itemButton商品代码.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.itemButton商品代码.Name = "itemButton商品代码";
-            this.itemButton商品代码.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.itemButton商品代码_ButtonClick);
-            // 
             // gridColumn9
             // 
             this.gridColumn9.Caption = "产品编码";
@@ -369,17 +351,14 @@
             this.gridColumn9.Name = "gridColumn9";
             this.gridColumn9.OptionsColumn.AllowEdit = false;
             this.gridColumn9.Visible = true;
-            this.gridColumn9.VisibleIndex = 2;
+            this.gridColumn9.VisibleIndex = 1;
             // 
             // gridColumn1
             // 
-            this.gridColumn1.AppearanceCell.Options.UseTextOptions = true;
-            this.gridColumn1.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.gridColumn1.Caption = "厂家规格";
             this.gridColumn1.FieldName = "GG";
             this.gridColumn1.MinWidth = 15;
             this.gridColumn1.Name = "gridColumn1";
-            this.gridColumn1.OptionsColumn.AllowEdit = false;
             this.gridColumn1.Visible = true;
             this.gridColumn1.VisibleIndex = 3;
             // 
@@ -836,7 +815,7 @@
             // 
             // gridColumn8
             // 
-            this.gridColumn8.Caption = "LH_DCTPOLICYITEMID";
+            this.gridColumn8.Caption = "政策行ID";
             this.gridColumn8.FieldName = "LH_DCTPOLICYITEMID";
             this.gridColumn8.Name = "gridColumn8";
             // 
@@ -847,6 +826,22 @@
             this.gridColumn3.MinWidth = 15;
             this.gridColumn3.Name = "gridColumn3";
             this.gridColumn3.Width = 56;
+            // 
+            // gridColumn10
+            // 
+            this.gridColumn10.Caption = "产品名称";
+            this.gridColumn10.FieldName = "FPRODUCTNAME";
+            this.gridColumn10.Name = "gridColumn10";
+            this.gridColumn10.Visible = true;
+            this.gridColumn10.VisibleIndex = 2;
+            // 
+            // gridColumn11
+            // 
+            this.gridColumn11.Caption = "政策行类型";
+            this.gridColumn11.FieldName = "LH_DCTPOLICYROWTYPE";
+            this.gridColumn11.Name = "gridColumn11";
+            this.gridColumn11.Visible = true;
+            this.gridColumn11.VisibleIndex = 19;
             // 
             // repositoryItemCheckEdit2
             // 
@@ -881,6 +876,14 @@
             new DevExpress.XtraEditors.Controls.EditorButton()});
             this.itemButton厂家代码.Name = "itemButton厂家代码";
             this.itemButton厂家代码.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.itemButton厂家代码_ButtonClick);
+            // 
+            // itemButton商品代码
+            // 
+            this.itemButton商品代码.AutoHeight = false;
+            this.itemButton商品代码.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.itemButton商品代码.Name = "itemButton商品代码";
+            this.itemButton商品代码.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.itemButton商品代码_ButtonClick);
             // 
             // panelControl3
             // 
@@ -926,7 +929,7 @@
             this.panelControl3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl3.Location = new System.Drawing.Point(0, 35);
             this.panelControl3.Name = "panelControl3";
-            this.panelControl3.Size = new System.Drawing.Size(1648, 193);
+            this.panelControl3.Size = new System.Drawing.Size(1641, 193);
             this.panelControl3.TabIndex = 78;
             this.panelControl3.Paint += new System.Windows.Forms.PaintEventHandler(this.panelControl3_Paint);
             // 
@@ -1045,6 +1048,7 @@
             this.cmbPromotionPolicy.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.cmbPromotionPolicy.Size = new System.Drawing.Size(92, 26);
             this.cmbPromotionPolicy.TabIndex = 140;
+            this.cmbPromotionPolicy.MouseClick += new System.Windows.Forms.MouseEventHandler(this.cmbPromotionPolicy_MouseClick);
             // 
             // label14
             // 
@@ -1447,7 +1451,7 @@
             this.panelControl2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl2.Location = new System.Drawing.Point(0, 0);
             this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Size = new System.Drawing.Size(1648, 35);
+            this.panelControl2.Size = new System.Drawing.Size(1641, 35);
             this.panelControl2.TabIndex = 9;
             // 
             // simpleButton9
@@ -1718,7 +1722,6 @@
             this.panelControl4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridControl采购订单明细)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView发货计划明细)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.itemButton商品代码)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit9)).EndInit();
@@ -1734,6 +1737,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSearchLookUpEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.itemButton厂家代码)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.itemButton商品代码)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).EndInit();
             this.panelControl3.ResumeLayout(false);
             this.panelControl3.PerformLayout();
@@ -1785,7 +1789,6 @@
         private DevExpress.XtraGrid.Views.Grid.GridView gridView发货计划明细;
         private DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit repositoryItemCheckEdit3;
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit itemButton厂家代码;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn20;
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit itemButton商品代码;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn21;
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit repositoryItemButtonEdit1;
@@ -1876,5 +1879,7 @@
         private System.Windows.Forms.Label label19;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn8;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn9;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn10;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn11;
     }
 }

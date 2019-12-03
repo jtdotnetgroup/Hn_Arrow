@@ -8,6 +8,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
+using hn.ArrowInterface.Entities;
 using hn.Client.ApiService;
 using hn.Common;
 
@@ -35,7 +36,7 @@ namespace hn.Client
             txtCreater.Tag = Global.LoginUser.FID;
             txtCreater.Enabled = false;
             dateDatetime.DateTime = DateTime.Now;
-          
+
             _service = new ApiService.APIServiceClient("BasicHttpBinding_IAPIService", Global.WcfUrl);
 
             txtBillNO.Text = _service.GetNewBillNo("PO");
@@ -57,7 +58,7 @@ namespace hn.Client
 
                 bgw加载数据.RunWorkerAsync();
 
-                
+
             }
             catch (Exception ex)
             {
@@ -68,7 +69,7 @@ namespace hn.Client
 
         bool bEdit = false;
         ICPOBILLMODEL ICPOBILLMODELm = new ICPOBILLMODEL();
-        public FrmPurchaseOrder(V_ICPOBILLMODEL pModel,bool bzf=false)
+        public FrmPurchaseOrder(V_ICPOBILLMODEL pModel, bool bzf = false)
         {
             InitializeComponent();
 
@@ -85,7 +86,7 @@ namespace hn.Client
             var listAccount = _service.GetClientAccountList(model.FBRANDID, "");
             txtBillNO.Text = model.FBILLNO;
 
-            txtProjectNo.Text = ICPOBILLMODELm.FprojectNO;  
+            txtProjectNo.Text = ICPOBILLMODELm.FprojectNO;
 
             //
             foreach (var sub in listAccount)
@@ -97,7 +98,7 @@ namespace hn.Client
                     txtFName.Text = sub.FNAME;
                 }
             }
-            
+
             txtRemarks.Text = model.Fnote;
             search价格策略.Text = model.Fpricepolicy;
             search价格策略.Tag = model.Fpricepolicy;
@@ -122,9 +123,10 @@ namespace hn.Client
 
             listCG = _service.GetOrderEntryList(model.FID, null).ToList();
 
-            var tmp  = _service.ICPOBILLENTRYMODEL_List(model.FID);
-            foreach (var item in tmp) {
-               var mtiem = listCG.Where(w => w.FID.Equals(item.FID)).FirstOrDefault();
+            var tmp = _service.ICPOBILLENTRYMODEL_List(model.FID);
+            foreach (var item in tmp)
+            {
+                var mtiem = listCG.Where(w => w.FID.Equals(item.FID)).FirstOrDefault();
                 mtiem.FERR_MESSAGE = item.FERR_MESSAGE;
                 mtiem.FSRCMODEL = item.FSRCMODEL;
                 mtiem.FORDERUNIT = item.Funit;
@@ -138,8 +140,8 @@ namespace hn.Client
                 sub.Funit = pro.FUNITNAME;
                 sub.FSRCMODEL = pro.FSRCMODEL;
                 sub.FORDERUNIT = pro.FSRCUNIT;
-                sub.FMODEL = pro.FMODEL; 
-                sub.FSRCCODE = pro.FSRCCODE; 
+                sub.FMODEL = pro.FMODEL;
+                sub.FSRCCODE = pro.FSRCCODE;
             }
 
             listCG = listCG.OrderBy(x => x.GG).ToList().OrderBy(x => x.GG).ToList();
@@ -169,7 +171,7 @@ namespace hn.Client
                 simpleButton2.Visible = true;
                 btnZF.Visible = false;
 
-               
+
             }
             onCalcWeightTotal();
             initComboBox();
@@ -183,88 +185,123 @@ namespace hn.Client
             var policyList = _service.Select_List();
             //把政策列表放入控件TAG属性中，供后续调用
             cmbPromotionPolicy.Tag = policyList;
-          
 
             foreach (var item in policyList)
             {
-                var tmp = new SelectModel() { FID = item.Id, FName = $"{item.PolicyName}-{item.Id}" };
-                cmbPromotionPolicy.Properties.Items.Add(tmp);
                 if (item.Id == ICPOBILLMODELm.LH_PROMOTIONPOLICYID)
                 {
-                    cmbPromotionPolicy.SelectedItem = tmp;
+                    cmbPromotionPolicy.SelectedIndex = 0;
+                    cmbPromotionPolicy.Properties.Items.Add(item);
+                    cmbPromotionPolicy.SelectedItem = item;
                 }
             }
+        }
+
+        void setBrandCombox()
+        {
+            var list = _service.GetBrandList(Global.LoginUser);
+
+            list = list.Where(p => p.FNAME.Contains("箭牌") || p.FNAME.Contains("法恩")).ToArray();
+            string brandid = IniHelper.ReadString(Global.IniUrl, "CONFIG", "FBRANDID", "");
+            comBrand.Properties.Items.AddRange(list);
+            comBrand.SelectedIndex = 0;
+            var selectBrand = list.SingleOrDefault(p => p.FID == brandid);
+
+            if (selectBrand != null)
+            {
+                comBrand.SelectedItem = selectBrand;
+            }
+        }
+
+        void setOrderTypeCombox()
+        {
+            model.LH_ORDERTYPE = model.LH_ORDERTYPE ?? "";
+            var list = _service.GetDics("LH_ORDER_TYPE", "", false);
+            var selectItem = list.SingleOrDefault(p => p.FNAME == model.LH_ORDERTYPE || p.FID == model.LH_ORDERTYPE);
+            cmbOrderType.Properties.Items.AddRange(list);
+
+
+            if (selectItem != null)
+            {
+                cmbOrderType.SelectedItem = selectItem;
+            }
+        }
+
+        void setChannelCombox()
+        {
+            var list = _service.GetDics("LH_PROD_CHANNEL", "", false);
+            cmbSaleChannel.Properties.Items.AddRange(list);
+            cmbSaleChannel.SelectedIndex = 0;
+            var selectItem =
+                list.SingleOrDefault(p => p.FNAME == "零售" || p.FID == model.LH_SALESCHANNEL);
+
+            if (!string.IsNullOrEmpty(model.LH_SALESCHANNEL))
+            {
+                selectItem = list.SingleOrDefault(p => p.FNAME == model.LH_SALESCHANNEL || p.FID == model.LH_SALESCHANNEL);
+            }
+
+            cmbSaleChannel.SelectedItem = selectItem;
+        }
+
+        void setBusinessCombox()
+        {
+            model.LH_BUTYPE = model.LH_BUTYPE ?? "";
+            var list = _service.GetDics("LH_BU_TYPE", "", false);
+            var selectItem = list.SingleOrDefault(p => p.FID == model.LH_BUTYPE || p.FNAME == model.LH_BUTYPE);
+            cmbBusinessType.Properties.Items.AddRange(list);
+            cmbBusinessType.SelectedIndex = 0;
+            if (selectItem != null)
+            {
+                cmbBusinessType.SelectedItem = selectItem;
+            }
+
+        }
+
+        void setcmbDeductionMethodCombox()
+        {
+
+            var list = _service.GetDics("LH_ADV_MONEY_TYPE", "", false);
+            var selectItem = list.SingleOrDefault(p => p.FNAME == "货款");
+            cmbDeductionMethod.Properties.Items.AddRange(list);
+            cmbDeductionMethod.SelectedIndex = 0;
+            if (!string.IsNullOrEmpty(model.LH_ADVERTINGMONEYTYPE))
+            {
+                selectItem = list.SingleOrDefault(p => p.FNAME == model.LH_ADVERTINGMONEYTYPE);
+            }
+            cmbDeductionMethod.SelectedItem = selectItem;
+        }
+
+        void setProdLine()
+        {
+            var list = _service.GetDics("LH_PROD_LINE", "", false);
+            var selectItem = list.SingleOrDefault(p => p.FNAME == "卫浴");
+            cboLH_ORDERPRODLINE.Properties.Items.AddRange(list);
+            cboLH_ORDERPRODLINE.SelectedIndex = 0;
+            if (!string.IsNullOrEmpty(model.LH_ORDERPRODLINE))
+            {
+                selectItem = list.SingleOrDefault(p => p.FNAME == model.LH_ORDERPRODLINE || p.FID == model.LH_ORDERPRODLINE);
+            }
+
+            cboLH_ORDERPRODLINE.SelectedItem = selectItem;
         }
 
 
         private void initComboBox()
         {
             //初始化品牌列表
-            var list = _service.GetBrandList(Global.LoginUser);
-
-            list = list.Where(p => p.FNAME.Contains("箭牌") || p.FNAME.Contains("法恩")).ToArray();
-
-            foreach (var item in list)
-            {
-             
-                string brandid = IniHelper.ReadString(Global.IniUrl, "CONFIG", "FBRANDID", "");
-            
-
-                comBrand.Properties.Items.Add(item);               
-                if (item.FID == brandid)
-                {
-                    comBrand.SelectedItem = item;
-                }
-                
-            }
-            model.LH_ORDERTYPE = model.LH_ORDERTYPE ?? "";
-            foreach (var item in _service.GetDics("LH_ORDER_TYPE", "", true))
-            {
-                cmbOrderType.Properties.Items.Add(item); 
-                if (item.FNAME == model.LH_ORDERTYPE ||item.FID == model.LH_ORDERTYPE)
-                {
-                    cmbOrderType.SelectedItem = item;
-                }
-            }
-            model.LH_SALESCHANNEL = model.LH_SALESCHANNEL ?? "";
-            foreach (var item in _service.GetDics("LH_PROD_CHANNEL", "", true))
-            {
-                cmbSaleChannel.Properties.Items.Add(item);
-                if (item.FNAME == model.LH_SALESCHANNEL || item.FID == model.LH_SALESCHANNEL)
-                {
-                    cmbSaleChannel.SelectedItem = item;
-                }
-            }
-            model.LH_BUTYPE = model.LH_BUTYPE ?? "";
-            foreach (var item in _service.GetDics("LH_BU_TYPE", "", true))
-            {
-                cmbBusinessType.Properties.Items.Add(item);
-                if (item.FNAME == model.LH_BUTYPE || item.FID == model.LH_BUTYPE)
-                {
-                    cmbBusinessType.SelectedItem = item;
-                }
-            }
+            setBrandCombox();
+            //初始化订单类型
+            setOrderTypeCombox();
+            //初始化渠道
+            setChannelCombox();
+            //初始化业务类型
+            setBusinessCombox();
             //政策下接列表
             SetPolicyItem();
-            model.LH_ADVERTINGMONEYTYPE = model.LH_ADVERTINGMONEYTYPE ?? "";
-            foreach (var item in _service.GetDics("LH_ADV_MONEY_TYPE", "", true))
-            {
-                cmbDeductionMethod.Properties.Items.Add(item);
-                if (item.FNAME == model.LH_ADVERTINGMONEYTYPE || item.FID == model.LH_ADVERTINGMONEYTYPE)
-                {
-                    cmbDeductionMethod.SelectedItem = item;
-                }
-            }
-            model.LH_ORDERPRODLINE = model.LH_ORDERPRODLINE ?? "";
-            foreach (var item in _service.GetDics("LH_PROD_LINE", "", true))
-            {
-                cboLH_ORDERPRODLINE.Properties.Items.Add(item);
-                if (item.FNAME == model.LH_ORDERPRODLINE || item.FID == model.LH_ORDERPRODLINE)
-                {
-                    cboLH_ORDERPRODLINE.SelectedItem = item;
-                }
-            }
-            
+            //初始化扣款方式
+            setcmbDeductionMethodCombox();
+            //初始化产品线
+            setProdLine();
         }
         #endregion
 
@@ -299,20 +336,20 @@ namespace hn.Client
             }
         }
 
-     
+
 
         #endregion
-         
+
         #region ■------------------ 数据加载
 
         private void bgw加载数据_DoWork(object sender, DoWorkEventArgs e)
         {
-           
+
         }
 
         private void bgw加载数据_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
-           
+
         }
 
         private void bgw加载数据_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
@@ -334,11 +371,11 @@ namespace hn.Client
 
         private void onSearch()
         {
-       
-        }  
+
+        }
 
         protected override void OnKeyDown(KeyEventArgs e)
-        { 
+        {
         }
 
         private void Frm_SaveAfter(object sender, EventArgs e)
@@ -354,13 +391,13 @@ namespace hn.Client
             listCG = listCG.OrderBy(x => x.GG).ToList().OrderBy(x => x.GG).ToList();
             gridControl采购订单明细.DataSource = listCG;
             gridControl采购订单明细.RefreshDataSource();
-            onCalcWeightTotal(); 
-        } 
+            onCalcWeightTotal();
+        }
         List<V_ICPOBILLENTRYMODEL> vList = new List<V_ICPOBILLENTRYMODEL>();
         private void simpleButton5_Click(object sender, EventArgs e)
         {
 
-            vList =  new List<V_ICPOBILLENTRYMODEL>();
+            vList = new List<V_ICPOBILLENTRYMODEL>();
             int[] rownumber = this.gridView发货计划明细.GetSelectedRows();//获取选中行号；
 
             foreach (var i in rownumber)
@@ -372,13 +409,13 @@ namespace hn.Client
             {
                 backgroundWorker2.RunWorkerAsync();
             }
-            SetcmbPromotionPolicyReadOnly();  
+            SetcmbPromotionPolicyReadOnly();
         }
 
-   
+
         private void txt经营场所_Properties_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
-            
+
             string brand = "";
             if (comBrand.SelectedItem != null)
             {
@@ -394,7 +431,7 @@ namespace hn.Client
                 txt厂家账户.Tag = frm.SelectID;
                 txtFName.Text = frm.SelectName;
             }
-        } 
+        }
         public void IniValue()
         {
             search价格策略.Text = "销售-样板收费";
@@ -407,10 +444,11 @@ namespace hn.Client
         /// 保存校验
         /// </summary>
         /// <returns></returns>
-        bool SaveCheck() {
+        bool SaveCheck()
+        {
             bool TF = true;
-            var list = gridControl采购订单明细.DataSource as List<V_ICPOBILLENTRYMODEL>;
-            if (list == null || list.Count == 0)
+            var list = gridControl采购订单明细.DataSource as IEnumerable<object>;
+            if (list == null || list.Count() == 0)
             {
                 System.Windows.Forms.MessageBox.Show("明细记录数不可为空！");
                 return TF;
@@ -450,11 +488,11 @@ namespace hn.Client
                 System.Windows.Forms.MessageBox.Show("期望到货日期不能为空！");
                 return TF;
             }
-            if (!(cmbPromotionPolicy.SelectedItem is SelectModel))
-            {
-                System.Windows.Forms.MessageBox.Show("促销政策头ID不能为空！");
-                return TF;
-            }
+            //if (!(cmbPromotionPolicy.SelectedItem is LH_Policy))
+            //{
+            //    System.Windows.Forms.MessageBox.Show("促销政策头ID不能为空！");
+            //    return TF;
+            //}
             if ((cmbDeductionMethod.SelectedItem as SYS_SUBDICSMODEL) == null)
             {
                 System.Windows.Forms.MessageBox.Show("扣款方式不能为空！");
@@ -484,7 +522,7 @@ namespace hn.Client
             #endregion
 
             #region 3、形成主表数据 
-            tBill.FTRANSTYPE = "0"; 
+            tBill.FTRANSTYPE = "0";
             tBill.FBRANDID = (comBrand.SelectedItem as TB_BrandModel).FID;
             tBill.FCLIENTID = txt厂家账户.Tag.ToStr();
             tBill.FDATE = dateDatetime.DateTime;
@@ -492,49 +530,31 @@ namespace hn.Client
             tBill.FBILLERNAME = txtCreater.Text;
             tBill.FBILLER = txtCreater.Tag.ToStr();
             tBill.FSTATE = 1;//草稿
-            tBill.Fnote = txtRemarks.Text; 
+            tBill.Fnote = txtRemarks.Text;
             tBill.FprojectNO = txtProjectNo.Text;
             if (searchDic105.Tag != null)
             {
                 tBill.FPOtype = searchDic105.Tag.ToString();
             }
-            if (search价格策略.Tag != null)
+            if (cmbPromotionPolicy.SelectedItem is LH_Policy)
             {
-                tBill.Fpricepolicy = search价格策略.Tag.ToString();
-            } 
+                tBill.Fpricepolicy = (cmbPromotionPolicy.SelectedItem as LH_Policy).Id;
+            }
             //新加 
             tBill.LH_ORDERTYPE = (cmbOrderType.SelectedItem as SYS_SUBDICSMODEL).FID;
             tBill.LH_SALESCHANNEL = (cmbSaleChannel.SelectedItem as SYS_SUBDICSMODEL).FID;
             tBill.LH_ORDERPRODLINE = (cboLH_ORDERPRODLINE.SelectedItem as SYS_SUBDICSMODEL).FID;
             tBill.LH_EXPECTEDARRIVEDDATE = dateDHRQ.DateTime;
-            tBill.LH_PROMOTIONPOLICYID = (cmbPromotionPolicy.SelectedItem as SelectModel).FID;
+            tBill.LH_PROMOTIONPOLICYID = (cmbPromotionPolicy.SelectedItem as LH_Policy).Id;
             tBill.LH_OUTBOUNDORDER = txtLH_OUTBOUNDORDER.Text;
             tBill.LH_ADVERTINGMONEYTYPE = (cmbDeductionMethod.SelectedItem as SYS_SUBDICSMODEL).FID;
             tBill.LH_BUTYPE = (cmbBusinessType.SelectedItem as SYS_SUBDICSMODEL).FID;
-            #endregion 
+            #endregion
 
             #region 4、形成子表数据 
             foreach (var sub in list)
             {
-                // 箭牌暂时不用写这个表的
-                //if (sub.FPLANID == null)
-                //{ 
-                //    //插入一条icprentry记录 
-                //    ICPRBILLENTRYMODEL tRModel = new ICPRBILLENTRYMODEL();
-                //    tRModel.FID = Guid.NewGuid().ToStr();
-                //    tRModel.FITEMID = sub.FITEMID;
-                //    tRModel.FUNITID = sub.FUNITID ?? ""; 
-                //    tRModel.FPLANID = tRModel.FID;
-                //    tRModel.FASKAMOUNT = sub.Famount;
-                //    tRModel.FASKQTY = sub.FAUDQTY; 
-                //    tRModel.FSTOREHOUSE = sub.FstockNO;
-                //    tRModel.FNEEDDATE = sub.FNEEDDATE;
-                //    tRModel.FASKQTY = sub.FASKQTY;
-                //    tRModel.FORDERUNITQTY = (int)sub.FSRCQTY; 
-                //    // 保存
-                //    sub.FPLANID = _service.Save_ICPREntry_List(tRModel);
-                //}
-                // 
+
                 sub.FENTRYID = listSub.Count + 1;
                 ICPOBILLENTRYMODEL sub0 = new ICPOBILLENTRYMODEL();
                 sub0.FID = sub.FID;
@@ -565,12 +585,16 @@ namespace hn.Client
                 sub0.FREMARK = sub.FREMARK;
                 sub0.FERR_MESSAGE = sub.FERR_MESSAGE;
                 sub0.FNEEDDATE = DateTime.Now;
-                sub0.FSRCQTY = sub.FSRCQTY; 
+                sub0.FSRCQTY = sub.FSRCQTY;
                 //
                 sub0.LH_DCTPOLICYITEMID = sub.LH_DCTPOLICYITEMID;
                 sub0.MINIMUMQUANTITY = sub.MINIMUMQUANTITY;
                 sub0.CAPPINGQUANTITY = sub.CAPPINGQUANTITY;
-                sub0.DISCOUNTRATE = sub.DISCOUNTRATE; 
+                sub0.DISCOUNTRATE = sub.DISCOUNTRATE;
+                sub0.LH_DCTPOLICYPRODNAME = sub.FPRODUCTNAME;
+                sub0.LH_DCTPOLICYROWTYPE = sub.LH_DCTPOLICYROWTYPE;
+
+
 
                 listSub.Add(sub0);
             }
@@ -591,7 +615,7 @@ namespace hn.Client
             {
                 System.Windows.Forms.MessageBox.Show(ee.ToString());
             }
-            #endregion 
+            #endregion
         }
 
         private void simpleButton4_Click(object sender, EventArgs e)
@@ -612,7 +636,7 @@ namespace hn.Client
             {
                 System.Windows.Forms.MessageBox.Show("请选择品牌！");
                 return;
-            } 
+            }
             var list11 = this.gridView发货计划明细.DataSource as List<V_ICPOBILLENTRYMODEL>;
             List<string> lEntryIDs = new List<string>();
             if (list11 != null)
@@ -634,7 +658,7 @@ namespace hn.Client
                     }
                 }
             }
-             
+
             try
             {
                 FrmMainB MainForm = (FrmMainB)this.Parent.Parent;
@@ -643,7 +667,7 @@ namespace hn.Client
                 MainForm.OpenChildForm(fImport);
             }
             catch
-            { } 
+            { }
         }
 
 
@@ -655,13 +679,13 @@ namespace hn.Client
             foreach (var sub in list)
             {
                 ProductViewModel pro = _service.getProductView(sub.FITEMID);
-                if (pro == null) continue; 
-                sub.FPRICE = pro.FPRICE_A; 
+                if (pro == null) continue;
+                sub.FPRICE = pro.FPRICE_A;
             }
 
             gridControl采购订单明细.DataSource = list;
-            gridControl采购订单明细.RefreshDataSource(); 
-            onCalcWeightTotal(); 
+            gridControl采购订单明细.RefreshDataSource();
+            onCalcWeightTotal();
         }
 
         private void FImport_showAfter(List<V_ICPOBILLENTRYMODEL> list)
@@ -671,7 +695,7 @@ namespace hn.Client
             {
                 sub.Flevel = "1";
 
-            } 
+            }
             string strRemarks = "";
 
             foreach (var sub in listCG)
@@ -700,8 +724,8 @@ namespace hn.Client
 
             //  .Text = "";
             cal();
-            onCalcWeightTotal(); 
-        } 
+            onCalcWeightTotal();
+        }
 
         private void itemButton厂家代码_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
@@ -714,7 +738,7 @@ namespace hn.Client
                 if (frm.ShowDialog() == DialogResult.OK)
                 {
                     //row.FSRCID = frm.SelectData.FID;
-                   
+
 
                     row.FSRCNAME = frm.SelectData.FSRCNAME;
                     row.FSRCCODE = frm.SelectData.FSRCCODE;
@@ -739,7 +763,7 @@ namespace hn.Client
                     list = list.OrderBy(x => x.GG).ToList().OrderBy(x => x.GG).ToList();
                     gridControl采购订单明细.DataSource = list;
                     gridControl采购订单明细.RefreshDataSource();
-                   
+
                     onCalcWeightTotal();
                 }
             }
@@ -749,12 +773,12 @@ namespace hn.Client
         /// </summary>
         private void onCalcWeightTotal()
         {
-           
+
             var weightTotal = decimal.Zero;
             var list = gridControl采购订单明细.DataSource as List<V_ICPOBILLENTRYMODEL>;
             foreach (var model in list)
             {
-                weightTotal += model.Famount;
+                weightTotal += model.Famount.Value;
             }
 
             labAccount.Text = "金额合计：" + Math.Ceiling(weightTotal).ToStr();
@@ -763,7 +787,7 @@ namespace hn.Client
         private void itemButton商品代码_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
             FrmNewQueryProduct frm = new FrmNewQueryProduct();
-            frm.itemid = (cmbPromotionPolicy.SelectedItem as SelectModel).FID;
+            frm.itemid = (cmbPromotionPolicy.SelectedItem as LH_Policy).Id;
             if (frm.ShowDialog() == DialogResult.OK)
             {
                 var list = gridControl采购订单明细.DataSource as List<V_ICPOBILLENTRYMODEL>;
@@ -775,18 +799,16 @@ namespace hn.Client
                 row.FPRODUCTCODE = frm.SelectData.PRODCODE;
                 row.FSRCQTY = 0;
 
-
-
                 row.Famount = row.FPRICE * row.FSRCQTY;
 
                 row.FSRCNAME = "";
-                row.FSRCMODEL = frm.SelectData.LHPRODTYPE + "||"+frm.SelectData.PRODSTANDARD+ "||" + frm.SelectData.PRODMODEL; 
+                row.FSRCMODEL = frm.SelectData.LHPRODTYPE + "||" + frm.SelectData.PRODSTANDARD + "||" + frm.SelectData.PRODMODEL;
                 row.FSRCCODE = frm.SelectData.PRODCODE;
 
                 row.MINIMUMQUANTITY = frm.SelectData.MINIMUMQUANTITY;
                 row.CAPPINGQUANTITY = frm.SelectData.CAPPINGQUANTITY;
                 row.DISCOUNTRATE = frm.SelectData.DISCOUNTRATE;
-                row.FPRICE = frm.SelectData.SPECIALOFFER;
+                if (frm.SelectData.SPECIALOFFER != null) row.FPRICE = frm.SelectData.SPECIALOFFER.Value;
                 row.LH_DCTPOLICYITEMID = frm.SelectData.HEADID;
 
                 list[gridView发货计划明细.GetDataSourceRowIndex(gridView发货计划明细.FocusedRowHandle)] = row;
@@ -801,38 +823,97 @@ namespace hn.Client
 
         }
 
+        private V_ICPOBILLENTRYMODEL PolicyProductToICPOBillEntry(v_lhproducts_policyModel data)
+        {
+            V_ICPOBILLENTRYMODEL result = new V_ICPOBILLENTRYMODEL();
+            result.FITEMID = data.ITEMID;
+            result.FPRODUCTNAME = data.PRODNAME;
+            result.FPRODUCTTYPE = data.LHPRODTYPE;
+            result.FPRODUCTCODE = data.PRODCODE;
+            result.FSRCQTY = 0;
+
+            result.Famount = result.FPRICE * result.FSRCQTY;
+
+            result.FSRCNAME = "";
+            result.FSRCMODEL = data.LHPRODTYPE + "||" + data.PRODSTANDARD + "||" + data.PRODMODEL;
+            result.FSRCCODE = data.PRODCODE;
+
+            result.MINIMUMQUANTITY = data.MINIMUMQUANTITY;
+            result.CAPPINGQUANTITY = data.CAPPINGQUANTITY;
+            result.DISCOUNTRATE = data.DISCOUNTRATE;
+
+            result.LH_DCTPOLICYROWTYPE = data.POLICYITEMTYPE;
+            result.LH_DCTPOLICYPRODNAME = data.PRODNAME;
+
+            if (data.SPECIALOFFER != null) result.FPRICE = data.SPECIALOFFER.Value;
+            result.LH_DCTPOLICYITEMID = data.HEADID;
+
+            return result;
+        }
+
         private void simpleButton6_Click(object sender, EventArgs e)
         {
-            var list = gridControl采购订单明细.DataSource as List<V_ICPOBILLENTRYMODEL>;
-            if (list == null)
+            var header = new ICPOBILL_PolicyDTO();
+
+
+            header.Account = txt厂家账户.Text;
+            header.BrandName = comBrand.SelectedItem is TB_BrandModel
+                ? ((TB_BrandModel)comBrand.SelectedItem).FNAME
+                : "";
+            header.OrderType = cmbOrderType.SelectedItem is SYS_SUBDICSMODEL
+                ? ((SYS_SUBDICSMODEL)cmbOrderType.SelectedItem).FNUMBER
+                : "";
+
+            header.OrderSubType = cmbBusinessType.SelectedItem is SYS_SUBDICSMODEL
+                ? ((SYS_SUBDICSMODEL)cmbBusinessType.SelectedItem).FNUMBER
+                : "";
+            header.Channel = cmbSaleChannel.SelectedItem is SYS_SUBDICSMODEL
+                ? ((SYS_SUBDICSMODEL)cmbSaleChannel.SelectedItem).FNUMBER
+                : "";
+            header.HeadID = cmbPromotionPolicy.SelectedItem is LH_Policy
+                ? ((LH_Policy)cmbPromotionPolicy.SelectedItem).Id : "";
+
+            FrmNewQueryProduct queryFrm = new FrmNewQueryProduct();
+            queryFrm.header = header;
+            if (queryFrm.ShowDialog() == DialogResult.OK)
             {
-                list = new List<V_ICPOBILLENTRYMODEL>();
-                list.Add(new V_ICPOBILLENTRYMODEL() { FNEEDDATE = DateTime.Now, Flevel = "1" });
-                gridControl采购订单明细.DataSource = list;
+                var selectRows = queryFrm.SelectRows;
+
+                List<V_ICPOBILLENTRYMODEL> datasource = gridView发货计划明细.DataSource as List<V_ICPOBILLENTRYMODEL>;
+                if (datasource == null)
+                {
+                    datasource = new List<V_ICPOBILLENTRYMODEL>();
+
+                }
+
+                selectRows = selectRows.Where(r => !datasource.Exists(p => p.FSRCCODE == r.PRODCODE)).ToList();
+                foreach (var row in selectRows)
+                {
+                    datasource.Add(PolicyProductToICPOBillEntry(row));
+                }
+
+                if (gridControl采购订单明细 != null) gridControl采购订单明细.DataSource = datasource;
+                gridView发货计划明细.RefreshData();
             }
-            else
-            {
-                list.Add(new V_ICPOBILLENTRYMODEL() { FNEEDDATE = DateTime.Now,Flevel="1" });
-            }
-            gridControl采购订单明细.RefreshDataSource();
-            cal();
-            onCalcWeightTotal();
-            SetcmbPromotionPolicyReadOnly();
+
+
         }
-        void SetcmbPromotionPolicyReadOnly() {
+        void SetcmbPromotionPolicyReadOnly()
+        {
             gridView发货计划明细.PostEditor();
             gridView发货计划明细.UpdateCurrentRow();
             cmbPromotionPolicy.ReadOnly = gridView发货计划明细.RowCount != 0;
         }
+
         private void repositoryItemTextEdit9_EditValueChanged(object sender, EventArgs e)
         {
-           
+
         }
 
         private void gridView发货计划明细_CellValueChanged(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e)
         {
-           
-            if (gridView发货计划明细.FocusedRowHandle != -1 && (e.Column.FieldName == "FSRCQTY"|| e.Column.FieldName == "FPRICE"))
+
+            if (gridView发货计划明细.FocusedRowHandle != -1 && (e.Column.FieldName == "FSRCQTY" || e.Column.FieldName == "FPRICE"))
             {
                 var list = gridControl采购订单明细.DataSource as List<V_ICPOBILLENTRYMODEL>;
                 var row = list[gridView发货计划明细.GetDataSourceRowIndex(gridView发货计划明细.FocusedRowHandle)];
@@ -842,7 +923,7 @@ namespace hn.Client
                 // row.FSRCCOST = row.Famount;
                 onCalcWeightTotal();
             }
-            
+
         }
 
 
@@ -851,7 +932,7 @@ namespace hn.Client
             var list = gridControl采购订单明细.DataSource as List<V_ICPOBILLENTRYMODEL>;
 
             foreach (var row in list)
-            { 
+            {
                 // gridView发货计划明细.SetRowCellValue(gridView发货计划明细.FocusedRowHandle, "", "");
                 row.Famount = row.FSRCQTY * row.FPRICE;
             }
@@ -865,17 +946,17 @@ namespace hn.Client
 
         private void searchControl1_Properties_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
-                if (model != null)
+            if (model != null)
+            {
+                FrmQueryDictionary frmdiction = new FrmQueryDictionary("116");
+
+                if (frmdiction.ShowDialog() == DialogResult.OK)
                 {
-                    FrmQueryDictionary frmdiction = new FrmQueryDictionary("116");
-                   
-                    if (frmdiction.ShowDialog() == DialogResult.OK)
-                    {
-                        search价格策略.Text = frmdiction.SelectName;
-                        search价格策略.Tag = frmdiction.SelectName;
-                    }
+                    search价格策略.Text = frmdiction.SelectName;
+                    search价格策略.Tag = frmdiction.SelectName;
                 }
-            
+            }
+
         }
 
         private void searchControl1_Properties_ButtonClick_1(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
@@ -905,8 +986,8 @@ namespace hn.Client
             frmQuery.Show();
 
 
-           // frmQuery.StartPosition = FormStartPosition.CenterParent;
-           // frmQuery.ShowDialog();
+            // frmQuery.StartPosition = FormStartPosition.CenterParent;
+            // frmQuery.ShowDialog();
         }
 
         private void search价格策略_SelectedIndexChanged(object sender, EventArgs e)
@@ -949,7 +1030,7 @@ namespace hn.Client
                 if (bEdit)
                 {
                     _service.ZFICPRBILLEntry(sub.FID);
-                     //if (_service.ZFICPRBILLEntry(sub.FID) == "1")
+                    //if (_service.ZFICPRBILLEntry(sub.FID) == "1")
                     {
                         listCG.Remove(sub);
                     }
@@ -960,7 +1041,7 @@ namespace hn.Client
                 }
             }
 
-          
+
         }
 
         private void backgroundWorker2_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
@@ -974,7 +1055,7 @@ namespace hn.Client
             vList = new List<V_ICPOBILLENTRYMODEL>();
             int[] rownumber = this.gridView发货计划明细.GetSelectedRows();//获取选中行号；
             this.gridView发货计划明细.ClearSelection();
-          
+
 
         }
         string strDB = "";
@@ -1014,7 +1095,7 @@ namespace hn.Client
                 getapi2.cpxh = sub.XH;
                 getapi2.pageSize = 200;
                 getapi2.pageIndex = 1;
-                var list1 = _service.GetStockListMN_2(getapi2,int.Parse(strDB));
+                var list1 = _service.GetStockListMN_2(getapi2, int.Parse(strDB));
 
                 if (list1.resultInfo.Length == 0)
                 {
@@ -1025,8 +1106,8 @@ namespace hn.Client
                     int iCount = 0;
                     foreach (var sss in list1.resultInfo)
                     {
-                       
-                            iCount += sss.bysl;
+
+                        iCount += sss.bysl;
                     }
 
 
@@ -1042,7 +1123,7 @@ namespace hn.Client
             // gridControl采购订单明细.DataSource = listTemp;
             gridControl采购订单明细.RefreshDataSource();
 
-           
+
         }
 
         private void gridView发货计划明细_CustomDrawCell(object sender, DevExpress.XtraGrid.Views.Base.RowCellCustomDrawEventArgs e)
@@ -1057,7 +1138,7 @@ namespace hn.Client
             {
                 try
                 {
-                  
+
 
                     /*
                       case "10":
@@ -1113,23 +1194,63 @@ namespace hn.Client
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void comBrand_SelectedIndexChanged(object sender, EventArgs e)
-        {  
-            //1、选择订单类型为常规订单的，如果用户要选择促销政策头ID的话则需要同时判断：订单所属公司（事业部）、厂家账号（经销商账号）、销售渠道、业务类型、五项头字段信息来取促销政策头ID信息
-            cmbPromotionPolicy.Properties.Items.Clear();
-            cmbPromotionPolicy.SelectedItem = null;
-            var policyList = cmbPromotionPolicy.Tag as LH_Policy[];
-            //订单所属公司（事业部）
-            var brandName = comBrand.SelectedItem.ToString();
-            //订单类型
-            var orderType = cmbOrderType.SelectedItem as SYS_SUBDICSMODEL;
-            if (policyList != null)
-            {
-                var selectList = policyList.Where(p =>
-                        p.DeptName.Contains(brandName)&& p.OrderType.Contains(orderType==null?"":orderType.FNUMBER??""))
-                    .Select(p => new SelectModel() {FID = p.Id, FName = $"{p.PolicyName}-{p.Id}"});
+        {
+            ////1、选择订单类型为常规订单的，如果用户要选择促销政策头ID的话则需要同时判断：订单所属公司（事业部）、厂家账号（经销商账号）、销售渠道、业务类型、五项头字段信息来取促销政策头ID信息
+            //cmbPromotionPolicy.Properties.Items.Clear();
+            //cmbPromotionPolicy.SelectedItem = null;
+            //var policyList = cmbPromotionPolicy.Tag as LH_Policy[];
+            ////订单所属公司（事业部）
+            //var brandName = comBrand.SelectedItem.ToString();
+            ////订单类型
+            //var orderType = cmbOrderType.SelectedItem as SYS_SUBDICSMODEL;
+            //if (policyList != null)
+            //{
+            //    var selectList = policyList.Where(p =>
+            //            p.DeptName.Contains(brandName)&& p.OrderType.Contains(orderType==null?"":orderType.FNUMBER??""))
+            //        .Select(p => new SelectModel() {FID = p.Id, FName = $"{p.PolicyName}-{p.Id}"});
 
-                cmbPromotionPolicy.Properties.Items.AddRange(selectList.ToArray());
+            //    cmbPromotionPolicy.Properties.Items.AddRange(selectList.ToArray());
+            //}
+        }
+
+        private void cmbPromotionPolicy_MouseClick(object sender, MouseEventArgs e)
+        {
+            var header = new ICPOBILL_PolicyDTO();
+
+
+            header.Account = txt厂家账户.Text;
+            header.BrandName = comBrand.SelectedItem is TB_BrandModel
+                ? ((TB_BrandModel)comBrand.SelectedItem).FNAME
+                : "";
+
+            header.OrderType = cmbOrderType.SelectedItem is SYS_SUBDICSMODEL
+                ? ((SYS_SUBDICSMODEL)cmbOrderType.SelectedItem).FNUMBER
+                : "";
+
+            header.OrderSubType = cmbBusinessType.SelectedItem is SYS_SUBDICSMODEL
+                ? ((SYS_SUBDICSMODEL)cmbBusinessType.SelectedItem).FNUMBER
+                : "";
+
+            header.Channel = cmbSaleChannel.SelectedItem is SYS_SUBDICSMODEL
+                ? ((SYS_SUBDICSMODEL)cmbSaleChannel.SelectedItem).FNUMBER
+                : "";
+
+
+            try
+            {
+                var policies = _service.GetPolicies(header);
+                cmbPromotionPolicy.Text = "";
+                cmbPromotionPolicy.Properties.Items.Clear();
+                cmbPromotionPolicy.Properties.Items.AddRange(policies);
+
+                cmbPromotionPolicy.ShowPopup();
+
             }
+            catch (Exception exception)
+            {
+                MsgHelper.ShowInformation(exception.Message);
+            }
+
         }
     }
 }

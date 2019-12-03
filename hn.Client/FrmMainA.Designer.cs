@@ -115,19 +115,19 @@
             // 在线升级ToolStripMenuItem
             // 
             this.在线升级ToolStripMenuItem.Name = "在线升级ToolStripMenuItem";
-            this.在线升级ToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.在线升级ToolStripMenuItem.Size = new System.Drawing.Size(130, 24);
             this.在线升级ToolStripMenuItem.Text = "在线升级";
             this.在线升级ToolStripMenuItem.Click += new System.EventHandler(this.在线升级ToolStripMenuItem_Click);
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(177, 6);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(127, 6);
             // 
             // 退出ToolStripMenuItem
             // 
             this.退出ToolStripMenuItem.Name = "退出ToolStripMenuItem";
-            this.退出ToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.退出ToolStripMenuItem.Size = new System.Drawing.Size(130, 24);
             this.退出ToolStripMenuItem.Text = "退出";
             // 
             // 采购管理ToolStripMenuItem
@@ -145,12 +145,14 @@
             this.请购计划ToolStripMenuItem.Name = "请购计划ToolStripMenuItem";
             this.请购计划ToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
             this.请购计划ToolStripMenuItem.Text = "请购计划";
+            this.请购计划ToolStripMenuItem.Visible = false;
             // 
             // 发货计划ToolStripMenuItem
             // 
             this.发货计划ToolStripMenuItem.Name = "发货计划ToolStripMenuItem";
             this.发货计划ToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
             this.发货计划ToolStripMenuItem.Text = "发货计划";
+            this.发货计划ToolStripMenuItem.Visible = false;
             // 
             // 报表管理ToolStripMenuItem
             // 
@@ -168,31 +170,31 @@
             // 计划报ToolStripMenuItem
             // 
             this.计划报ToolStripMenuItem.Name = "计划报ToolStripMenuItem";
-            this.计划报ToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.计划报ToolStripMenuItem.Size = new System.Drawing.Size(169, 24);
             this.计划报ToolStripMenuItem.Text = "计划汇总报表";
             // 
             // 发货计划叙事簿ToolStripMenuItem
             // 
             this.发货计划叙事簿ToolStripMenuItem.Name = "发货计划叙事簿ToolStripMenuItem";
-            this.发货计划叙事簿ToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.发货计划叙事簿ToolStripMenuItem.Size = new System.Drawing.Size(169, 24);
             this.发货计划叙事簿ToolStripMenuItem.Text = "发货计划叙事簿";
             // 
             // 发货计划ToolStripMenuItem1
             // 
             this.发货计划ToolStripMenuItem1.Name = "发货计划ToolStripMenuItem1";
-            this.发货计划ToolStripMenuItem1.Size = new System.Drawing.Size(180, 24);
+            this.发货计划ToolStripMenuItem1.Size = new System.Drawing.Size(169, 24);
             this.发货计划ToolStripMenuItem1.Text = "发货计划";
             // 
             // 组柜操作ToolStripMenuItem
             // 
             this.组柜操作ToolStripMenuItem.Name = "组柜操作ToolStripMenuItem";
-            this.组柜操作ToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.组柜操作ToolStripMenuItem.Size = new System.Drawing.Size(169, 24);
             this.组柜操作ToolStripMenuItem.Text = "组柜操作";
             // 
             // 库存查询ToolStripMenuItem
             // 
             this.库存查询ToolStripMenuItem.Name = "库存查询ToolStripMenuItem";
-            this.库存查询ToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.库存查询ToolStripMenuItem.Size = new System.Drawing.Size(169, 24);
             this.库存查询ToolStripMenuItem.Text = "库存查询";
             // 
             // defaultLookAndFeel1

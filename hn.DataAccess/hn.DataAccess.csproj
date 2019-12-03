@@ -176,6 +176,7 @@
     <Compile Include="dal\ICPOBILLENTRYMODELDal.cs" />
     <Compile Include="dal\LHDal\LH_OUTBOUNDORDERDal.cs" />
     <Compile Include="dal\LHDal\LH_OUTBOUNDORDERDETAILEDDal.cs" />
+    <Compile Include="model\Common\PageResult.cs" />
     <Compile Include="model\LHModel\LH_OUTBOUNDORDERDETAILEDModel.cs" />
     <Compile Include="model\LHModel\LH_OUTBOUNDORDERModel.cs" />
     <Compile Include="dal\TB_DZmanuscript_DAL\TB_DZmanuscript_DAL.cs" />
@@ -394,6 +395,10 @@
     <Compile Include="model\SystemModel\SYS_SUBDICSMODEL.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\hn.Arrow.Common\hn.Common\hn.Common_Arrow.csproj">
+      <Project>{03316d43-23fa-441b-a1aa-9cdff94e0371}</Project>
+      <Name>hn.Common_Arrow</Name>
+    </ProjectReference>
     <ProjectReference Include="..\hn.ArrowInterface\hn.ArrowInterface.csproj">
       <Project>{C8E030DD-9179-43FD-B82C-2EC742FC2735}</Project>
       <Name>hn.ArrowInterface</Name>

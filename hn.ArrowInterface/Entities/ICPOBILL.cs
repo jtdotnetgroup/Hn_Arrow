@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 
@@ -34,5 +35,39 @@ namespace hn.ArrowInterface.Entities
         //COMMENT ON COLUMN "PURCHASE"."ICPOBILL"."FSTATUS" IS '1:草稿  2:待审核  3:审核通过  4:审核不通过  5:关闭  6:完成  7:部分审核';
         //COMMENT ON COLUMN "PURCHASE"."ICPOBILL"."FSTATE" IS '0：禁用  1：正常    默认：1';
         //COMMENT ON COLUMN "PURCHASE"."ICPOBILL"."FSYNCSTATUS" IS '1：未同步  2：已同步  3：同步失败';
+    }
+
+    public class ICPOBILL_PolicyDTO
+    {
+        /// <summary>
+        /// 所属公司名称
+        /// </summary>
+        [Required(ErrorMessage = "所属公司不能为空")]
+        public string BrandName { get; set; }
+        /// <summary>
+        /// 厂家帐号
+        /// </summary>
+        ///
+        [Required(ErrorMessage = "厂家帐号不能为空")]
+        public string Account { get; set; }
+        /// <summary>
+        /// 渠道
+        /// </summary>
+        [Required(ErrorMessage = "渠道不能为空")]
+        public string Channel { get; set; }
+        /// <summary>
+        /// 订单类型
+        /// </summary>
+        [Required(ErrorMessage = "订单类型不能为空")]
+        public string OrderType { get; set; }
+        /// <summary>
+        /// 业务类型
+        /// </summary>
+        [Required(ErrorMessage = "业务类型不能为空")]
+        public string OrderSubType { get; set; }
+
+
+        public string HeadID { get; set; }
+
     }
 }

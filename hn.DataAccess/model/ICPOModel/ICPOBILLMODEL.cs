@@ -19,7 +19,6 @@ namespace hn.DataAccess.Model
     public class ICPOBILLMODEL
     {
     
-
         /// <summary>
         /// 品牌ID
         /// </summary>

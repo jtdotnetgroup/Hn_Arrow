@@ -13,14 +13,15 @@
       <xsd:import schemaLocation="http://localhost:62036/APIService.svc?xsd=xsd8" namespace="http://schemas.datacontract.org/2004/07/System.Data" />
       <xsd:import schemaLocation="http://localhost:62036/APIService.svc?xsd=xsd9" namespace="http://schemas.datacontract.org/2004/07/hn.ArrowInterface.RequestParams" />
       <xsd:import schemaLocation="http://localhost:62036/APIService.svc?xsd=xsd10" namespace="http://schemas.datacontract.org/2004/07/hn.ArrowInterface.WebCommon" />
-      <xsd:import schemaLocation="http://localhost:62036/APIService.svc?xsd=xsd11" namespace="http://schemas.datacontract.org/2004/07/hn.Core.Model" />
-      <xsd:import schemaLocation="http://localhost:62036/APIService.svc?xsd=xsd12" namespace="http://schemas.datacontract.org/2004/07/MApiModel.api24" />
-      <xsd:import schemaLocation="http://localhost:62036/APIService.svc?xsd=xsd13" namespace="http://schemas.datacontract.org/2004/07/MApiModel.recApi24" />
-      <xsd:import schemaLocation="http://localhost:62036/APIService.svc?xsd=xsd14" namespace="http://schemas.datacontract.org/2004/07/hn.DataAccess.model" />
-      <xsd:import schemaLocation="http://localhost:62036/APIService.svc?xsd=xsd15" namespace="http://schemas.datacontract.org/2004/07/hn.Common.Cls_query" />
-      <xsd:import schemaLocation="http://localhost:62036/APIService.svc?xsd=xsd16" namespace="http://schemas.datacontract.org/2004/07/MApiModel.api2" />
-      <xsd:import schemaLocation="http://localhost:62036/APIService.svc?xsd=xsd17" namespace="http://schemas.datacontract.org/2004/07/MApiModel.recApi2" />
-      <xsd:import schemaLocation="http://localhost:62036/APIService.svc?xsd=xsd18" namespace="http://schemas.datacontract.org/2004/07/MApiModel.api8" />
+      <xsd:import schemaLocation="http://localhost:62036/APIService.svc?xsd=xsd11" namespace="http://schemas.datacontract.org/2004/07/hn.DataAccess.model" />
+      <xsd:import schemaLocation="http://localhost:62036/APIService.svc?xsd=xsd12" namespace="http://schemas.datacontract.org/2004/07/hn.DataAccess.model.Common" />
+      <xsd:import schemaLocation="http://localhost:62036/APIService.svc?xsd=xsd13" namespace="http://schemas.datacontract.org/2004/07/hn.Core.Model" />
+      <xsd:import schemaLocation="http://localhost:62036/APIService.svc?xsd=xsd14" namespace="http://schemas.datacontract.org/2004/07/MApiModel.api24" />
+      <xsd:import schemaLocation="http://localhost:62036/APIService.svc?xsd=xsd15" namespace="http://schemas.datacontract.org/2004/07/MApiModel.recApi24" />
+      <xsd:import schemaLocation="http://localhost:62036/APIService.svc?xsd=xsd16" namespace="http://schemas.datacontract.org/2004/07/hn.Common.Cls_query" />
+      <xsd:import schemaLocation="http://localhost:62036/APIService.svc?xsd=xsd17" namespace="http://schemas.datacontract.org/2004/07/MApiModel.api2" />
+      <xsd:import schemaLocation="http://localhost:62036/APIService.svc?xsd=xsd18" namespace="http://schemas.datacontract.org/2004/07/MApiModel.recApi2" />
+      <xsd:import schemaLocation="http://localhost:62036/APIService.svc?xsd=xsd19" namespace="http://schemas.datacontract.org/2004/07/MApiModel.api8" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IAPIService_Remote_InsertICPOEntry_InputMessage">
@@ -112,6 +113,18 @@
   </wsdl:message>
   <wsdl:message name="IAPIService_obOrderUpload_OutputMessage">
     <wsdl:part name="parameters" element="tns:obOrderUploadResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAPIService_GetPolicies_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPolicies" />
+  </wsdl:message>
+  <wsdl:message name="IAPIService_GetPolicies_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPoliciesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAPIService_GetPolicyProducts_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPolicyProducts" />
+  </wsdl:message>
+  <wsdl:message name="IAPIService_GetPolicyProducts_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPolicyProductsResponse" />
   </wsdl:message>
   <wsdl:message name="IAPIService_Login_InputMessage">
     <wsdl:part name="parameters" element="tns:Login" />
@@ -684,6 +697,14 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IAPIService/obOrderUpload" message="tns:IAPIService_obOrderUpload_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IAPIService/obOrderUploadResponse" message="tns:IAPIService_obOrderUpload_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="GetPolicies">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAPIService/GetPolicies" message="tns:IAPIService_GetPolicies_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAPIService/GetPoliciesResponse" message="tns:IAPIService_GetPolicies_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPolicyProducts">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAPIService/GetPolicyProducts" message="tns:IAPIService_GetPolicyProducts_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAPIService/GetPolicyProductsResponse" message="tns:IAPIService_GetPolicyProducts_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="Login">
       <wsdl:input wsaw:Action="http://tempuri.org/IAPIService/Login" message="tns:IAPIService_Login_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IAPIService/LoginResponse" message="tns:IAPIService_Login_OutputMessage" />
@@ -1155,6 +1176,24 @@
     </wsdl:operation>
     <wsdl:operation name="obOrderUpload">
       <soap:operation soapAction="http://tempuri.org/IAPIService/obOrderUpload" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPolicies">
+      <soap:operation soapAction="http://tempuri.org/IAPIService/GetPolicies" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPolicyProducts">
+      <soap:operation soapAction="http://tempuri.org/IAPIService/GetPolicyProducts" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

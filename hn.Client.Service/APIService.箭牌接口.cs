@@ -7,8 +7,12 @@ using hn.ArrowInterface.Entities;
 using hn.ArrowInterface.RequestParams;
 using hn.ArrowInterface.WebCommon;
 using hn.Common_Arrow;
+using hn.DataAccess.model;
 using hn.DataAccess.Model;
 using Newtonsoft.Json;
+using System.ComponentModel.DataAnnotations;
+using hn.DataAccess.dal;
+using hn.DataAccess.model.Common;
 
 namespace hn.Client.Service
 {
@@ -169,6 +173,101 @@ namespace hn.Client.Service
 
 
             return true;
+        }
+
+        public List<LH_Policy> GetPolicies(ICPOBILL_PolicyDTO header)
+        {
+            //检查传入参数是否合法
+            CheckNull(header);
+            var helper = new OracleDBHelper();
+            var sql = @"SELECT DISTINCT HEADID,POLICYNAME,ORDERTYPE,ORDERSUBTYPE,PRODCHANNEL,DEPTNAME from LH_POLICY WHERE 1=1 ";
+
+            //选择订单类型为常规订单的，如果用户要选择促销政策头ID的话则需要同时判断：订单所属公司（事业部）、厂家账号（经销商账号）、销售渠道、业务类型、五项头字段信息来取促销政策头ID信息
+            string where = $@"AND ORDERTYPE='{header.OrderType}' AND DEPTNAME LIKE '%{header.BrandName}%' 
+                                    AND ORDERSUBTYPE='{header.OrderSubType}' AND PRODCHANNEL='{header.Channel}' AND ACCTCODES LIKE '%{header.Account}%'";
+
+            sql += where;
+
+            var policies = helper.Select<LH_Policy>(sql);
+
+            return policies;
+
+        }
+
+        public PageResult<v_lhproducts_policyModel> GetPolicyProducts(ICPOBILL_PolicyDTO header, v_lhproducts_policyModel where, int index=1, int size=35)
+        {
+            
+            where=  ComputeWhere(header, where);
+            var helper=new OracleDBHelper();
+
+            string whereStr = helper.GetWhereStr(where);
+
+            var data= helper.GetWithWhereStrByPage<v_lhproducts_policyModel>(whereStr,where, index,size);
+
+            var total = helper.Count<v_lhproducts_policyModel>(whereStr);
+
+            PageResult<v_lhproducts_policyModel> result = new PageResult<v_lhproducts_policyModel>()
+                {Total = total, Result = data};
+
+            return result;
+        }
+
+
+        private bool CheckNull(ICPOBILL_PolicyDTO header)
+        {
+            var t = typeof(ICPOBILL_PolicyDTO);
+            var pis = t.GetProperties().ToList();
+            //检查传入参数值是否为空
+            pis.ForEach(p =>
+            {
+                var attr = p.GetCustomAttributes(true).SingleOrDefault(c => c is RequiredAttribute) as RequiredAttribute;
+                var value = p.GetValue(header);
+                if ((value==null||string.IsNullOrEmpty(value.ToString()))&&attr!=null)
+                {
+                    throw new ValidationException(attr.ErrorMessage);
+                }
+            });
+
+            return true;
+        }
+
+        private v_lhproducts_policyModel ComputeWhere(ICPOBILL_PolicyDTO header, v_lhproducts_policyModel where)
+        {
+            CheckNull(header);
+           
+
+            switch (header.OrderType)
+            {
+                //常规订单
+                case "Common":
+                {
+                    where.LHPRODSIGN = "成品";
+                    break;
+                }
+                //配件订单
+                case "Parts":
+                {
+                    where.LHPRODSIGN = "配件";
+                    break;
+                }
+                //广告物料申请单
+                case "Advertise":
+                {
+                    where.LHPRODSIGN = "广告物料";
+                    break;
+                }
+            }
+
+            where.HEADID=string.IsNullOrEmpty(header.HeadID)?"":header.HeadID;
+
+            where.DEPTNAME = header.BrandName.Contains("事业部")?header.BrandName:$"{header.BrandName}事业部";
+            where.ORDERTYPE = header.OrderType;
+            where.ORDERSUBTYPE = header.OrderSubType;
+            where.LHPRODTYPE = header.BrandName;
+            where.ACCTCODES = header.Account;
+
+            return where;
+
         }
     }
 }

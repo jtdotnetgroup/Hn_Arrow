@@ -279,6 +279,56 @@ namespace hn.Common_Arrow
             }
         }
 
+        public bool UpdateWithTransation<T>(T obj, DbTransaction tran)
+        {
+            var t = typeof(T);
+            var pis = t.GetProperties();
+
+            var keyFieldName = "";
+            PropertyInfo keyPropertyInfo = null;
+
+            foreach (var pi in pis)
+            {
+                var keyAttr = pi.GetCustomAttributes(true).Count(p => p is KeyAttribute) == 1;
+                if (keyAttr)
+                {
+                    keyFieldName = pi.Name;
+
+                    //如果属性中有Column特性，则把Column.Name作为键字段名
+                    if (pi.GetCustomAttributes(true).SingleOrDefault(o => o.GetType() == typeof(ColumnAttribute)) is
+                        ColumnAttribute column)
+                        keyFieldName = column.Name;
+
+                    keyPropertyInfo = pi;
+
+                    break;
+                }
+            }
+
+            if (string.IsNullOrEmpty(keyFieldName)) throw new ArgumentException(string.Format("{0}类未指定Key字段", t.Name));
+
+            var where = string.Format(" AND {0}=:{1}", keyFieldName, keyPropertyInfo.Name);
+
+            var sql = GetUpdateSql<T>(where);
+
+            var cmd = GetCommand(sql, obj);
+            cmd.Connection = tran.Connection;
+            cmd.Transaction = tran;
+
+            try
+            {
+                if (conn.State == ConnectionState.Closed) conn.Open();
+
+                return cmd.ExecuteNonQuery() > 0;
+            }
+            catch (Exception e)
+            {
+                LogHelper.Error(e);
+                LogHelper.Info("SQL:" + sql);
+                throw;
+            }
+        }
+
         /// <summary>
         /// 插入数据
         /// </summary>
@@ -765,16 +815,36 @@ namespace hn.Common_Arrow
             return Select<T>(sql);
         }
 
-        private DbCommand GetCommand<T>(T where)
+        public int Count<T>(string where = "")
         {
-            var sql = GetSelectSql<T>();
+            var t = typeof(T);
+            var tableAttr =
+                t.GetCustomAttributes(true)
+                    .FirstOrDefault(p => p.GetType() == typeof(TableAttribute)) as TableAttribute;
+            var tableName = tableAttr == null ? t.Name : tableAttr.Name;
+
+            var sql = $"SELECT COUNT(*) FROM {tableName} WHERE 1=1 {where}";
+
+
+            var cmd = factory.CreateCommand();
+            cmd.Connection = conn;
+            cmd.CommandText = sql;
+
+            int result =Convert.ToInt32( cmd.ExecuteScalar());
+
+            return result;
+        }
+
+        public string GetWhereStr<T>(T where)
+        {
+            var sql = "";
             var builder = new StringBuilder();
             builder.Append(sql);
 
             var t = where.GetType();
             var pis = t.GetProperties().Where(p =>
                 p.GetCustomAttributes(true).Count(pi => pi.GetType() == typeof(NotMappedAttribute)) == 0);
-            var cmd = factory.CreateCommand();
+            //var cmd = factory.CreateCommand();
 
             foreach (var pi in pis)
             {
@@ -786,16 +856,26 @@ namespace hn.Common_Arrow
                     if (pi.GetCustomAttributes(true).FirstOrDefault(p => p.GetType() == typeof(ColumnAttribute)) is
                         ColumnAttribute attr) fieldName = attr.Name;
 
-                    cmd.Parameters.Add(new OracleParameter(pi.Name, value));
+                    //cmd.Parameters.Add(new OracleParameter(pi.Name, value));
 
                     builder.Append(" AND ");
                     builder.Append(fieldName);
-                    builder.Append("=:");
-                    builder.Append(pi.Name);
+
+                    var compare = pi.PropertyType == typeof(string)?$" LIKE '%{value}%'":$"={value}";
+
+                    builder.Append(compare);
                 }
             }
 
             sql = builder.ToString();
+            return sql;
+        }
+
+        private DbCommand GetCommand<T>(T where)
+        {
+            var sql = GetSelectSql<T>();
+            var cmd = factory.CreateCommand();
+            sql += GetWhereStr(where);
             cmd.CommandText = sql;
             cmd.Connection = conn;
             return cmd;
@@ -847,11 +927,71 @@ namespace hn.Common_Arrow
             return result;
         }
 
+        public List<T> GetWhere<T>(T condiction,int index,int size) where T : new()
+        {
+            if (conn.State == ConnectionState.Closed) conn.Open();
 
-        public List<T> GetWithWhereStr<T>(string @where) where T : new()
+            var cmd = GetCommand(condiction);
+            cmd.CommandText += $" AND ROWNUM>{(index-1)*size} AND ROWNUM<={index*size}";
+            var da = factory.CreateDataAdapter();
+            da.SelectCommand = cmd;
+
+            var data = new DataTable();
+            da.Fill(data);
+
+            var result = DataTableToList<T>(data);
+
+            return result;
+        }
+
+        private DbCommand SetCommandParam<T>(T condition,DbCommand cmd)
+        {
+            if (condition != null)
+            {
+                var t = typeof(T);
+                var pis = t.GetProperties().ToList();
+                pis.ForEach(p =>
+                {
+                    var value = p.GetValue(condition, null);
+                    if (value != null)
+                    {
+                        var fieldName = p.Name;
+                        if (p.GetCustomAttributes(true).FirstOrDefault(att => att.GetType() == typeof(ColumnAttribute)) is
+                            ColumnAttribute attr) fieldName = attr.Name;
+
+                        cmd.Parameters.Add(new OracleParameter(fieldName, value));
+                    }
+                });
+            }
+            return cmd;
+        }
+
+
+        public List<T> GetWithWhereStr<T>(string @where,T condition=default(T)) where T : new()
         {
             string sql = GetSelectSql<T>();
             sql += where;
+            if (conn.State == ConnectionState.Closed) conn.Open();
+            var cmd = conn.CreateCommand();
+            cmd.CommandText = sql;
+
+            cmd = SetCommandParam(condition,cmd);
+            
+            using (var da = factory.CreateDataAdapter())
+            {
+                da.SelectCommand = cmd;
+                var datatable = new DataTable();
+                da.Fill(datatable);
+                var result = DataTableToList<T>(datatable);
+                return result;
+            }
+        }
+
+        public List<T> GetWithWhereStrByPage<T>(string @where,int index =1,int size=50) where T : new()
+        {
+            string sql = GetSelectSql<T>();
+            sql += where;
+            sql+= $" AND ROWNUM>{(index - 1) * size} AND ROWNUM<={index * size}";
             if (conn.State == ConnectionState.Closed) conn.Open();
 
             var cmd = conn.CreateCommand();
@@ -864,7 +1004,29 @@ namespace hn.Common_Arrow
                 var result = DataTableToList<T>(datatable);
                 return result;
             }
+        }
 
+        public List<T> GetWithWhereStrByPage<T>(string @where, T condition,int index = 1, int size = 50) where T : new()
+        {
+            string sql = GetSelectSql<T>();
+            sql += where;
+            //sql += $" AND ROWNUM>{(index - 1) * size} AND ROWNUM<={index * size}";
+            if (conn.State == ConnectionState.Closed) conn.Open();
+
+            sql = $"SELECT t.*,ROWNUM AS ROWNO FROM ({sql}) t ";
+            sql = $"SELECT * FROM ({sql}) WHERE ROWNO>{(index - 1) * size} AND ROWNO<={index * size}";
+
+            var cmd = conn.CreateCommand();
+            cmd.CommandText = sql;
+
+            using (var da = factory.CreateDataAdapter())
+            {
+                da.SelectCommand = cmd;
+                var datatable = new DataTable();
+                da.Fill(datatable);
+                var result = DataTableToList<T>(datatable);
+                return result;
+            }
         }
 
         public List<T> GetWithTranWithWhereStr<T>(string where,DbTransaction tran) where T : new()

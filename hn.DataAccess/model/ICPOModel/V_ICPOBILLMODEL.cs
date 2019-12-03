@@ -7,10 +7,12 @@ using hn.Common.Data;
 using hn.Common;
 using hn.Core.Dal;
 using System.Collections;
+using System.ComponentModel.DataAnnotations.Schema;
 using hn.Core.Model;
 using hn.DataAccess.Dal;
 namespace hn.DataAccess.Model
 {
+    [Table("V_ICPOBILL")]
     [TableName("V_ICPOBILL")]
     [Description("采购订单")]
     public class V_ICPOBILLMODEL : ICPOBILLMODEL

@@ -163,7 +163,9 @@ namespace hn.Client.Service
 
                 LogHelper.WriteLog(query.ToString());
                 
-                return V_ICPOBILLDAL.Instance.GetWhereStr(query.ToString(), "FBILLDATE DESC").ToList();
+                var result= V_ICPOBILLDAL.Instance.GetWhereStr(query.ToString(), "FBILLDATE DESC").ToList();
+
+                return result;
             }
             catch (Exception ex)
             {

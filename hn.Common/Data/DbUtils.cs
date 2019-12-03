@@ -264,8 +264,7 @@ namespace hn.Common.Data
         public static string Insert(object o)
         {
             string s = "";
-            try
-            {
+            
                 using (var conn = new OracleConnection(cs))
                 {
                     using (var cmd = conn.CreateCommand())
@@ -286,13 +285,7 @@ namespace hn.Common.Data
                         return fid;
                     }
                 }
-            }
-            catch (Exception ex)
-            {
-                LogHelper.WriteLog(ex.ToString());
-                return ex.ToString();
-                throw ex;
-            }
+           
         }
 
         public static int InsertWithFID(object o, string FID)

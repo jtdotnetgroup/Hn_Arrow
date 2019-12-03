@@ -11,6 +11,7 @@ using System.Linq;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using hn.ArrowInterface.RequestParams;
 using hn.Client.ApiService;
 
 namespace hn.Client
@@ -1464,7 +1465,7 @@ namespace hn.Client
             {
                 idStrings.Add(list[tmp].FBILLNO);
             }
-            if (!_service.AcctOaStatus(new AcctOAStatusParam { idStrings = idStrings.ToArray() }))
+            if (!_service.AcctOaStatus(new AcctOAStatusParam { idStrings = idStrings }))
             {
                 MsgHelper.Warning("同步失败！");
                 return;

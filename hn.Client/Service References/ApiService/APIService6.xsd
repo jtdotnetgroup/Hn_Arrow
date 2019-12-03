@@ -40,13 +40,13 @@
   <xs:element name="ICPOBILLMODEL" nillable="true" type="tns:ICPOBILLMODEL" />
   <xs:complexType name="ICPOBILLENTRYMODEL">
     <xs:sequence>
-      <xs:element minOccurs="0" name="CAPPINGQUANTITY" type="xs:decimal" />
-      <xs:element minOccurs="0" name="DISCOUNTRATE" type="xs:decimal" />
-      <xs:element minOccurs="0" name="FADVQTY" type="xs:decimal" />
+      <xs:element minOccurs="0" name="CAPPINGQUANTITY" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="DISCOUNTRATE" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="FADVQTY" nillable="true" type="xs:decimal" />
       <xs:element minOccurs="0" name="FAUDQTY" type="xs:decimal" />
       <xs:element minOccurs="0" name="FBATCHNO" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="FCOLORNO" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="FCOMMITQTY" type="xs:decimal" />
+      <xs:element minOccurs="0" name="FCOMMITQTY" nillable="true" type="xs:decimal" />
       <xs:element minOccurs="0" name="FENTRYID" type="xs:int" />
       <xs:element minOccurs="0" name="FERR_MESSAGE" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="FICPOBILLID" nillable="true" type="xs:string" />
@@ -57,13 +57,13 @@
       <xs:element minOccurs="0" name="FPRICE" type="xs:decimal" />
       <xs:element minOccurs="0" name="FREMARK" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="FSRCCODE" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="FSRCCOST" type="xs:decimal" />
+      <xs:element minOccurs="0" name="FSRCCOST" nillable="true" type="xs:decimal" />
       <xs:element minOccurs="0" name="FSRCMODEL" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="FSRCNAME" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="FSRCQTY" type="xs:decimal" />
+      <xs:element minOccurs="0" name="FSRCQTY" nillable="true" type="xs:decimal" />
       <xs:element minOccurs="0" name="FSTATE" type="xs:int" />
       <xs:element minOccurs="0" name="FSTATUS" type="xs:int" />
-      <xs:element minOccurs="0" name="Famount" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Famount" nillable="true" type="xs:decimal" />
       <xs:element minOccurs="0" name="FcontractNO" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Fdesbillentry" type="xs:int" />
       <xs:element minOccurs="0" name="FentryTotal" type="xs:int" />
@@ -72,7 +72,7 @@
       <xs:element minOccurs="0" name="Funit" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="ICPRBILLENTRYIDS" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="LH_DCTPOLICYITEMID" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="MINIMUMQUANTITY" type="xs:decimal" />
+      <xs:element minOccurs="0" name="MINIMUMQUANTITY" nillable="true" type="xs:decimal" />
       <xs:element minOccurs="0" name="THDBMDETAIL" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
@@ -725,6 +725,9 @@
           <xs:element minOccurs="0" name="FPRODUCTTYPE" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="FUNITID" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="FUNITNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="GG" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PZ" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="XH" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="cjkcs" type="xs:int" />
         </xs:sequence>
       </xs:extension>

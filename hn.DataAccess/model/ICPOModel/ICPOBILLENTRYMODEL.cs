@@ -7,10 +7,13 @@ using hn.Common.Data;
 using hn.Common;
 using hn.Core.Dal;
 using System.Collections;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using hn.Core.Model;
 using hn.DataAccess.Dal;
 namespace hn.DataAccess.Model
 {
+    [Table("ICPOBILLENTRY")]
     [TableName("ICPOBILLENTRY")]
     [Description("采购订单明细")]
     public class ICPOBILLENTRYMODEL
@@ -22,6 +25,7 @@ namespace hn.DataAccess.Model
         /// <summary>
         /// 内码ID
         /// </summary>
+        [Key]
         public string FID { get; set; }
 
         /// <summary>
@@ -57,12 +61,12 @@ namespace hn.DataAccess.Model
         /// <summary>
         /// 订单数量
         /// </summary>
-        public decimal FSRCQTY { get; set; }
+        public decimal? FSRCQTY { get; set; }
 
         /// <summary>
         /// 订单金额
         /// </summary>
-        public decimal FSRCCOST { get; set; }
+        public decimal? FSRCCOST { get; set; }
 
 
         /// <summary>
@@ -79,7 +83,7 @@ namespace hn.DataAccess.Model
         /// <summary>
         /// 厂家确认数量
         /// </summary>
-        public decimal FCOMMITQTY { get; set; }
+        public decimal? FCOMMITQTY { get; set; }
 
      
 
@@ -93,15 +97,15 @@ namespace hn.DataAccess.Model
         /// <summary>
         /// 政策起始量
         /// </summary>
-        public decimal MINIMUMQUANTITY { get; set; }
+        public decimal? MINIMUMQUANTITY { get; set; }
         /// <summary>
         /// 政策封顶量
         /// </summary>
-        public decimal CAPPINGQUANTITY { get; set; }
+        public decimal? CAPPINGQUANTITY { get; set; }
         /// <summary>
         /// 折扣率
         /// </summary>
-        public decimal DISCOUNTRATE { get; set; } 
+        public decimal? DISCOUNTRATE { get; set; } 
         /// <summary>
         /// 促销政策行编码id
         /// </summary>
@@ -178,7 +182,7 @@ namespace hn.DataAccess.Model
         /// <summary>
         /// 合同金额
         /// </summary>
-        public decimal Famount { get; set; }
+        public decimal? Famount { get; set; }
 
         /// <summary>
         /// 检查错误描述
@@ -196,6 +200,9 @@ namespace hn.DataAccess.Model
         public string FCOLORNO { get; set; }
 
         public string THDBMDETAIL { get; set; }
+        
+        public string LH_DCTPOLICYROWTYPE { get; set; }
+        public string LH_DCTPOLICYPRODNAME { get; set; }
 
         #endregion
 

@@ -6,6 +6,9 @@ using hn.DataAccess.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using hn.Common_Arrow;
+using LogHelper = hn.Common.LogHelper;
+
 namespace hn.DataAccess.Bll
 {
     public class ICPOBILLBLL
@@ -130,12 +133,15 @@ namespace hn.DataAccess.Bll
 
         public string SaveClient(ICPOBILLMODEL ICPOBILL, IEnumerable<ICPOBILLENTRYMODEL> ICPOBILLENTRYList)
         {
-
+            OracleDBHelper helper = new OracleDBHelper();
+            var conn = helper.GetNewConnection();
+            conn.Open();
+            var tran = conn.BeginTransaction();
             try
             {
+               
 
-            
-            LogHelper.Info("ICPOBILLENTRYList=" + JSONhelper.ToJson(ICPOBILLENTRYList));
+                LogHelper.Info("ICPOBILLENTRYList=" + JSONhelper.ToJson(ICPOBILLENTRYList));
 
             string FID = null;
 
@@ -150,28 +156,13 @@ namespace hn.DataAccess.Bll
                 }
             }
 
-            //foreach (var item in ICPOBILLENTRYList.GroupBy(i => i.FITEMID + i.FENTRYID))
-            //{
-            //    if (item.Count() > 1)
-            //    {
-            //        return "采购订单明细商品信息重复！";
-            //    }
-            //}
-
-            //foreach (var item in ICPOPOLICYList.GroupBy(i => i.FITEMID + i.FSRCENTRYID))
-            //{
-            //    if (item.Count() > 1)
-            //    {
-            //        return "采购订单价格政策商品信息重复！";
-            //    }
-            //}
-
             #endregion
 
             #region 保存主表
 
             if (!ICPOBILL.FID.IsGuid())
             {
+                FID = Guid.NewGuid().ToString();
                 ICPOBILL.FSTATUS = 1;
                 ICPOBILL.FSTATE = 1;
                 ICPOBILL.FBILLER = ICPOBILL.FBILLER;
@@ -180,12 +171,9 @@ namespace hn.DataAccess.Bll
                 ICPOBILL.Fpricepolicy = ICPOBILL.Fpricepolicy;
                 ICPOBILL.FPOtype = ICPOBILL.FPOtype;
                 ICPOBILL.Fnote = ICPOBILL.Fnote;
-                FID = ICPOBILLDAL.Instance.Insert(ICPOBILL);
+                ICPOBILL.FID = FID;
 
-                if (!FID.IsGuid())
-                {
-                    return "保存采购订单失败！"+ FID;
-                }
+                helper.InsertWithTransation(ICPOBILL, tran);
             }
             else
             {
@@ -199,10 +187,10 @@ namespace hn.DataAccess.Bll
                 model.Fpricepolicy = ICPOBILL.Fpricepolicy;
                 model.FPOtype = ICPOBILL.FPOtype;
                 model.Fnote = ICPOBILL.Fnote;
-                int iResult= ICPOBILLDAL.Instance.Update(model);
 
-              // return model.Fpricepolicy + "-"+ FID;
 
+                //int iResult= ICPOBILLDAL.Instance.Update(model);
+                var iResult = helper.UpdateWithTransation(model,tran);
 
             }
 
@@ -210,66 +198,30 @@ namespace hn.DataAccess.Bll
 
             #region 保存子表
 
-            LogHelper.Info("ICPOBILLENTRYMODEL.FID=" + FID);
-            List<ICPOBILLENTRYMODEL> tList = ICPOBILLENTRYDAL.Instance.GetWhere(new { FICPOBILLID = FID }).ToList();
-            if (tList.Count > 0)
-            {
-                foreach (var sub in tList)
-                {
-                    if (!string.IsNullOrEmpty(sub.ICPRBILLENTRYIDS))
-                    {
-                        string[] str = sub.ICPRBILLENTRYIDS.Split(new char[] { ';' }, StringSplitOptions.RemoveEmptyEntries);
-
-                        foreach (var subS in str)
-                        {
-                            ICPRBILLENTRYDAL.Instance.UpdateWhatWhere(new { FICPOBILLNO = "", ICPOBILLENTRYID = "" }, new { FID = subS });
-                        }
-
-                    }
-                }
-
-            }
-           
-
             //删除明细
-            ICPOBILLENTRYBLL.Instance.DeleteByICPOBILLID(FID);
-
-            //删除价格政策
-            //ICPOPOLICYBLL.Instance.DeleteByICPOBILLID(FID);
+            //ICPOBILLENTRYBLL.Instance.DeleteByICPOBILLID(FID);
+            helper.DeleteWithTran<ICPOBILLENTRYMODEL>($"AND  FICPOBILLID='{FID}'", tran);
 
             //保存明细
             foreach (var item in ICPOBILLENTRYList)
             {
                 item.FICPOBILLID = FID;
-                string fEntryID= ICPOBILLENTRYDAL.Instance.Insert(item);
+                item.FID = Guid.NewGuid().ToString();
 
-                LogHelper.Info("FICPOBILLID=" + FID+ " fEntryID="+ fEntryID);
+                helper.InsertWithTransation(item, tran);
 
-                if (fEntryID.IsGuid())
-                {
-                    LogHelper.Info("item.ICPRBILLENTRYIDS=" + item.ICPRBILLENTRYIDS);
-                    if (!string.IsNullOrEmpty(item.ICPRBILLENTRYIDS))
-                    {
-                        string[] str = item.ICPRBILLENTRYIDS.Split(new char[] { ';' }, StringSplitOptions.RemoveEmptyEntries);
-
-                        foreach (var subS in str)
-                        {
-                            LogHelper.Info("ICPRBILLENTRYID=" + subS + " ICPOBILLENRYID=" + fEntryID);
-                            ICPRBILLENTRYDAL.Instance.UpdateWhatWhere(new { FICPOBILLNO = ICPOBILL.FBILLNO, ICPOBILLENTRYID = fEntryID }, new { FID = subS });
-                        }
-                    }
-                }
-            
             }
 
             #endregion
-
+            tran.Commit();
+            conn.Dispose();
             return null;
             }
             catch (Exception e)
             {
+                tran.Rollback();
                 LogHelper.Info("e.Message=" + e.Message);
-                return e.Message;
+                throw;
             }
 
         }

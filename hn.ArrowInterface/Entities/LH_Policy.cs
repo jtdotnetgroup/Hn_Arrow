@@ -20,6 +20,9 @@ namespace hn.ArrowInterface.Entities
         public decimal DiscountRate { get; set; }
         public decimal SpecialOffer { get; set; }
 
-
+        public override string ToString()
+        {
+            return $"{PolicyName}-{Id}";
+        }
     }
 }

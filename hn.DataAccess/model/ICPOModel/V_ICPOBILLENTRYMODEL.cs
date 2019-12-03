@@ -13,7 +13,7 @@ namespace hn.DataAccess.Model
 {
     [TableName("V_ICPOBILLENTRY")]
     [Description("采购订单明细")]
-    public class V_ICPOBILLENTRYMODEL: ICPOBILLENTRYMODEL
+    public class V_ICPOBILLENTRYMODEL : ICPOBILLENTRYMODEL
     {
 
         /// <summary>
@@ -83,15 +83,18 @@ namespace hn.DataAccess.Model
         }
 
 
-
         public string PZ
         {
             get
             {
-                if (string.IsNullOrEmpty(FSRCMODEL)) return "";
-                string[] arrCode = FSRCMODEL.Split(new string[] { "||" }, StringSplitOptions.RemoveEmptyEntries);
-                if (arrCode.Length == 3) return arrCode[0];
-                else return "";
+                string result = "";
+
+                if (!string.IsNullOrEmpty(this.FSRCMODEL))
+                {
+                    result = FSRCMODEL.Split(new[] { "||" }, StringSplitOptions.None)[0];
+                }
+
+                return result;
             }
 
         }
@@ -100,23 +103,30 @@ namespace hn.DataAccess.Model
         {
             get
             {
-                if (string.IsNullOrEmpty(FSRCMODEL)) return "";
-                string[] arrCode = FSRCMODEL.Split(new string[] { "||" }, StringSplitOptions.RemoveEmptyEntries);
-                if (arrCode.Length == 3) return arrCode[1];
-                else return "";
-            }
+                string result = "";
 
+                if (!string.IsNullOrEmpty(this.FSRCMODEL))
+                {
+                    result = FSRCMODEL.Split(new[] { "||" }, StringSplitOptions.None)[1];
+                }
+
+                return result;
+            }
         }
 
         public string GG
         {
             get
             {
-                if (string.IsNullOrEmpty(FSRCMODEL)) return "";
-                string[] arrCode = FSRCMODEL.Split(new string[] { "||" }, StringSplitOptions.RemoveEmptyEntries);
-                if (arrCode.Length == 3) return arrCode[2];
-                else return "";
-            } 
-        } 
+                string result = "";
+
+                if (!string.IsNullOrEmpty(this.FSRCMODEL))
+                {
+                    result = FSRCMODEL.Split(new []{"||"}, StringSplitOptions.None)[2];
+                }
+
+                return result;
+            }
+        }
     }
 }
