@@ -7,8 +7,8 @@ namespace hn.DataAccess.dal.LHModel
     /// <summary>
     /// 出库单表头
     /// </summary>
-    [Table("LH_OUTBOUNDORDERM")]
-    [TableName("LH_OUTBOUNDORDERM")]
+    [Table("LH_OUTBOUNDORDER")]
+    [TableName("LH_OUTBOUNDORDER")]
     public class LH_OUTBOUNDORDERModel
     {
         public string LHODOID { get; set; }

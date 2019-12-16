@@ -229,6 +229,12 @@
     <Compile Include="Views\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\OutOrder\FrmOutOrderDetailed.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\OutOrder\FrmOutOrderDetailed.Designer.cs">
+      <DependentUpon>FrmOutOrderDetailed.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\OutOrder\FrmOutOrderList.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -435,6 +441,8 @@
     <None Include="Properties\app.manifest" />
     <None Include="Properties\DataSources\hn.ArrowInterface.Entities.LH_Policy.datasource" />
     <None Include="Properties\DataSources\hn.Core.Model.SysDics.datasource" />
+    <None Include="Properties\DataSources\hn.DataAccess.dal.LHModel.LH_OUTBOUNDORDERDETAILEDModel.datasource" />
+    <None Include="Properties\DataSources\hn.DataAccess.dal.LHModel.LH_OUTBOUNDORDERModel.datasource" />
     <None Include="Properties\DataSources\hn.DataAccess.DataResult.datasource" />
     <None Include="Properties\DataSources\hn.DataAccess.model.Common.SelectModel.datasource" />
     <None Include="Properties\DataSources\hn.DataAccess.Model.SYS_DICSMODEL.datasource" />
@@ -488,6 +496,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\OutOrder\FrmOutOrderDetailed.resx">
+      <DependentUpon>FrmOutOrderDetailed.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\OutOrder\FrmOutOrderList.resx">
       <DependentUpon>FrmOutOrderList.cs</DependentUpon>

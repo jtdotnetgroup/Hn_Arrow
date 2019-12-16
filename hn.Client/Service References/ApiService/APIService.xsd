@@ -143,71 +143,46 @@
       <xs:element minOccurs="0" name="FID" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="TB_EBPLModel" nillable="true" type="tns:TB_EBPLModel" />
-  <xs:complexType name="ArrayOfTB_DELIVER_BASEModel">
+  <xs:element name="User" nillable="true" type="tns:User" />
+  <xs:complexType name="ArrayOfNavigation">
     <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="TB_DELIVER_BASEModel" nillable="true" type="tns:TB_DELIVER_BASEModel" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Navigation" nillable="true" type="tns:Navigation" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="ArrayOfTB_DELIVER_BASEModel" nillable="true" type="tns:ArrayOfTB_DELIVER_BASEModel" />
-  <xs:complexType name="TB_DELIVER_BASEModel">
+  <xs:element name="ArrayOfNavigation" nillable="true" type="tns:ArrayOfNavigation" />
+  <xs:complexType name="Navigation">
     <xs:sequence>
-      <xs:element minOccurs="0" name="FADDRESS" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="FBASEA_NAME" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="FBRAND" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="FBRANDNAME" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="FCITYID" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="FCITYNAME" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="FDISTRICTID" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="FDISTRICTNAME" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BigImageUrl" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Buttons" nillable="true" type="tns:ArrayOfButton" />
       <xs:element minOccurs="0" name="FID" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="FPROVINCEID" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="FPROVINCENAME" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsVisible" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Linkurl" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NavTag" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NavTitle" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ParentID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Sortnum" type="xs:int" />
+      <xs:element minOccurs="0" name="children" nillable="true" type="tns:ArrayOfNavigation" />
+      <xs:element minOccurs="0" name="iconCls" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="iconUrl" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="TB_DELIVER_BASEModel" nillable="true" type="tns:TB_DELIVER_BASEModel" />
-  <xs:complexType name="ArrayOfTB_PRICEPOLICYModel">
+  <xs:element name="Navigation" nillable="true" type="tns:Navigation" />
+  <xs:complexType name="ArrayOfButton">
     <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="TB_PRICEPOLICYModel" nillable="true" type="tns:TB_PRICEPOLICYModel" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Button" nillable="true" type="tns:Button" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="ArrayOfTB_PRICEPOLICYModel" nillable="true" type="tns:ArrayOfTB_PRICEPOLICYModel" />
-  <xs:complexType name="TB_PRICEPOLICYModel">
+  <xs:element name="ArrayOfButton" nillable="true" type="tns:ArrayOfButton" />
+  <xs:complexType name="Button">
     <xs:sequence>
-      <xs:element minOccurs="0" name="FADVERT_POINT" type="xs:decimal" />
-      <xs:element minOccurs="0" name="FAUDITPRICE" type="xs:decimal" />
-      <xs:element minOccurs="0" name="FAUDITQTY" type="xs:decimal" />
-      <xs:element minOccurs="0" name="FBATCHES_DATE" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="FBATCHES_STATUS" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="FBATCHNO" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="FBRAND" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="FCLIENTACCOUNT" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="FCOLOR" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="FENDDATE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ButtonTag" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ButtonText" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="FID" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="FITEMNAME" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="FLEFTQTY" type="xs:decimal" />
-      <xs:element minOccurs="0" name="FPOINT" type="xs:decimal" />
-      <xs:element minOccurs="0" name="FPRICENAME" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="FPRICENUMBER" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="FPRICETYPE" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="FPRIORITY" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="FPRODUCTNAME" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="FPRODUCTNUMBER" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="FQTY" type="xs:decimal" />
-      <xs:element minOccurs="0" name="FREMARK" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="FSPC" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="FSTARTDATE" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="FSTATUS" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="FTOTALQTY" type="xs:decimal" />
-      <xs:element minOccurs="0" name="FUNIT" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IconUrl" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Remark" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Sortnum" type="xs:int" />
+      <xs:element minOccurs="0" name="iconCls" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="TB_PRICEPOLICYModel" nillable="true" type="tns:TB_PRICEPOLICYModel" />
-  <xs:complexType name="ArrayOfTB_PREMISEModel">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="TB_PREMISEModel" nillable="true" type="tns:TB_PREMISEModel" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfTB_PREMISEModel" nillable="true" type="tns:ArrayOfTB_PREMISEModel" />
+  <xs:element name="Button" nillable="true" type="tns:Button" />
 </xs:schema>
