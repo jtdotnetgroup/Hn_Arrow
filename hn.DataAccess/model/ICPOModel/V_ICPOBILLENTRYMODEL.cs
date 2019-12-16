@@ -7,6 +7,7 @@ using hn.Common.Data;
 using hn.Common;
 using hn.Core.Dal;
 using System.Collections;
+using System.ComponentModel.DataAnnotations.Schema;
 using hn.Core.Model;
 using hn.DataAccess.Dal;
 namespace hn.DataAccess.Model

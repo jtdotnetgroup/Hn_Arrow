@@ -78,4 +78,10 @@ namespace hn.DataAccess.model
         public string ACCTCODES { get; set; }
     }
 
+    [Table("V_LHPRODUCTS_UNPOLICYHEADID")]
+    public class V_LHPRODUCTS_UNPOLICYHEADID:v_lhproducts_policyModel
+    {
+
+    }
+
 }

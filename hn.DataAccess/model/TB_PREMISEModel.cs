@@ -1,8 +1,10 @@
 ﻿using hn.Common.Data;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace hn.DataAccess.model
 {
+    [Table("TB_PREMISE")]
     [TableName("TB_PREMISE")]
     [Description("经营场所")]
     public class TB_PREMISEModel
@@ -62,4 +64,6 @@ namespace hn.DataAccess.model
         /// </summary>
         public int FISTICKET { get; set; }
     }
+
+    
 }

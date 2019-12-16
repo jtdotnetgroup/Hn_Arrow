@@ -9,6 +9,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using hn.Common;
+using MessageBox = System.Windows.Forms.MessageBox;
 
 namespace hn.Client
 {
@@ -34,6 +36,10 @@ namespace hn.Client
 
         private void btnSyncCar_Click(object sender, EventArgs e)
         {
+            try
+            {
+
+            
             LH_OUTBOUNDORDERModel[] row = BillGrid.DataSource as LH_OUTBOUNDORDERModel[];
             int[] RowNum = BillGrid.GetSelectedRows();
             if (RowNum.Length == 0)
@@ -53,6 +59,13 @@ namespace hn.Client
             else
             {
                 MessageBox.Show("同步失败！");
+            }
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(exception.Message);
+               LogHelper.Error(exception);
+                throw;
             }
         }
         private void btnExit_Click(object sender, EventArgs e)
@@ -107,8 +120,8 @@ namespace hn.Client
         void Style()
         {
             BillGrid.OptionsBehavior.Editable = true;
-            BillGrid.OptionsCustomization.AllowFilter = true;
-            BillGrid.OptionsView.ShowAutoFilterRow = true;
+            //BillGrid.OptionsCustomization.AllowFilter = true;
+            //BillGrid.OptionsView.ShowAutoFilterRow = true;
             BillGrid.OptionsSelection.MultiSelect = true;
             BillGrid.OptionsSelection.MultiSelectMode = DevExpress.XtraGrid.Views.Grid.GridMultiSelectMode.CheckBoxRowSelect;
             BillStyle = new List<ColStyle>();
@@ -288,6 +301,13 @@ namespace hn.Client
                 Visible = true,
                 Width = 100,
                 ReadOnly = true
+            },
+            new ColStyle
+            {
+                Caption = "同步标识",
+                FieldName = "FSTATUS_SHOW",
+                Visible = true,
+                Width = 100
             }
             });  
             SetCol(BillGrid, BillStyle);
@@ -399,7 +419,8 @@ namespace hn.Client
                 FieldName = "LHVOLUME",
                 Visible = true,
                 Width = 100,
-            }
+            },
+           
             });
             SetCol(EntryGrid, EntryStyle);
         }

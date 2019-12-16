@@ -83,6 +83,7 @@ namespace hn.Common.Data
                     cmd.CommandType = CommandType.Text;
 
                     cmd.CommandText = "select * from " + TableConvention.Resolve(typeof(T)) + " where 1=1 " + where + " order by " + order;
+                    LogHelper.WriteLog(cmd.CommandText);
                     conn.Open();
 
                     using (var dr = cmd.ExecuteReader())

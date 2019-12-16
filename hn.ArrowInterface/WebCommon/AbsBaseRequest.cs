@@ -52,6 +52,7 @@ namespace hn.ArrowInterface.WebCommon
             HttpResponseMessage res;
 
             LogHelper.Info($"开始请求：{url}");
+            LogHelper.Info($@"POSTDATA:{content.ReadAsStringAsync().Result}");
             if (Method == "POST")
             {
                 res = client.PostAsync(url, content).GetAwaiter().GetResult();
@@ -81,6 +82,7 @@ namespace hn.ArrowInterface.WebCommon
         public T CommonBaseRequest<T>(string url, HttpContent content) where T : new()
         {
             LogHelper.Info($"开始请求：{url}");
+            LogHelper.Info($@"POSTDATA:{content.ReadAsStringAsync().Result}");
             T result = new T();
             HttpResponseMessage res = null;
 

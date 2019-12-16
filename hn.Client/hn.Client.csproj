@@ -121,11 +121,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Common\DataResult.cs" />
+    <Compile Include="Common\GridColumnBuilder.cs" />
     <Compile Include="Common\IniHelper.cs" />
     <Compile Include="Common\JsonHelper.cs" />
     <Compile Include="Common\MsgHelper.cs" />
     <Compile Include="Common\Post.cs" />
+    <Compile Include="Common\TB_PREMISE_GRIDVIEW_DTO.cs" />
     <Compile Include="Common\UtilHelper.cs" />
+    <Compile Include="CustomAttribute\GridColumnAttribute.cs" />
     <Compile Include="FrmBase.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -186,6 +189,12 @@
     </Compile>
     <Compile Include="Views\Diglog\FrmQueryDeliverBase.Designer.cs">
       <DependentUpon>FrmQueryDeliverBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Diglog\FrmQueryMCU.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Diglog\FrmQueryMCU.Designer.cs">
+      <DependentUpon>FrmQueryMCU.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Diglog\FrmQueryPrice.cs">
       <SubType>Form</SubType>
@@ -476,6 +485,9 @@
     <EmbeddedResource Include="Views\Diglog\FrmQueryDeliverBase.resx">
       <DependentUpon>FrmQueryDeliverBase.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\Diglog\FrmQueryMCU.resx">
+      <DependentUpon>FrmQueryMCU.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\Diglog\FrmQueryPrice.resx">
       <DependentUpon>FrmQueryPrice.cs</DependentUpon>
     </EmbeddedResource>
@@ -642,67 +654,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="Service References\ApiService\APIService.wsdl" />
-    <None Include="Service References\ApiService\APIService.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\ApiService\APIService1.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\ApiService\APIService10.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\ApiService\APIService11.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\ApiService\APIService12.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\ApiService\APIService13.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\ApiService\APIService14.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\ApiService\APIService15.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\ApiService\APIService16.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\ApiService\APIService17.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\ApiService\APIService18.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\ApiService\APIService19.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\ApiService\APIService2.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\ApiService\APIService3.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\ApiService\APIService4.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\ApiService\APIService5.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\ApiService\APIService6.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\ApiService\APIService7.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\ApiService\APIService8.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\ApiService\APIService9.xsd">
-      <SubType>Designer</SubType>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\loginbg.png" />
@@ -752,6 +703,71 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="default.ico" />
+    <None Include="Service References\ApiService\APIService1.disco" />
+    <None Include="Service References\ApiService\APIService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ApiService\APIService1.wsdl" />
+    <None Include="Service References\ApiService\APIService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ApiService\APIService10.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ApiService\APIService11.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ApiService\APIService12.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ApiService\APIService13.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ApiService\APIService14.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ApiService\APIService15.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ApiService\APIService16.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ApiService\APIService17.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ApiService\APIService18.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ApiService\APIService19.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ApiService\APIService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ApiService\APIService20.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ApiService\APIService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ApiService\APIService4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ApiService\APIService5.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ApiService\APIService6.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ApiService\APIService7.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ApiService\APIService8.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ApiService\APIService9.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Service References\ApiService\hn.Client.ApiService.Remote_GetICPOEntryResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -761,7 +777,6 @@
     </None>
     <None Include="Service References\ApiService\configuration.svcinfo" />
     <None Include="Service References\ApiService\configuration91.svcinfo" />
-    <None Include="Service References\ApiService\APIService.disco" />
     <None Include="Resources\min.png" />
     <None Include="Resources\close.png" />
     <None Include="Resources\TitleNormal222.png" />

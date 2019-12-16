@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
@@ -13,6 +14,7 @@ namespace hn.ArrowInterface.Entities
     [Table("LH_ACCTOASTATUS")]
     public class AcctOAStatus
     {
+        [Key]
         public string orderNo { get; set; }
         public string lHreviweStatus { get; set; }
         [NotMapped]

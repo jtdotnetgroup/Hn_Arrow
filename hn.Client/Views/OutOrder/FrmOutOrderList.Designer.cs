@@ -130,13 +130,13 @@
             gridLevelNode1.RelationName = "Level1";
             this.BillList.LevelTree.Nodes.AddRange(new DevExpress.XtraGrid.GridLevelNode[] {
             gridLevelNode1});
-            this.BillList.Location = new System.Drawing.Point(2, 64);
+            this.BillList.Location = new System.Drawing.Point(2, 133);
             this.BillList.MainView = this.BillGrid;
             this.BillList.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.BillList.Name = "BillList";
             this.BillList.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemCheckEdit2});
-            this.BillList.Size = new System.Drawing.Size(1057, 375);
+            this.BillList.Size = new System.Drawing.Size(1057, 306);
             this.BillList.TabIndex = 57;
             this.BillList.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.BillGrid});
@@ -166,7 +166,7 @@
             this.toolStrip2.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.toolStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripLabel2});
-            this.toolStrip2.Location = new System.Drawing.Point(2, 39);
+            this.toolStrip2.Location = new System.Drawing.Point(2, 108);
             this.toolStrip2.Name = "toolStrip2";
             this.toolStrip2.Size = new System.Drawing.Size(1057, 25);
             this.toolStrip2.TabIndex = 56;
@@ -206,7 +206,7 @@
             this.PInfo.Location = new System.Drawing.Point(2, 29);
             this.PInfo.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.PInfo.Name = "PInfo";
-            this.PInfo.Size = new System.Drawing.Size(1057, 10);
+            this.PInfo.Size = new System.Drawing.Size(1057, 79);
             this.PInfo.TabIndex = 46;
             // 
             // dateEnd
@@ -395,7 +395,7 @@
             this.BtnSetting.Location = new System.Drawing.Point(1033, 0);
             this.BtnSetting.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.BtnSetting.Name = "BtnSetting";
-            this.BtnSetting.Size = new System.Drawing.Size(22, 8);
+            this.BtnSetting.Size = new System.Drawing.Size(22, 77);
             this.BtnSetting.TabIndex = 27;
             this.BtnSetting.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BtnSetting.UseVisualStyleBackColor = true;

@@ -29,6 +29,8 @@ namespace hn.Client
             //instance = new FrmNewQueryProduct();
             InitializeComponent();
             _service = new ApiService.APIServiceClient("BasicHttpBinding_IAPIService", Global.WcfUrl);
+
+           
         }
 
         public static FrmNewQueryProduct GetInstance()
@@ -50,8 +52,6 @@ namespace hn.Client
         Dictionary<string, v_lhproducts_policyModel[]> dicDataSource = new Dictionary<string, v_lhproducts_policyModel[]>(); 
         public v_lhproducts_policyModel SelectData;
         public ICPOBILL_PolicyDTO header { get; set; }
-        private  v_lhproducts_policyModel where { get; set; }
-
         private int page = 1;//当前面
         private int size=50;//每页显示量
         private int total = 0;//总条数
@@ -60,31 +60,16 @@ namespace hn.Client
 
         private void FrmQueryMarketArea_Load(object sender, EventArgs e)
         {
-            onSearch("");
+            onSearch(GetWhere());
         }
 
-        private void onSearch(string keyword)
+        private void onSearch(v_lhproducts_policyModel where)
         {
-            //this.Cursor = Cursors.WaitCursor;
-            //if (!dicDataSource.ContainsKey(itemid))
-            //{
-            //    dicDataSource.Add(itemid, _service.v_lhproducts_policy_List(itemid, ""));
-            //} 
-            //gridControl.DataSource = dicDataSource[itemid];
-            //this.Cursor = Cursors.Default;
-
-            //gridControl.Focus();
-
-           
 
             var action = new Action( () =>
             {
                 PageResult<v_lhproducts_policyModel> result = null;
                 string countStr = $"第【{page}】页/共【{count}】页";
-                if (where == null)
-                {
-                    where = new v_lhproducts_policyModel();
-                }
 
                 try
                 {
@@ -121,16 +106,13 @@ namespace hn.Client
 
         private void btn查询_Click(object sender, EventArgs e)
         {
-            where=new v_lhproducts_policyModel();
-            where.PRODNAME = txtFactoryName.Text;
-            where.PRODMODEL = txtFactoryModel.Text;
-            where.PRODSTANDARD = txtSpecifications.Text;
-            onSearch("");
+           
+            onSearch(GetWhere());
         }
 
         private void btn重置_Click(object sender, EventArgs e)
         {
-            onSearch("");
+            onSearch(GetWhere());
         }
 
         private void gridView名称代码_CustomDrawRowIndicator(object sender, DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventArgs e)
@@ -163,7 +145,7 @@ namespace hn.Client
         {
             if (e.KeyCode == Keys.Enter)
             {
-                this.onSearch("");
+                onSearch(GetWhere());
             }
         }
 
@@ -184,13 +166,13 @@ namespace hn.Client
         private void bindingNavigatorMoveFirstItem_Click(object sender, EventArgs e)
         {
             page = 1;
-            onSearch("");
+            onSearch(GetWhere());
         }
 
         private void bindingNavigatorMoveLastItem_Click(object sender, EventArgs e)
         {
             page = count;
-            onSearch("");
+            onSearch(GetWhere());
         }
 
         private void bindingNavigatorMovePreviousItem_Click(object sender, EventArgs e)
@@ -206,13 +188,22 @@ namespace hn.Client
         private void button1_Click(object sender, EventArgs e)
         {
             page = page - 1 < 1 ? 1 : page - 1;
-            onSearch("");
+            onSearch(GetWhere());
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             page = page + 1 > count ? count : page + 1;
-            onSearch("");
+            onSearch(GetWhere());
+        }
+
+        private v_lhproducts_policyModel GetWhere()
+        {
+            var where = new v_lhproducts_policyModel();
+            where.PRODNAME = txtFactoryName.Text;
+            where.PRODMODEL = txtFactoryModel.Text;
+            where.PRODSTANDARD = txtSpecifications.Text;
+            return where;
         }
 
         private void btnConfirm_Click(object sender, EventArgs e)
@@ -229,6 +220,11 @@ namespace hn.Client
             }
             this.DialogResult = DialogResult.OK;
             this.Close();
+        }
+
+        private void btnReturn_Click(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.Cancel;
         }
     }
 }

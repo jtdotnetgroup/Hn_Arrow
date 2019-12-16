@@ -36,5 +36,20 @@ namespace hn.DataAccess.dal.LHModel
         public decimal? FSTATUS { get; set; }
         public string FCARNO { get; set; }
 
+        [NotMapped]
+        [DbField(false)]
+        public string FSTATUS_SHOW
+        {
+            get
+            {
+                if (FSTATUS == 2)
+                {
+                    return "已同步";
+                }
+
+                return "未同步";
+            }
+        }
+
     }
 }

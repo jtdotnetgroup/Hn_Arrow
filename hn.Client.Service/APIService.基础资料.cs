@@ -12,7 +12,8 @@ using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Web;
-using hn.Common;
+using hn.Common_Arrow;
+using LogHelper = hn.Common.LogHelper;
 
 namespace hn.Client.Service
 {
@@ -78,21 +79,21 @@ namespace hn.Client.Service
             {
                 List<TB_PREMISEModel> datas = new List<TB_PREMISEModel>();
 
-                var list = TB_PREMISEDal.Instance.GetAll().ToList();
+                string where = "";
+
                 if (!string.IsNullOrEmpty(keyword))
                 {
-                    return list.Where(x => x.FCODE.Contains(keyword) || x.FNAME.Contains(keyword)).ToList();
+                   where = $" AND (FCODE LIKE '%{keyword}%' OR FNAME LIKE '%{keyword}%' OR FID='{keyword}')";
                 }
                 else
                 {
-                    return list;
+                    where = "";
                 }
 
+                var helper=new OracleDBHelper();
 
-               
-
-
-
+                datas = helper.GetWithWhereStrByPage<TB_PREMISEModel>(where);
+                return datas;
             }
             catch (Exception ex)
             {

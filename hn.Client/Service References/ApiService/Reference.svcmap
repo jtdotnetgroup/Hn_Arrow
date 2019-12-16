@@ -19,31 +19,32 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://localhost:62036/APIService.svc" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://10.0.125.31:9999/APIService.svc" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="APIService7.xsd" MetadataType="Schema" ID="3d83e4fa-3d26-4b49-8807-1cb18a688a17" SourceId="1" SourceUrl="http://localhost:62036/APIService.svc?xsd=xsd15" />
-    <MetadataFile FileName="APIService.xsd" MetadataType="Schema" ID="2a8bc663-9455-43e1-a16b-34bdf5e4faca" SourceId="1" SourceUrl="http://localhost:62036/APIService.svc?xsd=xsd11" />
-    <MetadataFile FileName="APIService2.xsd" MetadataType="Schema" ID="35235c04-7eee-4a52-a10a-a2eb01bbd078" SourceId="1" SourceUrl="http://localhost:62036/APIService.svc?xsd=xsd2" />
-    <MetadataFile FileName="APIService3.xsd" MetadataType="Schema" ID="5c737437-782c-4ef5-90db-7172e9f0069b" SourceId="1" SourceUrl="http://localhost:62036/APIService.svc?xsd=xsd6" />
-    <MetadataFile FileName="APIService4.xsd" MetadataType="Schema" ID="0792ccb2-82f0-4772-817e-6f71ef2b35fe" SourceId="1" SourceUrl="http://localhost:62036/APIService.svc?xsd=xsd17" />
-    <MetadataFile FileName="APIService.disco" MetadataType="Disco" ID="e554c0ba-40b5-4d87-97f2-2b53b8637851" SourceId="1" SourceUrl="http://localhost:62036/APIService.svc?disco" />
-    <MetadataFile FileName="APIService5.xsd" MetadataType="Schema" ID="6ea71cab-cbca-4d1d-80ce-556062709275" SourceId="1" SourceUrl="http://localhost:62036/APIService.svc?xsd=xsd10" />
-    <MetadataFile FileName="APIService6.xsd" MetadataType="Schema" ID="9703866a-413d-4856-ad40-5f92b5270d98" SourceId="1" SourceUrl="http://localhost:62036/APIService.svc?xsd=xsd3" />
-    <MetadataFile FileName="APIService1.xsd" MetadataType="Schema" ID="f7001737-96e5-4a9a-929e-36712f39b81e" SourceId="1" SourceUrl="http://localhost:62036/APIService.svc?xsd=xsd7" />
-    <MetadataFile FileName="APIService8.xsd" MetadataType="Schema" ID="554a1102-e9ea-45b1-ad4b-05da93c2fd84" SourceId="1" SourceUrl="http://localhost:62036/APIService.svc?xsd=xsd16" />
-    <MetadataFile FileName="APIService9.xsd" MetadataType="Schema" ID="7d7db17f-d8eb-46a4-9542-fff28f57e611" SourceId="1" SourceUrl="http://localhost:62036/APIService.svc?xsd=xsd13" />
-    <MetadataFile FileName="APIService19.xsd" MetadataType="Schema" ID="28e279a7-f2c2-40d4-b10c-3e1e9c775ff7" SourceId="1" SourceUrl="http://localhost:62036/APIService.svc?xsd=xsd19" />
-    <MetadataFile FileName="APIService10.xsd" MetadataType="Schema" ID="d5567cfb-ffbc-4ed6-b669-acfec2f9375d" SourceId="1" SourceUrl="http://localhost:62036/APIService.svc?xsd=xsd18" />
-    <MetadataFile FileName="APIService11.xsd" MetadataType="Schema" ID="79a938bc-d2bc-4260-bac8-203bbce17bb9" SourceId="1" SourceUrl="http://localhost:62036/APIService.svc?xsd=xsd0" />
-    <MetadataFile FileName="APIService12.xsd" MetadataType="Schema" ID="95a2b5c8-ca66-4e13-958f-04310e1b5054" SourceId="1" SourceUrl="http://localhost:62036/APIService.svc?xsd=xsd4" />
-    <MetadataFile FileName="APIService13.xsd" MetadataType="Schema" ID="52a08d92-dbba-473e-9ee3-315a66cada19" SourceId="1" SourceUrl="http://localhost:62036/APIService.svc?xsd=xsd8" />
-    <MetadataFile FileName="APIService14.xsd" MetadataType="Schema" ID="9866c44f-07fe-4074-84a6-b500bf14b3c5" SourceId="1" SourceUrl="http://localhost:62036/APIService.svc?xsd=xsd12" />
-    <MetadataFile FileName="APIService15.xsd" MetadataType="Schema" ID="2fcf4fa1-ee7b-4b41-b1e4-9d12d746c1fa" SourceId="1" SourceUrl="http://localhost:62036/APIService.svc?xsd=xsd14" />
-    <MetadataFile FileName="APIService.wsdl" MetadataType="Wsdl" ID="f9c6cbf1-235f-4adf-b29e-d7ed7a7b1ddf" SourceId="1" SourceUrl="http://localhost:62036/APIService.svc?wsdl" />
-    <MetadataFile FileName="APIService16.xsd" MetadataType="Schema" ID="1d68464c-fe1c-4a5f-ac3b-bba839ef8194" SourceId="1" SourceUrl="http://localhost:62036/APIService.svc?xsd=xsd1" />
-    <MetadataFile FileName="APIService17.xsd" MetadataType="Schema" ID="b93086f5-8a6f-4e9e-98c1-99fe003c0388" SourceId="1" SourceUrl="http://localhost:62036/APIService.svc?xsd=xsd5" />
-    <MetadataFile FileName="APIService18.xsd" MetadataType="Schema" ID="51913684-e25b-4e87-b719-5fff847c4142" SourceId="1" SourceUrl="http://localhost:62036/APIService.svc?xsd=xsd9" />
+    <MetadataFile FileName="APIService.xsd" MetadataType="Schema" ID="5c075cad-906a-4c7f-b580-cd82481213ee" SourceId="1" SourceUrl="http://10.0.125.31:9999/APIService.svc?xsd=xsd11" />
+    <MetadataFile FileName="APIService1.xsd" MetadataType="Schema" ID="e9e7424b-954b-4bac-98a9-52687150151c" SourceId="1" SourceUrl="http://10.0.125.31:9999/APIService.svc?xsd=xsd14" />
+    <MetadataFile FileName="APIService2.xsd" MetadataType="Schema" ID="131360ec-44a1-411e-bd82-30ba8cf95f9f" SourceId="1" SourceUrl="http://10.0.125.31:9999/APIService.svc?xsd=xsd7" />
+    <MetadataFile FileName="APIService3.xsd" MetadataType="Schema" ID="d5d39d99-6657-43bd-bd5e-39e3f1b14bce" SourceId="1" SourceUrl="http://10.0.125.31:9999/APIService.svc?xsd=xsd4" />
+    <MetadataFile FileName="APIService1.wsdl" MetadataType="Wsdl" ID="bac0f79a-3b48-4c83-aa49-420a6e16af64" SourceId="1" SourceUrl="http://10.0.125.31:9999/APIService.svc?wsdl" />
+    <MetadataFile FileName="APIService4.xsd" MetadataType="Schema" ID="9fd2f8d2-4e40-4863-a9d3-6ff6c4667ffa" SourceId="1" SourceUrl="http://10.0.125.31:9999/APIService.svc?xsd=xsd20" />
+    <MetadataFile FileName="APIService5.xsd" MetadataType="Schema" ID="4a07ac50-7f1f-4808-84f2-8c2384f42e30" SourceId="1" SourceUrl="http://10.0.125.31:9999/APIService.svc?xsd=xsd9" />
+    <MetadataFile FileName="APIService6.xsd" MetadataType="Schema" ID="8d40aed3-c9d8-4eb4-ad13-2aa141345527" SourceId="1" SourceUrl="http://10.0.125.31:9999/APIService.svc?xsd=xsd19" />
+    <MetadataFile FileName="APIService7.xsd" MetadataType="Schema" ID="37bc3e88-c27a-4992-addd-b1251cc9018c" SourceId="1" SourceUrl="http://10.0.125.31:9999/APIService.svc?xsd=xsd3" />
+    <MetadataFile FileName="APIService8.xsd" MetadataType="Schema" ID="4ca54f16-601b-4bb8-bd13-8a2d1ba89e9d" SourceId="1" SourceUrl="http://10.0.125.31:9999/APIService.svc?xsd=xsd8" />
+    <MetadataFile FileName="APIService9.xsd" MetadataType="Schema" ID="550f3d21-8b45-4cbd-9449-7cde2d4a0526" SourceId="1" SourceUrl="http://10.0.125.31:9999/APIService.svc?xsd=xsd17" />
+    <MetadataFile FileName="APIService10.xsd" MetadataType="Schema" ID="867a91bc-6df5-45d9-b32d-1c3191172b0b" SourceId="1" SourceUrl="http://10.0.125.31:9999/APIService.svc?xsd=xsd12" />
+    <MetadataFile FileName="APIService11.xsd" MetadataType="Schema" ID="1badcec0-a9c2-424d-a6d2-6556c1bd0549" SourceId="1" SourceUrl="http://10.0.125.31:9999/APIService.svc?xsd=xsd1" />
+    <MetadataFile FileName="APIService12.xsd" MetadataType="Schema" ID="fa993921-9cab-4087-8068-1df862f05e5b" SourceId="1" SourceUrl="http://10.0.125.31:9999/APIService.svc?xsd=xsd10" />
+    <MetadataFile FileName="APIService13.xsd" MetadataType="Schema" ID="a1e3ac94-d9e6-43a0-9efd-8b3d7b89b2ba" SourceId="1" SourceUrl="http://10.0.125.31:9999/APIService.svc?xsd=xsd6" />
+    <MetadataFile FileName="APIService14.xsd" MetadataType="Schema" ID="bea5626c-a8d4-4851-b65f-abbd8cce36c0" SourceId="1" SourceUrl="http://10.0.125.31:9999/APIService.svc?xsd=xsd15" />
+    <MetadataFile FileName="APIService15.xsd" MetadataType="Schema" ID="73981c2f-9bc4-47c3-a102-0c98e4417e00" SourceId="1" SourceUrl="http://10.0.125.31:9999/APIService.svc?xsd=xsd5" />
+    <MetadataFile FileName="APIService16.xsd" MetadataType="Schema" ID="966ce34a-47d1-479f-8ad2-351f017d2c97" SourceId="1" SourceUrl="http://10.0.125.31:9999/APIService.svc?xsd=xsd2" />
+    <MetadataFile FileName="APIService17.xsd" MetadataType="Schema" ID="a0a7c757-59ed-467a-9302-8a5b85496479" SourceId="1" SourceUrl="http://10.0.125.31:9999/APIService.svc?xsd=xsd18" />
+    <MetadataFile FileName="APIService18.xsd" MetadataType="Schema" ID="13fb16f0-602e-4c33-b18c-2bf8b63a85e6" SourceId="1" SourceUrl="http://10.0.125.31:9999/APIService.svc?xsd=xsd16" />
+    <MetadataFile FileName="APIService19.xsd" MetadataType="Schema" ID="727f7bdc-c04e-4073-8f1e-af81eacf041f" SourceId="1" SourceUrl="http://10.0.125.31:9999/APIService.svc?xsd=xsd13" />
+    <MetadataFile FileName="APIService20.xsd" MetadataType="Schema" ID="0131a20e-dcaa-4df0-a30b-06decd167994" SourceId="1" SourceUrl="http://10.0.125.31:9999/APIService.svc?xsd=xsd0" />
+    <MetadataFile FileName="APIService1.disco" MetadataType="Disco" ID="e80689d6-be46-4863-8720-325ce2ce84f5" SourceId="1" SourceUrl="http://10.0.125.31:9999/APIService.svc?disco" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

@@ -32,9 +32,7 @@ namespace hn.ArrowInterface.Entities
         public string FNOTE { get; set; }
         public DateTime FTIMESTAMP { get; set; }
 
-        //COMMENT ON COLUMN "PURCHASE"."ICPOBILL"."FSTATUS" IS '1:草稿  2:待审核  3:审核通过  4:审核不通过  5:关闭  6:完成  7:部分审核';
-        //COMMENT ON COLUMN "PURCHASE"."ICPOBILL"."FSTATE" IS '0：禁用  1：正常    默认：1';
-        //COMMENT ON COLUMN "PURCHASE"."ICPOBILL"."FSYNCSTATUS" IS '1：未同步  2：已同步  3：同步失败';
+
     }
 
     public class ICPOBILL_PolicyDTO

@@ -143,14 +143,14 @@
             // 请购计划ToolStripMenuItem
             // 
             this.请购计划ToolStripMenuItem.Name = "请购计划ToolStripMenuItem";
-            this.请购计划ToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.请购计划ToolStripMenuItem.Size = new System.Drawing.Size(130, 24);
             this.请购计划ToolStripMenuItem.Text = "请购计划";
             this.请购计划ToolStripMenuItem.Visible = false;
             // 
             // 发货计划ToolStripMenuItem
             // 
             this.发货计划ToolStripMenuItem.Name = "发货计划ToolStripMenuItem";
-            this.发货计划ToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.发货计划ToolStripMenuItem.Size = new System.Drawing.Size(130, 24);
             this.发货计划ToolStripMenuItem.Text = "发货计划";
             this.发货计划ToolStripMenuItem.Visible = false;
             // 

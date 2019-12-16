@@ -12,7 +12,9 @@ using System.ServiceModel.Web;
 using System.Text;
 using hn.ArrowInterface.Entities;
 using hn.ArrowInterface.RequestParams;
+using hn.DataAccess.dal.Common;
 using hn.DataAccess.dal.LHModel;
+using hn.DataAccess.model.Common;
 
 namespace hn.Client.Service
 {
@@ -723,7 +725,8 @@ MApiModel.api24.Rootobject getapi24);
         /// <param name="header"></param>
         /// <returns></returns>
         [OperationContract]
-        PageResult<v_lhproducts_policyModel> GetPolicyProducts(ICPOBILL_PolicyDTO header, v_lhproducts_policyModel where,int index,int size);
+        PageResult<v_lhproducts_policyModel> GetPolicyProducts(ICPOBILL_PolicyDTO header,
+            v_lhproducts_policyModel where, int index, int size);
 
         
 
@@ -731,4 +734,5 @@ MApiModel.api24.Rootobject getapi24);
 
     }
 
+   
 }

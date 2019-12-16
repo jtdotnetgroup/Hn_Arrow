@@ -17,8 +17,9 @@ namespace hn.Client
 
         private void FrmIndex_Load(object sender, EventArgs e)
         {
-            gridControl请购计划列表.DataSource = _service.GetPurchasePlanList(Global.LoginUser, "", "", 3, "", "","","",false);
-            gridControl待发货.DataSource = _service.GetDeliveryList(Global.LoginUser, "", "", "", 3, "", "", "", "", "", "", "", "","","", false);
+            gridControl请购计划列表.DataSource = _service.GetPurchasePlanList(Global.LoginUser, "", "", 3, "", "", "", "", false);
+            gridControl待发货.DataSource = _service.GetDeliveryList(Global.LoginUser, "", "", "", 3, "", "", "", "", "", "", "", "", "", "", false);
+
         }
 
         private void FrmIndex_Shown(object sender, EventArgs e)

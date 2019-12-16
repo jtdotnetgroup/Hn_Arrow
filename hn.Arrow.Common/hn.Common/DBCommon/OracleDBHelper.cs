@@ -607,8 +607,6 @@ namespace hn.Common_Arrow
                     {
                         var value = row[col.ColumnName];
 
-
-
                         if (value != null && !string.IsNullOrEmpty(value.ToString()))
                         {
 
@@ -849,7 +847,7 @@ namespace hn.Common_Arrow
             foreach (var pi in pis)
             {
                 var value = pi.GetValue(where, null);
-                if (value != null)
+                if (value != null&&!string.IsNullOrEmpty(value.ToString()))
                 {
                     var fieldName = pi.Name;
 
@@ -1006,7 +1004,7 @@ namespace hn.Common_Arrow
             }
         }
 
-        public List<T> GetWithWhereStrByPage<T>(string @where, T condition,int index = 1, int size = 50) where T : new()
+        public List<T> GetWithWhereStrByPage<T>(string @where, object condition,int index = 1, int size = 50) where T : new()
         {
             string sql = GetSelectSql<T>();
             sql += where;
@@ -1018,7 +1016,7 @@ namespace hn.Common_Arrow
 
             var cmd = conn.CreateCommand();
             cmd.CommandText = sql;
-
+            LogHelper.Info(sql);
             using (var da = factory.CreateDataAdapter())
             {
                 da.SelectCommand = cmd;

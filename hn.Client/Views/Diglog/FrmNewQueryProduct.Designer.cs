@@ -340,6 +340,7 @@
             this.btnReturn.TabIndex = 64;
             this.btnReturn.Text = "返回";
             this.btnReturn.UseVisualStyleBackColor = true;
+            this.btnReturn.Click += new System.EventHandler(this.btnReturn_Click);
             // 
             // btnConfirm
             // 

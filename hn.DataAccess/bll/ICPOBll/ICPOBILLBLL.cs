@@ -242,7 +242,7 @@ namespace hn.DataAccess.Bll
         /// <returns></returns>
         public bool OA_Status(string[] idStrings)
         {
-            return ICPOBILLDAL.Instance.ExecuteNonQuery(@"Update ICPOBILL SET OASTATUS = 1 WHERE FBILLNO IN('"+string.Join("','",idStrings) + "')") > 0;
+            return ICPOBILLDAL.Instance.ExecuteNonQuery(@"Update ICPOBILL SET OASTATUS = 1 WHERE FDESBILLNO IN('"+string.Join("','",idStrings) + "')") > 0;
         }
     }
 }

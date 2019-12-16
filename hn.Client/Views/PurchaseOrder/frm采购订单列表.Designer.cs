@@ -122,7 +122,7 @@
             this.gridColumn32.MinWidth = 120;
             this.gridColumn32.Name = "gridColumn32";
             this.gridColumn32.Visible = true;
-            this.gridColumn32.VisibleIndex = 2;
+            this.gridColumn32.VisibleIndex = 4;
             this.gridColumn32.Width = 120;
             // 
             // imageList2
@@ -501,7 +501,7 @@
             this.gridColumn9.MinWidth = 200;
             this.gridColumn9.Name = "gridColumn9";
             this.gridColumn9.Visible = true;
-            this.gridColumn9.VisibleIndex = 1;
+            this.gridColumn9.VisibleIndex = 3;
             this.gridColumn9.Width = 200;
             // 
             // gridColumn33
@@ -517,7 +517,7 @@
             this.gridColumn33.FieldName = "FCOLORNO";
             this.gridColumn33.Name = "gridColumn33";
             this.gridColumn33.Visible = true;
-            this.gridColumn33.VisibleIndex = 3;
+            this.gridColumn33.VisibleIndex = 5;
             this.gridColumn33.Width = 100;
             // 
             // gridColumn35
@@ -530,7 +530,7 @@
             this.gridColumn35.FieldName = "FORDERUNIT";
             this.gridColumn35.Name = "gridColumn35";
             this.gridColumn35.Visible = true;
-            this.gridColumn35.VisibleIndex = 4;
+            this.gridColumn35.VisibleIndex = 6;
             this.gridColumn35.Width = 80;
             // 
             // gridColumn36
@@ -550,7 +550,7 @@
             this.gridColumn36.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "FORDERUNITQTY", "数量={0:N0}")});
             this.gridColumn36.Visible = true;
-            this.gridColumn36.VisibleIndex = 5;
+            this.gridColumn36.VisibleIndex = 7;
             this.gridColumn36.Width = 112;
             // 
             // gridColumn11
@@ -559,7 +559,7 @@
             this.gridColumn11.FieldName = "cjkcs";
             this.gridColumn11.Name = "gridColumn11";
             this.gridColumn11.Visible = true;
-            this.gridColumn11.VisibleIndex = 6;
+            this.gridColumn11.VisibleIndex = 8;
             // 
             // gridColumn5
             // 
@@ -569,7 +569,7 @@
             this.gridColumn5.FieldName = "FPRICE";
             this.gridColumn5.Name = "gridColumn5";
             this.gridColumn5.Visible = true;
-            this.gridColumn5.VisibleIndex = 7;
+            this.gridColumn5.VisibleIndex = 9;
             // 
             // gridColumn37
             // 
@@ -584,7 +584,7 @@
             this.gridColumn37.FieldName = "Famount";
             this.gridColumn37.Name = "gridColumn37";
             this.gridColumn37.Visible = true;
-            this.gridColumn37.VisibleIndex = 8;
+            this.gridColumn37.VisibleIndex = 10;
             this.gridColumn37.Width = 80;
             // 
             // gridColumn42
@@ -595,7 +595,7 @@
             this.gridColumn42.FieldName = "FREMARK";
             this.gridColumn42.Name = "gridColumn42";
             this.gridColumn42.Visible = true;
-            this.gridColumn42.VisibleIndex = 9;
+            this.gridColumn42.VisibleIndex = 11;
             this.gridColumn42.Width = 160;
             // 
             // gridColumn38
@@ -608,7 +608,7 @@
             this.gridColumn38.FieldName = "FCOMMITQTY";
             this.gridColumn38.Name = "gridColumn38";
             this.gridColumn38.Visible = true;
-            this.gridColumn38.VisibleIndex = 10;
+            this.gridColumn38.VisibleIndex = 12;
             this.gridColumn38.Width = 113;
             // 
             // gridColumn27
@@ -625,7 +625,7 @@
             this.gridColumn30.FieldName = "FPRODUCTCODE";
             this.gridColumn30.Name = "gridColumn30";
             this.gridColumn30.Visible = true;
-            this.gridColumn30.VisibleIndex = 11;
+            this.gridColumn30.VisibleIndex = 1;
             this.gridColumn30.Width = 115;
             // 
             // gridColumn16
@@ -635,7 +635,7 @@
             this.gridColumn16.Name = "gridColumn16";
             this.gridColumn16.OptionsColumn.AllowEdit = false;
             this.gridColumn16.Visible = true;
-            this.gridColumn16.VisibleIndex = 12;
+            this.gridColumn16.VisibleIndex = 13;
             // 
             // gridColumn17
             // 
@@ -644,7 +644,7 @@
             this.gridColumn17.Name = "gridColumn17";
             this.gridColumn17.OptionsColumn.AllowEdit = false;
             this.gridColumn17.Visible = true;
-            this.gridColumn17.VisibleIndex = 13;
+            this.gridColumn17.VisibleIndex = 2;
             // 
             // gridColumn18
             // 

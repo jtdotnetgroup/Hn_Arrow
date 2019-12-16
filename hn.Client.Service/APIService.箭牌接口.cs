@@ -11,6 +11,7 @@ using hn.DataAccess.model;
 using hn.DataAccess.Model;
 using Newtonsoft.Json;
 using System.ComponentModel.DataAnnotations;
+using AutoMapper;
 using hn.DataAccess.dal;
 using hn.DataAccess.model.Common;
 
@@ -100,6 +101,7 @@ namespace hn.Client.Service
             var Helper = new OracleDBHelper();
 
             if (result.Success)
+            {
                 foreach (var row in result.Rows.AsParallel())
                 {
                     var conn = Helper.GetNewConnection();
@@ -108,14 +110,13 @@ namespace hn.Client.Service
                     try
                     {
                         Helper.DeleteWithTran(row, tran);
-                        Helper.DeleteWithTran<AcctOAStatusDetailed>(row.orderNo, tran);
+                        Helper.DeleteWithTran<AcctOAStatusDetailed>($" AND ORDERNO='{row.orderNo}'", tran);
                         Helper.InsertWithTransation(row, tran);
-                        result.Rows.ForEach(p => Helper.InsertWithTransation(p, tran));
                     }
                     catch (Exception e)
                     {
                         tran.Rollback();
-                        var message = string.Format("OA同步结果插入失败：{0}", JsonConvert.SerializeObject(row));
+                        var message = $"OA同步结果插入失败：{JsonConvert.SerializeObject(row)}";
                         LogHelper.Info(message);
                         LogHelper.Error(e);
                         return false;
@@ -123,6 +124,7 @@ namespace hn.Client.Service
 
                     tran.Commit();
                 }
+            }
 
 
             return result.Success;
@@ -194,24 +196,51 @@ namespace hn.Client.Service
 
         }
 
-        public PageResult<v_lhproducts_policyModel> GetPolicyProducts(ICPOBILL_PolicyDTO header, v_lhproducts_policyModel where, int index=1, int size=35)
+        public PageResult<v_lhproducts_policyModel> GetPolicyProducts(ICPOBILL_PolicyDTO header,
+            v_lhproducts_policyModel where, int index = 1, int size = 35)
         {
-            
-            where=  ComputeWhere(header, where);
+            where=   ComputeWhere(header, where);
             var helper=new OracleDBHelper();
+            var total = 0;
 
             string whereStr = helper.GetWhereStr(where);
 
-            var data= helper.GetWithWhereStrByPage<v_lhproducts_policyModel>(whereStr,where, index,size);
+            List <v_lhproducts_policyModel > resultList= new List<v_lhproducts_policyModel>();
 
-            var total = helper.Count<v_lhproducts_policyModel>(whereStr);
+            if (string.IsNullOrEmpty(header.HeadID))
+            {
+                List<V_LHPRODUCTS_UNPOLICYHEADID> data = helper.GetWithWhereStrByPage<V_LHPRODUCTS_UNPOLICYHEADID>(whereStr, where, index, size);
+
+                total = helper.Count<V_LHPRODUCTS_UNPOLICYHEADID>(whereStr);
+
+                var t = typeof(V_LHPRODUCTS_UNPOLICYHEADID);
+
+                var pis = t.GetProperties().ToList();
+
+                data.ForEach(p =>
+                {
+                   var item=new v_lhproducts_policyModel();
+                   pis.ForEach(pi =>
+                   {
+                       var value = pi.GetValue(p, null);
+                       pi.SetValue(item, value);
+                   });
+                   resultList.Add(item);
+                });
+            }
+            else
+            {
+                List<v_lhproducts_policyModel> data = helper.GetWithWhereStrByPage<v_lhproducts_policyModel>(whereStr, where, index, size);
+
+                total = helper.Count<v_lhproducts_policyModel>(whereStr);
+                resultList = data;
+            }
 
             PageResult<v_lhproducts_policyModel> result = new PageResult<v_lhproducts_policyModel>()
-                {Total = total, Result = data};
+                {Total = total, Result = resultList };
 
             return result;
         }
-
 
         private bool CheckNull(ICPOBILL_PolicyDTO header)
         {
@@ -231,10 +260,11 @@ namespace hn.Client.Service
             return true;
         }
 
-        private v_lhproducts_policyModel ComputeWhere(ICPOBILL_PolicyDTO header, v_lhproducts_policyModel where)
+        private v_lhproducts_policyModel ComputeWhere(ICPOBILL_PolicyDTO header, v_lhproducts_policyModel where) 
         {
             CheckNull(header);
-           
+
+            where.LHPRODTYPE = header.BrandName;
 
             switch (header.OrderType)
             {
@@ -254,20 +284,26 @@ namespace hn.Client.Service
                 case "Advertise":
                 {
                     where.LHPRODSIGN = "广告物料";
+                    where.LHPRODTYPE = "广告用品";
                     break;
                 }
             }
 
-            where.HEADID=string.IsNullOrEmpty(header.HeadID)?"":header.HeadID;
+            where.HEADID=string.IsNullOrEmpty(header.HeadID)?null:header.HeadID;
 
-            where.DEPTNAME = header.BrandName.Contains("事业部")?header.BrandName:$"{header.BrandName}事业部";
-            where.ORDERTYPE = header.OrderType;
-            where.ORDERSUBTYPE = header.OrderSubType;
-            where.LHPRODTYPE = header.BrandName;
-            where.ACCTCODES = header.Account;
+            if (!string.IsNullOrEmpty(header.HeadID))
+            {
+                where.DEPTNAME = header.BrandName.Contains("事业部") ? header.BrandName : $"{header.BrandName}事业部";
+                where.ORDERTYPE = header.OrderType;
+                where.ORDERSUBTYPE = header.OrderSubType;
+                where.ACCTCODES = header.Account;
+            }
+
+            where.LHPRODCHANNEL = header.Channel;
 
             return where;
 
         }
+
     }
 }

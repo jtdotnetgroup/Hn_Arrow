@@ -10,6 +10,7 @@ using System.Linq;
 using System.Windows.Forms;
 using hn.ArrowInterface.Entities;
 using hn.Client.ApiService;
+using hn.Client.Views.Diglog;
 using hn.Common;
 
 namespace hn.Client
@@ -74,7 +75,11 @@ namespace hn.Client
             InitializeComponent();
 
             _service = new ApiService.APIServiceClient("BasicHttpBinding_IAPIService", Global.WcfUrl);
-
+            var mcu = _service.GetJYDW(pModel.FPREMISEID);
+            if (mcu != null&&mcu.Length>0)
+            {
+                txtMcu.Text = mcu.First().FNAME;
+            }
             ICPOBILLMODELm = _service.GetSingleOrder(pModel.FID);
             IniValue();
             bEdit = true;
@@ -522,6 +527,14 @@ namespace hn.Client
             #endregion
 
             #region 3、形成主表数据 
+
+            ///经营场所
+            var mcu = labMCU.Tag as TB_PREMISE_GRIDVIEW_DTO;
+            if (mcu != null)
+            {
+                tBill.FPREMISEID = mcu.FID;
+            }
+
             tBill.FTRANSTYPE = "0";
             tBill.FBRANDID = (comBrand.SelectedItem as TB_BrandModel).FID;
             tBill.FCLIENTID = txt厂家账户.Tag.ToStr();
@@ -545,7 +558,7 @@ namespace hn.Client
             tBill.LH_SALESCHANNEL = (cmbSaleChannel.SelectedItem as SYS_SUBDICSMODEL).FID;
             tBill.LH_ORDERPRODLINE = (cboLH_ORDERPRODLINE.SelectedItem as SYS_SUBDICSMODEL).FID;
             tBill.LH_EXPECTEDARRIVEDDATE = dateDHRQ.DateTime;
-            tBill.LH_PROMOTIONPOLICYID = (cmbPromotionPolicy.SelectedItem as LH_Policy).Id;
+            tBill.LH_PROMOTIONPOLICYID = (cmbPromotionPolicy.SelectedItem is LH_Policy)?(cmbPromotionPolicy.SelectedItem as LH_Policy).Id:null;
             tBill.LH_OUTBOUNDORDER = txtLH_OUTBOUNDORDER.Text;
             tBill.LH_ADVERTINGMONEYTYPE = (cmbDeductionMethod.SelectedItem as SYS_SUBDICSMODEL).FID;
             tBill.LH_BUTYPE = (cmbBusinessType.SelectedItem as SYS_SUBDICSMODEL).FID;
@@ -826,7 +839,7 @@ namespace hn.Client
         private V_ICPOBILLENTRYMODEL PolicyProductToICPOBillEntry(v_lhproducts_policyModel data)
         {
             V_ICPOBILLENTRYMODEL result = new V_ICPOBILLENTRYMODEL();
-            result.FITEMID = data.ITEMID;
+            result.FITEMID = data.PRODCODE;
             result.FPRODUCTNAME = data.PRODNAME;
             result.FPRODUCTTYPE = data.LHPRODTYPE;
             result.FPRODUCTCODE = data.PRODCODE;
@@ -846,7 +859,7 @@ namespace hn.Client
             result.LH_DCTPOLICYPRODNAME = data.PRODNAME;
 
             if (data.SPECIALOFFER != null) result.FPRICE = data.SPECIALOFFER.Value;
-            result.LH_DCTPOLICYITEMID = data.HEADID;
+            result.LH_DCTPOLICYITEMID = data.ITEMID;
 
             return result;
         }
@@ -896,6 +909,7 @@ namespace hn.Client
                 gridView发货计划明细.RefreshData();
             }
 
+            queryFrm.Dispose();
 
         }
         void SetcmbPromotionPolicyReadOnly()
@@ -1244,11 +1258,29 @@ namespace hn.Client
                 cmbPromotionPolicy.Properties.Items.AddRange(policies);
 
                 cmbPromotionPolicy.ShowPopup();
-
             }
             catch (Exception exception)
             {
                 MsgHelper.ShowInformation(exception.Message);
+            }
+
+        }
+
+        private void gridView发货计划明细_RowCountChanged(object sender, EventArgs e)
+        {
+            cmbPromotionPolicy.ReadOnly = gridView发货计划明细.RowCount != 0;
+        }
+
+        private void searchControl1_Properties_ButtonClick_2(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            //经营场所选择
+            FrmQueryMCU frm=new FrmQueryMCU();
+            if (frm.ShowDialog() == DialogResult.OK)
+            {
+                var result = frm.Result;
+                this.txtMcu.Text = result.FNAME;
+                labMCU.Tag = result;
+                frm.Dispose();
             }
 
         }

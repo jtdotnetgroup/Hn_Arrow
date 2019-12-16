@@ -186,7 +186,9 @@ namespace hn.DataAccess.Model
         /// OA状态
         /// </summary>
         public int? OASTATUS { get; set; }
-        
+
+        public string FPREMISEID { get; set; }
+
         #endregion
 
 

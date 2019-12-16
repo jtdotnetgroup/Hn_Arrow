@@ -1,17 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/MApiModel.api8" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/MApiModel.api8" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:complexType name="Rootobject">
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/hn.DataAccess.dal.LHModel" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/hn.DataAccess.dal.LHModel" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="ArrayOfLH_OUTBOUNDORDERModel">
     <xs:sequence>
-      <xs:element minOccurs="0" name="action" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="comid" type="xs:int" />
-      <xs:element minOccurs="0" name="khhm" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="pageIndex" type="xs:int" />
-      <xs:element minOccurs="0" name="pageSize" type="xs:int" />
-      <xs:element minOccurs="0" name="pzhm" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="rq1" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="rq2" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="token" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="LH_OUTBOUNDORDERModel" nillable="true" type="tns:LH_OUTBOUNDORDERModel" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="Rootobject" nillable="true" type="tns:Rootobject" />
+  <xs:element name="ArrayOfLH_OUTBOUNDORDERModel" nillable="true" type="tns:ArrayOfLH_OUTBOUNDORDERModel" />
+  <xs:complexType name="LH_OUTBOUNDORDERModel">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ACCTCODE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ACCTNAME" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ATTR2" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ATTR3" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="BILLACCTCODE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BILLACCTNAME" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FCARNO" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FSTATUS" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="LHADVERTISINGPOINT" type="xs:decimal" />
+      <xs:element minOccurs="0" name="LHBUTYPE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LHCONTRACTNO" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LHDELIVERYBASE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LHDELIVERYMAN" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LHDELIVERYTIME" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="LHMARK" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LHODOID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LHODONO" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LHODOTYPE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LHORGCODE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LHPLATENO" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LHREBATESPOINT" type="xs:decimal" />
+      <xs:element minOccurs="0" name="LHTOTALAMOUNT" type="xs:decimal" />
+      <xs:element minOccurs="0" name="LHTOTALVOLUME" type="xs:decimal" />
+      <xs:element minOccurs="0" name="LHTOTALint" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="LH_OUTBOUNDORDERModel" nillable="true" type="tns:LH_OUTBOUNDORDERModel" />
+  <xs:complexType name="ArrayOfLH_OUTBOUNDORDERDETAILEDModel">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="LH_OUTBOUNDORDERDETAILEDModel" nillable="true" type="tns:LH_OUTBOUNDORDERDETAILEDModel" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfLH_OUTBOUNDORDERDETAILEDModel" nillable="true" type="tns:ArrayOfLH_OUTBOUNDORDERDETAILEDModel" />
+  <xs:complexType name="LH_OUTBOUNDORDERDETAILEDModel">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="COLORNUM" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CUSTSELFNUM" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LHAMOUNT" type="xs:decimal" />
+      <xs:element minOccurs="0" name="LHDISCOUNTPRICE" type="xs:decimal" />
+      <xs:element minOccurs="0" name="LHDISCOUNTRATE" type="xs:decimal" />
+      <xs:element minOccurs="0" name="LHODOID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LHODOROWID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LHORDERCODE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LHORIGINALPRICE" type="xs:decimal" />
+      <xs:element minOccurs="0" name="LHPRODCODE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LHPRODCOLOR" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LHPRODSTANDARD" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LHPRODUNIT" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LHSENTEDQTY" type="xs:decimal" />
+      <xs:element minOccurs="0" name="LHVOLUME" type="xs:decimal" />
+      <xs:element minOccurs="0" name="NUMOFPACKAGE" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="LH_OUTBOUNDORDERDETAILEDModel" nillable="true" type="tns:LH_OUTBOUNDORDERDETAILEDModel" />
 </xs:schema>
