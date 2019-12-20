@@ -1,4 +1,5 @@
 ﻿using DevExpress.XtraGrid.Views.Grid;
+using hn.ArrowInterface.RequestParams;
 using hn.Common;
 using hn.DataAccess.model;
 using hn.DataAccess.Model;
@@ -11,8 +12,6 @@ using System.Linq;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using hn.ArrowInterface.RequestParams;
-using hn.Client.ApiService;
 
 namespace hn.Client
 {
@@ -374,14 +373,13 @@ namespace hn.Client
             if (e.RowHandle > -1)
             {
                 this.Cursor = Cursors.WaitCursor;
-                //222222222222222222
                 string fid = gridView采购订单列表.GetRowCellValue(e.RowHandle, "FID").ToString();
 
                 V_ICPOBILLENTRYMODEL[] list = _service.GetOrderEntryList(fid, null);
                 var tmp = _service.ICPOBILLENTRYMODEL_List(fid);
                 foreach (var item in tmp)
                 {
-                    var mtiem = list.Where(w => w.FID.Equals(item.FID)).FirstOrDefault();
+                    var mtiem = list.Where(w => w.FID.Equals(item.FID)).FirstOrDefault()??new V_ICPOBILLENTRYMODEL() ;
                     mtiem.FERR_MESSAGE = item.FERR_MESSAGE;
                     mtiem.FSRCMODEL = item.FSRCMODEL;
                     mtiem.FORDERUNIT = item.Funit;
@@ -1016,7 +1014,6 @@ namespace hn.Client
             catch (Exception exception)
             {
                 MsgHelper.ShowInformation(exception.Message);
-                
             }
 
             var action=new Action(() =>
@@ -1028,10 +1025,6 @@ namespace hn.Client
 
         private void backgroundWorker2_DoWork(object sender, DoWorkEventArgs e)
         {
-
-
-
-
             #region 蒙厂代码，不适用
             switch (optType)
             {
@@ -1294,15 +1287,15 @@ namespace hn.Client
                 MsgHelper.Warning("同步失败！");
                 return;
             }
-            if (_service.OA_Status(idStrings.ToArray()))
-            {
-                MsgHelper.ShowInformation("同步成功！");
-                simpleButton9_Click(null, null);
-            }
-            else
-            {
-                MsgHelper.Warning("同步失败！");
-            }
+            //if (lhservice.AcctOaStatus(idStrings.ToArray()))
+            //{
+            //    MsgHelper.ShowInformation("同步成功！");
+            //    simpleButton9_Click(null, null);
+            //}
+            //else
+            //{
+            //    MsgHelper.Warning("同步失败！");
+            //}
 
         }
     }

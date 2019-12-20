@@ -12,7 +12,7 @@ using hn.Core.Model;
 using hn.DataAccess.Dal;
 namespace hn.DataAccess.Model
 {
-    [TableName("V_ICPOBILLENTRY")]
+    [TableName("V_LH_ICPOBILLENTRY")]
     [Description("采购订单明细")]
     public class V_ICPOBILLENTRYMODEL : ICPOBILLENTRYMODEL
     {
@@ -49,6 +49,9 @@ namespace hn.DataAccess.Model
         public string FUNITNAME { get; set; }
 
         public string FORDERUNIT { get; set; }
+
+        public string PRODSTANDARD { get; set; }
+        public string PRODMODEL { get; set; }
 
         /// <summary>
         /// 基本单位名称

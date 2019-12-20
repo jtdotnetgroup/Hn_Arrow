@@ -1,12 +1,11 @@
-﻿using hn.Common;
-using hn.Common.Provider;
+﻿using hn.Common.Provider;
+using hn.Common_Arrow;
 using hn.Core;
 using hn.DataAccess.Dal;
 using hn.DataAccess.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using hn.Common_Arrow;
 using LogHelper = hn.Common.LogHelper;
 
 namespace hn.DataAccess.Bll
@@ -77,7 +76,7 @@ namespace hn.DataAccess.Bll
             {
                 FID = ICPOBILL.FID;
 
-                var model =  ICPOBILLDAL.Instance.Get(FID);
+                var model = ICPOBILLDAL.Instance.Get(FID);
                 model.FBRANDID = ICPOBILL.FBRANDID;
                 model.FCLIENTID = ICPOBILL.FCLIENTID;
                 model.FREMARK = ICPOBILL.FREMARK;
@@ -139,83 +138,77 @@ namespace hn.DataAccess.Bll
             var tran = conn.BeginTransaction();
             try
             {
-               
+                string FID = null;
 
-                LogHelper.Info("ICPOBILLENTRYList=" + JSONhelper.ToJson(ICPOBILLENTRYList));
-
-            string FID = null;
-
-            #region 执行前检测
-            if (!ICPOBILL.FID.IsGuid())
-            {
-                ICPOBILLMODEL temp = ICPOBILLDAL.Instance.GetWhere(new { FBILLNO = ICPOBILL.FBILLNO }).FirstOrDefault();
-
-                if (temp != null && temp.FID != ICPOBILL.FID)
+                #region 执行前检测
+                if (!ICPOBILL.FID.IsGuid())
                 {
-                    return "采购订单编号重复！";
+                    ICPOBILLMODEL temp = ICPOBILLDAL.Instance.GetWhere(new { FBILLNO = ICPOBILL.FBILLNO }).FirstOrDefault();
+
+                    if (temp != null && temp.FID != ICPOBILL.FID)
+                    {
+                        return "采购订单编号重复！";
+                    }
                 }
-            }
 
-            #endregion
+                #endregion
 
-            #region 保存主表
+                #region 保存主表
 
-            if (!ICPOBILL.FID.IsGuid())
-            {
-                FID = Guid.NewGuid().ToString();
-                ICPOBILL.FSTATUS = 1;
-                ICPOBILL.FSTATE = 1;
-                ICPOBILL.FBILLER = ICPOBILL.FBILLER;
-                ICPOBILL.FBILLERNAME = ICPOBILL.FBILLER;
-                ICPOBILL.FBILLDATE = DateTime.Now;
-                ICPOBILL.Fpricepolicy = ICPOBILL.Fpricepolicy;
-                ICPOBILL.FPOtype = ICPOBILL.FPOtype;
-                ICPOBILL.Fnote = ICPOBILL.Fnote;
-                ICPOBILL.FID = FID;
+                if (!ICPOBILL.FID.IsGuid())
+                {
+                    FID = Guid.NewGuid().ToString();
+                    ICPOBILL.FSTATUS = 1;
+                    ICPOBILL.FSTATE = 1;
+                    ICPOBILL.FBILLER = ICPOBILL.FBILLER;
+                    ICPOBILL.FBILLERNAME = ICPOBILL.FBILLER;
+                    ICPOBILL.FBILLDATE = DateTime.Now;
+                    ICPOBILL.Fpricepolicy = ICPOBILL.Fpricepolicy;
+                    ICPOBILL.FPOtype = ICPOBILL.FPOtype;
+                    ICPOBILL.Fnote = ICPOBILL.Fnote;
+                    ICPOBILL.FID = FID;
 
-                helper.InsertWithTransation(ICPOBILL, tran);
-            }
-            else
-            {
-                FID = ICPOBILL.FID;
+                    helper.InsertWithTransation(ICPOBILL, tran);
+                }
+                else
+                {
+                    FID = ICPOBILL.FID;
+                    var model = ICPOBILLDAL.Instance.Get(FID);
+                    model.FCLIENTID = ICPOBILL.FCLIENTID;
+                    model.FREMARK = ICPOBILL.FREMARK;
+                    model.FDATE = ICPOBILL.FDATE;
+                    model.FTELEPHONE = ICPOBILL.FTELEPHONE;
+                    model.Fpricepolicy = ICPOBILL.Fpricepolicy;
+                    model.FPOtype = ICPOBILL.FPOtype;
+                    model.Fnote = ICPOBILL.Fnote;
+                    model.FPREMISEID = ICPOBILL.FPREMISEID;
 
-                var model = ICPOBILLDAL.Instance.Get(FID);            
-                model.FCLIENTID = ICPOBILL.FCLIENTID;
-                model.FREMARK = ICPOBILL.FREMARK;
-                model.FDATE = ICPOBILL.FDATE;
-                model.FTELEPHONE = ICPOBILL.FTELEPHONE;
-                model.Fpricepolicy = ICPOBILL.Fpricepolicy;
-                model.FPOtype = ICPOBILL.FPOtype;
-                model.Fnote = ICPOBILL.Fnote;
+                    var iResult = helper.UpdateWithTransation(model, tran);
 
+                }
 
-                //int iResult= ICPOBILLDAL.Instance.Update(model);
-                var iResult = helper.UpdateWithTransation(model,tran);
+                #endregion
 
-            }
+                #region 保存子表
 
-            #endregion
+                //删除明细
+                //ICPOBILLENTRYBLL.Instance.DeleteByICPOBILLID(FID);
+                helper.DeleteWithTran<ICPOBILLENTRYMODEL>($"AND  FICPOBILLID='{FID}'", tran);
 
-            #region 保存子表
+                //保存明细
+                foreach (var item in ICPOBILLENTRYList)
+                {
+                    item.FICPOBILLID = FID;
+                    item.FID = Guid.NewGuid().ToString();
 
-            //删除明细
-            //ICPOBILLENTRYBLL.Instance.DeleteByICPOBILLID(FID);
-            helper.DeleteWithTran<ICPOBILLENTRYMODEL>($"AND  FICPOBILLID='{FID}'", tran);
+                    helper.InsertWithTransation(item, tran);
 
-            //保存明细
-            foreach (var item in ICPOBILLENTRYList)
-            {
-                item.FICPOBILLID = FID;
-                item.FID = Guid.NewGuid().ToString();
+                }
 
-                helper.InsertWithTransation(item, tran);
-
-            }
-
-            #endregion
-            tran.Commit();
-            conn.Dispose();
-            return null;
+                #endregion
+                tran.Commit();
+                conn.Dispose();
+                return null;
             }
             catch (Exception e)
             {
@@ -242,7 +235,7 @@ namespace hn.DataAccess.Bll
         /// <returns></returns>
         public bool OA_Status(string[] idStrings)
         {
-            return ICPOBILLDAL.Instance.ExecuteNonQuery(@"Update ICPOBILL SET OASTATUS = 1 WHERE FDESBILLNO IN('"+string.Join("','",idStrings) + "')") > 0;
+            return ICPOBILLDAL.Instance.ExecuteNonQuery(@"Update ICPOBILL SET OASTATUS = 1 WHERE FDESBILLNO IN('" + string.Join("','", idStrings) + "')") > 0;
         }
     }
 }

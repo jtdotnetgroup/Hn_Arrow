@@ -12,8 +12,8 @@ using hn.Core.Model;
 using hn.DataAccess.Dal;
 namespace hn.DataAccess.Model
 {
-    [Table("V_ICPOBILL")]
-    [TableName("V_ICPOBILL")]
+    [Table("V_LH_ICPOBILL")]
+    [TableName("V_LH_ICPOBILL")]
     [Description("采购订单")]
     public class V_ICPOBILLMODEL : ICPOBILLMODEL
     {
@@ -21,6 +21,8 @@ namespace hn.DataAccess.Model
         public string FBRANDNAME { get; set; }
 
         public string FSRCCODE { get; set; }
+
+        public string LH_ORDERTYPENAME { get; set; }
 
         /// <summary>
         /// 审核状态

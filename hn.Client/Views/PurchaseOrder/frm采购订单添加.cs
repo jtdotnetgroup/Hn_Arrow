@@ -1,5 +1,7 @@
-﻿using hn.DataAccess.model;
-using hn.DataAccess.model.Common;
+﻿using hn.ArrowInterface.Entities;
+using hn.Client.Views.Diglog;
+using hn.Common;
+using hn.DataAccess.model;
 using hn.DataAccess.Model;
 using System;
 using System.Collections.Generic;
@@ -8,10 +10,6 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
-using hn.ArrowInterface.Entities;
-using hn.Client.ApiService;
-using hn.Client.Views.Diglog;
-using hn.Common;
 
 namespace hn.Client
 {
@@ -191,14 +189,17 @@ namespace hn.Client
             //把政策列表放入控件TAG属性中，供后续调用
             cmbPromotionPolicy.Tag = policyList;
 
+            var selectItem = policyList.SingleOrDefault(p => p.Id == ICPOBILLMODELm.LH_PROMOTIONPOLICYID);
+
             foreach (var item in policyList)
             {
-                if (item.Id == ICPOBILLMODELm.LH_PROMOTIONPOLICYID)
-                {
-                    cmbPromotionPolicy.SelectedIndex = 0;
                     cmbPromotionPolicy.Properties.Items.Add(item);
                     cmbPromotionPolicy.SelectedItem = item;
-                }
+            }
+
+            if (selectItem != null)
+            {
+                cmbPromotionPolicy.SelectedItem = selectItem;
             }
         }
 
@@ -237,8 +238,11 @@ namespace hn.Client
             var list = _service.GetDics("LH_PROD_CHANNEL", "", false);
             cmbSaleChannel.Properties.Items.AddRange(list);
             cmbSaleChannel.SelectedIndex = 0;
-            var selectItem =
-                list.SingleOrDefault(p => p.FNAME == "零售" || p.FID == model.LH_SALESCHANNEL);
+
+            var selectItem = string.IsNullOrEmpty(model.LH_SALESCHANNEL)
+                ? list.SingleOrDefault(p => p.FNAME.Equals("零售"))
+                : list.SingleOrDefault(p => p.FID.Equals(model.LH_SALESCHANNEL));
+             
 
             if (!string.IsNullOrEmpty(model.LH_SALESCHANNEL))
             {
@@ -271,7 +275,7 @@ namespace hn.Client
             cmbDeductionMethod.SelectedIndex = 0;
             if (!string.IsNullOrEmpty(model.LH_ADVERTINGMONEYTYPE))
             {
-                selectItem = list.SingleOrDefault(p => p.FNAME == model.LH_ADVERTINGMONEYTYPE);
+                selectItem = list.SingleOrDefault(p => p.FID == model.LH_ADVERTINGMONEYTYPE);
             }
             cmbDeductionMethod.SelectedItem = selectItem;
         }
@@ -583,7 +587,7 @@ namespace hn.Client
                 sub0.FSRCQTY = sub.FSRCQTY;
                 sub0.FSRCCOST = sub0.FPRICE * sub0.FSRCQTY;
                 //后面添加的字段
-                sub0.FITEMID = sub.FITEMID;
+                sub0.FITEMID = sub.FSRCCODE;
                 sub0.FSRCCODE = sub.FSRCCODE;
                 sub0.FSRCNAME = sub.FSRCNAME;
                 sub0.FSRCMODEL = sub.FSRCMODEL;
@@ -608,7 +612,6 @@ namespace hn.Client
                 sub0.LH_DCTPOLICYROWTYPE = sub.LH_DCTPOLICYROWTYPE;
 
 
-
                 listSub.Add(sub0);
             }
             #endregion
@@ -616,7 +619,9 @@ namespace hn.Client
             #region 5、开始保存
             try
             {
+
                 string sResult = _service.SaveICPOBILL(tBill, listSub.ToArray());
+
                 System.Windows.Forms.MessageBox.Show(sResult);
                 if (this.SaveAfter != null)
                 {

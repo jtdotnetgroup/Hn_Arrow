@@ -78,6 +78,31 @@ namespace hn.DataAccess.model
         public string ACCTCODES { get; set; }
     }
 
+    [Table("v_lhproducts_policy")]
+    public class v_lhproduts_policyModelDTO
+    {
+        public string PRODNAME { get; set; }
+        public string PRODSTANDARD { get; set; }
+        public string PRODMODEL { get; set; }
+        /// <summary>
+        /// 政策起始量
+        /// </summary>
+        public decimal? MINIMUMQUANTITY { get; set; }
+        /// <summary>
+        /// 政策封顶量
+        /// </summary>
+        public decimal? CAPPINGQUANTITY { get; set; }
+        /// <summary>
+        /// 折扣率
+        /// </summary>
+        public decimal? DISCOUNTRATE { get; set; }
+        /// <summary>
+        /// 特价
+        /// </summary>
+        public decimal? SPECIALOFFER { get; set; }
+
+    }
+
     [Table("V_LHPRODUCTS_UNPOLICYHEADID")]
     public class V_LHPRODUCTS_UNPOLICYHEADID:v_lhproducts_policyModel
     {

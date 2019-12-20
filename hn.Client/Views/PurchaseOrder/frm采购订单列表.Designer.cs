@@ -368,7 +368,7 @@
             // gridColumn13
             // 
             this.gridColumn13.Caption = "订单类型";
-            this.gridColumn13.FieldName = "LH_ORDERTYPE";
+            this.gridColumn13.FieldName = "LH_ORDERTYPENAME";
             this.gridColumn13.Name = "gridColumn13";
             this.gridColumn13.Visible = true;
             this.gridColumn13.VisibleIndex = 11;
@@ -485,7 +485,7 @@
             this.gridColumn10.AppearanceCell.Options.UseTextOptions = true;
             this.gridColumn10.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.gridColumn10.Caption = "厂家规格";
-            this.gridColumn10.FieldName = "GG";
+            this.gridColumn10.FieldName = "PRODSTANDARD";
             this.gridColumn10.MinWidth = 10;
             this.gridColumn10.Name = "gridColumn10";
             this.gridColumn10.Visible = true;
@@ -497,7 +497,7 @@
             this.gridColumn9.AppearanceCell.Options.UseTextOptions = true;
             this.gridColumn9.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.gridColumn9.Caption = "厂家型号";
-            this.gridColumn9.FieldName = "XH";
+            this.gridColumn9.FieldName = "PRODMODEL";
             this.gridColumn9.MinWidth = 200;
             this.gridColumn9.Name = "gridColumn9";
             this.gridColumn9.Visible = true;
@@ -622,7 +622,7 @@
             this.gridColumn30.AppearanceCell.Options.UseTextOptions = true;
             this.gridColumn30.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.gridColumn30.Caption = "商品代码";
-            this.gridColumn30.FieldName = "FPRODUCTCODE";
+            this.gridColumn30.FieldName = "FSRCCODE";
             this.gridColumn30.Name = "gridColumn30";
             this.gridColumn30.Visible = true;
             this.gridColumn30.VisibleIndex = 1;
@@ -645,6 +645,7 @@
             this.gridColumn17.OptionsColumn.AllowEdit = false;
             this.gridColumn17.Visible = true;
             this.gridColumn17.VisibleIndex = 2;
+            this.gridColumn17.Width = 137;
             // 
             // gridColumn18
             // 

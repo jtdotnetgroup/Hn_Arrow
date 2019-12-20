@@ -3,6 +3,7 @@ using Omu.ValueInjecter;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.Common;
 using System.Data.OracleClient;
 using System.Linq;
 using System.Text;
@@ -265,28 +266,28 @@ namespace hn.Common.Data
         public static string Insert(object o)
         {
             string s = "";
-            
-                using (var conn = new OracleConnection(cs))
-                {
-                    using (var cmd = conn.CreateCommand())
-                    {
-                        cmd.CommandType = CommandType.Text;
-                        cmd.CommandText = "insert into " + TableConvention.Resolve(o) + " ("
-                            .InjectFrom(new FieldsBy().IgnoreFields(""), o) + ") values("
-                            .InjectFrom(new FieldsBy().IgnoreFields("").SetFormat(":{0}"), o)
-                            + ")";
 
-                        cmd.InjectFrom(new SetParamsValues().IgnoreFields(""), o);
-                        string fid = Guid.NewGuid().ToString();
-                        cmd.Parameters.Add(new OracleParameter("FID", OracleType.VarChar) { Value = fid });
-                        s = cmd.CommandText;
-                        conn.Open();
-                        LogHelper.WriteLog(cmd.CommandText);
-                        cmd.ExecuteScalar();
-                        return fid;
-                    }
+            using (var conn = new OracleConnection(cs))
+            {
+                using (var cmd = conn.CreateCommand())
+                {
+                    cmd.CommandType = CommandType.Text;
+                    cmd.CommandText = "insert into " + TableConvention.Resolve(o) + " ("
+                        .InjectFrom(new FieldsBy().IgnoreFields(""), o) + ") values("
+                        .InjectFrom(new FieldsBy().IgnoreFields("").SetFormat(":{0}"), o)
+                        + ")";
+
+                    cmd.InjectFrom(new SetParamsValues().IgnoreFields(""), o);
+                    string fid = Guid.NewGuid().ToString();
+                    cmd.Parameters.Add(new OracleParameter("FID", OracleType.VarChar) { Value = fid });
+                    s = cmd.CommandText;
+                    conn.Open();
+                    LogHelper.WriteLog(cmd.CommandText);
+                    cmd.ExecuteScalar();
+                    return fid;
                 }
-           
+            }
+
         }
 
         public static int InsertWithFID(object o, string FID)
@@ -337,7 +338,7 @@ namespace hn.Common.Data
             }
         }
 
-        public static int UpdateWithWhere<T>(T row,string where)
+        public static int UpdateWithWhere<T>(T row, string where)
         {
             try
             {
@@ -352,10 +353,10 @@ namespace hn.Common.Data
                 LogHelper.WriteLog(ex);
                 throw;
             }
-            
+
         }
 
-        private static OracleCommand GetCommand<T>(string sql,T obj,OracleConnection conn)
+        private static OracleCommand GetCommand<T>(string sql, T obj, OracleConnection conn)
         {
             if (conn.State == ConnectionState.Closed)
             {
@@ -369,7 +370,7 @@ namespace hn.Common.Data
 
             pis.ForEach(p =>
             {
-                var value = p.GetValue(obj,null);
+                var value = p.GetValue(obj, null);
                 if (value == null)
                     value = "";
 
@@ -519,7 +520,7 @@ namespace hn.Common.Data
                 return 0;
             }
         }
-        public static int Update(object o,OracleConnection conn,OracleTransaction tran)
+        public static int Update(object o, OracleConnection conn, OracleTransaction tran)
         {
             try
             {
@@ -545,7 +546,7 @@ namespace hn.Common.Data
                 LogHelper.WriteLog(ee.ToString());
 
                 tran.Rollback();
-            
+
                 return 0;
             }
         }
@@ -606,9 +607,9 @@ namespace hn.Common.Data
 
                 throw;
             }
-            
+
         }
-        public static int UpdateWhatWhere<T>(object what, object where, OracleConnection conn,OracleTransaction tran)
+        public static int UpdateWhatWhere<T>(object what, object where, OracleConnection conn, OracleTransaction tran)
         {
             using (var cmd = conn.CreateCommand())
             {
@@ -688,7 +689,7 @@ namespace hn.Common.Data
                 {
                     cmd.CommandType = CommandType.Text;
                     cmd.CommandText = commendText;
-                    conn.Open(); 
+                    conn.Open();
                     LogHelper.WriteLog(commendText);
                     return cmd.ExecuteNonQuery();
                 }
@@ -815,11 +816,11 @@ namespace hn.Common.Data
             }
         }
 
-        public static object GetExecuteScalarWhere(string sql,object where)
+        public static object GetExecuteScalarWhere(string sql, object where)
         {
-            using(var conn=new OracleConnection(cs))
+            using (var conn = new OracleConnection(cs))
             {
-                using(var cmd = conn.CreateCommand())
+                using (var cmd = conn.CreateCommand())
                 {
                     if (where != null)
                     {
@@ -828,14 +829,14 @@ namespace hn.Common.Data
                         .SetNullFormat("{0} IS NULL")
                         .SetGlue(" and "), where);
                     }
-                    
+
                     cmd.CommandType = CommandType.Text;
                     cmd.CommandText = sql;
 
                     conn.Open();
 
-                    return  cmd.ExecuteScalar();
-                    
+                    return cmd.ExecuteScalar();
+
                 }
             }
         }
@@ -861,7 +862,7 @@ namespace hn.Common.Data
                 LogHelper.WriteLog(e);
                 throw;
             }
-            
+
         }
 
         public static int GetPageCount(int pageSize, int count)
@@ -1390,27 +1391,25 @@ namespace hn.Common.Data
         /// <param name="sql">SQL语句，例如：INSERT INTO ABC(A,B,C) values(@A,@B,@C) </param>
         /// <param name="values">插入的值，字典类型，键格式为:@XXX，防SQL注入攻击</param>
         /// <returns>插入了多少行</returns>
-        public static int InsertWithTranscation(string sql, Dictionary<string, object> values)
+        public static int InsertWithTranscation(string sql, Dictionary<string, object> values, DbTransaction tran)
         {
-            using (OracleConnection conn = new OracleConnection(cs))
-            {
-                var tran = conn.BeginTransaction();
+            var conn = tran.Connection;
 
-                var cmd = GetCommand(sql, conn, tran, values);
+            var trann = tran;
 
-                var result = cmd.ExecuteNonQuery();
+            var cmd = GetCommand(sql, conn, trann, values);
 
-                tran.Commit();
+            var result = cmd.ExecuteNonQuery();
 
-                return result;
-            }
+            return result;
         }
 
         #endregion
 
-        private static OracleCommand GetCommand(string sql, OracleConnection conn, OracleTransaction tx = null, Dictionary<string, object> values = null)
+        private static DbCommand GetCommand(string sql, DbConnection conn, DbTransaction tx = null, Dictionary<string, object> values = null)
         {
-            OracleCommand cmd = new OracleCommand(sql, conn);
+            var cmd = conn.CreateCommand();
+            cmd.CommandText = sql;
 
             if (tx != null)
             {
@@ -1425,6 +1424,8 @@ namespace hn.Common.Data
             foreach (string key in values.Keys)
             {
                 OracleParameter param = new OracleParameter(key, values[key]);
+
+
                 cmd.Parameters.Add(param);
             }
 

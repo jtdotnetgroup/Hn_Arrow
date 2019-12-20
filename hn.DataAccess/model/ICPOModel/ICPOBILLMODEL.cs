@@ -34,29 +34,16 @@ namespace hn.DataAccess.Model
         /// </summary>
         public string FCLIENTID { get; set; }
 
-     
-
-
         /// <summary>
         /// 订单日期
         /// </summary>
         public DateTime FDATE { get; set; }
-        [NotMapped]
-        [DbField(false)]
-        public string FDATESTR { get; set; }
 
         /// <summary>
         /// 制单人ID
         /// </summary>
         public string FBILLER { get; set; }
-
-        /// <summary>
-        /// 制单人名称
-        /// </summary>
-        [NotMapped]
-        [DbField(false)]
-        public string FBILLERNAME { get; set; }
-
+        
         /// <summary>
         /// 联系电话
         /// </summary>
@@ -67,19 +54,15 @@ namespace hn.DataAccess.Model
         /// </summary>
         public DateTime FBILLDATE { get; set; }
 
-
-      
-
         /// <summary>
         /// 审批日期
         /// </summary>
-        public DateTime FCHECKDATE { get; set; }
+        public DateTime? FCHECKDATE { get; set; }
 
         /// <summary>
         /// 备注
         /// </summary>
         public string FREMARK { get; set; }
-
 
         /// <summary>
         /// 启用状态
@@ -231,5 +214,15 @@ namespace hn.DataAccess.Model
                 }
             }
         }
+
+        /// <summary>
+        /// 制单人名称
+        /// </summary>
+        [NotMapped]
+        [DbField(false)]
+        public string FBILLERNAME { get; set; }
+        [NotMapped]
+        [DbField(false)]
+        public string FDATESTR { get; set; }
     }
 }

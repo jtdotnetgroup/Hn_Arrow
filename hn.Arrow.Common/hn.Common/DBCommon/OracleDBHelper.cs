@@ -153,6 +153,69 @@ namespace hn.Common_Arrow
             return strbuilder.ToString();
         }
 
+        public string GetInsertSql<T>(T entity)
+        {
+            var t = typeof(T);
+
+            var pis = t.GetProperties().Where(p =>
+                p.GetCustomAttributes(true).Count(pi => pi.GetType() == typeof(NotMappedAttribute)) == 0).ToList();
+
+            var tableAttr =
+                t.GetCustomAttributes(true)
+                    .FirstOrDefault(p => p.GetType() == typeof(TableAttribute)) as TableAttribute;
+            var tableName = tableAttr.Name;
+
+            var strbuilder = new StringBuilder();
+            strbuilder.AppendFormat("INSERT INTO {0} ", tableName);
+
+            var fields = "(";
+            var values = " VALUES (";
+
+            pis.ForEach(p =>
+            {
+                var fieldName = p.Name;
+
+                var value = p.GetValue(entity, null);
+
+                if (value != null)
+                {
+                    if (p.GetCustomAttributes(true).SingleOrDefault(o => o.GetType() == typeof(ColumnAttribute)) is
+                        ColumnAttribute column)
+                        fieldName = column.Name;
+
+                    fields += fieldName;
+                    values += $"'{value}'";
+
+                    if (p != pis.Last())
+                    {
+                        fields += ",";
+                        values += ",";
+                    }
+                }
+
+                if (p == pis.Last())
+                {
+
+                    if (fields.Last() == ',')
+                    {
+                        fields = fields.Substring(0, fields.Length - 1);
+                    }
+                    if (values.Last() == ',')
+                    {
+                        values = values.Substring(0, values.Length - 1);
+                    }
+
+                    fields += ")";
+                    values += ")";
+                }
+            });
+
+            strbuilder.Append(fields);
+            strbuilder.Append(values);
+
+            return strbuilder.ToString();
+        }
+
         /// <summary>
         /// 根据实体对像获取UPDATE语句
         /// </summary>
@@ -373,6 +436,7 @@ namespace hn.Common_Arrow
             var cmd = GetCommand(sql, obj);
             cmd.Connection = tran.Connection;
             cmd.Transaction = tran;
+
             try
             {
                 var result = cmd.ExecuteNonQuery();
@@ -381,8 +445,10 @@ namespace hn.Common_Arrow
             catch (Exception e)
             {
                 LogHelper.Error(e);
-                LogHelper.Info($"数据：{JsonConvert.SerializeObject(obj)}");
-                LogHelper.Info("SQL:" + sql);
+                LogHelper.Error($"数据：{JsonConvert.SerializeObject(obj)}");
+                LogHelper.Error($"CMD参数：");
+               LogHelper.Error($"实体类型：{typeof(T).Name}");
+                LogHelper.Error("SQL:" + sql);
                 throw;
             }
         }
@@ -404,13 +470,12 @@ namespace hn.Common_Arrow
             var pis = t.GetProperties().Where(p =>
                 p.GetCustomAttributes(true).Count(pi => pi.GetType() == typeof(NotMappedAttribute)) == 0).ToList();
 
+            LogHelper.Debug($"SQL:{sql}");
             pis.ForEach(p =>
             {
-                var value = p.GetValue(par, null);
-                if (value == null)
-                    value = "";
-
-                cmd.Parameters.Add(new OracleParameter(":" + p.Name, value));
+                var value = p.GetValue(par) ?? "";
+                LogHelper.Debug($"SQL参数：{p.Name}：{value}");
+                cmd.Parameters.Add(new OracleParameter($":{p.Name}" , value));
             });
 
             return cmd;

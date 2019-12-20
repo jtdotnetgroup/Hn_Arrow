@@ -18,8 +18,6 @@ namespace hn.DataAccess.Model
     [Description("采购订单明细")]
     public class ICPOBILLENTRYMODEL
     {
-
-
         public string ICPRBILLENTRYIDS { get; set; }
 
         /// <summary>
@@ -37,11 +35,6 @@ namespace hn.DataAccess.Model
         /// 请购明细ID
         /// </summary>
         public string FPLANID { get; set; }
-
-   
-
-       
-
         /// <summary>
         /// 批号
         /// </summary>
@@ -57,7 +50,6 @@ namespace hn.DataAccess.Model
         /// </summary>
         public decimal FADVQTY { get; set; }
 
-
         /// <summary>
         /// 订单数量
         /// </summary>
@@ -68,12 +60,10 @@ namespace hn.DataAccess.Model
         /// </summary>
         public decimal? FSRCCOST { get; set; }
 
-
         /// <summary>
         /// 审核状态
         /// </summary>
         public int FSTATUS { get; set; }
-
 
         /// <summary>
         /// 到货时间
@@ -85,14 +75,10 @@ namespace hn.DataAccess.Model
         /// </summary>
         public decimal? FCOMMITQTY { get; set; }
 
-     
-
         /// <summary>
         /// 启用状态
         /// </summary>
         public int FSTATE { get; set; } 
-
-
 
         /// <summary>
         /// 政策起始量
@@ -110,10 +96,17 @@ namespace hn.DataAccess.Model
         /// 促销政策行编码id
         /// </summary>
         public string LH_DCTPOLICYITEMID { get; set; }
+        /// <summary>
+        /// 政策行类型
+        /// </summary>
+        public string LH_DCTPOLICYROWTYPE { get; set; }
+        /// <summary>
+        /// 产品名称
+        /// </summary>
+        public string LH_DCTPOLICYPRODNAME { get; set; }
 
 
         #region 蒙厂需要的字段
-
         /// <summary>
         /// 备注
         /// </summary>
@@ -200,11 +193,10 @@ namespace hn.DataAccess.Model
         public string FCOLORNO { get; set; }
 
         public string THDBMDETAIL { get; set; }
-        
-        public string LH_DCTPOLICYROWTYPE { get; set; }
-        public string LH_DCTPOLICYPRODNAME { get; set; }
+
+
 
         #endregion
-
+       
     }
 }

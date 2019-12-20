@@ -177,6 +177,8 @@
     <Compile Include="dal\LHDal\LH_OUTBOUNDORDERDal.cs" />
     <Compile Include="dal\LHDal\LH_OUTBOUNDORDERDETAILEDDal.cs" />
     <Compile Include="model\Common\PageResult.cs" />
+    <Compile Include="model\LHModel\LH_ICPOBILLENTRYMODEL.cs" />
+    <Compile Include="model\LHModel\LH_ICPOBILLMODEL.cs" />
     <Compile Include="model\LHModel\LH_OUTBOUNDORDERDETAILEDModel.cs" />
     <Compile Include="model\LHModel\LH_OUTBOUNDORDERModel.cs" />
     <Compile Include="dal\TB_DZmanuscript_DAL\TB_DZmanuscript_DAL.cs" />

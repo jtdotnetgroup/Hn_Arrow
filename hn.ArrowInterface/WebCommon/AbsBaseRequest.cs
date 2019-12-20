@@ -92,8 +92,9 @@ namespace hn.ArrowInterface.WebCommon
 
                 var resultStr = res.Content.ReadAsStringAsync();
 
-                result = JsonConvert.DeserializeObject<T>(res.Content.ReadAsStringAsync().GetAwaiter().GetResult());
+                result = JsonConvert.DeserializeObject<T>(resultStr.Result);
                 LogHelper.Info($"请求完成:{url}");
+                LogHelper.Info($"返回结果:{resultStr.Result}");
             }
             catch (AggregateException ex)
             {
