@@ -63,7 +63,6 @@
             // 
             // repositoryItemCheckEdit1
             // 
-            this.repositoryItemCheckEdit1.LookAndFeel.SkinName = "Office 2016 Colorful";
             this.repositoryItemCheckEdit1.Name = "repositoryItemCheckEdit1";
             // 
             // imageList2
@@ -155,8 +154,8 @@
             this.txt重置.AppearanceDisabled.Options.UseFont = true;
             this.txt重置.AppearanceHovered.Font = new System.Drawing.Font("微软雅黑", 9.75F);
             this.txt重置.AppearanceHovered.Options.UseFont = true;
-            this.txt重置.ImageList = this.imageList2;
-            this.txt重置.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleLeft;
+            this.txt重置.ImageOptions.ImageList = this.imageList2;
+            this.txt重置.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleLeft;
             this.txt重置.Location = new System.Drawing.Point(245, 253);
             this.txt重置.LookAndFeel.SkinName = "Office 2016 Colorful";
             this.txt重置.LookAndFeel.UseDefaultLookAndFeel = false;
@@ -176,8 +175,8 @@
             this.btn查询.AppearanceDisabled.Options.UseFont = true;
             this.btn查询.AppearanceHovered.Font = new System.Drawing.Font("微软雅黑", 9.75F);
             this.btn查询.AppearanceHovered.Options.UseFont = true;
-            this.btn查询.ImageList = this.imageList2;
-            this.btn查询.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleLeft;
+            this.btn查询.ImageOptions.ImageList = this.imageList2;
+            this.btn查询.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleLeft;
             this.btn查询.Location = new System.Drawing.Point(168, 253);
             this.btn查询.LookAndFeel.SkinName = "Office 2016 Colorful";
             this.btn查询.LookAndFeel.UseDefaultLookAndFeel = false;
@@ -203,6 +202,7 @@
             // 
             this.cbo状态.Location = new System.Drawing.Point(83, 182);
             this.cbo状态.Name = "cbo状态";
+            this.cbo状态.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.True;
             this.cbo状态.Properties.Appearance.Font = new System.Drawing.Font("微软雅黑", 9.75F);
             this.cbo状态.Properties.Appearance.Options.UseFont = true;
             this.cbo状态.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {

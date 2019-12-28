@@ -9,315 +9,7 @@
 //------------------------------------------------------------------------------
 
 namespace hn.Client.ApiService {
-    using System.Runtime.Serialization;
-    using System;
     
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="LH_Policy", Namespace="http://schemas.datacontract.org/2004/07/hn.ArrowInterface.Entities")]
-    [System.SerializableAttribute()]
-    public partial class LH_Policy : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private decimal CappingQUantityField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string DeptNameField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private decimal DiscountRateField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string IdField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string ItemIdField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private decimal MinimumQuantityField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string OrderSubTypeField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string OrderTypeField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string PolicyItemTypeField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string PolicyNameField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string ProdChannelField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string ProdCodeField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private decimal SpecialOfferField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public decimal CappingQUantity {
-            get {
-                return this.CappingQUantityField;
-            }
-            set {
-                if ((this.CappingQUantityField.Equals(value) != true)) {
-                    this.CappingQUantityField = value;
-                    this.RaisePropertyChanged("CappingQUantity");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string DeptName {
-            get {
-                return this.DeptNameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.DeptNameField, value) != true)) {
-                    this.DeptNameField = value;
-                    this.RaisePropertyChanged("DeptName");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public decimal DiscountRate {
-            get {
-                return this.DiscountRateField;
-            }
-            set {
-                if ((this.DiscountRateField.Equals(value) != true)) {
-                    this.DiscountRateField = value;
-                    this.RaisePropertyChanged("DiscountRate");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Id {
-            get {
-                return this.IdField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.IdField, value) != true)) {
-                    this.IdField = value;
-                    this.RaisePropertyChanged("Id");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string ItemId {
-            get {
-                return this.ItemIdField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.ItemIdField, value) != true)) {
-                    this.ItemIdField = value;
-                    this.RaisePropertyChanged("ItemId");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public decimal MinimumQuantity {
-            get {
-                return this.MinimumQuantityField;
-            }
-            set {
-                if ((this.MinimumQuantityField.Equals(value) != true)) {
-                    this.MinimumQuantityField = value;
-                    this.RaisePropertyChanged("MinimumQuantity");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string OrderSubType {
-            get {
-                return this.OrderSubTypeField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.OrderSubTypeField, value) != true)) {
-                    this.OrderSubTypeField = value;
-                    this.RaisePropertyChanged("OrderSubType");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string OrderType {
-            get {
-                return this.OrderTypeField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.OrderTypeField, value) != true)) {
-                    this.OrderTypeField = value;
-                    this.RaisePropertyChanged("OrderType");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string PolicyItemType {
-            get {
-                return this.PolicyItemTypeField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.PolicyItemTypeField, value) != true)) {
-                    this.PolicyItemTypeField = value;
-                    this.RaisePropertyChanged("PolicyItemType");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string PolicyName {
-            get {
-                return this.PolicyNameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.PolicyNameField, value) != true)) {
-                    this.PolicyNameField = value;
-                    this.RaisePropertyChanged("PolicyName");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string ProdChannel {
-            get {
-                return this.ProdChannelField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.ProdChannelField, value) != true)) {
-                    this.ProdChannelField = value;
-                    this.RaisePropertyChanged("ProdChannel");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string ProdCode {
-            get {
-                return this.ProdCodeField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.ProdCodeField, value) != true)) {
-                    this.ProdCodeField = value;
-                    this.RaisePropertyChanged("ProdCode");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public decimal SpecialOffer {
-            get {
-                return this.SpecialOfferField;
-            }
-            set {
-                if ((this.SpecialOfferField.Equals(value) != true)) {
-                    this.SpecialOfferField = value;
-                    this.RaisePropertyChanged("SpecialOffer");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="AbstractRequestParams", Namespace="http://schemas.datacontract.org/2004/07/hn.ArrowInterface.WebCommon")]
-    [System.SerializableAttribute()]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(hn.Client.ApiService.AcctOAStatusParam))]
-    public partial class AbstractRequestParams : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="AcctOAStatusParam", Namespace="http://schemas.datacontract.org/2004/07/hn.ArrowInterface.RequestParams")]
-    [System.SerializableAttribute()]
-    public partial class AcctOAStatusParam : hn.Client.ApiService.AbstractRequestParams {
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string acctCodeField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string[] idStringsField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string acctCode {
-            get {
-                return this.acctCodeField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.acctCodeField, value) != true)) {
-                    this.acctCodeField = value;
-                    this.RaisePropertyChanged("acctCode");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string[] idStrings {
-            get {
-                return this.idStringsField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.idStringsField, value) != true)) {
-                    this.idStringsField = value;
-                    this.RaisePropertyChanged("idStrings");
-                }
-            }
-        }
-    }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ApiService.IAPIService")]
@@ -413,10 +105,10 @@ namespace hn.Client.ApiService {
         System.Threading.Tasks.Task<bool> Sync_Today_THDAsync(string rq1, string rq2);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/Select_List", ReplyAction="http://tempuri.org/IAPIService/Select_ListResponse")]
-        hn.Client.ApiService.LH_Policy[] Select_List();
+        hn.ArrowInterface.Entities.LH_Policy[] Select_List();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/Select_List", ReplyAction="http://tempuri.org/IAPIService/Select_ListResponse")]
-        System.Threading.Tasks.Task<hn.Client.ApiService.LH_Policy[]> Select_ListAsync();
+        System.Threading.Tasks.Task<hn.ArrowInterface.Entities.LH_Policy[]> Select_ListAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/Select_DataTable", ReplyAction="http://tempuri.org/IAPIService/Select_DataTableResponse")]
         System.Data.DataTable Select_DataTable();
@@ -431,16 +123,46 @@ namespace hn.Client.ApiService {
         System.Threading.Tasks.Task<bool> SaleOrderUploadAsync(string[] billnos);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/AcctOaStatus", ReplyAction="http://tempuri.org/IAPIService/AcctOaStatusResponse")]
-        bool AcctOaStatus(hn.Client.ApiService.AcctOAStatusParam pars);
+        bool AcctOaStatus(hn.ArrowInterface.RequestParams.AcctOAStatusParam pars);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/AcctOaStatus", ReplyAction="http://tempuri.org/IAPIService/AcctOaStatusResponse")]
-        System.Threading.Tasks.Task<bool> AcctOaStatusAsync(hn.Client.ApiService.AcctOAStatusParam pars);
+        System.Threading.Tasks.Task<bool> AcctOaStatusAsync(hn.ArrowInterface.RequestParams.AcctOAStatusParam pars);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/obOrderUpload", ReplyAction="http://tempuri.org/IAPIService/obOrderUploadResponse")]
         bool obOrderUpload(string[] billnos);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/obOrderUpload", ReplyAction="http://tempuri.org/IAPIService/obOrderUploadResponse")]
         System.Threading.Tasks.Task<bool> obOrderUploadAsync(string[] billnos);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/GetPolicies", ReplyAction="http://tempuri.org/IAPIService/GetPoliciesResponse")]
+        hn.ArrowInterface.Entities.LH_Policy[] GetPolicies(hn.ArrowInterface.Entities.ICPOBILL_PolicyDTO header);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/GetPolicies", ReplyAction="http://tempuri.org/IAPIService/GetPoliciesResponse")]
+        System.Threading.Tasks.Task<hn.ArrowInterface.Entities.LH_Policy[]> GetPoliciesAsync(hn.ArrowInterface.Entities.ICPOBILL_PolicyDTO header);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/GetPolicyProducts", ReplyAction="http://tempuri.org/IAPIService/GetPolicyProductsResponse")]
+        hn.DataAccess.model.Common.PageResult<hn.DataAccess.model.v_lhproducts_policyModel> GetPolicyProducts(hn.ArrowInterface.Entities.ICPOBILL_PolicyDTO header, hn.DataAccess.model.v_lhproducts_policyModel where, int index, int size);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/GetPolicyProducts", ReplyAction="http://tempuri.org/IAPIService/GetPolicyProductsResponse")]
+        System.Threading.Tasks.Task<hn.DataAccess.model.Common.PageResult<hn.DataAccess.model.v_lhproducts_policyModel>> GetPolicyProductsAsync(hn.ArrowInterface.Entities.ICPOBILL_PolicyDTO header, hn.DataAccess.model.v_lhproducts_policyModel where, int index, int size);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/SaveLH_MergeBill", ReplyAction="http://tempuri.org/IAPIService/SaveLH_MergeBillResponse")]
+        bool SaveLH_MergeBill(hn.DataAccess.dal.LHModel.LH_MergeBill bill, string[] LHOBODNOS);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/SaveLH_MergeBill", ReplyAction="http://tempuri.org/IAPIService/SaveLH_MergeBillResponse")]
+        System.Threading.Tasks.Task<bool> SaveLH_MergeBillAsync(hn.DataAccess.dal.LHModel.LH_MergeBill bill, string[] LHOBODNOS);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/GetMergeBills", ReplyAction="http://tempuri.org/IAPIService/GetMergeBillsResponse")]
+        hn.DataAccess.dal.LHModel.LH_MergeBill[] GetMergeBills(string[] LHOBODNOS);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/GetMergeBills", ReplyAction="http://tempuri.org/IAPIService/GetMergeBillsResponse")]
+        System.Threading.Tasks.Task<hn.DataAccess.dal.LHModel.LH_MergeBill[]> GetMergeBillsAsync(string[] LHOBODNOS);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/AuditionICPOBILL", ReplyAction="http://tempuri.org/IAPIService/AuditionICPOBILLResponse")]
+        string AuditionICPOBILL(string userId, string[] billNos, hn.DataAccess.dal.LHModel.AuditEnums auditType);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/AuditionICPOBILL", ReplyAction="http://tempuri.org/IAPIService/AuditionICPOBILLResponse")]
+        System.Threading.Tasks.Task<string> AuditionICPOBILLAsync(string userId, string[] billNos, hn.DataAccess.dal.LHModel.AuditEnums auditType);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAPIService/Login", ReplyAction="http://tempuri.org/IAPIService/LoginResponse")]
         hn.Core.Model.User Login(string username, string password);
@@ -1188,11 +910,11 @@ namespace hn.Client.ApiService {
             return base.Channel.Sync_Today_THDAsync(rq1, rq2);
         }
         
-        public hn.Client.ApiService.LH_Policy[] Select_List() {
+        public hn.ArrowInterface.Entities.LH_Policy[] Select_List() {
             return base.Channel.Select_List();
         }
         
-        public System.Threading.Tasks.Task<hn.Client.ApiService.LH_Policy[]> Select_ListAsync() {
+        public System.Threading.Tasks.Task<hn.ArrowInterface.Entities.LH_Policy[]> Select_ListAsync() {
             return base.Channel.Select_ListAsync();
         }
         
@@ -1212,11 +934,11 @@ namespace hn.Client.ApiService {
             return base.Channel.SaleOrderUploadAsync(billnos);
         }
         
-        public bool AcctOaStatus(hn.Client.ApiService.AcctOAStatusParam pars) {
+        public bool AcctOaStatus(hn.ArrowInterface.RequestParams.AcctOAStatusParam pars) {
             return base.Channel.AcctOaStatus(pars);
         }
         
-        public System.Threading.Tasks.Task<bool> AcctOaStatusAsync(hn.Client.ApiService.AcctOAStatusParam pars) {
+        public System.Threading.Tasks.Task<bool> AcctOaStatusAsync(hn.ArrowInterface.RequestParams.AcctOAStatusParam pars) {
             return base.Channel.AcctOaStatusAsync(pars);
         }
         
@@ -1226,6 +948,46 @@ namespace hn.Client.ApiService {
         
         public System.Threading.Tasks.Task<bool> obOrderUploadAsync(string[] billnos) {
             return base.Channel.obOrderUploadAsync(billnos);
+        }
+        
+        public hn.ArrowInterface.Entities.LH_Policy[] GetPolicies(hn.ArrowInterface.Entities.ICPOBILL_PolicyDTO header) {
+            return base.Channel.GetPolicies(header);
+        }
+        
+        public System.Threading.Tasks.Task<hn.ArrowInterface.Entities.LH_Policy[]> GetPoliciesAsync(hn.ArrowInterface.Entities.ICPOBILL_PolicyDTO header) {
+            return base.Channel.GetPoliciesAsync(header);
+        }
+        
+        public hn.DataAccess.model.Common.PageResult<hn.DataAccess.model.v_lhproducts_policyModel> GetPolicyProducts(hn.ArrowInterface.Entities.ICPOBILL_PolicyDTO header, hn.DataAccess.model.v_lhproducts_policyModel where, int index, int size) {
+            return base.Channel.GetPolicyProducts(header, where, index, size);
+        }
+        
+        public System.Threading.Tasks.Task<hn.DataAccess.model.Common.PageResult<hn.DataAccess.model.v_lhproducts_policyModel>> GetPolicyProductsAsync(hn.ArrowInterface.Entities.ICPOBILL_PolicyDTO header, hn.DataAccess.model.v_lhproducts_policyModel where, int index, int size) {
+            return base.Channel.GetPolicyProductsAsync(header, where, index, size);
+        }
+        
+        public bool SaveLH_MergeBill(hn.DataAccess.dal.LHModel.LH_MergeBill bill, string[] LHOBODNOS) {
+            return base.Channel.SaveLH_MergeBill(bill, LHOBODNOS);
+        }
+        
+        public System.Threading.Tasks.Task<bool> SaveLH_MergeBillAsync(hn.DataAccess.dal.LHModel.LH_MergeBill bill, string[] LHOBODNOS) {
+            return base.Channel.SaveLH_MergeBillAsync(bill, LHOBODNOS);
+        }
+        
+        public hn.DataAccess.dal.LHModel.LH_MergeBill[] GetMergeBills(string[] LHOBODNOS) {
+            return base.Channel.GetMergeBills(LHOBODNOS);
+        }
+        
+        public System.Threading.Tasks.Task<hn.DataAccess.dal.LHModel.LH_MergeBill[]> GetMergeBillsAsync(string[] LHOBODNOS) {
+            return base.Channel.GetMergeBillsAsync(LHOBODNOS);
+        }
+        
+        public string AuditionICPOBILL(string userId, string[] billNos, hn.DataAccess.dal.LHModel.AuditEnums auditType) {
+            return base.Channel.AuditionICPOBILL(userId, billNos, auditType);
+        }
+        
+        public System.Threading.Tasks.Task<string> AuditionICPOBILLAsync(string userId, string[] billNos, hn.DataAccess.dal.LHModel.AuditEnums auditType) {
+            return base.Channel.AuditionICPOBILLAsync(userId, billNos, auditType);
         }
         
         public hn.Core.Model.User Login(string username, string password) {

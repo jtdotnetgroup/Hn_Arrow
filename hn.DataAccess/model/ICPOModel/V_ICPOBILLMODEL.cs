@@ -7,11 +7,16 @@ using hn.Common.Data;
 using hn.Common;
 using hn.Core.Dal;
 using System.Collections;
+using System.ComponentModel.DataAnnotations.Schema;
+using DataAccess.CustomAttributes;
 using hn.Core.Model;
 using hn.DataAccess.Dal;
+using hn.DataAccess.dal.LHModel;
+
 namespace hn.DataAccess.Model
 {
-    [TableName("V_ICPOBILL")]
+    [Table("V_LH_ICPOBILL")]
+    [Common.Data.TableName("V_LH_ICPOBILL")]
     [Description("采购订单")]
     public class V_ICPOBILLMODEL : ICPOBILLMODEL
     {
@@ -20,15 +25,26 @@ namespace hn.DataAccess.Model
 
         public string FSRCCODE { get; set; }
 
+        public string LH_ORDERTYPENAME { get; set; }
+
+        [NotMapped]
+        [JIT_NotMapped]
+        [DbField(false)]
+        public string LHREVIWESTATUS { get; set; }
+
         /// <summary>
         /// 审核状态
         /// </summary>
+        [NotMapped]
+        [JIT_NotMapped]
         [DbField(false)]
         public string FSTATUSNAME
         {
             get
             {
-                return Enum.GetName(typeof(Constant.ICPOBILL_FSTATUS), FSTATUS);
+                ICPOBILLStatus result;
+                Enum.TryParse(this.FSTATUS.ToString(), out result);
+                return result.ToString();
             }
         }
     }

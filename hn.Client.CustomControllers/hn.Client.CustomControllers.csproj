@@ -1,0 +1,194 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C6DDEBE8-C73C-4973-A489-9FEF6C16B76A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>hn.Client.CustomControllers</RootNamespace>
+    <AssemblyName>hn.Client.CustomControllers</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.Data.v18.1, Version=18.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Printing.v18.1.Core, Version=18.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Utils.v18.1, Version=18.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraEditors.v18.1, Version=18.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraGrid.v18.1, Version=18.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraLayout.v18.1, Version=18.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraPrinting.v18.1, Version=18.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Diglog\FrmAuditDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Diglog\FrmAuditDialog.Designer.cs">
+      <DependentUpon>FrmAuditDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Diglog\FrmBatchOutBoundOrder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Diglog\FrmBatchOutBoundOrder.Designer.cs">
+      <DependentUpon>FrmBatchOutBoundOrder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Diglog\FrmInput.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Diglog\FrmInput.Designer.cs">
+      <DependentUpon>FrmInput.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Diglog\FrmNewQueryProduct.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Diglog\FrmNewQueryProduct.Designer.cs">
+      <DependentUpon>FrmNewQueryProduct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Diglog\FrmQueryClientAccount.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Diglog\FrmQueryClientAccount.Designer.cs">
+      <DependentUpon>FrmQueryClientAccount.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Diglog\FrmQueryDeliverBase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Diglog\FrmQueryDeliverBase.Designer.cs">
+      <DependentUpon>FrmQueryDeliverBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Diglog\FrmQueryDictionary.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Diglog\FrmQueryDictionary.Designer.cs">
+      <DependentUpon>FrmQueryDictionary.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Diglog\FrmQueryExpressCompany.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Diglog\FrmQueryExpressCompany.Designer.cs">
+      <DependentUpon>FrmQueryExpressCompany.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Diglog\FrmQueryJYDW.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Diglog\FrmQueryJYDW.Designer.cs">
+      <DependentUpon>FrmQueryJYDW.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Diglog\FrmQueryMarketArea.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Diglog\FrmQueryMarketArea.Designer.cs">
+      <DependentUpon>FrmQueryMarketArea.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Diglog\FrmQueryMCU.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Diglog\FrmQueryMCU.Designer.cs">
+      <DependentUpon>FrmQueryMCU.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Diglog\FrmQueryPrice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Diglog\FrmQueryPrice.Designer.cs">
+      <DependentUpon>FrmQueryPrice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Diglog\FrmQueryProduct.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Diglog\FrmQueryProduct.Designer.cs">
+      <DependentUpon>FrmQueryProduct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Diglog\FrmQuerySrc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Diglog\FrmQuerySrc.Designer.cs">
+      <DependentUpon>FrmQuerySrc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MCUSelectList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MCUSelectList.Designer.cs">
+      <DependentUpon>MCUSelectList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Service Include="{94E38DFF-614B-4cbd-B67C-F211BB35CE8B}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Diglog\FrmAuditDialog.resx">
+      <DependentUpon>FrmAuditDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Diglog\FrmBatchOutBoundOrder.resx">
+      <DependentUpon>FrmBatchOutBoundOrder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Diglog\FrmInput.resx">
+      <DependentUpon>FrmInput.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Diglog\FrmNewQueryProduct.resx">
+      <DependentUpon>FrmNewQueryProduct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Diglog\FrmQueryClientAccount.resx">
+      <DependentUpon>FrmQueryClientAccount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Diglog\FrmQueryDeliverBase.resx">
+      <DependentUpon>FrmQueryDeliverBase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Diglog\FrmQueryDictionary.resx">
+      <DependentUpon>FrmQueryDictionary.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Diglog\FrmQueryExpressCompany.resx">
+      <DependentUpon>FrmQueryExpressCompany.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Diglog\FrmQueryJYDW.resx">
+      <DependentUpon>FrmQueryJYDW.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Diglog\FrmQueryMarketArea.resx">
+      <DependentUpon>FrmQueryMarketArea.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Diglog\FrmQueryMCU.resx">
+      <DependentUpon>FrmQueryMCU.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Diglog\FrmQueryPrice.resx">
+      <DependentUpon>FrmQueryPrice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Diglog\FrmQueryProduct.resx">
+      <DependentUpon>FrmQueryProduct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Diglog\FrmQuerySrc.resx">
+      <DependentUpon>FrmQuerySrc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MCUSelectList.resx">
+      <DependentUpon>MCUSelectList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

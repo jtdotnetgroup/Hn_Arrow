@@ -52,6 +52,7 @@ namespace hn.ArrowInterface.WebCommon
             HttpResponseMessage res;
 
             LogHelper.Info($"开始请求：{url}");
+            LogHelper.Info($@"POSTDATA:{content.ReadAsStringAsync().Result}");
             if (Method == "POST")
             {
                 res = client.PostAsync(url, content).GetAwaiter().GetResult();
@@ -81,6 +82,8 @@ namespace hn.ArrowInterface.WebCommon
         public T CommonBaseRequest<T>(string url, HttpContent content) where T : new()
         {
             LogHelper.Info($"开始请求：{url}");
+            LogHelper.Info($"请求头:{JsonConvert.SerializeObject(client.DefaultRequestHeaders)}");
+            LogHelper.Info($@"POSTDATA:{content.ReadAsStringAsync().Result}");
             T result = new T();
             HttpResponseMessage res = null;
 
@@ -90,8 +93,9 @@ namespace hn.ArrowInterface.WebCommon
 
                 var resultStr = res.Content.ReadAsStringAsync();
 
-                result = JsonConvert.DeserializeObject<T>(res.Content.ReadAsStringAsync().GetAwaiter().GetResult());
+                result = JsonConvert.DeserializeObject<T>(resultStr.Result);
                 LogHelper.Info($"请求完成:{url}");
+                LogHelper.Info($"返回结果:{resultStr.Result}");
             }
             catch (AggregateException ex)
             {

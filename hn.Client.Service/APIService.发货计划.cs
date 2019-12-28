@@ -19,6 +19,9 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Web;
+using Dapper;
+using hn.Common_Arrow;
+using LogHelper = hn.Common.LogHelper;
 
 namespace hn.Client.Service
 {
@@ -32,6 +35,11 @@ namespace hn.Client.Service
         {
             //return LH_OUTBOUNDORDERDal.Instance.GetAll().Where(w => Strat <= w.LHDELIVERYTIME && w.LHDELIVERYTIME <= End).ToList();
             return LH_OUTBOUNDORDERDal.Instance.GetAll().ToList();
+        }
+
+        public List<LH_OUTBOUNDORDERModel> SelectOutBoundOrderList(LH_OUTBOUNDORDERModel where)
+        {
+            return null;
         }
         /// <summary>
         /// 出库单
@@ -402,11 +410,26 @@ namespace hn.Client.Service
                     query.AppendFormat(" AND FBRANDID IN (SELECT FBRANDID FROM TB_USERBRAND WHERE FUSERID = '{0}') ", loginUser.FID);
                 }
 
-                query.AppendFormat(" and fid in(select ficseoutid from ICSEOUTBILLentry where thdbm is not null) ", "");
+                //query.AppendFormat(" and fid in(select ficseoutid from ICSEOUTBILLentry where thdbm is not null) ", "");
 
                 LogHelper.WriteLog(query.ToString());
 
-                return V_ICSEOUTBILLDAL.Instance.GetWhereStr(query.ToString(), "FBILLDATE DESC").ToList();
+                string sql = @"SELECT  * FROM  V_ICSEOUTBILL V1 
+                                        INNER JOIN ICSEOUTBILLENTRY T1 on V1.FID = T1.FICSEOUTID and T1.thdbm is not NULL
+                                        WHERE 1 = 1  ";
+                sql = $"{sql}{query} ORDER BY FBILLDATE DESC";
+
+                //var helper = new OracleDBHelper();
+                //var conn = helper.GetNewConnection();
+
+                //var result= conn.Query<V_ICSEOUTBILLMODEL>(sql).ToList();
+
+                return new List<V_ICSEOUTBILLMODEL>();
+
+
+                //return V_ICSEOUTBILLDAL.Instance.Query(sql).ToList();
+
+                //return V_ICSEOUTBILLDAL.Instance.GetWhereStr(query.ToString(), "FBILLDATE DESC").ToList();
             }
             catch (Exception ex)
             {

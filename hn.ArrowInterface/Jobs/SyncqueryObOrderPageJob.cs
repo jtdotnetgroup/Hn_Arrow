@@ -71,13 +71,14 @@ namespace hn.ArrowInterface.Jobs
                     catch (Exception e)
                     {
                         tran.Rollback();
-                        
+                        conn.Close();
                         string message = "出库单插入失败";
                         LogHelper.Error(message);
                         LogHelper.Error(e);
                     }
                 }
                 tran.Commit();
+                conn.Close();
                 
                 UpdateSyncRecord(pars);
 

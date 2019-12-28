@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using DataAccess.CustomAttributes;
 
 namespace hn.ArrowInterface.Entities
 {
@@ -8,6 +9,7 @@ namespace hn.ArrowInterface.Entities
     /// 销售订单上传返回结果
     /// </summary>
     [Table("LH_SALEORDERRESULT")]
+    [TableName("LH_SALEORDERRESULT")]
     public class Order
     {  
         [Key]
@@ -28,17 +30,18 @@ namespace hn.ArrowInterface.Entities
             return " AND lHOutSystemID = '" + lHOutSystemID + "'";
         }
     }
-    //[Table("LH_SALEORDERRESULTITEMLIST")]
-    //public class SaleOrderItemList
-    //{ 
-    //    public string lHOutSystemID { get; set; }
-    //    public string lHOutSystemLineID { get; set; }
-    //    public decimal lHdealerPrice { get; set; }
-    //    public string lHprodUnit { get; set; }
-    //    public decimal lHFactoryDiscount { get; set; }
-    //    public decimal lHoriginalDiscount { get; set; }
-    //    public decimal lHapprovalDiscount { get; set; }
-    //    public decimal lHfinalDiscount { get; set; }
-    //    public decimal lHDiscountPrice { get; set; }
-    //}
+
+    [Table("LH_SALEORDERRESULTITEMLIST")]
+    public class SaleOrderItemList
+    {
+        public string lHOutSystemID { get; set; }
+        public string lHOutSystemLineID { get; set; }
+        public decimal lHdealerPrice { get; set; }
+        public string lHprodUnit { get; set; }
+        public decimal lHFactoryDiscount { get; set; }
+        public decimal lHoriginalDiscount { get; set; }
+        public decimal lHapprovalDiscount { get; set; }
+        public decimal lHfinalDiscount { get; set; }
+        public decimal lHDiscountPrice { get; set; }
+    }
 }

@@ -89,6 +89,7 @@ namespace hn.Client
             }
             catch (Exception ex)
             {
+                MsgHelper.ShowInformation(ex.Message);
                 LogError(ex);
             }
         }

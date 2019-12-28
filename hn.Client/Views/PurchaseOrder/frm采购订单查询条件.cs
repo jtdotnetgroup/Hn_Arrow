@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Windows.Forms;
 using hn.Common;
+using hn.DataAccess.dal.LHModel;
 
 namespace hn.Client
 {
@@ -44,7 +45,7 @@ namespace hn.Client
                     }
                 }
                 */
-                cbo状态.SelectedIndex = 0;
+                
 
                 //var list = _service.GetPurchasePlanList("", "", status, "", !chkClose.Checked);
                 //gridControl请购计划列表.DataSource = list;
@@ -84,15 +85,15 @@ namespace hn.Client
             }
 
             //初始化单据状态选择            
-            cbo状态.Properties.Items.Add(new CodeValueClass("0", "全部"));
-            cbo状态.Properties.Items.Add(new CodeValueClass("3", "审核通过"));
-            cbo状态.Properties.Items.Add(new CodeValueClass("7", "采购确认"));
-            cbo状态.Properties.Items.Add(new CodeValueClass("1", "草稿"));
-            cbo状态.Properties.Items.Add(new CodeValueClass("2", "待审核"));            
-            cbo状态.Properties.Items.Add(new CodeValueClass("4", "审核不通过"));
-            cbo状态.Properties.Items.Add(new CodeValueClass("6", "完成"));
-            cbo状态.Properties.Items.Add(new CodeValueClass("5", "关闭"));
-            cbo状态.SelectedIndex = 0;
+            var billTypes = Enum.GetValues(typeof(ICPOBILLStatus));
+            
+
+            foreach (var billType in billTypes)
+            {
+                cbo状态.Properties.Items.Add(billType);
+            }
+
+            cbo状态.SelectedItem = null;
         }
         #endregion
 
@@ -258,9 +259,9 @@ namespace hn.Client
             if (searchControl1.Tag != null) query.famount = searchControl1.Tag.ToString();
             if (cbo状态.SelectedItem != null)
             {
-                CodeValueClass model = cbo状态.SelectedItem as CodeValueClass;
+                var model = cbo状态.SelectedItem;
                 if (model != null)
-                    query.t_status = model.value.ToString();
+                    query.t_status = $"{(int) model}";
             }
           
             query.startTime = txt日期开始.DateTime;
@@ -312,14 +313,9 @@ namespace hn.Client
             cbo品牌.Text = "";
             txt日期开始.Text = "";
             txt日期结束.Text = "";
-            foreach (CodeValueClass item in cbo状态.Properties.Items)
-            {
-                if (item.value == "3")
-                {
-                    cbo状态.SelectedItem = item;
-                }
-            }
-        
+            cbo状态.SelectedItem = null;
+            
+
         }
 
    

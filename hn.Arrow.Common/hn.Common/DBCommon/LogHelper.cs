@@ -10,6 +10,7 @@ namespace hn.Common_Arrow
     {
         private static readonly ILog InfoLogger = LogManager.GetLogger("INFO");
         private static readonly ILog ErrorLogger = LogManager.GetLogger("ERROR");
+        private static readonly ILog debugLog = LogManager.GetLogger("DEBUG");
         static object lockobj=new object();
         private static TextWriter _textWriter;
 
@@ -34,6 +35,22 @@ namespace hn.Common_Arrow
             lock (lockobj)
             {
                 ErrorLogger.Error(ex);
+            }
+        }
+
+        public static void Debug(string msg)
+        {
+            lock (lockobj)
+            {
+                debugLog.Info(msg);
+            }
+        }
+
+        public static void Debug(Exception ex)
+        {
+            lock (lockobj)
+            {
+                debugLog.Error(ex);
             }
         }
 

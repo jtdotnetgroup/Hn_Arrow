@@ -12,7 +12,13 @@ using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Web;
-using hn.Common;
+using AutoMapper;
+using AutoMapper.Configuration;
+using DataAccess;
+using DataAccess.CustomEnums;
+using hn.Client.Service.Respository;
+using hn.Common_Arrow;
+using LogHelper = hn.Common.LogHelper;
 
 namespace hn.Client.Service
 {
@@ -78,21 +84,21 @@ namespace hn.Client.Service
             {
                 List<TB_PREMISEModel> datas = new List<TB_PREMISEModel>();
 
-                var list = TB_PREMISEDal.Instance.GetAll().ToList();
+                string where = "";
+
                 if (!string.IsNullOrEmpty(keyword))
                 {
-                    return list.Where(x => x.FCODE.Contains(keyword) || x.FNAME.Contains(keyword)).ToList();
+                   where = $" AND (FCODE LIKE '%{keyword}%' OR FNAME LIKE '%{keyword}%' OR FID='{keyword}')";
                 }
                 else
                 {
-                    return list;
+                    where = "";
                 }
 
+                var helper=new OracleDBHelper();
 
-               
-
-
-
+                datas = helper.GetWithWhereStrByPage<TB_PREMISEModel>(where);
+                return datas;
             }
             catch (Exception ex)
             {
@@ -212,28 +218,9 @@ namespace hn.Client.Service
         {
             try
             {
-                /*
-                string where = " and FBRANDID='" + brandid + "'";
-                if (!string.IsNullOrEmpty(keyword))
-                {
-                    where += string.Format(" AND (FACCOUNT like '%{0}%' OR FNAME LIKE '%{0}%')", keyword);
-                }
-
-                return V_CLIENTACCOUNTDal.Instance.GetWhereStr(where).ToList();
-                */
-
                 string where = " and FBRANDID='" + brandid + "'";               
                  //where += string.Format(" AND (FACCOUNT LIKE '%MN%')", keyword);               
                 var l1= V_CLIENTACCOUNTDal.Instance.GetWhereStr(where).OrderBy(x=>x.FACCOUNT).ToList();
-
-                where = " and FBRANDID='" + brandid + "'";               
-                    //where += string.Format(" AND (FACCOUNT LIKE '%FDK%')", keyword);              
-                var l2 = V_CLIENTACCOUNTDal.Instance.GetWhereStr(where).OrderBy(x => x.FACCOUNT).ToList();
-
-                where = " and FBRANDID='" + brandid + "'";               
-                    //where += string.Format(" AND (FACCOUNT LIKE '%GW%')", keyword);
-               
-                var l3 = V_CLIENTACCOUNTDal.Instance.GetWhereStr(where).OrderBy(x => x.FACCOUNT).ToList();
 
                 List<V_CLIENTACCOUNTModel> vList = new List<V_CLIENTACCOUNTModel>();
                 foreach (var sub in l1)
@@ -241,15 +228,7 @@ namespace hn.Client.Service
                     vList.Add(sub);
                 }
 
-                foreach (var sub in l2)
-                {
-                    vList.Add(sub);
-                }
-                foreach (var sub in l3)
-                {
-                    vList.Add(sub);
-                }
-
+              
                 return vList;
 
             }
@@ -302,18 +281,20 @@ namespace hn.Client.Service
         /// </summary>
         /// <param name="keyword">关键字</param>
         /// <returns></returns>
-        public List<TB_EXPRESSCOMPANYModel> GetExpressCompanyList(string keyword)
-        {
-            try
-            {
-                return TB_EXPRESSCOMPANYDal.Instance.GetAll().ToList();
-            }
-            catch (Exception ex)
-            {
-                LogHelper.WriteLog(ex);
-                throw ex;
-            }
-        }
+        //public List<TB_EXPRESSCOMPANYModel> GetExpressCompanyList(string keyword)
+        //{
+        //    try
+        //    {
+
+
+        //        return TB_EXPRESSCOMPANYDal.Instance.GetAll().ToList();
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        LogHelper.WriteLog(ex);
+        //        throw ex;
+        //    }
+        //}
 
         /// <summary>
         /// 获取商品列表
@@ -430,6 +411,39 @@ namespace hn.Client.Service
                 keyword = " AND ";
             }
             return v_lhproducts_policyDal.Instance.GetWhereStr(@" AND headid = '" + headid + "'" + keyword +" AND ROWNUM < 11").ToList();
+        }
+
+        public List<TB_EXPRESSCOMPANYModel> GetExpressCompanyList(string keyworld)
+        {
+
+            DBConnectionFactory.ConnectionName = "DbConnection";
+
+            ExpressCompanyRepository repository=new ExpressCompanyRepository();
+
+
+            var sql = "SELECT * FROM TB_EXPRESSCOMPANY WHERE FNAME LIKE :FNAME OR FID=:FID";
+
+
+
+            if (!string.IsNullOrEmpty(keyworld))
+            {
+                ExpressCompanyModel where = new ExpressCompanyModel() { FNAME = $"{keyworld}",FID = keyworld};
+                //Dictionary<string, CompareEnum> compare = new Dictionary<string, CompareEnum>();
+                //compare.Add("FNAME", CompareEnum.Like);
+                //compare.Add("FID",CompareEnum.Equal);
+
+                // return repository.SelectWithWhere(where, compare);
+
+                return repository.Select(sql, where);
+
+            }
+            else
+            {
+                return repository.GetAll();
+
+            }
+            
+
         }
 
     }

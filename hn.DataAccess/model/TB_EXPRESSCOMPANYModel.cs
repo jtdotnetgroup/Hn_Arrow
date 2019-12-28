@@ -1,13 +1,15 @@
 ﻿using hn.Common;
-using hn.Common.Data;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
+using DataAccess.CustomAttributes;
+
 
 namespace hn.DataAccess.Model
 {
+
     [TableName("TB_EXPRESSCOMPANY")]
     [Description("物流承运商")]
     public class TB_EXPRESSCOMPANYModel
@@ -20,5 +22,11 @@ namespace hn.DataAccess.Model
         public string FPHONE { get; set; }
         public string FEMAIL { get; set; }
         public string FREMARK { get; set; }
+    }
+
+    [TableName("TB_EXPRESSCOMPANY")]
+    public class ExpressCompanyModel : TB_EXPRESSCOMPANYModel
+    {
+
     }
 }

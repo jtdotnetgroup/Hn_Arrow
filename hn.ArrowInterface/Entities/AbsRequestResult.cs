@@ -26,6 +26,8 @@ namespace hn.ArrowInterface.Entities
         public int Total { get; set; }
         [NotMapped]
         public bool Success { get; set; }
+        [NotMapped]
+        public string result { get; set; }
     } 
     /// <summary>
     /// 通用字段，所有返回结果中为多条记录的都包含以下字段

@@ -1,11 +1,13 @@
-﻿using hn.Common;
-using hn.Common.Provider;
+﻿using hn.Common.Provider;
+using hn.Common_Arrow;
 using hn.Core;
 using hn.DataAccess.Dal;
 using hn.DataAccess.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using LogHelper = hn.Common.LogHelper;
+
 namespace hn.DataAccess.Bll
 {
     public class ICPOBILLBLL
@@ -74,7 +76,7 @@ namespace hn.DataAccess.Bll
             {
                 FID = ICPOBILL.FID;
 
-                var model =  ICPOBILLDAL.Instance.Get(FID);
+                var model = ICPOBILLDAL.Instance.Get(FID);
                 model.FBRANDID = ICPOBILL.FBRANDID;
                 model.FCLIENTID = ICPOBILL.FCLIENTID;
                 model.FREMARK = ICPOBILL.FREMARK;
@@ -130,146 +132,85 @@ namespace hn.DataAccess.Bll
 
         public string SaveClient(ICPOBILLMODEL ICPOBILL, IEnumerable<ICPOBILLENTRYMODEL> ICPOBILLENTRYList)
         {
-
+            OracleDBHelper helper = new OracleDBHelper();
+            var conn = helper.GetNewConnection();
+            conn.Open();
+            var tran = conn.BeginTransaction();
             try
             {
+                string FID = null;
 
-            
-            LogHelper.Info("ICPOBILLENTRYList=" + JSONhelper.ToJson(ICPOBILLENTRYList));
-
-            string FID = null;
-
-            #region 执行前检测
-            if (!ICPOBILL.FID.IsGuid())
-            {
-                ICPOBILLMODEL temp = ICPOBILLDAL.Instance.GetWhere(new { FBILLNO = ICPOBILL.FBILLNO }).FirstOrDefault();
-
-                if (temp != null && temp.FID != ICPOBILL.FID)
+                #region 执行前检测
+                if (!ICPOBILL.FID.IsGuid())
                 {
-                    return "采购订单编号重复！";
-                }
-            }
+                    ICPOBILLMODEL temp = ICPOBILLDAL.Instance.GetWhere(new { FBILLNO = ICPOBILL.FBILLNO }).FirstOrDefault();
 
-            //foreach (var item in ICPOBILLENTRYList.GroupBy(i => i.FITEMID + i.FENTRYID))
-            //{
-            //    if (item.Count() > 1)
-            //    {
-            //        return "采购订单明细商品信息重复！";
-            //    }
-            //}
-
-            //foreach (var item in ICPOPOLICYList.GroupBy(i => i.FITEMID + i.FSRCENTRYID))
-            //{
-            //    if (item.Count() > 1)
-            //    {
-            //        return "采购订单价格政策商品信息重复！";
-            //    }
-            //}
-
-            #endregion
-
-            #region 保存主表
-
-            if (!ICPOBILL.FID.IsGuid())
-            {
-                ICPOBILL.FSTATUS = 1;
-                ICPOBILL.FSTATE = 1;
-                ICPOBILL.FBILLER = ICPOBILL.FBILLER;
-                ICPOBILL.FBILLERNAME = ICPOBILL.FBILLER;
-                ICPOBILL.FBILLDATE = DateTime.Now;
-                ICPOBILL.Fpricepolicy = ICPOBILL.Fpricepolicy;
-                ICPOBILL.FPOtype = ICPOBILL.FPOtype;
-                ICPOBILL.Fnote = ICPOBILL.Fnote;
-                FID = ICPOBILLDAL.Instance.Insert(ICPOBILL);
-
-                if (!FID.IsGuid())
-                {
-                    return "保存采购订单失败！"+ FID;
-                }
-            }
-            else
-            {
-                FID = ICPOBILL.FID;
-
-                var model = ICPOBILLDAL.Instance.Get(FID);            
-                model.FCLIENTID = ICPOBILL.FCLIENTID;
-                model.FREMARK = ICPOBILL.FREMARK;
-                model.FDATE = ICPOBILL.FDATE;
-                model.FTELEPHONE = ICPOBILL.FTELEPHONE;
-                model.Fpricepolicy = ICPOBILL.Fpricepolicy;
-                model.FPOtype = ICPOBILL.FPOtype;
-                model.Fnote = ICPOBILL.Fnote;
-                int iResult= ICPOBILLDAL.Instance.Update(model);
-
-              // return model.Fpricepolicy + "-"+ FID;
-
-
-            }
-
-            #endregion
-
-            #region 保存子表
-
-            LogHelper.Info("ICPOBILLENTRYMODEL.FID=" + FID);
-            List<ICPOBILLENTRYMODEL> tList = ICPOBILLENTRYDAL.Instance.GetWhere(new { FICPOBILLID = FID }).ToList();
-            if (tList.Count > 0)
-            {
-                foreach (var sub in tList)
-                {
-                    if (!string.IsNullOrEmpty(sub.ICPRBILLENTRYIDS))
+                    if (temp != null && temp.FID != ICPOBILL.FID)
                     {
-                        string[] str = sub.ICPRBILLENTRYIDS.Split(new char[] { ';' }, StringSplitOptions.RemoveEmptyEntries);
-
-                        foreach (var subS in str)
-                        {
-                            ICPRBILLENTRYDAL.Instance.UpdateWhatWhere(new { FICPOBILLNO = "", ICPOBILLENTRYID = "" }, new { FID = subS });
-                        }
-
+                        return "采购订单编号重复！";
                     }
                 }
 
-            }
-           
+                #endregion
 
-            //删除明细
-            ICPOBILLENTRYBLL.Instance.DeleteByICPOBILLID(FID);
+                #region 保存主表
 
-            //删除价格政策
-            //ICPOPOLICYBLL.Instance.DeleteByICPOBILLID(FID);
-
-            //保存明细
-            foreach (var item in ICPOBILLENTRYList)
-            {
-                item.FICPOBILLID = FID;
-                string fEntryID= ICPOBILLENTRYDAL.Instance.Insert(item);
-
-                LogHelper.Info("FICPOBILLID=" + FID+ " fEntryID="+ fEntryID);
-
-                if (fEntryID.IsGuid())
+                if (!ICPOBILL.FID.IsGuid())
                 {
-                    LogHelper.Info("item.ICPRBILLENTRYIDS=" + item.ICPRBILLENTRYIDS);
-                    if (!string.IsNullOrEmpty(item.ICPRBILLENTRYIDS))
-                    {
-                        string[] str = item.ICPRBILLENTRYIDS.Split(new char[] { ';' }, StringSplitOptions.RemoveEmptyEntries);
-
-                        foreach (var subS in str)
-                        {
-                            LogHelper.Info("ICPRBILLENTRYID=" + subS + " ICPOBILLENRYID=" + fEntryID);
-                            ICPRBILLENTRYDAL.Instance.UpdateWhatWhere(new { FICPOBILLNO = ICPOBILL.FBILLNO, ICPOBILLENTRYID = fEntryID }, new { FID = subS });
-                        }
-                    }
+                    FID = Guid.NewGuid().ToString();
+                    ICPOBILL.FSTATUS = 1;
+                    ICPOBILL.FSTATE = 1;
+                    ICPOBILL.FBILLERNAME = ICPOBILL.FBILLER;
+                    ICPOBILL.FBILLDATE = DateTime.Now;
+                    ICPOBILL.FID = FID;
+                    ICPOBILL.FSYNCSTATUS = 0;
+                    helper.InsertWithTransation(ICPOBILL, tran);
                 }
-            
-            }
+                else
+                {
+                    FID = ICPOBILL.FID;
+                    //var model = ICPOBILLDAL.Instance.Get(FID);
+                    //model.FCLIENTID = ICPOBILL.FCLIENTID;
+                    //model.FREMARK = ICPOBILL.FREMARK;
+                    //model.FDATE = ICPOBILL.FDATE;
+                    //model.FTELEPHONE = ICPOBILL.FTELEPHONE;
+                    //model.Fpricepolicy = ICPOBILL.Fpricepolicy;
+                    //model.FPOtype = ICPOBILL.FPOtype;
+                    //model.Fnote = ICPOBILL.Fnote;
+                    //model.FPREMISEID = ICPOBILL.FPREMISEID;
 
-            #endregion
+                    helper.UpdateWithTransation(ICPOBILL, tran);
 
-            return null;
+                }
+
+                #endregion
+
+                #region 保存子表
+
+                //删除明细
+                //ICPOBILLENTRYBLL.Instance.DeleteByICPOBILLID(FID);
+                helper.DeleteWithTran<ICPOBILLENTRYMODEL>($"AND  FICPOBILLID='{FID}'", tran);
+
+                //保存明细
+                foreach (var item in ICPOBILLENTRYList)
+                {
+                    item.FICPOBILLID = FID;
+                    item.FID = Guid.NewGuid().ToString();
+
+                    helper.InsertWithTransation(item, tran);
+
+                }
+
+                #endregion
+                tran.Commit();
+                conn.Dispose();
+                return null;
             }
             catch (Exception e)
             {
+                tran.Rollback();
                 LogHelper.Info("e.Message=" + e.Message);
-                return e.Message;
+                throw;
             }
 
         }
@@ -290,7 +231,7 @@ namespace hn.DataAccess.Bll
         /// <returns></returns>
         public bool OA_Status(string[] idStrings)
         {
-            return ICPOBILLDAL.Instance.ExecuteNonQuery(@"Update ICPOBILL SET OASTATUS = 1 WHERE FBILLNO IN('"+string.Join("','",idStrings) + "')") > 0;
+            return ICPOBILLDAL.Instance.ExecuteNonQuery(@"Update ICPOBILL SET OASTATUS = 1 WHERE FDESBILLNO IN('" + string.Join("','", idStrings) + "')") > 0;
         }
     }
 }

@@ -1,21 +1,20 @@
-﻿using hn.Core.Model;
+﻿using hn.ArrowInterface.Entities;
+using hn.Core.Model;
 using hn.DataAccess;
 using hn.DataAccess.bll;
-using hn.DataAccess.Bll;
 using hn.DataAccess.model;
-using hn.DataAccess.model.Common;
 using hn.DataAccess.Model;
 using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.ServiceModel.Web;
 using System.Text;
 using hn.ArrowInterface.Entities;
 using hn.ArrowInterface.RequestParams;
+using hn.DataAccess.dal.Common;
 using hn.DataAccess.dal.LHModel;
+using hn.DataAccess.model.Common;
 
 namespace hn.Client.Service
 {
@@ -712,9 +711,39 @@ MApiModel.api24.Rootobject getapi24);
         [OperationContract]
         bool obOrderUpload(List<string> billnos);
 
+        /// <summary>
+        /// 根据商家帐户、所属公司、销售渠道、订单类型、业务类型，返回可选择的政策头
+        /// </summary>
+        /// <param name="header"></param>
+        /// <returns></returns>
+        [OperationContract]
+        List<LH_Policy> GetPolicies(ICPOBILL_PolicyDTO header);
+
+        /// <summary>
+        /// 根据政策头、订单类型、所属公司、渠道、产品线、返回可选择的物料
+        /// </summary>
+        /// <param name="header"></param>
+        /// <returns></returns>
+        [OperationContract]
+        PageResult<v_lhproducts_policyModel> GetPolicyProducts(ICPOBILL_PolicyDTO header,
+            v_lhproducts_policyModel where, int index, int size);
+
+        [OperationContract]
+        bool SaveLH_MergeBill(LH_MergeBill bill, List<string> LHOBODNOS);
+
+        [OperationContract]
+        List<LH_MergeBill> GetMergeBills(List<string> LHOBODNOS);
+
+        [OperationContract]
+        string AuditionICPOBILL(string userId, List<string> billNos, AuditEnums auditType);
+
+
+        
+
 
         #endregion
 
     }
 
+   
 }
