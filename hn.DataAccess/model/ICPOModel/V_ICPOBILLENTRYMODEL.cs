@@ -58,6 +58,11 @@ namespace hn.DataAccess.Model
         /// </summary>
         public decimal FASKQTY { get; set; }
 
+        /// <summary>
+        /// 厂家订单单价
+        /// </summary>
+        public decimal? LHDISCOUNTPRICE { get; set; }
+
         [DbField(false)]
         public int cjkcs { get; set; }
         public string FNEEDDATESTR { get; set; }

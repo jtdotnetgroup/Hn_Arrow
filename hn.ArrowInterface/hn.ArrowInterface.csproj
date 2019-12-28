@@ -139,6 +139,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\DataAccessLib\DataAccess.csproj">
+      <Project>{ebe29b52-ed11-498c-8ac3-e0247119b8c7}</Project>
+      <Name>DataAccess</Name>
+    </ProjectReference>
     <ProjectReference Include="..\hn.Arrow.Common\hn.Common\hn.Common_Arrow.csproj">
       <Project>{03316d43-23fa-441b-a1aa-9cdff94e0371}</Project>
       <Name>hn.Common_Arrow</Name>

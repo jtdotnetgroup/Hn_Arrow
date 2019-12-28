@@ -145,6 +145,7 @@
     <Compile Include="Model\V_User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RequestParamModel.cs" />
+    <Compile Include="StringExtends.cs" />
     <Compile Include="SysVisitor.cs" />
   </ItemGroup>
   <ItemGroup>

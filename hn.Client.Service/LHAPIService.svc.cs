@@ -33,24 +33,28 @@ namespace hn.Client.Service
         [OperationContract]
         public bool SaleOrderUpload(List<string> billNos)
         {
+            LogHelper.Info($"接收参数 ：{JsonConvert.SerializeObject(billNos)}");
             return methods.SaleOrderUpload(billNos);
         }
 
         [OperationContract]
         public bool AcctOaStatus(AcctOAStatusParam pars)
         {
+            LogHelper.Info($"接收参数 ：{JsonConvert.SerializeObject(pars)}");
             return methods.AcctOaStatus(pars);
         }
 
         [OperationContract]
         public bool obOrderUpload(List<string> billNos)
         {
+            LogHelper.Info($"接收参数 ：{JsonConvert.SerializeObject(billNos)}");
             return methods.obOrderUpload(billNos);
         }
 
         [OperationContract]
         public List<LH_Policy> GetPolicies(ICPOBILL_PolicyDTO header)
         {
+            LogHelper.Info($"接收参数 ：{JsonConvert.SerializeObject(header)}");
             return methods.GetPolicies(header);
 
         }
@@ -70,6 +74,17 @@ namespace hn.Client.Service
 
             var headerObj = JsonConvert.DeserializeObject<ICPOBILLMODEL>(header);
             var entriesObj = JsonConvert.DeserializeObject<List<ICPOBILLENTRYMODEL>>(entriees);
+            if (headerObj == null)
+            {
+                throw new ArgumentException("订单头不能为空");
+            }
+
+            if (entriesObj == null || entriesObj.Count == 0)
+            {
+                throw new ArgumentException("订单明细不能为空");
+            }
+
+            LogHelper.Info($"反序列化表头：{JsonConvert.SerializeObject(headerObj)}");
 
             Mapper.Initialize(new MapperConfigurationExpression());
             var saveHeader = Mapper.Instance.Map<ICPOBILLMODEL>(headerObj);

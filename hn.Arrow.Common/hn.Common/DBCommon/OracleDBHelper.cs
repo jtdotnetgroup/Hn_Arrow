@@ -23,16 +23,11 @@ namespace hn.Common_Arrow
         public OracleDBHelper(string conStr)
         {
             this.conStr = conStr;
-            conn = factory.CreateConnection();
-            conn.ConnectionString = conStr;
-
         }
 
         public OracleDBHelper()
         {
             this.conStr = ConfigurationManager.ConnectionStrings["DbConnection"].ConnectionString;
-            conn = factory.CreateConnection();
-            conn.ConnectionString = conStr;
         }
 
         public DbConnection GetNewConnection()
@@ -42,7 +37,7 @@ namespace hn.Common_Arrow
             return con;
         }
 
-        public DbConnection conn { get; set; }
+        //public DbConnection conn { get; set; }
 
         /// <summary>
         /// 用于执行没有返回数据的SQL语句，如UPDATE或INSERT、DELETE类
@@ -54,7 +49,8 @@ namespace hn.Common_Arrow
         {
             try
             {
-                if (conn.State == ConnectionState.Closed) conn.Open();
+                var conn = GetNewConnection();
+                conn.Open();
 
                 var cmd = factory.CreateCommand();
                 cmd.Connection = conn;
@@ -62,7 +58,11 @@ namespace hn.Common_Arrow
 
                 foreach (var key in pars.Keys) cmd.Parameters.Add(new OracleParameter(key, pars[key]));
 
-                return cmd.ExecuteNonQuery();
+
+                var result= cmd.ExecuteNonQuery();
+
+                conn.Close();
+                return result;
             }
             catch (Exception e)
             {
@@ -80,9 +80,11 @@ namespace hn.Common_Arrow
         /// <returns></returns>
         public object ExecuteScalar(string sql, Dictionary<string, object> pars)
         {
+            var conn = GetNewConnection();
+            conn.Open();
             try
             {
-                if (conn.State == ConnectionState.Closed) conn.Open();
+              
 
                 var cmd = factory.CreateCommand();
                 cmd.Connection = conn;
@@ -90,10 +92,13 @@ namespace hn.Common_Arrow
 
                 foreach (var key in pars.Keys) cmd.Parameters.Add(new OracleParameter(key, pars[key]));
 
-                return cmd.ExecuteScalar();
+                var result= cmd.ExecuteScalar();
+                conn.Close();
+                return result;
             }
             catch (Exception e)
             {
+                conn.Close();
                 LogHelper.Error(e);
                 LogHelper.Info("SQL:" + sql);
                 throw;
@@ -271,16 +276,20 @@ namespace hn.Common_Arrow
         {
             var sql = GetUpdateSql<T>(where);
             var cmd = GetCommand(sql, obj);
-            cmd.Connection = conn;
-
+            var conn = GetNewConnection();
+            conn.Open();
             try
             {
-                if (conn.State == ConnectionState.Closed) conn.Open();
+               
+                cmd.Connection = conn;
 
-                return cmd.ExecuteNonQuery() > 0;
+                var result= cmd.ExecuteNonQuery() > 0;
+                conn.Close();
+                return result;
             }
             catch (Exception e)
             {
+                conn.Close();
                 LogHelper.Error(e);
                 LogHelper.Info("SQL:" + sql);
                 throw;
@@ -324,18 +333,23 @@ namespace hn.Common_Arrow
             var where = string.Format(" AND {0}=:{1}", keyFieldName, keyPropertyInfo.Name);
 
             var sql = GetUpdateSql<T>(where);
-
             var cmd = GetCommand(sql, obj);
-            cmd.Connection = conn;
+            var conn = GetNewConnection();
+            conn.Open();
 
             try
             {
-                if (conn.State == ConnectionState.Closed) conn.Open();
+                
+                cmd.Connection = conn;
+                var result= cmd.ExecuteNonQuery() > 0;
 
-                return cmd.ExecuteNonQuery() > 0;
+                conn.Close();
+                return result;
             }
             catch (Exception e)
             {
+                conn.Close();
+                
                 LogHelper.Error(e);
                 LogHelper.Info("SQL:" + sql);
                 throw;
@@ -380,9 +394,9 @@ namespace hn.Common_Arrow
 
             try
             {
-                if (conn.State == ConnectionState.Closed) conn.Open();
+                var result= cmd.ExecuteNonQuery() > 0;
 
-                return cmd.ExecuteNonQuery() > 0;
+                return result;
             }
             catch (Exception e)
             {
@@ -402,19 +416,22 @@ namespace hn.Common_Arrow
         {
             var sql = GetInsertSql<T>();
             var cmd = GetCommand(sql, obj);
-            cmd.Connection = conn;
+            var conn = GetNewConnection();
+            conn.Open();
 
             try
             {
-                if (conn.State == ConnectionState.Closed) conn.Open();
-
+                
+                cmd.Connection = conn;
                 var result = cmd.ExecuteNonQuery();
                 conn.Close();
 
-                return result > 0;
+                return result > 0; ;
             }
             catch (Exception e)
             {
+                conn.Close();
+                
                 LogHelper.Error(e);
                 LogHelper.Info($"数据：{JsonConvert.SerializeObject(obj)}");
                 LogHelper.Info("SQL:" + sql);
@@ -446,8 +463,7 @@ namespace hn.Common_Arrow
             {
                 LogHelper.Error(e);
                 LogHelper.Error($"数据：{JsonConvert.SerializeObject(obj)}");
-                LogHelper.Error($"CMD参数：");
-               LogHelper.Error($"实体类型：{typeof(T).Name}");
+                LogHelper.Error($"实体类型：{typeof(T).Name}");
                 LogHelper.Error("SQL:" + sql);
                 throw;
             }
@@ -464,12 +480,13 @@ namespace hn.Common_Arrow
         {
             var cmd = factory.CreateCommand();
             cmd.CommandText = sql;
-            cmd.Connection = conn;
+            
 
             var t = typeof(T);
             var pis = t.GetProperties().Where(p =>
                 p.GetCustomAttributes(true).Count(pi => pi.GetType() == typeof(NotMappedAttribute)) == 0).ToList();
-
+            LogHelper.Debug($"实体类：{t.Name}");
+            LogHelper.Debug($"实体数据：{JsonConvert.SerializeObject(par)}");
             LogHelper.Debug($"SQL:{sql}");
             pis.ForEach(p =>
             {
@@ -477,6 +494,8 @@ namespace hn.Common_Arrow
                 LogHelper.Debug($"SQL参数：{p.Name}：{value}");
                 cmd.Parameters.Add(new OracleParameter($":{p.Name}" , value));
             });
+
+            LogHelper.Debug("===============================分割线========================================================");
 
             return cmd;
         }
@@ -492,7 +511,7 @@ namespace hn.Common_Arrow
         {
             var cmd = factory.CreateCommand();
             cmd.CommandText = sql;
-            cmd.Connection = conn;
+            
 
             var t = typeof(T);
             var pis = t.GetProperties().Where(p => p.GetCustomAttributes(true).Count(c => c is NotMappedAttribute) == 0).ToList();
@@ -528,16 +547,20 @@ namespace hn.Common_Arrow
 
             var cmd = factory.CreateCommand();
             cmd.CommandText = sql;
-            cmd.Connection = conn;
+            var conn = GetNewConnection();
+            conn.Open();
 
             try
             {
-                if (conn.State == ConnectionState.Closed) conn.Open();
-
-                return cmd.ExecuteNonQuery();
+              
+                cmd.Connection = conn;
+                var result= cmd.ExecuteNonQuery();
+                conn.Close();
+                return result;
             }
             catch (Exception e)
             {
+                conn.Close();
                 LogHelper.Error(e);
                 LogHelper.Info("SQL:" + sql);
                 throw;
@@ -559,9 +582,11 @@ namespace hn.Common_Arrow
             cmd.CommandText = sql;
             cmd.Transaction = tran;
 
+            LogHelper.Debug($"SQL:{sql}");
+
             try
             {
-                if (conn.State == ConnectionState.Closed) conn.Open();
+               
                 return cmd.ExecuteNonQuery();
             }
             catch (Exception e)
@@ -611,8 +636,6 @@ namespace hn.Common_Arrow
 
             try
             {
-                if (conn.State == ConnectionState.Closed) conn.Open();
-
                 return cmd.ExecuteNonQuery();
             }
             catch (Exception e)
@@ -626,7 +649,8 @@ namespace hn.Common_Arrow
 
         public DataTable Select(string sql)
         {
-            if (conn.State == ConnectionState.Closed) conn.Open();
+            var conn = GetNewConnection();
+            conn.Open();
             var cmd = factory.CreateCommand();
             cmd.CommandText = sql;
             cmd.Connection = conn;
@@ -639,9 +663,14 @@ namespace hn.Common_Arrow
             }
             catch (Exception e)
             {
+                conn.Close();
+                
                 LogHelper.Info($"SQL:{sql}\n异常：{e.Message}");
                 throw;
             }
+
+            conn.Close();
+            
 
             return table;
         }
@@ -696,23 +725,28 @@ namespace hn.Common_Arrow
 
         public List<T> Select<T>(string sql) where T : new()
         {
-            if (conn.State == ConnectionState.Closed) conn.Open();
-            var cmd = factory.CreateCommand();
-            cmd.CommandText = sql;
-            cmd.Connection = conn;
-            var da = factory.CreateDataAdapter();
-            da.SelectCommand = cmd;
-            var table = new DataTable();
-            da.Fill(table);
+            using (var conn = GetNewConnection())
+            {
+                conn.Open();
+                var cmd = factory.CreateCommand();
+                cmd.CommandText = sql;
+                cmd.Connection = conn;
+                var da = factory.CreateDataAdapter();
+                da.SelectCommand = cmd;
+                var table = new DataTable();
+                da.Fill(table);
 
-            var result = DataTableToList<T>(table);
+                var result = DataTableToList<T>(table);
 
-            return result;
+                return result;
+            } ;
+           
         }
 
         public T Get<T>(string sql) where T : new()
         {
-            if (conn.State == ConnectionState.Closed) conn.Open();
+            var conn = GetNewConnection();
+            conn.Open();
             var cmd = factory.CreateCommand();
             cmd.CommandText = sql;
             cmd.Connection = conn;
@@ -723,13 +757,17 @@ namespace hn.Common_Arrow
             try
             {
                 var result = DataTableToList<T>(table).SingleOrDefault();
-
+                conn.Close();
                 return result;
             }
             catch (InvalidOperationException e)
             {
                 LogHelper.Error(e);
                 throw;
+            }
+            finally
+            {
+                conn.Close();
             }
         }
 
@@ -750,17 +788,19 @@ namespace hn.Common_Arrow
 
             var sql = builder.ToString();
             var cmd = GetCommand(sql, data);
+            var conn = GetNewConnection();
+            conn.Open();
 
-            cmd.Connection = conn;
             if (tran != null)
             {
                 cmd.Connection = tran.Connection;
                 cmd.Transaction = tran;
             }
+
             try
             {
                 //LogHelper.Info($"批量插入数据【{typeof(T).Name}】【{data.Count}】条");
-                if (conn.State == ConnectionState.Closed) conn.Open();
+
 
                 var result = cmd.ExecuteNonQuery();
                 conn.Close();
@@ -774,6 +814,11 @@ namespace hn.Common_Arrow
                 LogHelper.Info($"插入失败数据");
                 return false;
             }
+            finally
+            {
+                conn.Close();
+            }
+
         }
 
         public bool BatchUpdate<T>(List<T> data, string where)
@@ -781,11 +826,10 @@ namespace hn.Common_Arrow
             if (data == null || data.Count == 0) return false;
             var now = DateTime.Now;
             var sql = GetUpdateSql<T>(where);
-
+            var conn = GetNewConnection();
+            conn.Open();
             try
             {
-                if (conn.State == ConnectionState.Closed) conn.Open();
-
                 data.ForEach(row =>
                 {
                     var cmd = GetCommand(sql, row);
@@ -794,6 +838,7 @@ namespace hn.Common_Arrow
                 });
                 var timespan = DateTime.Now - now;
                 LogHelper.Info($"批量更新完成耗时：{timespan.Hours}时{timespan.Minutes}分{timespan.Seconds}秒，共更新{data.Count}条数据");
+                conn.Close();
                 return true;
             }
             catch (Exception e)
@@ -801,6 +846,10 @@ namespace hn.Common_Arrow
                 LogHelper.Info($"批量更新失败\n异常：{e.Message}");
                 LogHelper.Info("SQL:" + sql);
                 throw;
+            }
+            finally
+            {
+                conn.Close();
             }
         }
 
@@ -838,7 +887,8 @@ namespace hn.Common_Arrow
 
         public T Get<T>(object id) where T : new()
         {
-            if (conn.State == ConnectionState.Closed) conn.Open();
+            var conn = GetNewConnection();
+            conn.Open();
             var sql = GetSelectSql<T>();
             var t = typeof(T);
             var pis = t.GetProperties();
@@ -861,6 +911,8 @@ namespace hn.Common_Arrow
             sql += string.Format(" AND {0}=", keyFieldName) + id;
 
             var result = Select<T>(sql).FirstOrDefault();
+
+            conn.Close();
 
             return result;
         }
@@ -888,14 +940,31 @@ namespace hn.Common_Arrow
 
             var sql = $"SELECT COUNT(*) FROM {tableName} WHERE 1=1 {where}";
 
+            var conn = GetNewConnection();
+            conn.Open();
 
-            var cmd = factory.CreateCommand();
-            cmd.Connection = conn;
-            cmd.CommandText = sql;
+            try
+            {
+                var cmd = factory.CreateCommand();
+                cmd.Connection = conn;
+                cmd.CommandText = sql;
 
-            int result =Convert.ToInt32( cmd.ExecuteScalar());
+                int result = Convert.ToInt32(cmd.ExecuteScalar());
+                conn.Close();
 
-            return result;
+                return result;
+            }
+            catch (Exception e)
+            {
+                LogHelper.Error(e);
+                throw;
+            }
+            finally
+            {
+                conn.Close();
+            }
+
+           
         }
 
         public string GetWhereStr<T>(T where)
@@ -940,7 +1009,6 @@ namespace hn.Common_Arrow
             var cmd = factory.CreateCommand();
             sql += GetWhereStr(where);
             cmd.CommandText = sql;
-            cmd.Connection = conn;
             return cmd;
         }
 
@@ -976,25 +1044,32 @@ namespace hn.Common_Arrow
 
         public List<T> GetWhere<T>(T condiction) where T : new()
         {
-            if (conn.State == ConnectionState.Closed) conn.Open();
+            var conn = GetNewConnection();
+            conn.Open();
 
             var cmd = GetCommand(condiction);
+            cmd.Connection = conn;
             var da = factory.CreateDataAdapter();
             da.SelectCommand = cmd;
+
 
             var data = new DataTable();
             da.Fill(data);
 
             var result = DataTableToList<T>(data);
 
+            conn.Close();
+
             return result;
         }
 
         public List<T> GetWhere<T>(T condiction,int index,int size) where T : new()
         {
-            if (conn.State == ConnectionState.Closed) conn.Open();
+            var conn = GetNewConnection();
+            conn.Open();
 
             var cmd = GetCommand(condiction);
+            cmd.Connection = conn;
             cmd.CommandText += $" AND ROWNUM>{(index-1)*size} AND ROWNUM<={index*size}";
             var da = factory.CreateDataAdapter();
             da.SelectCommand = cmd;
@@ -1003,6 +1078,7 @@ namespace hn.Common_Arrow
             da.Fill(data);
 
             var result = DataTableToList<T>(data);
+            conn.Close();
 
             return result;
         }
@@ -1034,7 +1110,8 @@ namespace hn.Common_Arrow
         {
             string sql = GetSelectSql<T>();
             sql += where;
-            if (conn.State == ConnectionState.Closed) conn.Open();
+            var conn = GetNewConnection();
+            conn.Open();
             var cmd = conn.CreateCommand();
             cmd.CommandText = sql;
 
@@ -1046,6 +1123,8 @@ namespace hn.Common_Arrow
                 var datatable = new DataTable();
                 da.Fill(datatable);
                 var result = DataTableToList<T>(datatable);
+
+                conn.Close();
                 return result;
             }
         }
@@ -1055,9 +1134,11 @@ namespace hn.Common_Arrow
             string sql = GetSelectSql<T>();
             sql += where;
             sql+= $" AND ROWNUM>{(index - 1) * size} AND ROWNUM<={index * size}";
-            if (conn.State == ConnectionState.Closed) conn.Open();
+            var conn = GetNewConnection();
+            conn.Open();
 
             var cmd = conn.CreateCommand();
+            cmd.Connection = conn;
             cmd.CommandText = sql;
             using (var da = factory.CreateDataAdapter())
             {
@@ -1065,6 +1146,8 @@ namespace hn.Common_Arrow
                 var datatable = new DataTable();
                 da.Fill(datatable);
                 var result = DataTableToList<T>(datatable);
+
+                conn.Close();
                 return result;
             }
         }
@@ -1074,12 +1157,14 @@ namespace hn.Common_Arrow
             string sql = GetSelectSql<T>();
             sql += where;
             //sql += $" AND ROWNUM>{(index - 1) * size} AND ROWNUM<={index * size}";
-            if (conn.State == ConnectionState.Closed) conn.Open();
+            var conn = GetNewConnection();
+            conn.Open();
 
             sql = $"SELECT t.*,ROWNUM AS ROWNO FROM ({sql}) t ";
             sql = $"SELECT * FROM ({sql}) WHERE ROWNO>{(index - 1) * size} AND ROWNO<={index * size}";
 
             var cmd = conn.CreateCommand();
+            cmd.Connection = conn;
             cmd.CommandText = sql;
             LogHelper.Info(sql);
             using (var da = factory.CreateDataAdapter())
@@ -1088,6 +1173,8 @@ namespace hn.Common_Arrow
                 var datatable = new DataTable();
                 da.Fill(datatable);
                 var result = DataTableToList<T>(datatable);
+
+                conn.Close();
                 return result;
             }
         }
@@ -1106,6 +1193,7 @@ namespace hn.Common_Arrow
                 var datatable = new DataTable();
                 da.Fill(datatable);
                 var result = DataTableToList<T>(datatable);
+                
                 return result;
             }
 

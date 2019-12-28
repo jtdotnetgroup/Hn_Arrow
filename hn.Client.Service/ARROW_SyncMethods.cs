@@ -5,11 +5,17 @@ using System.Configuration;
 using System.Data.OracleClient;
 using System.Linq;
 using System.ServiceModel;
+using System.Text;
+using DataAccess;
+using DataAccess.CustomEnums;
 using hn.ArrowInterface.Entities;
 using hn.ArrowInterface.RequestParams;
 using hn.ArrowInterface.WebCommon;
+using hn.Client.Service.LH;
+using hn.Client.Service.Respository;
 using hn.Common_Arrow;
 using hn.DataAccess.Bll;
+using hn.DataAccess.dal.LHModel;
 using hn.DataAccess.model;
 using hn.DataAccess.Model;
 using hn.DataAccess.model.Common;
@@ -19,8 +25,26 @@ namespace hn.Client.Service
 {
     public class ARROW_SyncMethods
     {
+
+        public ARROW_SyncMethods()
+        {
+            DBConnectionFactory.ConnectionName = "DbConnection";
+        }
+
         public bool SaleOrderUpload(List<string> billNos)
         {
+
+            var auditType = AuditEnums.提交同步;
+            ICPOBILLAuditor auditor=new ICPOBILLAuditor("System", auditType);
+            var err= auditor.CheckOption(billNos, auditType);
+
+            
+
+            if (!err.Equals(""))
+            {
+                throw new ArgumentException(err);
+            }
+
             var token = CommonToken.GetToken();
             var http = new ArrowInterface.ArrowInterface();
             var Helper = new OracleDBHelper();
@@ -29,10 +53,8 @@ namespace hn.Client.Service
 
             bills.ForEach(b =>
             {
-
-
                 var details = Helper.GetWhere(new SaleOrderUploadDetailedParam()
-                    {lHOutSystemID = b.lHOutSystemID}).ToArray();
+                { lHOutSystemID = b.lHOutSystemID }).ToArray();
 
                 b.saleOrderItemList = details;
             });
@@ -51,21 +73,29 @@ namespace hn.Client.Service
 
                     if (result.Success)
                     {
+
+                        var saleorderRepository=new DefaultRepository<Order>(DBTypeEnums.ORACLE);
+
+
                         ///返写箭牌销售单号到本地采购订单表ICPOBILL的FDesBillNo字段
                         var whereStr = $" AND FBILLNO='{b.lHOutSystemOd}'";
                         var icpobill = Helper.GetWithTranWithWhereStr<ICPOBILLMODEL>(whereStr, tran)
                             .SingleOrDefault();
+
+                        saleorderRepository.Delete(new { lHOutSystemID=b.lHOutSystemID }, tran);
+
                         foreach (var row in result.item.AsParallel())
                         {
-                            Helper.DeleteWithTran(row, tran);
-
                             Helper.InsertWithTransation(row, tran);
 
                             icpobill.FDesBillNo = row.orderNo;
                         }
 
                         //更新本地采购订单表ICPOBILL
-                        Helper.Update(icpobill);
+                        icpobill.FSTATUS = (int)ICPOBILLStatus.关闭;
+                        icpobill.FSYNCSTATUS = (int)ICPOBILLSyneStatus.已同步;
+                        Helper.UpdateWithTransation(icpobill, tran);
+                        
 
                     }
                     else
@@ -74,10 +104,12 @@ namespace hn.Client.Service
                     }
 
                     tran.Commit();
+                    conn.Close();
                 }
                 catch (Exception e)
                 {
                     tran.Rollback();
+                    conn.Close();
                     var message = $"销售订单【{b.lHOutSystemOd}】上传失败：{e.Message}";
                     LogHelper.Info(message);
                     LogHelper.Error(e);
@@ -118,6 +150,7 @@ namespace hn.Client.Service
                     catch (Exception e)
                     {
                         tran.Rollback();
+                        conn.Close();
                         var message = $"OA同步结果插入失败：{JsonConvert.SerializeObject(row)}";
                         LogHelper.Info(message);
                         LogHelper.Error(e);
@@ -138,35 +171,34 @@ namespace hn.Client.Service
             var http = new ArrowInterface.ArrowInterface();
             var Helper = new OracleDBHelper();
 
+            var uploadParamRepository=new DefaultRepository<ObOrderUploadParam>(DBTypeEnums.ORACLE);
+            var lhobounorderRepository=new DefaultRepository<LH_OUTBOUNDORDER>(DBTypeEnums.ORACLE);
+
+            Dictionary<string,CompareEnum> compare=new Dictionary<string, CompareEnum>();
+            compare.Add("LHODONO",CompareEnum.In);
+
+            var pars= uploadParamRepository.SelectWithWhere(new {LHODONO = billNos}, compare, null);
+
             List<string> errors = new List<string>();
-            billNos.ForEach(no =>
+            pars.ForEach(p =>
             {
                 try
                 {
-                    var where = new LH_OUTBOUNDORDER() {lhodoNo = no};
-                    var bill = Helper.GetWhere(where).SingleOrDefault();
-                    if (bill == null)
-                    {
-                        throw new Exception($"单据【{no}】不存在");
-                    }
-
-                    ObOrderUploadParam pars = new ObOrderUploadParam()
-                        {lhodoID = bill.lhodoID, lhplateNo = bill.FCarno};
-                    var result = http.obOrderUpload(token.Token, pars);
+                    var result = http.obOrderUpload(token.Token, p);
                     if (result.Success)
                     {
-                        bill.FStatus = 2;
-                        Helper.Update(bill);
+                        var sql = "UPDATE LH_OUTBOUNDORDER SET FSTATUS=:FSTATUS WHERE lhodoID=:lhodoID";
+                        lhobounorderRepository.Execute(sql, new {FSTATUS = 7, lhodoID = p.lhodoID }, null);
                     }
                     else
                     {
-                        errors.Add($"单据【{no}】车牌同步失败");
+                        errors.Add($"单据【{p.lhodoID}】车牌同步失败");
                     }
 
                 }
                 catch (OracleException e)
                 {
-                    var message = string.Format($"单据【{no}】车牌上传结果更新失败");
+                    var message = string.Format($"单据【{p.lhodoID}】车牌上传结果更新失败");
                     Common_Arrow.LogHelper.Info(message);
                     Common_Arrow.LogHelper.Error(e);
                 }
@@ -244,7 +276,7 @@ namespace hn.Client.Service
             }
 
             PageResult<v_lhproducts_policyModel> result = new PageResult<v_lhproducts_policyModel>()
-                {Total = total, Result = resultList};
+            { Total = total, Result = resultList };
 
             return result;
         }
@@ -278,25 +310,25 @@ namespace hn.Client.Service
             {
                 //常规订单
                 case "Common":
-                {
-                    where.LHPRODSIGN = "成品";
-                    break;
-                }
+                    {
+                        where.LHPRODSIGN = "成品";
+                        break;
+                    }
 
                 //配件订单
                 case "Parts":
-                {
-                    where.LHPRODSIGN = "配件";
-                    break;
-                }
+                    {
+                        where.LHPRODSIGN = "配件";
+                        break;
+                    }
 
                 //广告物料申请单
                 case "Advertise":
-                {
-                    where.LHPRODSIGN = "广告物料";
-                    where.LHPRODTYPE = "广告用品";
-                    break;
-                }
+                    {
+                        where.LHPRODSIGN = "广告物料";
+                        where.LHPRODTYPE = "广告用品";
+                        break;
+                    }
             }
 
             where.HEADID = string.IsNullOrEmpty(header.HeadID) ? null : header.HeadID;
@@ -326,6 +358,93 @@ namespace hn.Client.Service
             {
                 return result;
             }
+        }
+
+        public bool SaveMergeBill(LH_MergeBill bill, List<string> LHOBODNOS)
+        {
+            var conn = DBConnectionFactory.GetConnection(DBTypeEnums.ORACLE);
+            conn.Open();
+            var tran = conn.BeginTransaction();
+            try
+            {
+                bool result = false;
+                LH_MergeBillRepository repository = new LH_MergeBillRepository();
+                var lhoutorderRepository = new DefaultRepository<LH_OUTBOUNDORDER>(DBTypeEnums.ORACLE);
+
+                var sql = "SELECT * FROM MERGEBILL WHERE FBILLNO=:FBILLNO";
+
+                var temp = repository.GetSingle(sql, bill);
+                if (temp == null)
+                {
+
+                    result = repository.Insert(bill, tran);
+
+                }
+                else
+                {
+                    result = repository.Update(bill, new { FBILLNO = bill.FBILLNO });
+                }
+
+                sql = $"UPDATE  LH_OUTBOUNDORDER SET FMEGREBILLNO=:FBILLNO,FCARNO=:CARNO WHERE LHODONO IN :LHODONOS";
+
+                result = lhoutorderRepository.Execute(sql, new { FBILLNO = bill.FBILLNO, LHODONOS = LHOBODNOS, CARNO = bill.FCARNO }, tran) == LHOBODNOS.Count;
+
+                tran.Commit();
+                conn.Close();
+
+                return result;
+
+            }
+            catch (Exception e)
+            {
+                tran.Rollback();
+                conn.Close();
+                LogHelper.Error(e);
+                throw;
+            }
+
+        }
+
+        public List<LH_MergeBill> GetMergeBills(List<string> LHOBODNOS)
+        {
+
+            var repository = new DefaultRepository<LH_MergeBill>(DBTypeEnums.ORACLE);
+            var sql = "SELECT DISTINCT MB.* FROM MergeBill MB INNER JOIN LH_OUTBOUNDORDER OB ON OB.FMEGREBILLNO=MB.FBILLNO WHERE OB.LHODONO IN :LHODONOS";
+
+            try
+            {
+                return repository.Query(sql, new { LHODONOS = LHOBODNOS }, null);
+            }
+            catch (Exception e)
+            {
+                LogHelper.Error(e);
+                throw;
+            }
+
+
+        }
+
+        public string AuditionICPOBILL(string userId,List<string> billnos,AuditEnums auditType)
+        {
+            ICPOBILLAuditor auditor = new ICPOBILLAuditor(userId, auditType);
+            
+            var repository=new DefaultRepository<ICPOBILLMODEL>(DBTypeEnums.ORACLE);
+
+            var compare=new Dictionary<string,CompareEnum>();
+            compare.Add("FBILLNO",CompareEnum.In);
+
+            var bills = repository.SelectWithWhere(new {FBILLNO = billnos}, compare);
+
+            var result = new StringBuilder();
+
+            foreach (var b in bills)
+            {
+                var msg = auditor.AuditBILL(b, auditType);
+                result.Append(msg);
+            }
+
+            return result.ToString();
+
         }
     }
 }

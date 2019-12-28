@@ -35,6 +35,9 @@ namespace hn.ArrowInterface.Jobs
                     }
                     catch (Exception e)
                     {
+                        tran.Rollback();
+                        conn.Close();
+
                         string message = string.Format("销售订单上传结果：{0}", JsonConvert.SerializeObject(tmp));
                         LogHelper.Info(message);
                         LogHelper.Error(e);

@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DevExpress.XtraGrid.GridLevelNode gridLevelNode1 = new DevExpress.XtraGrid.GridLevelNode();
+            DevExpress.XtraGrid.GridLevelNode gridLevelNode2 = new DevExpress.XtraGrid.GridLevelNode();
             this.splCC = new DevExpress.XtraEditors.SplitContainerControl();
             this.palList = new DevExpress.XtraEditors.PanelControl();
             this.BillList = new DevExpress.XtraGrid.GridControl();
@@ -62,6 +62,7 @@
             this.btnSearch = new System.Windows.Forms.ToolStripButton();
             this.btnSyncCar = new System.Windows.Forms.ToolStripButton();
             this.btnExit = new System.Windows.Forms.ToolStripButton();
+            this.btnBatchUpdate = new System.Windows.Forms.ToolStripButton();
             this.dgvList = new System.Windows.Forms.DataGridView();
             this.palDetailed = new DevExpress.XtraEditors.PanelControl();
             this.palEnty = new DevExpress.XtraEditors.PanelControl();
@@ -127,9 +128,9 @@
             // 
             this.BillList.Dock = System.Windows.Forms.DockStyle.Fill;
             this.BillList.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            gridLevelNode1.RelationName = "Level1";
+            gridLevelNode2.RelationName = "Level1";
             this.BillList.LevelTree.Nodes.AddRange(new DevExpress.XtraGrid.GridLevelNode[] {
-            gridLevelNode1});
+            gridLevelNode2});
             this.BillList.Location = new System.Drawing.Point(2, 133);
             this.BillList.MainView = this.BillGrid;
             this.BillList.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
@@ -154,6 +155,8 @@
             this.BillGrid.OptionsEditForm.ShowOnEnterKey = DevExpress.Utils.DefaultBoolean.False;
             this.BillGrid.OptionsEditForm.ShowOnF2Key = DevExpress.Utils.DefaultBoolean.False;
             this.BillGrid.OptionsEditForm.ShowUpdateCancelPanel = DevExpress.Utils.DefaultBoolean.False;
+            this.BillGrid.OptionsSelection.MultiSelect = true;
+            this.BillGrid.OptionsSelection.MultiSelectMode = DevExpress.XtraGrid.Views.Grid.GridMultiSelectMode.CheckBoxRowSelect;
             this.BillGrid.OptionsView.ShowGroupPanel = false;
             // 
             // repositoryItemCheckEdit2
@@ -247,7 +250,6 @@
             this.textBox9.Name = "textBox9";
             this.textBox9.Size = new System.Drawing.Size(100, 22);
             this.textBox9.TabIndex = 45;
-            this.textBox9.Visible = false;
             // 
             // label9
             // 
@@ -257,7 +259,6 @@
             this.label9.Size = new System.Drawing.Size(63, 14);
             this.label9.TabIndex = 44;
             this.label9.Text = "提 货 人：";
-            this.label9.Visible = false;
             // 
             // textBox6
             // 
@@ -265,7 +266,6 @@
             this.textBox6.Name = "textBox6";
             this.textBox6.Size = new System.Drawing.Size(100, 22);
             this.textBox6.TabIndex = 43;
-            this.textBox6.Visible = false;
             // 
             // label6
             // 
@@ -275,7 +275,6 @@
             this.label6.Size = new System.Drawing.Size(67, 14);
             this.label6.TabIndex = 42;
             this.label6.Text = "同步车牌：";
-            this.label6.Visible = false;
             // 
             // textBox8
             // 
@@ -283,7 +282,6 @@
             this.textBox8.Name = "textBox8";
             this.textBox8.Size = new System.Drawing.Size(100, 22);
             this.textBox8.TabIndex = 39;
-            this.textBox8.Visible = false;
             // 
             // label8
             // 
@@ -293,7 +291,6 @@
             this.label8.Size = new System.Drawing.Size(67, 14);
             this.label8.TabIndex = 38;
             this.label8.Text = "客户名称：";
-            this.label8.Visible = false;
             // 
             // textBox5
             // 
@@ -301,7 +298,6 @@
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(100, 22);
             this.textBox5.TabIndex = 37;
-            this.textBox5.Visible = false;
             // 
             // label5
             // 
@@ -311,7 +307,6 @@
             this.label5.Size = new System.Drawing.Size(67, 14);
             this.label5.TabIndex = 36;
             this.label5.Text = "发货基地：";
-            this.label5.Visible = false;
             // 
             // textBox4
             // 
@@ -319,7 +314,6 @@
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(100, 22);
             this.textBox4.TabIndex = 35;
-            this.textBox4.Visible = false;
             // 
             // label4
             // 
@@ -329,7 +323,6 @@
             this.label4.Size = new System.Drawing.Size(63, 14);
             this.label4.TabIndex = 34;
             this.label4.Text = "事 业 部：";
-            this.label4.Visible = false;
             // 
             // textBox3
             // 
@@ -337,7 +330,6 @@
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(100, 22);
             this.textBox3.TabIndex = 33;
-            this.textBox3.Visible = false;
             // 
             // label3
             // 
@@ -347,7 +339,6 @@
             this.label3.Size = new System.Drawing.Size(67, 14);
             this.label3.TabIndex = 32;
             this.label3.Text = "订单类型：";
-            this.label3.Visible = false;
             // 
             // textBox2
             // 
@@ -355,7 +346,6 @@
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(100, 22);
             this.textBox2.TabIndex = 31;
-            this.textBox2.Visible = false;
             // 
             // label2
             // 
@@ -365,7 +355,6 @@
             this.label2.Size = new System.Drawing.Size(67, 14);
             this.label2.TabIndex = 30;
             this.label2.Text = "客户编号：";
-            this.label2.Visible = false;
             // 
             // textBox1
             // 
@@ -373,7 +362,6 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(100, 22);
             this.textBox1.TabIndex = 29;
-            this.textBox1.Visible = false;
             // 
             // label1
             // 
@@ -383,7 +371,6 @@
             this.label1.Size = new System.Drawing.Size(67, 14);
             this.label1.TabIndex = 28;
             this.label1.Text = "出库单号：";
-            this.label1.Visible = false;
             // 
             // BtnSetting
             // 
@@ -406,7 +393,8 @@
             this.MaintoolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.btnSearch,
             this.btnSyncCar,
-            this.btnExit});
+            this.btnExit,
+            this.btnBatchUpdate});
             this.MaintoolStrip.Location = new System.Drawing.Point(2, 2);
             this.MaintoolStrip.Name = "MaintoolStrip";
             this.MaintoolStrip.Size = new System.Drawing.Size(1057, 27);
@@ -440,6 +428,15 @@
             this.btnExit.Text = "退出(&Q）";
             this.btnExit.ToolTipText = "退出(&X)";
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+            // 
+            // btnBatchUpdate
+            // 
+            this.btnBatchUpdate.Image = global::hn.Client.Properties.Resources.btnSendGoods;
+            this.btnBatchUpdate.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnBatchUpdate.Name = "btnBatchUpdate";
+            this.btnBatchUpdate.Size = new System.Drawing.Size(80, 24);
+            this.btnBatchUpdate.Text = "批量编辑";
+            this.btnBatchUpdate.Click += new System.EventHandler(this.btnBatchUpdate_Click);
             // 
             // dgvList
             // 
@@ -620,5 +617,6 @@
         private System.Windows.Forms.DateTimePicker dateEnd;
         private System.Windows.Forms.DateTimePicker dateStart;
         private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.ToolStripButton btnBatchUpdate;
     }
 }

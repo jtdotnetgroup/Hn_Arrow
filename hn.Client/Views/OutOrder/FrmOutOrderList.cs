@@ -9,6 +9,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DevExpress.Office.Utils;
+using hn.Client.Views.Diglog;
 using hn.Common;
 using MessageBox = System.Windows.Forms.MessageBox;
 
@@ -27,6 +29,8 @@ namespace hn.Client
             Init();
         }
         #endregion
+
+        private List<LH_OUTBOUNDORDERModel> selectList=new List<LH_OUTBOUNDORDERModel>();
 
         #region 按钮事件   
         private void btnSearch_Click(object sender, EventArgs e)
@@ -65,7 +69,6 @@ namespace hn.Client
             {
                 MessageBox.Show(exception.Message);
                LogHelper.Error(exception);
-                throw;
             }
         }
         private void btnExit_Click(object sender, EventArgs e)
@@ -448,6 +451,7 @@ namespace hn.Client
         /// 填充表格
         /// </summary>
         void LaodData() { 
+
             BillList.DataSource = _service.LH_OUTBOUNDORDER_List(dateStart.Value,dateEnd.Value);
         }
         /// <summary>
@@ -512,6 +516,47 @@ namespace hn.Client
                 dt.Rows.Add(value);
             }
             return dt;
-        } 
+        }
+
+        private void btnBatchUpdate_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var indexs = BillGrid.GetSelectedRows();
+                if (indexs != null && indexs.Length > 0)
+                {
+                    var lhodonos = new List<string>();
+
+                    foreach (var i in indexs)
+                    {
+                        var no = BillGrid.GetRowCellValue(i, "LHODONO");
+
+                        lhodonos.Add($"{no}");
+                    }
+
+                    var megBills = _service.GetMergeBills(lhodonos.ToArray());
+
+                    if (megBills.Length > 1)
+                    {
+                        MsgHelper.ShowInformation("已选单据不在同一分货单中，不能批量修改");
+                    }
+
+                    FrmBatchOutBoundOrder frm = new FrmBatchOutBoundOrder();
+                    frm.Result = megBills.SingleOrDefault();
+                    frm.LHOBODNOS = lhodonos;
+                    if (frm.ShowDialog() == DialogResult.OK)
+                    {
+
+
+                    }
+                }
+            }
+            catch (Exception exception)
+            {
+               MsgHelper.ShowException(exception);
+            }
+
+          
+        }
     }
 }

@@ -36,6 +36,11 @@ namespace hn.Client.Service
             //return LH_OUTBOUNDORDERDal.Instance.GetAll().Where(w => Strat <= w.LHDELIVERYTIME && w.LHDELIVERYTIME <= End).ToList();
             return LH_OUTBOUNDORDERDal.Instance.GetAll().ToList();
         }
+
+        public List<LH_OUTBOUNDORDERModel> SelectOutBoundOrderList(LH_OUTBOUNDORDERModel where)
+        {
+            return null;
+        }
         /// <summary>
         /// 出库单
         /// </summary>

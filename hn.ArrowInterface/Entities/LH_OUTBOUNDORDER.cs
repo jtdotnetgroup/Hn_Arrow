@@ -36,6 +36,8 @@ namespace hn.ArrowInterface.Entities
         public DateTime? attr2 { get; set; }
         public DateTime? attr3 { get; set; }
 
+        public string FMegreBillNo { get; set; }
+
         public decimal? FStatus { get; set; }
         public string FCarno { get; set; }
 

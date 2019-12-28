@@ -12,6 +12,8 @@ using System.Linq;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using hn.Client.Views.Diglog;
+using hn.DataAccess.dal.LHModel;
 
 namespace hn.Client
 {
@@ -20,6 +22,8 @@ namespace hn.Client
         #region ■------------------ 字段相关
 
         private DataTable _table = new DataTable();
+
+        private bool bussy = false;
 
         private DataTable _tableMarketArea;
 
@@ -379,7 +383,7 @@ namespace hn.Client
                 var tmp = _service.ICPOBILLENTRYMODEL_List(fid);
                 foreach (var item in tmp)
                 {
-                    var mtiem = list.Where(w => w.FID.Equals(item.FID)).FirstOrDefault()??new V_ICPOBILLENTRYMODEL() ;
+                    var mtiem = list.Where(w => w.FID.Equals(item.FID)).FirstOrDefault() ?? new V_ICPOBILLENTRYMODEL();
                     mtiem.FERR_MESSAGE = item.FERR_MESSAGE;
                     mtiem.FSRCMODEL = item.FSRCMODEL;
                     mtiem.FORDERUNIT = item.Funit;
@@ -412,20 +416,21 @@ namespace hn.Client
         ICPOBILLENTRYMODEL[] listDetail = new ICPOBILLENTRYMODEL[] { };
         private void gridView请购计划列表_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
         {
-            if (e.FocusedRowHandle > -1)
-            {
-                this.Cursor = Cursors.WaitCursor;
+            //if (e.FocusedRowHandle > -1)
+            //{
+            //    this.Cursor = Cursors.WaitCursor;
 
-                optType = "6";
-                if (!backgroundWorker2.IsBusy)
-                {
-                    fid_detail = gridView采购订单列表.GetRowCellValue(e.FocusedRowHandle, "FID").ToString();
+            //    optType = "6";
+            //    if (!backgroundWorker2.IsBusy)
+            //    {
+            //        fid_detail = gridView采购订单列表.GetRowCellValue(e.FocusedRowHandle, "FID").ToString();
 
-                    seButton(false);
-                    backgroundWorker2.RunWorkerAsync();
-                }
+            //        seButton(false);
+            //        backgroundWorker2.RunWorkerAsync();
+            //    }
 
-            }
+            //}
+            GetOrderEntryList();
         }
 
         private void btn退出_Click(object sender, EventArgs e)
@@ -664,42 +669,78 @@ namespace hn.Client
         List<string> fid_sh = new List<string>();
         private void simpleButton2_Click(object sender, EventArgs e)
         {
+            #region 旧代码，弃用
+            //int[] rownumber = this.gridView采购订单列表.GetSelectedRows();//获取选中行号；
+            //if (rownumber.Length > 0)
+            //{
+            //    fid_sh = new List<string>();
+            //    foreach (var sub in rownumber)
+            //    {
+            //        var list = gridView采购订单列表.DataSource as V_ICPOBILLMODEL[];
+            //        var icprbilldata = list[sub];
 
-            int[] rownumber = this.gridView采购订单列表.GetSelectedRows();//获取选中行号；
-            if (rownumber.Length > 0)
+            //        if (icprbilldata.FSTATUS != 0 && icprbilldata.FSTATUS != 1 && icprbilldata.FSTATUS != 2 && icprbilldata.FSTATUS != 4)
+            //        {
+            //            // MsgHelper.ShowInformation("当前状态不可审核！");
+            //            // return;
+            //        }
+            //        else
+            //            fid_sh.Add(icprbilldata.FID);
+
+            //    }
+            //    if (fid_sh.Count > 0)
+            //    {
+            //        optType = "1";
+            //        if (!backgroundWorker2.IsBusy)
+            //        {
+            //            seButton(false);
+            //            backgroundWorker2.RunWorkerAsync();
+            //        }
+            //    }
+            //    else
+            //    {
+            //        MsgHelper.ShowInformation("状态不可审核！");
+            //        return;
+            //    }
+
+            //}
+
+
+            #endregion
+
+            FrmAuditDialog frm=new FrmAuditDialog("审核单据","请对所选单据进行操作","审核通过","审核不通过");
+            var result = frm.ShowDialog();
+            if (result == DialogResult.Yes||result==DialogResult.No)
             {
-                fid_sh = new List<string>();
-                foreach (var sub in rownumber)
-                {
-                    var list = gridView采购订单列表.DataSource as V_ICPOBILLMODEL[];
-                    var icprbilldata = list[sub];
+                var auditType = result == DialogResult.Yes ? AuditEnums.审核通过 : AuditEnums.审核不通过;
+                AuditBill(auditType);
+            }
+            
+        }
 
-                    if (icprbilldata.FSTATUS != 0 && icprbilldata.FSTATUS != 1 && icprbilldata.FSTATUS != 2 && icprbilldata.FSTATUS != 4)
-                    {
-                        // MsgHelper.ShowInformation("当前状态不可审核！");
-                        // return;
-                    }
-                    else
-                        fid_sh.Add(icprbilldata.FID);
+        private void AuditBill(AuditEnums auditType)
+        {
+            var userId = Global.LoginUser.FID;
+            var indexs = gridView采购订单列表.GetSelectedRows();
+            List<string> billNos = new List<string>();
 
-                }
-                if (fid_sh.Count > 0)
+            foreach (var i in indexs)
+            {
+                var billno = gridView采购订单列表.GetRowCellValue(i, "FBILLNO");
+                if (billno != null || !string.IsNullOrEmpty(billno.ToString()))
                 {
-                    optType = "1";
-                    if (!backgroundWorker2.IsBusy)
-                    {
-                        seButton(false);
-                        backgroundWorker2.RunWorkerAsync();
-                    }
+                    billNos.Add(billno.ToString());
                 }
-                else
-                {
-                    MsgHelper.ShowInformation("状态不可审核！");
-                    return;
-                }
-
             }
 
+            if (billNos.Count > 0)
+            {
+                var msg = _service.AuditionICPOBILL(userId, billNos.ToArray(), auditType);
+
+                onSearch();
+
+                MsgHelper.ShowInformation(msg);
+            }
         }
 
 
@@ -767,42 +808,47 @@ namespace hn.Client
         List<string> fid_fs = new List<string>();
         private void simpleButton6_Click(object sender, EventArgs e)
         {
-            int[] rownumber = this.gridView采购订单列表.GetSelectedRows();//获取选中行号；
-            if (rownumber.Length > 0)
-            {
-                fid_fs = new List<string>();
-                foreach (var sub in rownumber)
-                {
-                    var list = gridView采购订单列表.DataSource as V_ICPOBILLMODEL[];
-                    var icprbilldata = list[sub];
+            #region 旧代码弃用
+            //int[] rownumber = this.gridView采购订单列表.GetSelectedRows();//获取选中行号；
+            //if (rownumber.Length > 0)
+            //{
+            //    fid_fs = new List<string>();
+            //    foreach (var sub in rownumber)
+            //    {
+            //        var list = gridView采购订单列表.DataSource as V_ICPOBILLMODEL[];
+            //        var icprbilldata = list[sub];
 
-                    if (icprbilldata.FSTATUS != 3 || !string.IsNullOrEmpty(icprbilldata.FDesBillNo))
-                    {
+            //        if (icprbilldata.FSTATUS != 3 || !string.IsNullOrEmpty(icprbilldata.FDesBillNo))
+            //        {
 
-                    }
-                    else
-                        fid_fs.Add(icprbilldata.FID);
+            //        }
+            //        else
+            //            fid_fs.Add(icprbilldata.FID);
 
-                }
+            //    }
 
-                if (fid_fs.Count > 0)
-                {
-                    optType = "2";
-                    if (!backgroundWorker2.IsBusy)
-                    {
-                        seButton(false);
-                        backgroundWorker2.RunWorkerAsync();
-                    }
-                }
-                else
-                {
-                    MsgHelper.ShowInformation("状态不可反审核！");
-                    return;
-                }
+            //    if (fid_fs.Count > 0)
+            //    {
+            //        optType = "2";
+            //        if (!backgroundWorker2.IsBusy)
+            //        {
+            //            seButton(false);
+            //            backgroundWorker2.RunWorkerAsync();
+            //        }
+            //    }
+            //    else
+            //    {
+            //        MsgHelper.ShowInformation("状态不可反审核！");
+            //        return;
+            //    }
 
-            }
+            //}
 
 
+            #endregion
+
+            var auditType = AuditEnums.反审核;
+            AuditBill(auditType);
 
         }
 
@@ -1007,7 +1053,7 @@ namespace hn.Client
                     if (_service.SaleOrderUpload(billnos.ToArray()))
                     {
                         MsgHelper.ShowInformation("同步完成");
-                        
+
                     };
                 }
             }
@@ -1016,10 +1062,10 @@ namespace hn.Client
                 MsgHelper.ShowInformation(exception.Message);
             }
 
-            var action=new Action(() =>
-            {
-                simpleButton3.Enabled = true;
-            });
+            var action = new Action(() =>
+              {
+                  simpleButton3.Enabled = true;
+              });
             Invoke(action);
         }
 
@@ -1227,6 +1273,33 @@ namespace hn.Client
 
         }
 
+
+        private void GetOrderEntryList()
+        {
+            if (!bussy)
+            {
+                var fun = new Func<string, List<V_ICPOBILLENTRYMODEL>>((billid) =>
+                {
+                    var result = _service.GetOrderEntryList(billid, null);
+                    return result.ToList();
+                });
+
+                var currentBillID = gridView采购订单列表.GetFocusedRowCellValue("FID");
+                seButton(false);
+                if (currentBillID != null)
+                {
+                    var entrylist = fun(currentBillID.ToString());
+
+                    gridControl采购订单明细.DataSource = entrylist;
+
+                }
+
+                bussy = false;
+                seButton(true);
+            }
+
+        }
+
         private void backgroundWorker2_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
             seButton(true);
@@ -1297,6 +1370,18 @@ namespace hn.Client
             //    MsgHelper.Warning("同步失败！");
             //}
 
+        }
+
+        private void btnConfirm_Click_1(object sender, EventArgs e)
+        {
+            var auditType = AuditEnums.确认;
+            AuditBill(auditType);
+        }
+
+        private void btnUnConfirm_Click(object sender, EventArgs e)
+        {
+            var auditType = AuditEnums.反确认;
+            AuditBill(auditType);
         }
     }
 }

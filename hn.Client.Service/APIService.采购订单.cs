@@ -33,6 +33,7 @@ namespace hn.Client.Service
         /// <returns></returns>
         public string SaveICPOBILL(ICPOBILLMODEL ICPOBILL, List<ICPOBILLENTRYMODEL> ICPOBILLENTRYList)
         {
+
             string result = ICPOBILLBLL.Instance.SaveClient(ICPOBILL, ICPOBILLENTRYList);
             if (result.IsNullOrEmpty())
             {
@@ -139,10 +140,6 @@ namespace hn.Client.Service
                     query.AppendFormat(" and FBILLNO like '%{0}%' ", billno);
                 }
 
-                if (!brand.IsNullOrEmpty())
-                {
-                    query.AppendFormat(" and FBRANDID = '{0}' ", brand);
-                }
 
                 if (!startdate.IsNullOrEmpty() && startdate != "0001/01/01")
                 {

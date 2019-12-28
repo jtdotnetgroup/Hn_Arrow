@@ -160,30 +160,26 @@ namespace hn.DataAccess.Bll
                     FID = Guid.NewGuid().ToString();
                     ICPOBILL.FSTATUS = 1;
                     ICPOBILL.FSTATE = 1;
-                    ICPOBILL.FBILLER = ICPOBILL.FBILLER;
                     ICPOBILL.FBILLERNAME = ICPOBILL.FBILLER;
                     ICPOBILL.FBILLDATE = DateTime.Now;
-                    ICPOBILL.Fpricepolicy = ICPOBILL.Fpricepolicy;
-                    ICPOBILL.FPOtype = ICPOBILL.FPOtype;
-                    ICPOBILL.Fnote = ICPOBILL.Fnote;
                     ICPOBILL.FID = FID;
-
+                    ICPOBILL.FSYNCSTATUS = 0;
                     helper.InsertWithTransation(ICPOBILL, tran);
                 }
                 else
                 {
                     FID = ICPOBILL.FID;
-                    var model = ICPOBILLDAL.Instance.Get(FID);
-                    model.FCLIENTID = ICPOBILL.FCLIENTID;
-                    model.FREMARK = ICPOBILL.FREMARK;
-                    model.FDATE = ICPOBILL.FDATE;
-                    model.FTELEPHONE = ICPOBILL.FTELEPHONE;
-                    model.Fpricepolicy = ICPOBILL.Fpricepolicy;
-                    model.FPOtype = ICPOBILL.FPOtype;
-                    model.Fnote = ICPOBILL.Fnote;
-                    model.FPREMISEID = ICPOBILL.FPREMISEID;
+                    //var model = ICPOBILLDAL.Instance.Get(FID);
+                    //model.FCLIENTID = ICPOBILL.FCLIENTID;
+                    //model.FREMARK = ICPOBILL.FREMARK;
+                    //model.FDATE = ICPOBILL.FDATE;
+                    //model.FTELEPHONE = ICPOBILL.FTELEPHONE;
+                    //model.Fpricepolicy = ICPOBILL.Fpricepolicy;
+                    //model.FPOtype = ICPOBILL.FPOtype;
+                    //model.Fnote = ICPOBILL.Fnote;
+                    //model.FPREMISEID = ICPOBILL.FPREMISEID;
 
-                    var iResult = helper.UpdateWithTransation(model, tran);
+                    helper.UpdateWithTransation(ICPOBILL, tran);
 
                 }
 

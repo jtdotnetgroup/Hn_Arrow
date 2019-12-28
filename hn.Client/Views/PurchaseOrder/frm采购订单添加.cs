@@ -9,7 +9,9 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Linq.Dynamic;
 using System.Windows.Forms;
+using hn.Core;
 
 namespace hn.Client
 {
@@ -73,11 +75,17 @@ namespace hn.Client
             InitializeComponent();
 
             _service = new ApiService.APIServiceClient("BasicHttpBinding_IAPIService", Global.WcfUrl);
-            var mcu = _service.GetJYDW(pModel.FPREMISEID);
-            if (mcu != null&&mcu.Length>0)
+            
+            
+
+            if (!pModel.FPREMISEID.Empty())
             {
+                var mcu = _service.GetJYDW(pModel.FPREMISEID);
+                txtMcu.Tag = mcu.First();
                 txtMcu.Text = mcu.First().FNAME;
             }
+
+            
             ICPOBILLMODELm = _service.GetSingleOrder(pModel.FID);
             IniValue();
             bEdit = true;
@@ -99,10 +107,11 @@ namespace hn.Client
                     txt厂家账户.Tag = sub.FID;
                     txt厂家账户.Text = sub.FACCOUNT;
                     txtFName.Text = sub.FNAME;
+                    break;
                 }
             }
 
-            txtRemarks.Text = model.Fnote;
+            txtRemarks.Text = model.FREMARK;
             search价格策略.Text = model.Fpricepolicy;
             search价格策略.Tag = model.Fpricepolicy;
             searchDic105.Text = model.FPOtype;
@@ -193,8 +202,7 @@ namespace hn.Client
 
             foreach (var item in policyList)
             {
-                    cmbPromotionPolicy.Properties.Items.Add(item);
-                    cmbPromotionPolicy.SelectedItem = item;
+                cmbPromotionPolicy.Properties.Items.Add(item);
             }
 
             if (selectItem != null)
@@ -396,6 +404,10 @@ namespace hn.Client
 
         private void simpleButton2_Click(object sender, EventArgs e)
         {
+
+            //var cblist = this.Controls.AsQueryable().Any(p =>
+            //    p is DevExpress.XtraEditors.SearchControl || p is DevExpress.XtraEditors.ComboBoxEdit).ToList();
+
             listCG.Clear();
             listCG = listCG.OrderBy(x => x.GG).ToList().OrderBy(x => x.GG).ToList();
             gridControl采购订单明细.DataSource = listCG;
@@ -796,7 +808,7 @@ namespace hn.Client
             var list = gridControl采购订单明细.DataSource as List<V_ICPOBILLENTRYMODEL>;
             foreach (var model in list)
             {
-                weightTotal += model.Famount.Value;
+                weightTotal += model.Famount.HasValue?model.Famount.Value:0;
             }
 
             labAccount.Text = "金额合计：" + Math.Ceiling(weightTotal).ToStr();
@@ -1288,6 +1300,15 @@ namespace hn.Client
                 frm.Dispose();
             }
 
+        }
+
+        private void cmbPromotionPolicy_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var policy = cmbPromotionPolicy.SelectedItem as LH_Policy;
+            if (policy != null)
+            {
+                txtPolicyID.Text = policy.Id;
+            }
         }
     }
 }

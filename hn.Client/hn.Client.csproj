@@ -148,6 +148,18 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Views\Common\FrmSelectList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Common\FrmSelectList.Designer.cs">
+      <DependentUpon>FrmSelectList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Diglog\FrmBatchOutBoundOrder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Diglog\FrmBatchOutBoundOrder.Designer.cs">
+      <DependentUpon>FrmBatchOutBoundOrder.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Diglog\FrmInput.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -439,17 +451,26 @@
     <Compile Include="Views\SendGoodsPlan\frm组柜新增.Designer.cs">
       <DependentUpon>frm组柜新增.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\SendGoodsPlan\frm组柜计划列表.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\SendGoodsPlan\frm组柜计划列表.designer.cs">
+      <DependentUpon>frm组柜计划列表.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="FrmBase.resx">
       <DependentUpon>FrmBase.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmConfig.resx">
       <DependentUpon>FrmConfig.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="hn.Client_TemporaryKey.pfx" />
+    <EmbeddedResource Include="Views\SendGoodsPlan\frm组柜计划列表.resx">
+      <DependentUpon>frm组柜计划列表.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\app.manifest" />
     <None Include="Properties\DataSources\hn.ArrowInterface.Entities.LH_Policy.datasource" />
     <None Include="Properties\DataSources\hn.Core.Model.SysDics.datasource" />
+    <None Include="Properties\DataSources\hn.DataAccess.dal.LHModel.LH_MergeBill.datasource" />
     <None Include="Properties\DataSources\hn.DataAccess.dal.LHModel.LH_OUTBOUNDORDERDETAILEDModel.datasource" />
     <None Include="Properties\DataSources\hn.DataAccess.dal.LHModel.LH_OUTBOUNDORDERModel.datasource" />
     <None Include="Properties\DataSources\hn.DataAccess.DataResult.datasource" />
@@ -464,6 +485,12 @@
     <None Include="Properties\DataSources\MApiModel.recApi24.Rootobject.datasource" />
     <None Include="Properties\DataSources\MApiModel.recApi24.Rootobject1.datasource" />
     <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Views\Common\FrmSelectList.resx">
+      <DependentUpon>FrmSelectList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Diglog\FrmBatchOutBoundOrder.resx">
+      <DependentUpon>FrmBatchOutBoundOrder.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\Diglog\FrmInput.resx">
       <DependentUpon>FrmInput.cs</DependentUpon>
     </EmbeddedResource>
@@ -703,69 +730,69 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="default.ico" />
-    <None Include="Service References\ApiService\APIService1.disco" />
-    <None Include="Service References\ApiService\APIService.xsd">
+    <None Include="Service References\ApiService\APIService.disco" />
+    <None Include="Service References\ApiService\APIService.wsdl" />
+    <None Include="Service References\ApiService\APIService21.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\ApiService\APIService1.wsdl" />
-    <None Include="Service References\ApiService\APIService1.xsd">
+    <None Include="Service References\ApiService\APIService211.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\ApiService\APIService10.xsd">
+    <None Include="Service References\ApiService\APIService2110.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\ApiService\APIService11.xsd">
+    <None Include="Service References\ApiService\APIService2111.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\ApiService\APIService12.xsd">
+    <None Include="Service References\ApiService\APIService2112.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\ApiService\APIService13.xsd">
+    <None Include="Service References\ApiService\APIService2113.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\ApiService\APIService14.xsd">
+    <None Include="Service References\ApiService\APIService2114.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\ApiService\APIService15.xsd">
+    <None Include="Service References\ApiService\APIService2115.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\ApiService\APIService16.xsd">
+    <None Include="Service References\ApiService\APIService2116.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\ApiService\APIService17.xsd">
+    <None Include="Service References\ApiService\APIService2117.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\ApiService\APIService18.xsd">
+    <None Include="Service References\ApiService\APIService2118.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\ApiService\APIService19.xsd">
+    <None Include="Service References\ApiService\APIService2119.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\ApiService\APIService2.xsd">
+    <None Include="Service References\ApiService\APIService212.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\ApiService\APIService20.xsd">
+    <None Include="Service References\ApiService\APIService2120.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\ApiService\APIService3.xsd">
+    <None Include="Service References\ApiService\APIService213.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\ApiService\APIService4.xsd">
+    <None Include="Service References\ApiService\APIService214.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\ApiService\APIService5.xsd">
+    <None Include="Service References\ApiService\APIService215.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\ApiService\APIService6.xsd">
+    <None Include="Service References\ApiService\APIService216.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\ApiService\APIService7.xsd">
+    <None Include="Service References\ApiService\APIService217.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\ApiService\APIService8.xsd">
+    <None Include="Service References\ApiService\APIService218.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\ApiService\APIService9.xsd">
+    <None Include="Service References\ApiService\APIService219.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\ApiService\hn.Client.ApiService.Remote_GetICPOEntryResponse.datasource">

@@ -13,6 +13,7 @@ using Newtonsoft.Json;
 using System.ComponentModel.DataAnnotations;
 using AutoMapper;
 using hn.DataAccess.dal;
+using hn.DataAccess.dal.LHModel;
 using hn.DataAccess.model.Common;
 
 namespace hn.Client.Service
@@ -46,6 +47,22 @@ namespace hn.Client.Service
             v_lhproducts_policyModel where, int index = 1, int size = 35)
         {
             return methods.GetPolicyProducts(header, where, index, size);
+        }
+
+
+        public bool SaveLH_MergeBill(LH_MergeBill bill,List<string> LHOBODNOS)
+        {
+            return methods.SaveMergeBill(bill, LHOBODNOS);
+        }
+
+        public List<LH_MergeBill> GetMergeBills(List<string> LHOBODNOS)
+        {
+            return methods.GetMergeBills(LHOBODNOS);
+        }
+
+        public string AuditionICPOBILL(string userId, List<string> billNos, AuditEnums auditType)
+        {
+            return methods.AuditionICPOBILL(userId, billNos, auditType);
         }
 
     }

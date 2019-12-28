@@ -37,9 +37,10 @@
             // lbl内容
             // 
             this.lbl内容.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lbl内容.Location = new System.Drawing.Point(18, 9);
+            this.lbl内容.Location = new System.Drawing.Point(14, 7);
+            this.lbl内容.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl内容.Name = "lbl内容";
-            this.lbl内容.Size = new System.Drawing.Size(621, 68);
+            this.lbl内容.Size = new System.Drawing.Size(466, 54);
             this.lbl内容.TabIndex = 0;
             this.lbl内容.Text = "label1";
             this.lbl内容.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -48,9 +49,10 @@
             // 
             this.btn按钮1.Appearance.Font = new System.Drawing.Font("微软雅黑", 9.75F);
             this.btn按钮1.Appearance.Options.UseFont = true;
-            this.btn按钮1.Location = new System.Drawing.Point(182, 90);
+            this.btn按钮1.Location = new System.Drawing.Point(93, 78);
+            this.btn按钮1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btn按钮1.Name = "btn按钮1";
-            this.btn按钮1.Size = new System.Drawing.Size(106, 38);
+            this.btn按钮1.Size = new System.Drawing.Size(80, 30);
             this.btn按钮1.TabIndex = 1;
             this.btn按钮1.Text = "通过";
             this.btn按钮1.Click += new System.EventHandler(this.btn按钮1_Click);
@@ -59,9 +61,10 @@
             // 
             this.btn取消.Appearance.Font = new System.Drawing.Font("微软雅黑", 9.75F);
             this.btn取消.Appearance.Options.UseFont = true;
-            this.btn取消.Location = new System.Drawing.Point(496, 90);
+            this.btn取消.Location = new System.Drawing.Point(329, 78);
+            this.btn取消.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btn取消.Name = "btn取消";
-            this.btn取消.Size = new System.Drawing.Size(106, 38);
+            this.btn取消.Size = new System.Drawing.Size(80, 30);
             this.btn取消.TabIndex = 2;
             this.btn取消.Text = "取消";
             this.btn取消.Click += new System.EventHandler(this.btn取消_Click);
@@ -70,23 +73,25 @@
             // 
             this.btn按钮2.Appearance.Font = new System.Drawing.Font("微软雅黑", 9.75F);
             this.btn按钮2.Appearance.Options.UseFont = true;
-            this.btn按钮2.Location = new System.Drawing.Point(339, 90);
+            this.btn按钮2.Location = new System.Drawing.Point(211, 78);
+            this.btn按钮2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btn按钮2.Name = "btn按钮2";
-            this.btn按钮2.Size = new System.Drawing.Size(106, 38);
+            this.btn按钮2.Size = new System.Drawing.Size(80, 30);
             this.btn按钮2.TabIndex = 3;
             this.btn按钮2.Text = "不通过";
             this.btn按钮2.Click += new System.EventHandler(this.btn按钮2_Click);
             // 
             // FrmAuditDialog
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(651, 149);
+            this.ClientSize = new System.Drawing.Size(488, 119);
             this.Controls.Add(this.btn按钮2);
             this.Controls.Add(this.btn取消);
             this.Controls.Add(this.btn按钮1);
             this.Controls.Add(this.lbl内容);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FrmAuditDialog";

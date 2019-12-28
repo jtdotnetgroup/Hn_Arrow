@@ -87,6 +87,8 @@
             this.itemButton厂家代码 = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.itemButton商品代码 = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
+            this.txtPolicyID = new DevExpress.XtraEditors.TextEdit();
+            this.label20 = new System.Windows.Forms.Label();
             this.txtLH_OUTBOUNDORDER = new DevExpress.XtraEditors.TextEdit();
             this.label19 = new System.Windows.Forms.Label();
             this.cboLH_ORDERPRODLINE = new DevExpress.XtraEditors.ComboBoxEdit();
@@ -168,6 +170,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.itemButton商品代码)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).BeginInit();
             this.panelControl3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPolicyID.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtLH_OUTBOUNDORDER.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboLH_ORDERPRODLINE.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateDHRQ.Properties.CalendarTimeProperties)).BeginInit();
@@ -218,7 +221,7 @@
             this.panel左.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel左.Location = new System.Drawing.Point(0, 0);
             this.panel左.Name = "panel左";
-            this.panel左.Size = new System.Drawing.Size(1641, 640);
+            this.panel左.Size = new System.Drawing.Size(1001, 640);
             this.panel左.TabIndex = 3;
             this.panel左.Paint += new System.Windows.Forms.PaintEventHandler(this.panel左_Paint);
             // 
@@ -226,9 +229,9 @@
             // 
             this.panelControl4.Controls.Add(this.gridControl采购订单明细);
             this.panelControl4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl4.Location = new System.Drawing.Point(0, 228);
+            this.panelControl4.Location = new System.Drawing.Point(0, 434);
             this.panelControl4.Name = "panelControl4";
-            this.panelControl4.Size = new System.Drawing.Size(1641, 412);
+            this.panelControl4.Size = new System.Drawing.Size(1001, 206);
             this.panelControl4.TabIndex = 79;
             // 
             // gridControl采购订单明细
@@ -257,7 +260,7 @@
             this.itemButton商品代码,
             this.repositoryItemButtonEdit1,
             this.repositoryItemTextEdit9});
-            this.gridControl采购订单明细.Size = new System.Drawing.Size(1637, 408);
+            this.gridControl采购订单明细.Size = new System.Drawing.Size(997, 202);
             this.gridControl采购订单明细.TabIndex = 1;
             this.gridControl采购订单明细.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView发货计划明细});
@@ -891,6 +894,8 @@
             // 
             // panelControl3
             // 
+            this.panelControl3.Controls.Add(this.txtPolicyID);
+            this.panelControl3.Controls.Add(this.label20);
             this.panelControl3.Controls.Add(this.txtLH_OUTBOUNDORDER);
             this.panelControl3.Controls.Add(this.label19);
             this.panelControl3.Controls.Add(this.cboLH_ORDERPRODLINE);
@@ -935,25 +940,46 @@
             this.panelControl3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl3.Location = new System.Drawing.Point(0, 35);
             this.panelControl3.Name = "panelControl3";
-            this.panelControl3.Size = new System.Drawing.Size(1641, 193);
+            this.panelControl3.Size = new System.Drawing.Size(1001, 399);
             this.panelControl3.TabIndex = 78;
             this.panelControl3.Paint += new System.Windows.Forms.PaintEventHandler(this.panelControl3_Paint);
             // 
+            // txtPolicyID
+            // 
+            this.txtPolicyID.Location = new System.Drawing.Point(396, 229);
+            this.txtPolicyID.Margin = new System.Windows.Forms.Padding(2);
+            this.txtPolicyID.Name = "txtPolicyID";
+            this.txtPolicyID.Properties.Appearance.Font = new System.Drawing.Font("微软雅黑", 9.75F);
+            this.txtPolicyID.Properties.Appearance.Options.UseFont = true;
+            this.txtPolicyID.Size = new System.Drawing.Size(159, 26);
+            this.txtPolicyID.TabIndex = 151;
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("微软雅黑", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label20.Location = new System.Drawing.Point(314, 232);
+            this.label20.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(78, 19);
+            this.label20.TabIndex = 150;
+            this.label20.Text = "促销政策ID:";
+            // 
             // txtLH_OUTBOUNDORDER
             // 
-            this.txtLH_OUTBOUNDORDER.Location = new System.Drawing.Point(904, 127);
+            this.txtLH_OUTBOUNDORDER.Location = new System.Drawing.Point(558, 88);
             this.txtLH_OUTBOUNDORDER.Margin = new System.Windows.Forms.Padding(2);
             this.txtLH_OUTBOUNDORDER.Name = "txtLH_OUTBOUNDORDER";
             this.txtLH_OUTBOUNDORDER.Properties.Appearance.Font = new System.Drawing.Font("微软雅黑", 9.75F);
             this.txtLH_OUTBOUNDORDER.Properties.Appearance.Options.UseFont = true;
-            this.txtLH_OUTBOUNDORDER.Size = new System.Drawing.Size(92, 26);
+            this.txtLH_OUTBOUNDORDER.Size = new System.Drawing.Size(161, 26);
             this.txtLH_OUTBOUNDORDER.TabIndex = 148;
             // 
             // label19
             // 
             this.label19.AutoSize = true;
             this.label19.Font = new System.Drawing.Font("微软雅黑", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.Location = new System.Drawing.Point(835, 129);
+            this.label19.Location = new System.Drawing.Point(482, 90);
             this.label19.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(64, 19);
@@ -962,7 +988,7 @@
             // 
             // cboLH_ORDERPRODLINE
             // 
-            this.cboLH_ORDERPRODLINE.Location = new System.Drawing.Point(903, 92);
+            this.cboLH_ORDERPRODLINE.Location = new System.Drawing.Point(395, 194);
             this.cboLH_ORDERPRODLINE.Margin = new System.Windows.Forms.Padding(2);
             this.cboLH_ORDERPRODLINE.Name = "cboLH_ORDERPRODLINE";
             this.cboLH_ORDERPRODLINE.Properties.Appearance.Font = new System.Drawing.Font("微软雅黑", 9.75F);
@@ -970,14 +996,14 @@
             this.cboLH_ORDERPRODLINE.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cboLH_ORDERPRODLINE.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-            this.cboLH_ORDERPRODLINE.Size = new System.Drawing.Size(92, 26);
+            this.cboLH_ORDERPRODLINE.Size = new System.Drawing.Size(159, 26);
             this.cboLH_ORDERPRODLINE.TabIndex = 146;
             // 
             // labMCU
             // 
             this.labMCU.AutoSize = true;
             this.labMCU.Font = new System.Drawing.Font("微软雅黑", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labMCU.Location = new System.Drawing.Point(19, 95);
+            this.labMCU.Location = new System.Drawing.Point(19, 90);
             this.labMCU.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labMCU.Name = "labMCU";
             this.labMCU.Size = new System.Drawing.Size(83, 19);
@@ -988,7 +1014,7 @@
             // 
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("微软雅黑", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.Location = new System.Drawing.Point(821, 94);
+            this.label18.Location = new System.Drawing.Point(318, 196);
             this.label18.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(74, 19);
@@ -998,7 +1024,7 @@
             // dateDHRQ
             // 
             this.dateDHRQ.EditValue = null;
-            this.dateDHRQ.Location = new System.Drawing.Point(904, 54);
+            this.dateDHRQ.Location = new System.Drawing.Point(396, 159);
             this.dateDHRQ.Margin = new System.Windows.Forms.Padding(2);
             this.dateDHRQ.Name = "dateDHRQ";
             this.dateDHRQ.Properties.Appearance.Font = new System.Drawing.Font("微软雅黑", 9.75F);
@@ -1015,14 +1041,14 @@
             this.dateDHRQ.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom;
             this.dateDHRQ.Properties.EditFormat.FormatString = "yyyy/MM/dd";
             this.dateDHRQ.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Custom;
-            this.dateDHRQ.Size = new System.Drawing.Size(92, 26);
+            this.dateDHRQ.Size = new System.Drawing.Size(159, 26);
             this.dateDHRQ.TabIndex = 144;
             // 
             // label17
             // 
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("微软雅黑", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(794, 58);
+            this.label17.Location = new System.Drawing.Point(279, 161);
             this.label17.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(113, 19);
@@ -1031,7 +1057,7 @@
             // 
             // cmbDeductionMethod
             // 
-            this.cmbDeductionMethod.Location = new System.Drawing.Point(904, 22);
+            this.cmbDeductionMethod.Location = new System.Drawing.Point(396, 124);
             this.cmbDeductionMethod.Margin = new System.Windows.Forms.Padding(2);
             this.cmbDeductionMethod.Name = "cmbDeductionMethod";
             this.cmbDeductionMethod.Properties.Appearance.Font = new System.Drawing.Font("微软雅黑", 9.75F);
@@ -1039,14 +1065,14 @@
             this.cmbDeductionMethod.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cmbDeductionMethod.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-            this.cmbDeductionMethod.Size = new System.Drawing.Size(92, 26);
+            this.cmbDeductionMethod.Size = new System.Drawing.Size(159, 26);
             this.cmbDeductionMethod.TabIndex = 142;
             // 
             // label16
             // 
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("微软雅黑", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(813, 25);
+            this.label16.Location = new System.Drawing.Point(305, 126);
             this.label16.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(87, 19);
@@ -1055,7 +1081,7 @@
             // 
             // cmbPromotionPolicy
             // 
-            this.cmbPromotionPolicy.Location = new System.Drawing.Point(698, 127);
+            this.cmbPromotionPolicy.Location = new System.Drawing.Point(111, 229);
             this.cmbPromotionPolicy.Margin = new System.Windows.Forms.Padding(2);
             this.cmbPromotionPolicy.Name = "cmbPromotionPolicy";
             this.cmbPromotionPolicy.Properties.Appearance.Font = new System.Drawing.Font("微软雅黑", 9.75F);
@@ -1063,15 +1089,16 @@
             this.cmbPromotionPolicy.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cmbPromotionPolicy.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-            this.cmbPromotionPolicy.Size = new System.Drawing.Size(92, 26);
+            this.cmbPromotionPolicy.Size = new System.Drawing.Size(159, 26);
             this.cmbPromotionPolicy.TabIndex = 140;
+            this.cmbPromotionPolicy.SelectedIndexChanged += new System.EventHandler(this.cmbPromotionPolicy_SelectedIndexChanged);
             this.cmbPromotionPolicy.MouseClick += new System.Windows.Forms.MouseEventHandler(this.cmbPromotionPolicy_MouseClick);
             // 
             // label14
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("微软雅黑", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(586, 130);
+            this.label14.Location = new System.Drawing.Point(-1, 232);
             this.label14.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(114, 19);
@@ -1080,7 +1107,7 @@
             // 
             // cmbBusinessType
             // 
-            this.cmbBusinessType.Location = new System.Drawing.Point(697, 92);
+            this.cmbBusinessType.Location = new System.Drawing.Point(110, 194);
             this.cmbBusinessType.Margin = new System.Windows.Forms.Padding(2);
             this.cmbBusinessType.Name = "cmbBusinessType";
             this.cmbBusinessType.Properties.Appearance.Font = new System.Drawing.Font("微软雅黑", 9.75F);
@@ -1088,14 +1115,14 @@
             this.cmbBusinessType.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cmbBusinessType.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-            this.cmbBusinessType.Size = new System.Drawing.Size(92, 26);
+            this.cmbBusinessType.Size = new System.Drawing.Size(159, 26);
             this.cmbBusinessType.TabIndex = 138;
             // 
             // label15
             // 
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("微软雅黑", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(606, 94);
+            this.label15.Location = new System.Drawing.Point(19, 196);
             this.label15.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(87, 19);
@@ -1104,7 +1131,7 @@
             // 
             // cmbSaleChannel
             // 
-            this.cmbSaleChannel.Location = new System.Drawing.Point(698, 57);
+            this.cmbSaleChannel.Location = new System.Drawing.Point(111, 159);
             this.cmbSaleChannel.Margin = new System.Windows.Forms.Padding(2);
             this.cmbSaleChannel.Name = "cmbSaleChannel";
             this.cmbSaleChannel.Properties.Appearance.Font = new System.Drawing.Font("微软雅黑", 9.75F);
@@ -1112,14 +1139,14 @@
             this.cmbSaleChannel.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cmbSaleChannel.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-            this.cmbSaleChannel.Size = new System.Drawing.Size(92, 26);
+            this.cmbSaleChannel.Size = new System.Drawing.Size(159, 26);
             this.cmbSaleChannel.TabIndex = 136;
             // 
             // label12
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("微软雅黑", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(606, 59);
+            this.label12.Location = new System.Drawing.Point(19, 161);
             this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(87, 19);
@@ -1128,7 +1155,7 @@
             // 
             // cmbOrderType
             // 
-            this.cmbOrderType.Location = new System.Drawing.Point(698, 22);
+            this.cmbOrderType.Location = new System.Drawing.Point(111, 124);
             this.cmbOrderType.Margin = new System.Windows.Forms.Padding(2);
             this.cmbOrderType.Name = "cmbOrderType";
             this.cmbOrderType.Properties.Appearance.Font = new System.Drawing.Font("微软雅黑", 9.75F);
@@ -1136,7 +1163,7 @@
             this.cmbOrderType.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cmbOrderType.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-            this.cmbOrderType.Size = new System.Drawing.Size(92, 26);
+            this.cmbOrderType.Size = new System.Drawing.Size(159, 26);
             this.cmbOrderType.TabIndex = 134;
             this.cmbOrderType.SelectedIndexChanged += new System.EventHandler(this.comBrand_SelectedIndexChanged);
             // 
@@ -1144,7 +1171,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("微软雅黑", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(606, 24);
+            this.label6.Location = new System.Drawing.Point(19, 126);
             this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(87, 19);
@@ -1155,7 +1182,7 @@
             // 
             this.labAccount.AutoSize = true;
             this.labAccount.Font = new System.Drawing.Font("微软雅黑", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labAccount.Location = new System.Drawing.Point(629, 158);
+            this.labAccount.Location = new System.Drawing.Point(493, 377);
             this.labAccount.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labAccount.Name = "labAccount";
             this.labAccount.Size = new System.Drawing.Size(64, 19);
@@ -1166,7 +1193,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("微软雅黑", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(56, 162);
+            this.label1.Location = new System.Drawing.Point(19, 377);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(386, 19);
@@ -1208,19 +1235,19 @@
             // txtFName
             // 
             this.txtFName.Enabled = false;
-            this.txtFName.Location = new System.Drawing.Point(109, 57);
+            this.txtFName.Location = new System.Drawing.Point(109, 53);
             this.txtFName.Margin = new System.Windows.Forms.Padding(2);
             this.txtFName.Name = "txtFName";
             this.txtFName.Properties.Appearance.Font = new System.Drawing.Font("微软雅黑", 9.75F);
             this.txtFName.Properties.Appearance.Options.UseFont = true;
-            this.txtFName.Size = new System.Drawing.Size(92, 26);
+            this.txtFName.Size = new System.Drawing.Size(110, 26);
             this.txtFName.TabIndex = 128;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("微软雅黑", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(28, 60);
+            this.label9.Location = new System.Drawing.Point(28, 55);
             this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(77, 19);
@@ -1277,19 +1304,19 @@
             // txtBillNO
             // 
             this.txtBillNO.Enabled = false;
-            this.txtBillNO.Location = new System.Drawing.Point(485, 22);
+            this.txtBillNO.Location = new System.Drawing.Point(290, 18);
             this.txtBillNO.Margin = new System.Windows.Forms.Padding(2);
             this.txtBillNO.Name = "txtBillNO";
             this.txtBillNO.Properties.Appearance.Font = new System.Drawing.Font("微软雅黑", 9.75F);
             this.txtBillNO.Properties.Appearance.Options.UseFont = true;
-            this.txtBillNO.Size = new System.Drawing.Size(94, 26);
+            this.txtBillNO.Size = new System.Drawing.Size(162, 26);
             this.txtBillNO.TabIndex = 122;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("微软雅黑", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(418, 24);
+            this.label3.Location = new System.Drawing.Point(223, 20);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(64, 19);
@@ -1298,7 +1325,7 @@
             // 
             // txtMcu
             // 
-            this.txtMcu.Location = new System.Drawing.Point(110, 92);
+            this.txtMcu.Location = new System.Drawing.Point(110, 88);
             this.txtMcu.Margin = new System.Windows.Forms.Padding(2);
             this.txtMcu.Name = "txtMcu";
             this.txtMcu.Properties.Appearance.Font = new System.Drawing.Font("微软雅黑", 9.75F);
@@ -1308,12 +1335,12 @@
             new DevExpress.XtraEditors.Repository.SearchButton()});
             this.txtMcu.Properties.NullValuePrompt = " ";
             this.txtMcu.Properties.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.searchControl1_Properties_ButtonClick_2);
-            this.txtMcu.Size = new System.Drawing.Size(282, 26);
+            this.txtMcu.Size = new System.Drawing.Size(342, 26);
             this.txtMcu.TabIndex = 120;
             // 
             // txt厂家账户
             // 
-            this.txt厂家账户.Location = new System.Drawing.Point(109, 22);
+            this.txt厂家账户.Location = new System.Drawing.Point(290, 53);
             this.txt厂家账户.Margin = new System.Windows.Forms.Padding(2);
             this.txt厂家账户.Name = "txt厂家账户";
             this.txt厂家账户.Properties.Appearance.Font = new System.Drawing.Font("微软雅黑", 9.75F);
@@ -1323,12 +1350,12 @@
             new DevExpress.XtraEditors.Repository.SearchButton()});
             this.txt厂家账户.Properties.NullValuePrompt = " ";
             this.txt厂家账户.Properties.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.txt经营场所_Properties_ButtonClick);
-            this.txt厂家账户.Size = new System.Drawing.Size(92, 26);
+            this.txt厂家账户.Size = new System.Drawing.Size(162, 26);
             this.txt厂家账户.TabIndex = 120;
             // 
             // comBrand
             // 
-            this.comBrand.Location = new System.Drawing.Point(300, 22);
+            this.comBrand.Location = new System.Drawing.Point(558, 53);
             this.comBrand.Margin = new System.Windows.Forms.Padding(2);
             this.comBrand.Name = "comBrand";
             this.comBrand.Properties.Appearance.Font = new System.Drawing.Font("微软雅黑", 9.75F);
@@ -1336,25 +1363,27 @@
             this.comBrand.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.comBrand.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-            this.comBrand.Size = new System.Drawing.Size(92, 26);
+            this.comBrand.Size = new System.Drawing.Size(161, 26);
             this.comBrand.TabIndex = 119;
             this.comBrand.SelectedIndexChanged += new System.EventHandler(this.comBrand_SelectedIndexChanged);
             // 
             // txtRemarks
             // 
-            this.txtRemarks.Location = new System.Drawing.Point(109, 126);
+            this.txtRemarks.Location = new System.Drawing.Point(111, 265);
             this.txtRemarks.Margin = new System.Windows.Forms.Padding(2);
             this.txtRemarks.Name = "txtRemarks";
+            this.txtRemarks.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.True;
             this.txtRemarks.Properties.Appearance.Font = new System.Drawing.Font("微软雅黑", 9.75F);
             this.txtRemarks.Properties.Appearance.Options.UseFont = true;
-            this.txtRemarks.Size = new System.Drawing.Size(474, 26);
+            this.txtRemarks.Properties.AutoHeight = false;
+            this.txtRemarks.Size = new System.Drawing.Size(446, 80);
             this.txtRemarks.TabIndex = 118;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("微软雅黑", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(206, 24);
+            this.label7.Location = new System.Drawing.Point(456, 55);
             this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(90, 19);
@@ -1365,7 +1394,7 @@
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("微软雅黑", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(64, 130);
+            this.label13.Location = new System.Drawing.Point(68, 268);
             this.label13.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(38, 19);
@@ -1376,7 +1405,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("微软雅黑", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(38, 26);
+            this.label8.Location = new System.Drawing.Point(223, 55);
             this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(64, 19);
@@ -1385,19 +1414,19 @@
             // 
             // txtCreater
             // 
-            this.txtCreater.Location = new System.Drawing.Point(300, 57);
+            this.txtCreater.Location = new System.Drawing.Point(110, 18);
             this.txtCreater.Margin = new System.Windows.Forms.Padding(2);
             this.txtCreater.Name = "txtCreater";
             this.txtCreater.Properties.Appearance.Font = new System.Drawing.Font("微软雅黑", 9.75F);
             this.txtCreater.Properties.Appearance.Options.UseFont = true;
-            this.txtCreater.Size = new System.Drawing.Size(92, 26);
+            this.txtCreater.Size = new System.Drawing.Size(109, 26);
             this.txtCreater.TabIndex = 116;
             // 
             // label10
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("微软雅黑", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(418, 58);
+            this.label10.Location = new System.Drawing.Point(482, 20);
             this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(64, 19);
@@ -1408,7 +1437,7 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("微软雅黑", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(241, 58);
+            this.label11.Location = new System.Drawing.Point(51, 20);
             this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(51, 19);
@@ -1418,7 +1447,7 @@
             // dateDatetime
             // 
             this.dateDatetime.EditValue = new System.DateTime(2019, 11, 5, 0, 0, 0, 0);
-            this.dateDatetime.Location = new System.Drawing.Point(485, 54);
+            this.dateDatetime.Location = new System.Drawing.Point(557, 18);
             this.dateDatetime.Margin = new System.Windows.Forms.Padding(2);
             this.dateDatetime.Name = "dateDatetime";
             this.dateDatetime.Properties.Appearance.Font = new System.Drawing.Font("微软雅黑", 9.75F);
@@ -1435,7 +1464,7 @@
             this.dateDatetime.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom;
             this.dateDatetime.Properties.EditFormat.FormatString = "yyyy/MM/dd";
             this.dateDatetime.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Custom;
-            this.dateDatetime.Size = new System.Drawing.Size(94, 26);
+            this.dateDatetime.Size = new System.Drawing.Size(162, 26);
             this.dateDatetime.TabIndex = 114;
             // 
             // btnZF
@@ -1489,7 +1518,7 @@
             this.panelControl2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl2.Location = new System.Drawing.Point(0, 0);
             this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Size = new System.Drawing.Size(1641, 35);
+            this.panelControl2.Size = new System.Drawing.Size(1001, 35);
             this.panelControl2.TabIndex = 9;
             // 
             // simpleButton9
@@ -1515,6 +1544,7 @@
             this.simpleButton9.Size = new System.Drawing.Size(106, 24);
             this.simpleButton9.TabIndex = 65;
             this.simpleButton9.Text = "刷新正价";
+            this.simpleButton9.Visible = false;
             this.simpleButton9.Click += new System.EventHandler(this.simpleButton9_Click);
             // 
             // simpleButton8
@@ -1540,6 +1570,7 @@
             this.simpleButton8.Size = new System.Drawing.Size(136, 24);
             this.simpleButton8.TabIndex = 64;
             this.simpleButton8.Text = "厂家库存检查";
+            this.simpleButton8.Visible = false;
             this.simpleButton8.Click += new System.EventHandler(this.simpleButton8_Click);
             // 
             // simpleButton7
@@ -1555,7 +1586,7 @@
             this.simpleButton7.ImageOptions.ImageIndex = 3;
             this.simpleButton7.ImageOptions.ImageList = this.imageList2;
             this.simpleButton7.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleLeft;
-            this.simpleButton7.Location = new System.Drawing.Point(370, 7);
+            this.simpleButton7.Location = new System.Drawing.Point(248, 6);
             this.simpleButton7.LookAndFeel.SkinName = "Office 2016 Colorful";
             this.simpleButton7.LookAndFeel.UseDefaultLookAndFeel = false;
             this.simpleButton7.Name = "simpleButton7";
@@ -1577,7 +1608,7 @@
             this.simpleButton6.ImageOptions.ImageIndex = 0;
             this.simpleButton6.ImageOptions.ImageList = this.imageList2;
             this.simpleButton6.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleLeft;
-            this.simpleButton6.Location = new System.Drawing.Point(208, 6);
+            this.simpleButton6.Location = new System.Drawing.Point(86, 5);
             this.simpleButton6.LookAndFeel.SkinName = "Office 2016 Colorful";
             this.simpleButton6.LookAndFeel.UseDefaultLookAndFeel = false;
             this.simpleButton6.Name = "simpleButton6";
@@ -1599,13 +1630,14 @@
             this.simpleButton1.ImageOptions.ImageIndex = 4;
             this.simpleButton1.ImageOptions.ImageList = this.imageList2;
             this.simpleButton1.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleLeft;
-            this.simpleButton1.Location = new System.Drawing.Point(86, 7);
+            this.simpleButton1.Location = new System.Drawing.Point(920, 3);
             this.simpleButton1.LookAndFeel.SkinName = "Office 2016 Colorful";
             this.simpleButton1.LookAndFeel.UseDefaultLookAndFeel = false;
             this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(116, 23);
+            this.simpleButton1.Size = new System.Drawing.Size(76, 23);
             this.simpleButton1.TabIndex = 59;
             this.simpleButton1.Text = "引入请购数据";
+            this.simpleButton1.Visible = false;
             this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click_1);
             // 
             // simpleButton5
@@ -1621,7 +1653,7 @@
             this.simpleButton5.ImageOptions.ImageIndex = 7;
             this.simpleButton5.ImageOptions.ImageList = this.imageList2;
             this.simpleButton5.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleLeft;
-            this.simpleButton5.Location = new System.Drawing.Point(289, 7);
+            this.simpleButton5.Location = new System.Drawing.Point(167, 6);
             this.simpleButton5.LookAndFeel.SkinName = "Office 2016 Colorful";
             this.simpleButton5.LookAndFeel.UseDefaultLookAndFeel = false;
             this.simpleButton5.Name = "simpleButton5";
@@ -1643,7 +1675,7 @@
             this.simpleButton2.ImageOptions.ImageIndex = 8;
             this.simpleButton2.ImageOptions.ImageList = this.imageList2;
             this.simpleButton2.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleLeft;
-            this.simpleButton2.Location = new System.Drawing.Point(499, 7);
+            this.simpleButton2.Location = new System.Drawing.Point(377, 6);
             this.simpleButton2.LookAndFeel.SkinName = "Office 2016 Colorful";
             this.simpleButton2.LookAndFeel.UseDefaultLookAndFeel = false;
             this.simpleButton2.Name = "simpleButton2";
@@ -1665,7 +1697,7 @@
             this.simpleButton4.ImageOptions.ImageIndex = 1;
             this.simpleButton4.ImageOptions.ImageList = this.imageList2;
             this.simpleButton4.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleLeft;
-            this.simpleButton4.Location = new System.Drawing.Point(572, 7);
+            this.simpleButton4.Location = new System.Drawing.Point(450, 6);
             this.simpleButton4.LookAndFeel.SkinName = "Office 2016 Colorful";
             this.simpleButton4.LookAndFeel.UseDefaultLookAndFeel = false;
             this.simpleButton4.Name = "simpleButton4";
@@ -1722,7 +1754,7 @@
             this.splitContainerControl2.Panel1.Text = "Panel1";
             this.splitContainerControl2.Panel2.Controls.Add(this.panel左);
             this.splitContainerControl2.Panel2.Text = "Panel2";
-            this.splitContainerControl2.Size = new System.Drawing.Size(1653, 640);
+            this.splitContainerControl2.Size = new System.Drawing.Size(1006, 640);
             this.splitContainerControl2.SplitterPosition = 0;
             this.splitContainerControl2.TabIndex = 5;
             this.splitContainerControl2.Text = "splitContainerControl2";
@@ -1746,7 +1778,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1653, 640);
+            this.ClientSize = new System.Drawing.Size(1006, 640);
             this.Controls.Add(this.splitContainerControl2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.KeyPreview = true;
@@ -1779,6 +1811,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).EndInit();
             this.panelControl3.ResumeLayout(false);
             this.panelControl3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPolicyID.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtLH_OUTBOUNDORDER.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboLH_ORDERPRODLINE.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateDHRQ.Properties.CalendarTimeProperties)).EndInit();
@@ -1922,5 +1955,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn11;
         private System.Windows.Forms.Label labMCU;
         private DevExpress.XtraEditors.SearchControl txtMcu;
+        private System.Windows.Forms.Label label20;
+        private DevExpress.XtraEditors.TextEdit txtPolicyID;
     }
 }

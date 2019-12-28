@@ -29,9 +29,18 @@ namespace hn.Client
 
         private void onSearch(string keyword)
         {
-            var list = _service.GetExpressCompanyList(keyword);
-            gridControl.DataSource = list;
-            gridControl.Focus();
+            try
+            {
+                var list = _service.GetExpressCompanyList(keyword);
+                gridControl.DataSource = list;
+                gridControl.Focus();
+            }
+            catch (Exception e)
+            {
+                MsgHelper.ShowException(e);
+                
+            }
+           
         }
 
         private void btn查询_Click(object sender, EventArgs e)

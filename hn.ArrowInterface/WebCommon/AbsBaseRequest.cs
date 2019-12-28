@@ -82,6 +82,7 @@ namespace hn.ArrowInterface.WebCommon
         public T CommonBaseRequest<T>(string url, HttpContent content) where T : new()
         {
             LogHelper.Info($"开始请求：{url}");
+            LogHelper.Info($"请求头:{JsonConvert.SerializeObject(client.DefaultRequestHeaders)}");
             LogHelper.Info($@"POSTDATA:{content.ReadAsStringAsync().Result}");
             T result = new T();
             HttpResponseMessage res = null;

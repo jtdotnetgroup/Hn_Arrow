@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition3 = new DevExpress.XtraGrid.StyleFormatCondition();
             DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition4 = new DevExpress.XtraGrid.StyleFormatCondition();
             DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition1 = new DevExpress.XtraGrid.StyleFormatCondition();
-            DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition2 = new DevExpress.XtraGrid.StyleFormatCondition();
             this.xtraScrollableControl1 = new DevExpress.XtraEditors.XtraScrollableControl();
             this.pnlLayout3 = new System.Windows.Forms.Panel();
             this.gridControl待发货 = new DevExpress.XtraGrid.GridControl();
@@ -104,9 +104,9 @@
             this.pnlLayout3.Controls.Add(this.panel6);
             this.pnlLayout3.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnlLayout3.Location = new System.Drawing.Point(756, 0);
-            this.pnlLayout3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnlLayout3.Margin = new System.Windows.Forms.Padding(2);
             this.pnlLayout3.Name = "pnlLayout3";
-            this.pnlLayout3.Padding = new System.Windows.Forms.Padding(8, 8, 8, 8);
+            this.pnlLayout3.Padding = new System.Windows.Forms.Padding(8);
             this.pnlLayout3.Size = new System.Drawing.Size(378, 623);
             this.pnlLayout3.TabIndex = 5;
             // 
@@ -153,13 +153,13 @@
             this.gridColumn4});
             this.gridView待发货.DetailHeight = 280;
             this.gridView待发货.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
-            styleFormatCondition4.Appearance.ForeColor = System.Drawing.Color.Red;
-            styleFormatCondition4.Appearance.Options.UseForeColor = true;
-            styleFormatCondition4.ApplyToRow = true;
-            styleFormatCondition4.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
-            styleFormatCondition4.Value1 = "离线";
+            styleFormatCondition3.Appearance.ForeColor = System.Drawing.Color.Red;
+            styleFormatCondition3.Appearance.Options.UseForeColor = true;
+            styleFormatCondition3.ApplyToRow = true;
+            styleFormatCondition3.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
+            styleFormatCondition3.Value1 = "离线";
             this.gridView待发货.FormatConditions.AddRange(new DevExpress.XtraGrid.StyleFormatCondition[] {
-            styleFormatCondition4});
+            styleFormatCondition3});
             this.gridView待发货.GridControl = this.gridControl待发货;
             this.gridView待发货.IndicatorWidth = 45;
             this.gridView待发货.Name = "gridView待发货";
@@ -207,7 +207,7 @@
             this.panel6.Controls.Add(this.separatorControl3);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel6.Location = new System.Drawing.Point(8, 8);
-            this.panel6.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel6.Margin = new System.Windows.Forms.Padding(2);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(362, 35);
             this.panel6.TabIndex = 33;
@@ -260,9 +260,9 @@
             this.pnlLayout2.Controls.Add(this.panel4);
             this.pnlLayout2.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnlLayout2.Location = new System.Drawing.Point(378, 0);
-            this.pnlLayout2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnlLayout2.Margin = new System.Windows.Forms.Padding(2);
             this.pnlLayout2.Name = "pnlLayout2";
-            this.pnlLayout2.Padding = new System.Windows.Forms.Padding(8, 8, 8, 8);
+            this.pnlLayout2.Padding = new System.Windows.Forms.Padding(8);
             this.pnlLayout2.Size = new System.Drawing.Size(378, 623);
             this.pnlLayout2.TabIndex = 4;
             // 
@@ -309,13 +309,13 @@
             this.gridColumn2});
             this.gridView待派车.DetailHeight = 280;
             this.gridView待派车.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
-            styleFormatCondition1.Appearance.ForeColor = System.Drawing.Color.Red;
-            styleFormatCondition1.Appearance.Options.UseForeColor = true;
-            styleFormatCondition1.ApplyToRow = true;
-            styleFormatCondition1.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
-            styleFormatCondition1.Value1 = "离线";
+            styleFormatCondition4.Appearance.ForeColor = System.Drawing.Color.Red;
+            styleFormatCondition4.Appearance.Options.UseForeColor = true;
+            styleFormatCondition4.ApplyToRow = true;
+            styleFormatCondition4.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
+            styleFormatCondition4.Value1 = "离线";
             this.gridView待派车.FormatConditions.AddRange(new DevExpress.XtraGrid.StyleFormatCondition[] {
-            styleFormatCondition1});
+            styleFormatCondition4});
             this.gridView待派车.GridControl = this.gridControl待派车;
             this.gridView待派车.IndicatorWidth = 45;
             this.gridView待派车.Name = "gridView待派车";
@@ -363,7 +363,7 @@
             this.panel4.Controls.Add(this.separatorControl2);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel4.Location = new System.Drawing.Point(8, 8);
-            this.panel4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel4.Margin = new System.Windows.Forms.Padding(2);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(362, 35);
             this.panel4.TabIndex = 33;
@@ -416,9 +416,9 @@
             this.pnlLayout1.Controls.Add(this.panel2);
             this.pnlLayout1.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnlLayout1.Location = new System.Drawing.Point(0, 0);
-            this.pnlLayout1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnlLayout1.Margin = new System.Windows.Forms.Padding(2);
             this.pnlLayout1.Name = "pnlLayout1";
-            this.pnlLayout1.Padding = new System.Windows.Forms.Padding(8, 8, 8, 8);
+            this.pnlLayout1.Padding = new System.Windows.Forms.Padding(8);
             this.pnlLayout1.Size = new System.Drawing.Size(378, 623);
             this.pnlLayout1.TabIndex = 3;
             // 
@@ -465,13 +465,13 @@
             this.gridColumn请购单号});
             this.gridView请购计划列表.DetailHeight = 280;
             this.gridView请购计划列表.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
-            styleFormatCondition2.Appearance.ForeColor = System.Drawing.Color.Red;
-            styleFormatCondition2.Appearance.Options.UseForeColor = true;
-            styleFormatCondition2.ApplyToRow = true;
-            styleFormatCondition2.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
-            styleFormatCondition2.Value1 = "离线";
+            styleFormatCondition1.Appearance.ForeColor = System.Drawing.Color.Red;
+            styleFormatCondition1.Appearance.Options.UseForeColor = true;
+            styleFormatCondition1.ApplyToRow = true;
+            styleFormatCondition1.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
+            styleFormatCondition1.Value1 = "离线";
             this.gridView请购计划列表.FormatConditions.AddRange(new DevExpress.XtraGrid.StyleFormatCondition[] {
-            styleFormatCondition2});
+            styleFormatCondition1});
             this.gridView请购计划列表.GridControl = this.gridControl请购计划列表;
             this.gridView请购计划列表.IndicatorWidth = 45;
             this.gridView请购计划列表.Name = "gridView请购计划列表";
@@ -519,7 +519,7 @@
             this.panel2.Controls.Add(this.separatorControl1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(8, 8);
-            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(362, 35);
             this.panel2.TabIndex = 33;

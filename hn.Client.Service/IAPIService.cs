@@ -728,7 +728,18 @@ MApiModel.api24.Rootobject getapi24);
         PageResult<v_lhproducts_policyModel> GetPolicyProducts(ICPOBILL_PolicyDTO header,
             v_lhproducts_policyModel where, int index, int size);
 
+        [OperationContract]
+        bool SaveLH_MergeBill(LH_MergeBill bill, List<string> LHOBODNOS);
+
+        [OperationContract]
+        List<LH_MergeBill> GetMergeBills(List<string> LHOBODNOS);
+
+        [OperationContract]
+        string AuditionICPOBILL(string userId, List<string> billNos, AuditEnums auditType);
+
+
         
+
 
         #endregion
 
